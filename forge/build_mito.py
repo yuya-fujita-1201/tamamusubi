@@ -19,16 +19,22 @@ GAME = os.path.dirname(ROOT)
 OUT = os.path.join(GAME, "public", "assets")
 MAP_OUT = os.path.join(GAME, "src", "data", "assetmap.json")
 
-# アニメ定義: (assetmapキー, 出力名, raw idベース, セルサイズ, 体の目標高さ)
+# アニメ定義: (assetmapキー, 出力名, raw idベース, セルサイズ, 体の目標高さ, 水平整列)
 # ユーザーFB(2026-06-13): 体格=聖剣5.0と同じ身長感（体高26論理px≈1.6タイル）・横攻撃のがっしり等身基準。
 # SS=8 化に伴い実寸は 体高208px / 歩行セル240px / 攻撃セル320px（raw体高400px級から0.52倍縮小）。
+# 水平整列 align:
+#   "centroid" … 重心(質量中心)をセル中央へ。納刀した刀がコマ毎に少し位置/長さブレしても、
+#                細い刀は質量が小さく重心をほぼ動かさないため、本体の左右ブレ＝ガタつきを抑える
+#                （ユーザーFB「後ろ歩きで刀の位置が左右にブレる/歩行でガタガタ」対策・歩行/待機向け）
+#   "bbox"     … bbox中央へ（従来）。攻撃/居合は刀が前方へ大きく伸びるので重心だと本体が後退してしまう。
+#                伸びる刃は無視して足元基準で揃えたいので bbox 中央のまま。
 ANIMS = {
-    "walk": ("mito.walk", "mito_walk.png", "mito.walk8_{d}", 240, 208),
-    "idle": ("mito.idle", "mito_idle.png", "mito.idle8_{d}", 240, 208),
+    "walk": ("mito.walk", "mito_walk.png", "mito.walk8_{d}", 240, 208, "centroid"),
+    "idle": ("mito.idle", "mito_idle.png", "mito.idle8_{d}", 240, 208, "centroid"),
     # 攻撃は剣が伸びるためセル320。体の中央値高さは歩行と同じ208に揃える（足元アンカーで体格一致）
-    "atk":  ("mito.atk", "mito_atk.png", "mito.atk8_{d}", 320, 208),
+    "atk":  ("mito.atk", "mito_atk.png", "mito.atk8_{d}", 320, 208, "bbox"),
     # 居合（納刀溜め→抜刀）。抜刀の一閃が伸びるので攻撃と同じセル320
-    "iai":  ("mito.iai", "mito_iai.png", "mito.iai8_{d}", 320, 208),
+    "iai":  ("mito.iai", "mito_iai.png", "mito.iai8_{d}", 320, 208, "bbox"),
 }
 DIRS = ["down", "left", "up"]  # right は left の鏡像
 
@@ -135,8 +141,23 @@ def median(xs):
     return s[len(s) // 2]
 
 
+def centroid_x(im):
+    """不透明画素の質量中心 x（フレーム左端基準）。アルファ重み付き。"""
+    px = im.load()
+    w, h = im.size
+    sx = 0.0
+    sw = 0.0
+    for y in range(h):
+        for x in range(w):
+            a = px[x, y][3]
+            if a:
+                sx += x * a
+                sw += a
+    return sx / sw if sw else w / 2.0
+
+
 def build(anim):
-    key, outname, raw_tpl, cell, target_h = ANIMS[anim]
+    key, outname, raw_tpl, cell, target_h, align = ANIMS[anim]
     rows = {}
     for d in DIRS:
         raw = os.path.join(ROOT, "assets", "raw", raw_tpl.format(d=d), "codex-imagegen.png")
@@ -163,10 +184,20 @@ def build(anim):
         for fi, f in enumerate(rows[d]):
             idx = ri * 8 + fi
             fw, fh = f.size
-            if fh > cell - 2:  # 万一セルを超える場合のみ等比縮小
+            if fh > cell - 2:  # 高さがセルを超える場合は等比縮小
                 f = f.resize((round(fw * (cell - 2) / fh), cell - 2), Image.BOX)
                 fw, fh = f.size
-            x = idx * cell + (cell - fw) // 2
+            if fw > cell - 2:  # 幅がセルを超える場合も等比縮小（横長素材の描画欠け防止・QAレビュー）
+                f = f.resize((cell - 2, round(fh * (cell - 2) / fw)), Image.BOX)
+                fw, fh = f.size
+            if align == "centroid":
+                # 重心をセル中央へ（刀の突出に引きずられない安定アンカー）。
+                cx = centroid_x(f)
+                x = idx * cell + round(cell / 2 - cx)
+                # セルからはみ出さないようにクランプ
+                x = max(idx * cell, min(x, idx * cell + (cell - fw)))
+            else:
+                x = idx * cell + (cell - fw) // 2
             y = cell - pad_bottom - fh
             if y < 3:
                 issues.append(f"{d}#{fi}: top={y}")

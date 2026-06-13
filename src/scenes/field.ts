@@ -1,5 +1,5 @@
 import type { Scene, SceneCtx } from "../core/scene";
-import { LOGICAL_W, LOGICAL_H, TILE } from "../core/constants";
+import { LOGICAL_W, LOGICAL_H, TILE, FIELD_ZOOM } from "../core/constants";
 import { Camera } from "../core/camera";
 import { audio } from "../core/audio";
 import { rectsOverlap, type Rect, FACING_DIR } from "../core/types";
@@ -11,7 +11,7 @@ import { GankinoBoss, BOSS_DEFS, type BossDef } from "../combat/boss";
 import { FxManager } from "../combat/fx";
 import { DropManager } from "../combat/drops";
 import { ProjectileManager } from "../combat/projectile";
-import { AFFINITY } from "../data/weapons";
+import { AFFINITY, DASH_CUT_DMG_MUL } from "../data/weapons";
 import { game, BERRY_MAX, levelFor, gainMp } from "../state/game";
 import { DialogScene } from "./dialog";
 import { WA_FONT } from "../gfx/font";
@@ -90,7 +90,7 @@ export class FieldScene implements Scene {
   private kegareWasFull = false;
   // ── Phase 0 検証トグル ──
   private flight = false;      // ①飛行カメラズームアウト
-  private zoomCur = 1;
+  private zoomCur = FIELD_ZOOM; // 既定の俯瞰ズーム（マップ入場時の寄り→引きアニメを避けるため初期値もこれ）
   private darkTest = false;    // ④多光源 darkness fps
 
   constructor(private mapId: string, private spawnTx: number, private spawnTy: number, opts: FieldOpts) {
@@ -160,7 +160,7 @@ export class FieldScene implements Scene {
     if (this.flashT > 0) this.flashT--;
 
     // 飛行ズームのイージング（雲へ昇る感覚）
-    const zoomTarget = this.flight ? 0.28 : 1;
+    const zoomTarget = this.flight ? 0.28 : FIELD_ZOOM;
     this.zoomCur += (zoomTarget - this.zoomCur) * 0.06;
     if (Math.abs(this.zoomCur - zoomTarget) < 0.002) this.zoomCur = zoomTarget;
 
@@ -182,7 +182,7 @@ export class FieldScene implements Scene {
       ctx.scenes.push(new DialogScene([
         "父の声が、まだ耳の奥に残っている。",
         "──「ミト。勾玉を集めてくれ。頼む」",
-        "里山の朝は、いつもと同じ顔をしていた。",
+        "霧立の里の朝は、いつもと同じ顔をしていた。",
       ]), ctx);
       return;
     }
@@ -400,16 +400,21 @@ export class FieldScene implements Scene {
       const dx = cx - this.player.x, dy = cy - (this.player.y - 8);
       const d = Math.hypot(dx, dy) || 1;
       const aff = AFFINITY[e.def.key]?.[hit.weapon.id] ?? 1;
-      const dmg = Math.max(1, Math.round(this.player.baseDamage(hit.chargeLevel) * aff));
+      const dashMul = hit.dashCut ? DASH_CUT_DMG_MUL : 1;
+      const dmg = Math.max(1, Math.round(this.player.baseDamage(hit.chargeLevel) * aff * dashMul));
       e.takeHit(dmg, dx / d, dy / d, this.fx, this.drops, () => this.onLevelUp());
 
-      // 穢れが剥がれて祓いゲージへ（チャージヒットは多め）
-      game.kegare = Math.min(game.kegareMax, game.kegare + (hit.chargeLevel > 0 ? 16 : 9));
+      // 穢れが剥がれて祓いゲージへ（チャージ・ステップ斬りは多め）
+      const heavy = hit.chargeLevel > 0 || hit.dashCut;
+      game.kegare = Math.min(game.kegareMax, game.kegare + (heavy ? 16 : 9));
 
-      const hs = hit.chargeLevel > 0 ? hit.weapon.charge.hitstop : hit.weapon.hitstop;
+      // ステップ斬りはボーナス行動＝重い手応え（ヒットストップ+揺れ+斬り込み演出）
+      const hs = hit.chargeLevel > 0 ? hit.weapon.charge.hitstop
+        : hit.dashCut ? hit.weapon.hitstop + 3 : hit.weapon.hitstop;
       this.hitstop = Math.max(this.hitstop, hs);
-      audio.play(hit.chargeLevel > 0 ? "hitHeavy" : "hit");
-      if (hit.chargeLevel > 0) this.cam.shake(2, 4);
+      audio.play(heavy ? "hitHeavy" : "hit");
+      if (heavy) this.cam.shake(2, 4);
+      if (hit.dashCut) this.fx.damage(cx, cy - 28, "斬り込み!", "#ffd86a"); // バツグンと重ねない
       if (aff > 1) this.fx.damage(cx, cy - 18, "効果バツグン!", "#ffd34d");
     }
     // ── ボスへの通常攻撃 ──
@@ -425,14 +430,18 @@ export class FieldScene implements Scene {
         const bdx = bcx - this.player.x, bdy = bcy - (this.player.y - 8);
         const bd = Math.hypot(bdx, bdy) || 1;
         const baff = AFFINITY[this.boss.def.key]?.[hit.weapon.id] ?? 1;
-        const dmg = Math.max(1, Math.round(this.player.baseDamage(hit.chargeLevel) * baff));
+        const bDashMul = hit.dashCut ? DASH_CUT_DMG_MUL : 1;
+        const dmg = Math.max(1, Math.round(this.player.baseDamage(hit.chargeLevel) * baff * bDashMul));
         this.boss.takeHit(dmg, bdx / bd, bdy / bd, this.fx);
+        if (hit.dashCut) this.fx.damage(bcx, bcy - 40, "斬り込み!", "#ffd86a"); // バツグンと重ねない
         if (baff > 1) this.fx.damage(bcx, bcy - 28, "効果バツグン!", "#ffd34d");
-        game.kegare = Math.min(game.kegareMax, game.kegare + (hit.chargeLevel > 0 ? 20 : 12));
-        const hs = hit.chargeLevel > 0 ? hit.weapon.charge.hitstop : hit.weapon.hitstop;
+        const bHeavy = hit.chargeLevel > 0 || hit.dashCut;
+        game.kegare = Math.min(game.kegareMax, game.kegare + (bHeavy ? 20 : 12));
+        const hs = hit.chargeLevel > 0 ? hit.weapon.charge.hitstop
+          : hit.dashCut ? hit.weapon.hitstop + 3 : hit.weapon.hitstop;
         this.hitstop = Math.max(this.hitstop, hs);
-        audio.play(hit.chargeLevel > 0 ? "hitHeavy" : "hit");
-        if (hit.chargeLevel > 0) this.cam.shake(2, 4);
+        audio.play(bHeavy ? "hitHeavy" : "hit");
+        if (bHeavy) this.cam.shake(2, 4);
       }
     }
   }
@@ -543,6 +552,15 @@ export class FieldScene implements Scene {
         return [
           "（検証の祠: 2キー=飛行カメラ /\n 3キー=夜の多灯テスト / 右上=fps）",
         ];
+      case "sign:takadai":
+        return [
+          "（立体表現の実験場・高台）",
+          "石段を上ると一段高い台地に出る。\n擁壁の崖が高低差を見せている。",
+        ];
+      case "sign:takadai_road":
+        return [
+          "↑ この鳥居の先は「高台」。\n石段と崖の高低差を試せる実験場だよ。",
+        ];
       default:
         return ["……何も書かれていない。"];
     }
@@ -612,9 +630,12 @@ export class FieldScene implements Scene {
       items.push({
         y: ny,
         draw: () => {
-          r.shadow(nx, ny - 1, 10, 3.6, cam, 0.3);
+          // NPC はミトと同じ等身に揃える（ユーザーFB: 老巫女がデカすぎ）。
+          // 解像度(原画)はそのまま、表示を 論理px へ縮小。子供など小柄は drawSize で個別指定。
+          const NPC_SZ = n.drawSize ?? 28;
+          r.shadow(nx, ny - 1, NPC_SZ * 0.30, NPC_SZ * 0.107, cam, 0.3);
           const frame = Math.floor((ctx.time / 1000) * 4) % 4;
-          r.sprite(n.sheet, frame, nx - 20, ny - 40, { cam, w: 40, h: 40 });
+          r.sprite(n.sheet, frame, nx - NPC_SZ / 2, ny - NPC_SZ, { cam, w: NPC_SZ, h: NPC_SZ });
         },
       });
     }

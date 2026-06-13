@@ -19,20 +19,40 @@ ASSETS = os.path.join(GAME, "public", "assets")
 # グレーディング対象（背景系のみ）
 TARGETS = [
     "tile_grass_wa.png", "tile_path_wa.png", "tile_forest_wa.png",
-    "tile_water_edge_wa.png", "tile_detail_wa.png",
+    "tile_water_edge_wa.png", "tile_detail_wa.png", "tile_wa_cliff.png", "tile_wa_stairs.png",
+    "tile_wa_ishigaki.png", "tile_wa_kasaishi.png", "tile_wa_stairs2.png", "tile_wa_ishigaki2.png",
     "obj_matsu.png", "obj_goshinboku.png", "obj_bamboo.png", "obj_suisha.png",
     "obj_sign_wa.png", "obj_tsuzura.png", "obj_tuft_wa.png",
     "obj_tree_blossom.png", "obj_torii.png",
     "obj_minka_a.png", "obj_minka_b.png", "obj_hokora.png", "obj_hibiiwa.png",
 ]
 
-K = float(sys.argv[sys.argv.index("--strength") + 1]) if "--strength" in sys.argv else 1.0
+def _argf(flag, default):
+    if flag in sys.argv:
+        i = sys.argv.index(flag)
+        if i + 1 < len(sys.argv):
+            return float(sys.argv[i + 1])
+    return default
+
+
+K = _argf("--strength", 1.0)
 
 # ファイル別の強度倍率（ユーザーFB: 草原がまだ若干明るい → 草系のみ強め）
+# 2026-06-13 第3ラウンド: 進行不可の木は輪郭線が目立つ → 緑系の木を強め(1.4)に抹茶寄せして線を馴染ませる。
+# 桜(tree_blossom)は桃色主体なので緑グレードの影響が小さく、控えめ(1.1)に留める。
 K_OVERRIDE = {
     "tile_grass_wa.png": 1.35,
     "tile_detail_wa.png": 1.2,
     "obj_tuft_wa.png": 1.2,
+    # 石材系: 灰緑の石目が暗化しすぎないよう控えめに
+    "tile_wa_ishigaki.png": 0.5,
+    "tile_wa_ishigaki2.png": 0.35,
+    "tile_wa_kasaishi.png": 0.4,
+    "tile_wa_stairs2.png": 0.5,
+    "obj_matsu.png": 1.4,        # 和松（tree_pine）
+    "obj_goshinboku.png": 1.4,   # 御神木（tree_oak）
+    "obj_bamboo.png": 1.4,       # 竹
+    "obj_tree_blossom.png": 1.1, # 桜（桃色主体・控えめ）
 }
 
 def grade(img, k):

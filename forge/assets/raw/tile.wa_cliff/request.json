@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.wa_cliff",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette: deep matcha and moss greens, mossy grey stone, soft warm sunlight. Top-down-OBLIQUE stone retaining-wall CLIFF tileset, viewed slightly from above-and-front (about 35 degrees) so the VERTICAL stone face is clearly visible (this conveys height/elevation). Mossy stacked-stone (nozura-zumi) wall with lush deep-green grass on the plateau top. STRICT 4x4 layout, 16 tiles, each cell 128x128 filled edge to edge, tileable horizontally: Row1 = TOP RIM (the flat grassy plateau top meeting the lip where the stone wall begins to drop): frame0=top-left outer corner, frame1=straight top edge, frame2=straight top edge variation, frame3=top-right outer corner. Row2 = WALL FACE (the vertical stacked-stone retaining wall going straight down, oblique front view, mossy): frame4=left end of face, frame5=straight stone face, frame6=straight stone face variation, frame7=right end of face. Row3 = BASE (the foot of the wall meeting the lower grassy ground): frame8=bottom-left corner, frame9=straight base, frame10=straight base variation, frame11=bottom-right corner. Row4 = STAIRS cut into the cliff (a mossy stone staircase descending toward the viewer): frame12=stair top (steps meeting the plateau lip), frame13=stair middle steps, frame14=stair bottom (steps meeting lower ground), frame15=extra mossy stone face accent. No text, no characters, no grid lines.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

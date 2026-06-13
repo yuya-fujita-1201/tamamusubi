@@ -18,13 +18,14 @@ export interface DrawOpts {
 }
 
 export class Renderer {
-  readonly ctx: CanvasRenderingContext2D;
+  ctx: CanvasRenderingContext2D;
   readonly W = CANVAS_W;
   readonly H = CANVAS_H;
   /** ワールド描画ズーム（飛行カメラ検証用）。HUD 描画前に 1 へ戻すこと。 */
   zoom = 1;
   /** 論理→実ピクセル係数（SS×zoom） */
   get k(): number { return SS * this.zoom; }
+
   readonly font: Font;
   readonly win: Win;
   /** tint 用の一時キャンバス（source-atop を全画面に当てないため） */
@@ -104,7 +105,7 @@ export class Renderer {
     const sh = assets.get(key);
     const dw = o.w ?? (sh ? sh.frameW / SS : 16);
     const dh = o.h ?? (sh ? sh.frameH / SS : 16);
-    const [sx, sy] = this.toScreen(x, y, o.cam);
+    let [sx, sy] = this.toScreen(x, y, o.cam);
     const ctx = this.ctx;
     const px = Math.round(sx), py = Math.round(sy);
     const pw = Math.round(dw * this.k), ph = Math.round(dh * this.k);
@@ -171,14 +172,15 @@ export class Renderer {
     const s = size * this.k;
     const pw = Math.floor(sx + s) - px + 1;
     const ph = Math.floor(sy + s) - py + 1;
+    const fi = sh ? ((frame % sh.frames) + sh.frames) % sh.frames : 0;
+    const fx = sh ? (fi % sh.cols) * sh.frameW : 0;
+    const fy = sh ? Math.floor(fi / sh.cols) * sh.frameH : 0;
+
     if (!sh) {
       this.ctx.fillStyle = fallback ?? assets.fallback(key);
       this.ctx.fillRect(px, py, pw, ph);
       return;
     }
-    const fi = ((frame % sh.frames) + sh.frames) % sh.frames;
-    const fx = (fi % sh.cols) * sh.frameW;
-    const fy = Math.floor(fi / sh.cols) * sh.frameH;
     this.ctx.drawImage(sh.img, fx, fy, sh.frameW, sh.frameH, px, py, pw, ph);
   }
 

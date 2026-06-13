@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.wa_stairs2",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette: mossy grey stone steps, deep matcha grass, soft warm sunlight. Top-down-OBLIQUE stone staircase tileset descending toward the viewer (~35 degrees), with clearly readable step risers and low stone side walls / parapet on both left and right sides of the stair run. The steps are flat-faced mossy fieldstones like the ishigaki wall stones; the side walls are short (about half-step height) cut-stone parapets matching the kasaishi cap stone color. Each step riser is clearly dark; tread tops are lighter. STRICT 4x4 LAYOUT, 16 tiles, each cell exactly 128x128 pixels, filled edge to edge, tileable vertically to form a continuous staircase run. Row1 (stair top) = where the staircase meets the plateau: cell0=top landing left side wall cap, cell1=top landing center (step meets flat plateau ground), cell2=top landing center variation, cell3=top landing right side wall cap. Row2 (stair upper mid) = upper middle of the stair run: cell4=left side wall + step riser, cell5=step center riser and tread, cell6=step center variation with moss, cell7=right side wall + step riser. Row3 (stair lower mid) = lower middle of the stair run: cell8=left side wall + step, cell9=step center riser and tread, cell10=step center variation, cell11=right side wall + step. Row4 (stair bottom) = where the staircase meets lower ground: cell12=bottom footing left with side wall base, cell13=bottom landing center steps meeting lower grass, cell14=bottom landing center variation, cell15=bottom footing right with side wall base. The side walls keep a consistent height relative to the step treads in every row. No text, no characters, no grid lines.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

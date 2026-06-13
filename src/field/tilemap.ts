@@ -41,6 +41,8 @@ export interface NpcDef {
   x: number; y: number;             // タイル座標
   dialog: string[];                 // 会話行（\n 区切りページ）
   facing?: Facing;
+  /** 表示サイズ（論理px・正方）。未指定=28（ミト相当）。子供など小柄なNPCは小さく。 */
+  drawSize?: number;
 }
 
 export interface SpawnDef {
@@ -110,10 +112,10 @@ export class Tilemap {
   private drawLayer(r: Renderer, cam: Camera, layer: Uint16Array, time: number) {
     const d = this.data;
     const viewW = LOGICAL_W / r.zoom, viewH = LOGICAL_H / r.zoom; // 飛行ズームアウト対応
-    const tx0 = Math.max(0, Math.floor(cam.x / TILE));
     const ty0 = Math.max(0, Math.floor(cam.y / TILE));
-    const tx1 = Math.min(d.w - 1, Math.ceil((cam.x + viewW) / TILE));
     const ty1 = Math.min(d.h - 1, Math.ceil((cam.y + viewH) / TILE));
+    const tx0 = Math.max(0, Math.floor(cam.x / TILE));
+    const tx1 = Math.min(d.w - 1, Math.ceil((cam.x + viewW) / TILE));
     for (let ty = ty0; ty <= ty1; ty++) {
       for (let tx = tx0; tx <= tx1; tx++) {
         const ref = layer[ty * d.w + tx] ?? EMPTY;
@@ -177,10 +179,13 @@ export class Tilemap {
    * **後**に呼ぶ — 大型グラウンドピース（円形広場）の上にも影や花が正しく載る（5.13b）。
    */
   drawDecals(r: Renderer, cam: Camera) {
+    const vw = LOGICAL_W / r.zoom, vh = LOGICAL_H / r.zoom;
+    const vMargin = TILE;
+    const hMargin = TILE;
     for (const dc of this.data.decals) {
       const wx = dc.x * TILE, wy = dc.y * TILE;
-      const vw = LOGICAL_W / r.zoom, vh = LOGICAL_H / r.zoom;
-      if (wx < cam.x - TILE || wx > cam.x + vw + TILE || wy < cam.y - TILE || wy > cam.y + vh + TILE) continue;
+      const sx = wx - cam.x; // 画面X（ロジカル）
+      if (sx < -hMargin || sx > vw + hMargin || wy < cam.y - vMargin || wy > cam.y + vh + vMargin) continue;
       r.tile(dc.sheet ?? "tile.grass_detail", dc.frame, wx, wy, TILE, cam, "transparent");
     }
   }

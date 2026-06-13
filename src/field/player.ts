@@ -33,6 +33,8 @@ export interface ActiveHit {
   weapon: WeaponDef;
   chargeLevel: 0 | 1 | 2;            // 0=通常 1=弱 2=強
   pierce: boolean;
+  /** ステップ斬り（フロントステップからの攻撃キャンセル）＝威力補正のボーナス行動 */
+  dashCut: boolean;
 }
 
 const WALK_SPEED = 1.45;
@@ -83,6 +85,9 @@ export class Player {
   private spinFacingIdx = 0;
   // ── 5.14 回避・魔法・バフ ──
   private dodgeDir = { x: 0, y: 1 };
+  /** このステップが前方/横への踏み込みか（真後ろへの後退ステップは false）。
+   *  ステップ斬りの威力補正＝前方コミットの報酬なので、後退斬りには乗せない（Codexレビュー） */
+  private dodgeForward = true;
   dodgeCoolT = 0;
   castSpell: SpellId | null = null;
   /** 詠唱完了時に Field 側が効果を発動する */
@@ -93,6 +98,8 @@ export class Player {
   private ghosts: { x: number; y: number; frame: number; t: number }[] = [];
   /** ステップ斬りの慣性（dodge から攻撃キャンセルした時に付与） */
   private stepMomentum: { x: number; y: number; t: number } | null = null;
+  /** ステップ斬りとして発動したスイングID（このIDの active 判定だけ威力補正＝ボーナス行動） */
+  private dashCutSwing = -1;
   /** 被弾硬直中に押された dodge のラッチ（硬直明けに発動） */
   private queuedDodge = false;
 
@@ -121,19 +128,33 @@ export class Player {
   takeDamage(dmg: number, fromX: number, fromY: number, fx: FxManager, cam: Camera): void {
     if (this.invulnT > 0 || this.state === "dead") return;
     if (this.dodgeInvulnerable) return; // 5.14: 回避の無敵窓（能動的無敵）
+    // ダッシュ斬りのモーション中はスーパーアーマー（ユーザーFB: ダッシュで敵に当たっても斬りを出し切りたい）。
+    // ダメージ・無敵・軽いノックバックは受けるが、hurt へ遷移させずモーションを継続させる。
+    const dashCutMotion = (this.state === "windup" || this.state === "active")
+      && this.swingId === this.dashCutSwing;
     game.hp = Math.max(0, game.hp - dmg);
     fx.damage(this.x, this.y - WALK_CELL * 0.8, dmg, "#ff9c8a");
     audio.play("hurt");
     cam.shake(1.5, 4);
+    this.invulnT = 60;
+    if (game.hp <= 0) {
+      this.chargeT = 0; this.castSpell = null; this.stepMomentum = null; this.dashCutSwing = -1;
+      this.state = "dead"; this.stateT = 0;
+      return;
+    }
+    const dx = this.x - fromX, dy = this.y - fromY;
+    const d = Math.hypot(dx, dy) || 1;
+    if (dashCutMotion) {
+      // 斬りは継続（state/stepMomentum/swingId を維持）。押し戻しは弱めにして狙いを崩さない。
+      this.kx = (dx / d) * 0.8; this.ky = (dy / d) * 0.8;
+      return;
+    }
     this.chargeT = 0;                 // 被弾でチャージ消失（リスク）
     this.castSpell = null;            // 詠唱も被弾で中断（MP未消費のまま）
     this.stepMomentum = null;         // ステップ斬りの慣性も消す（QAレビュー: 次の攻撃に漏れる）
     if (this.state === "haraiwave") this.haraiCancelled = true; // 溜め中の被弾＝不発（リスク）
-    this.invulnT = 60;
-    const dx = this.x - fromX, dy = this.y - fromY;
-    const d = Math.hypot(dx, dy) || 1;
     this.kx = (dx / d) * 2.4; this.ky = (dy / d) * 2.4;
-    this.state = game.hp <= 0 ? "dead" : "hurt";
+    this.state = "hurt";
     this.stateT = 0;
   }
 
@@ -159,6 +180,7 @@ export class Player {
           kind: "rect",
           rect: { x: this.x + hb.x, y: this.y - 8 + hb.y, w: hb.w, h: hb.h },
           swingId: this.swingId, weapon: w, chargeLevel: 0, pierce: false,
+          dashCut: this.swingId === this.dashCutSwing,
         };
       }
       return null;
@@ -174,7 +196,7 @@ export class Player {
       return {
         kind: "rect", rect,
         swingId: this.swingId, weapon: w,
-        chargeLevel: lv, pierce: true,
+        chargeLevel: lv, pierce: true, dashCut: false,
       };
     }
     if (this.state === "spin" && this.stateT >= 2 && this.stateT <= 14) {
@@ -182,7 +204,7 @@ export class Player {
         kind: "circle",
         circle: { x: this.x, y: this.y - 8, r: 26 },
         swingId: this.swingId, weapon: w,
-        chargeLevel: this.chargeLevelAtRelease, pierce: true,
+        chargeLevel: this.chargeLevelAtRelease, pierce: true, dashCut: false,
       };
     }
     if (this.state === "dash") {
@@ -191,7 +213,7 @@ export class Player {
         kind: "rect",
         rect: { x: this.x + hb.x, y: this.y - 8 + hb.y, w: hb.w, h: hb.h },
         swingId: this.swingId, weapon: w,
-        chargeLevel: this.chargeLevelAtRelease, pierce: true,
+        chargeLevel: this.chargeLevelAtRelease, pierce: true, dashCut: false,
       };
     }
     return null;
@@ -323,9 +345,11 @@ export class Player {
           }
         }
         // ステップ斬り: ステップ中盤から刀でキャンセル（勢いを引き継ぐ・モンハンの回避斬り）
+        // ＝ボーナス行動。前方/横への踏み込み斬りだけ威力補正（後退斬りは通常威力・Codexレビュー）。
         if (this.stateT >= DODGE_ATK_CANCEL && input.pressed("attack")) {
           this.stepMomentum = { x: this.dodgeDir.x, y: this.dodgeDir.y, t: 10 };
           this.startAttack(fx, projectiles);
+          if (this.dodgeForward) this.dashCutSwing = this.swingId;
           break;
         }
         if (this.stateT >= DODGE_F) { this.state = "idle"; this.stateT = 0; }
@@ -420,7 +444,8 @@ export class Player {
     if (this.state === "idle") { this.state = "walk"; this.stateT = 0; }
     const len = Math.hypot(v.x, v.y);
     const sp = WALK_SPEED * speedMul;
-    this.tryMove(map, (v.x / len) * sp, (v.y / len) * sp);
+    const mvx = (v.x / len) * sp, mvy = (v.y / len) * sp;
+    this.tryMove(map, mvx, mvy);
     if (updateFacing) {
       // 支配的な軸を向きにする（斜めは横優先）
       if (v.x !== 0) this.facing = v.x < 0 ? "left" : "right";
@@ -451,6 +476,7 @@ export class Player {
     this.stateT = 0;
     this.swingId = swingCounter++;
     this.swingHit.clear();
+    this.dashCutSwing = -1; // 既定は補正なし。ステップ斬りは呼び出し側で直後に swingId を代入する（QAレビュー）
   }
 
   /** ステップ開始（2026-06-13 フロントステップ仕様）。成功時 true。
@@ -463,10 +489,12 @@ export class Player {
     const f = FACING_DIR[this.facing];
     if (v.x === 0 && v.y === 0) {
       this.dodgeDir = { x: f.x, y: f.y }; // 前ステップ
+      this.dodgeForward = true;
     } else {
       const len = Math.hypot(v.x, v.y);
       this.dodgeDir = { x: v.x / len, y: v.y / len };
       const dot = this.dodgeDir.x * f.x + this.dodgeDir.y * f.y;
+      this.dodgeForward = dot >= -0.5; // 前・横は踏み込み / 真後ろは後退（補正対象外）
       if (dot >= -0.5) {
         // 前・横ステップは向きも更新（踏み込んだ先に斬れる）
         if (Math.abs(v.x) >= Math.abs(v.y)) this.facing = v.x < 0 ? "left" : "right";
@@ -553,8 +581,9 @@ export class Player {
       audio.play("spin"); // 鋭い抜きの風切り（専用SEは後日）
       const d = FACING_DIR[this.facing];
       fx.spawn({
+        // flipX: 弧の出っ張り（凸側）を進行方向へ向ける（素材は凸が左基準のため反転）
         sheet: "fx.iai_wa", x: d.x * 30, y: -6 + d.y * 26, size: lv === 2 ? 72 : 56, fps: 22,
-        rot: this.fxRot(), follow: this.anchor, blend: "lighter",
+        rot: this.fxRot(), flipX: true, follow: this.anchor, blend: "lighter",
       });
     } else {
       this.state = "dash";
@@ -603,8 +632,10 @@ export class Player {
         break;
       }
       case "charging": {
-        // 居合の構え: 納刀のまま腰を落とす（f0/f1 をゆっくり明滅＝張り詰め）
-        sheet = "mito.iai"; frame = row * 8 + (Math.floor(this.animT / 16) % 2);
+        // 居合の構え: 納刀のまま腰を落としたどっしり構え（f1固定）。
+        // ユーザーFB(2026-06-13): f0/f1トグルで体が上下する問題 → 単一フレーム固定。
+        // 張り詰めは chargeTint の脈動で表現（上下動はさせない）。
+        sheet = "mito.iai"; frame = row * 8 + 1;
         break;
       }
       case "iai": {

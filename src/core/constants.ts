@@ -12,6 +12,11 @@ export const CANVAS_H = LOGICAL_H * SS; // 1792
 export const TILE = 16; // 論理タイルサイズ（実寸 128px）
 export const FIXED_DT = 1000 / 60;
 
+// フィールドの既定俯瞰ズーム（<1 で引き気味＝俯瞰）。ユーザーFB(2026-06-14)「寄りすぎ→もう少し俯瞰に」。
+// 仕組み: 世界描画 r.zoom=FIELD_ZOOM・カメラ可視域 viewW=LOGICAL_W/FIELD_ZOOM。HUD は zoom=1 のまま不変。
+// 例) 1.0=従来(25×14タイル) / 0.8=約31×17.5タイル(世界25%増・キャラ約20%小)。下げるほど引く。
+export const FIELD_ZOOM = 0.8;
+
 // 表示フレームサイズ（論理 px）。HD ソースは×SS。
 // 体格は聖剣5.0と同じ身長感（体高26論理px・横攻撃のがっしり等身基準）。密度だけ上げる。
 export const WALK_CELL = 30;   // ミト歩行/待機セル: 240px 実寸（443px raw から BOX 縮小・体高208px）

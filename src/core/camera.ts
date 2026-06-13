@@ -3,6 +3,9 @@ import { LOGICAL_W, LOGICAL_H } from "./constants";
 // 追従カメラ。マップ境界へクランプ。shake は描画オフセットとして加算される。
 export class Camera {
   x = 0; y = 0;
+  /** 今フレームの揺れX/Y成分。公開（QAレビュー） */
+  shakeX = 0;
+  shakeY = 0;
   private shakeT = 0;
   private shakeAmp = 0;
 
@@ -15,11 +18,14 @@ export class Camera {
     else this.x = Math.max(0, Math.min(mapW - viewW, this.x));
     if (mapH <= viewH) this.y = Math.round((mapH - viewH) / 2);
     else this.y = Math.max(0, Math.min(mapH - viewH, this.y));
+    this.shakeX = 0; this.shakeY = 0;
     if (this.shakeT > 0) {
       this.shakeT--;
       const a = this.shakeAmp * (this.shakeT % 2 === 0 ? 1 : -1);
-      this.x += Math.round(a);
-      this.y += Math.round(a * 0.6);
+      this.shakeX = Math.round(a);
+      this.shakeY = Math.round(a * 0.6);
+      this.x += this.shakeX;
+      this.y += this.shakeY;
     }
   }
 

@@ -80,6 +80,16 @@ export const WEAPONS: Record<WeaponId, WeaponDef> = {
 export const CHARGE_WEAK_F = 30;
 export const CHARGE_FULL_F = 48;
 
+/**
+ * ステップ斬り（フロントステップからの攻撃キャンセル）のダメージ補正。
+ * 2026-06-13仕様変更: 通常斬りより高威力にして「リスクを取った踏み込み斬り＝ボーナス行動」に。
+ * 居合(charge)の弱(1.6)未満・通常(1.0)超の中間。1.4 を採用する理由（Codexレビュー）:
+ * ダメージは baseDamage(0) を丸めてから補正を乗せ再度丸めるため、1.5 だと全レベルの atk(7,9 等)で
+ * 弱チャージ(round(atk×1.6))と同値になり「弱チャージ未満」序列が崩れる。1.4 なら実 atk 値域
+ * (6,7,9,11,13,16,19,23)すべてで 通常 < ステップ斬り < 弱チャージ が丸め後も厳密に成立する。
+ */
+export const DASH_CUT_DMG_MUL = 1.4;
+
 export const WEAPON_ORDER: WeaponId[] = ["sword", "hammer", "mirror"];
 
 /** 武器相性ボーナス（敵タイプ別ダメージ倍率）。Phase 0 は素通し、体験版で調整。 */

@@ -7,7 +7,7 @@ export type InputAction =
   | "cycle"      // Q / pad LB — 武器直接切替
   | "dodge"      // Shift / pad RB — 回避
   | "harai"      // C / pad LT — 祓い波（穢れゲージ解放の大技）
-  | "skill1" | "skill2" | "skill3"; // 1/2/3 — スキルスロット（製品版用に温存）
+  | "skill1" | "skill2" | "skill3";  // 1=未使用 / 2=飛行カメラ検証 / 3=暗闇検証（4/5は立体表示削除に伴い廃止）
 
 export type Facing = "down" | "left" | "right" | "up";
 

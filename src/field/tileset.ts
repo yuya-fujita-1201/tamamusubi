@@ -53,6 +53,28 @@ export const TILESETS: TileSetDef[] = [
   { key: "arcaFringe", sheet: "tile.arca_fringe_set", fallback: "#cfe2f4" },          // 34
   { key: "arcaFringeStone", sheet: "tile.arca_fringe_stone_set", fallback: "#cfe2f4" }, // 35
   { key: "arcaStairs2", sheet: "tile.arca_stairs2", fallback: "#d8d2c0" },            // 36
+  // ── 和風の高低差（直交2D・聖剣流）: 石積み擁壁の崖＋階段。takadai マップ用 ──
+  { key: "waCliff", sheet: "tile.wa_cliff_set", fallback: "#7d6f56" },                // 37 和風崖（リム/壁面/基部・旧）
+  { key: "waStairs", sheet: "tile.wa_stairs", fallback: "#9a8a66" },                  // 38 和風石段（縦タイル・旧）
+  // ── 2026-06-14 高台リニューアル（お手本=ZZ-HCP-logs/009）。直交2Dで石垣/笠石/石段/落ち影/草トーン差 ──
+  // フレーム配置（16=4x4相当の横ストリップ）:
+  //  waIshigaki: 0-3=笠石キャップ(0左外角/1,2直線/3右外角) 4-7=上段壁(4左端/5,6直線/7右端) 8-11=下段壁 12-15=基部(14左下角/15右下角)
+  //  waKasaishi: 0北直線/1北変種/2西直線/3東直線 4=NW/5=NE/6=SW/7=SE外角 8-11内角 12北苔/13西苔/14東苔/15北地衣
+  //  waStairs2:  0左側壁/1,2上端中央/3右側壁 4左壁段/5,6中央段/7右壁段 8-11下中段 12-15下端(13,14中央)
+  //  waDropshadow: 0(薄24px)→3(濃56px) 落ち影の帯。半透明・草の上に deco で重ねる
+  { key: "waIshigaki", sheet: "tile.wa_ishigaki_set", fallback: "#8a857a" },          // 39 高い野面積み石垣（笠石/壁/基部）
+  { key: "waKasaishi", sheet: "tile.wa_kasaishi_set", fallback: "#bdb9a6" },          // 40 笠石ボーダー帯（上段の縁取り）
+  { key: "waStairs2", sheet: "tile.wa_stairs2_set", fallback: "#9a9078" },            // 41 苔石階段（側壁付き）
+  { key: "waDropshadow", sheet: "tile.wa_dropshadow", fallback: "transparent" },      // 42 落ち影（半透明オーバーレイ）
+  { key: "grassUpper", sheet: "tile.grass_upper", fallback: "#5fb35f" },              // 43 上段草（明・暖色）
+  { key: "grassLower", sheet: "tile.grass_lower", fallback: "#3f8a4e" },              // 44 下段草（暗・青み）
+  // ── 2026-06-14 高台2巡目（お手本011・不透明3D石垣）。手続き合成 forge/gen_cliff3.py ──
+  // 完全不透明＝下地透け(緑余白)なし。16フレーム:
+  //  0 rim_N / 1 rim_W / 2 rim_E / 3 rim_NW / 4 rim_NE  （N/W/E=細い面取り笠石縁＋外角）
+  //  5 cap_h(前面上の笠石) / 6,7 wall / 8,9 base
+  //  10 cap_SW(前左角) / 11 cap_SE / 12 wall_L / 13 wall_R / 14 base_L / 15 base_R
+  { key: "waCliff3", sheet: "tile.wa_cliff3_set", fallback: "#8a857a" },              // 45 不透明3D石垣
+  { key: "waStairs3", sheet: "tile.wa_stairs3_set", fallback: "#9a9078" },            // 46 不透明石段
 ];
 
 export const TS = Object.fromEntries(TILESETS.map((t, i) => [t.key, i])) as Record<string, number>;

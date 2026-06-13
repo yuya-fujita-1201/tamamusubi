@@ -75,9 +75,9 @@ export function buildSatoyama(): MapData {
   b.scatterDecals(0.04, [0, 1, 2, 3], meadow, "tile.flower_detail");
 
   // ── ランドマーク ─────────────────────────────────────────────
-  // 大鳥居（北の道の上・通り抜けられる門。柱だけ塞ぐ）
+  // 大鳥居（北の道の上・通り抜けられる門）
+  // 鳥居は通り抜け（柱の当たり判定なし）。オブリーク時の左ドリフトで門前が絞られないようにする（ユーザーFB）。
   b.prop("obj.torii", 44, 9.5, 64, 48, { footW: 0, shadow: false });
-  b.solid(42, 9); b.solid(45, 9);
   // 水車小屋（池のほとり）
   b.prop("obj.windmill", 20, 12, 56, 72, { footW: 2, footH: 2 });
   // 小さな祠 hokora（北ロビー右手。ランドマーク）
@@ -109,7 +109,8 @@ export function buildSatoyama(): MapData {
   }
 
   // 看板（チュートリアル＋Phase 1A の指標）
-  b.prop("obj.sign", 43, 11, 16, 16, { footW: 1, id: "sign:tutorial" });
+  // チュートリアル看板。北ゲートのクリア帯(43-45)から外して当たり判定が消えないようにする（Codexレビュー）
+  b.prop("obj.sign", 47, 11, 16, 16, { footW: 1, id: "sign:tutorial" });
   b.prop("obj.sign", 67, 50, 16, 16, { footW: 1, id: "sign:phase0" });
 
   // 見晴らし郭の宝箱
@@ -136,12 +137,26 @@ export function buildSatoyama(): MapData {
   b.spawn("kodama", 30, 28);
   b.spawn("kodama", 66, 46);
 
+  // ── 北の道を確実に通す（自動生成ノイズや柱で塞がる問題対策・ユーザーFB「村へ行けない」）──
+  // x40-46 の縦帯を y0-10 まで歩行可能な道として明示的にクリアする。
+  // ※ paintAuto は solid=false でも collision をクリアしないため、solid(false) を別途当てる。
+  // オブリーク時は「上移動＝左へドリフト」するため、左寄り(45→40)に7マス幅へ拡張してドリフトを受け止める（ユーザーFB）。
+  const northGate = new Set<number>();
+  for (let y = 0; y <= 10; y++) for (let x = 40; x <= 46; x++) northGate.add(y * W + x);
+  b.paintAuto(northGate, TS.path as number, "path");
+  for (const i of northGate) b.solid(i % W, Math.floor(i / W), false);
+
+  // 南の杜口（morioku への縦通路）も拡張。下移動＝右ドリフトのため右寄り(44→50)に7マス幅へ。
+  const moriGate = new Set<number>();
+  for (let y = 50; y <= 52; y++) for (let x = 44; x <= 50; x++) moriGate.add(y * W + x);
+  b.paintAuto(moriGate, TS.path as number, "path");
+  for (const i of moriGate) b.solid(i % W, Math.floor(i / W), false);
+
   // ── warp ───────────────────────────────────────────────────
-  // 北端 → 霧立の里（kiritate）。着地点は kiritate 南の道（y=37, warpタイルy=38より1マス手前）
-  b.warp(44, 0, "kiritate", 28, 37, "down");
-  // 南の杜口 → 杜の奥（morioku）。y=52は南テラス内（blob cy=50,ry=7で射程内）
-  // 着地点はmorioku北端の道（y=1, warpタイルy=0より1マス手前）
-  b.warp(44, 52, "morioku", 20, 1, "down");
+  // 北端 → 霧立の里（kiritate）。7マス幅(40-46)でトリガーを取りこぼさない。着地は kiritate 南の道(28,36)
+  for (const wx of [40, 41, 42, 43, 44, 45, 46]) b.warp(wx, 0, "kiritate", 28, 36, "down");
+  // 南の杜口 → 杜の奥（morioku）。7マス幅(44-50)。着地点はmorioku北端の道(20,1)
+  for (const wx of [44, 45, 46, 47, 48, 49, 50]) b.warp(wx, 52, "morioku", 20, 1, "down");
 
   const data = b.done();
   data.outsideColor = "#2a4a20";

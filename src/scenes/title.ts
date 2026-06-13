@@ -22,7 +22,8 @@ export class TitleScene implements Scene {
       this.starting++;
       if (this.starting > 50) {
         resetGame();
-        ctx.scenes.replace(new FieldScene("satoyama", 44, 11, { intro: true }), ctx);
+        // 村(霧立の里)スタート。中央付近に降り、南の大鳥居から平原(里山郷)へ出られる。
+        ctx.scenes.replace(new FieldScene("kiritate", 28, 24, { intro: true }), ctx);
       }
       return;
     }

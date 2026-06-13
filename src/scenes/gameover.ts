@@ -27,11 +27,11 @@ export class GameOverScene implements Scene {
     r.clear("#000");
     r.ctx.fillStyle = `rgba(12,6,10,${a})`;
     r.ctx.fillRect(0, 0, r.W, r.H);
-    r.font.draw("リオンは倒れてしまった…", LOGICAL_W / 2, 90, {
+    r.font.draw("ミトは倒れてしまった…", LOGICAL_W / 2, 90, {
       size: 13, color: `rgba(220,120,110,${a})`, align: "center", outline: "#1a0a10",
     });
     if (this.t > 60 && Math.floor(this.t / 30) % 2 === 0) {
-      r.font.draw("Z で村から再開", LOGICAL_W / 2, 130, { size: 9, color: "#e8e4d8", align: "center" });
+      r.font.draw("Z / X で村から再開", LOGICAL_W / 2, 130, { size: 9, color: "#e8e4d8", align: "center" });
     }
   }
 }

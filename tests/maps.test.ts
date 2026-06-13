@@ -25,9 +25,16 @@ describe("マップ構築", () => {
     }
   });
 
-  it("satoyama: プレイヤー初期位置(44,11)が通行可能", () => {
+  it("kiritate: ゲーム開始地点(28,24)が通行可能", () => {
+    // 2026-06-13: 村スタートに変更。title.ts の開始座標と一致させる。
+    const m = buildMap("kiritate");
+    expect(m.collision[24 * m.w + 28]).toBe(0);
+  });
+
+  it("satoyama: 北ロビー(44,11・kiritateからの着地周辺)が通行可能", () => {
     const m = buildMap("satoyama");
     expect(m.collision[11 * m.w + 44]).toBe(0);
+    expect(m.collision[3 * m.w + 44], "kiritateからの着地点(44,3)").toBe(0);
   });
 
   it("全マップ: warp の着地先が別 warp の上にない（往復ループ防止）", () => {

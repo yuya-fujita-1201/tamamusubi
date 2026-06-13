@@ -184,8 +184,29 @@
   "npc.suzushiro": {
     "cols": 4,
     "file": "npc_suzushiro.png",
-    "frameH": 200,
-    "frameW": 200,
+    "frameH": 240,
+    "frameW": 240,
+    "frames": 4
+  },
+  "npc.villager_a": {
+    "cols": 4,
+    "file": "npc_villager_a.png",
+    "frameH": 240,
+    "frameW": 240,
+    "frames": 4
+  },
+  "npc.villager_b": {
+    "cols": 4,
+    "file": "npc_villager_b.png",
+    "frameH": 240,
+    "frameW": 240,
+    "frames": 4
+  },
+  "npc.villager_c": {
+    "cols": 4,
+    "file": "npc_villager_c.png",
+    "frameH": 240,
+    "frameW": 240,
     "frames": 4
   },
   "obj.bamboo": {
@@ -233,15 +254,15 @@
   "obj.minka_a": {
     "cols": 1,
     "file": "obj_minka_a.png",
-    "frameH": 336,
-    "frameW": 448,
+    "frameH": 360,
+    "frameW": 483,
     "frames": 1
   },
   "obj.minka_b": {
     "cols": 1,
     "file": "obj_minka_b.png",
-    "frameH": 336,
-    "frameW": 448,
+    "frameH": 360,
+    "frameW": 486,
     "frames": 1
   },
   "obj.sign": {
@@ -321,9 +342,86 @@
     "frameW": 128,
     "frames": 16
   },
+  "tile.grass_lower": {
+    "cols": 16,
+    "file": "tile_grass_lower.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.grass_upper": {
+    "cols": 16,
+    "file": "tile_grass_upper.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
   "tile.path_set": {
     "cols": 16,
     "file": "tile_path_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.wa_cliff3_set": {
+    "cols": 16,
+    "file": "tile_wa_cliff3.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.wa_cliff_set": {
+    "cols": 16,
+    "file": "tile_wa_cliff.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.wa_dropshadow": {
+    "cols": 4,
+    "file": "tile_wa_dropshadow.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 4
+  },
+  "tile.wa_ishigaki2_set": {
+    "cols": 16,
+    "file": "tile_wa_ishigaki2.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.wa_ishigaki_set": {
+    "cols": 16,
+    "file": "tile_wa_ishigaki.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.wa_kasaishi_set": {
+    "cols": 16,
+    "file": "tile_wa_kasaishi.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.wa_stairs": {
+    "cols": 1,
+    "file": "tile_wa_stairs.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 1
+  },
+  "tile.wa_stairs2_set": {
+    "cols": 16,
+    "file": "tile_wa_stairs2.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.wa_stairs3_set": {
+    "cols": 16,
+    "file": "tile_wa_stairs3.png",
     "frameH": 128,
     "frameW": 128,
     "frames": 16

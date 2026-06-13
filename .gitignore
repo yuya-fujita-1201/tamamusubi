@@ -5,6 +5,13 @@ dist/
 # BGM の WAV マスター原本（巨大・public/bgm に OGG 変換済み）
 sound/
 
+# セッション中の安全バックアップ（再生成可・コミット対象外）
+forge/_backup_*/
+# QAログ（プレイ確認のスクショ・参照画像。セッション限定でリポジトリに残さない・Codexレビュー P3）
+ZZ-HCP-logs/
+# ※ public/assets/*_pregrade.png は追跡する（grade_wa.py の原本＝再グレードの素。
+#   ignore/untrack すると fresh checkout で原本が失われ、再グレードが二重暗化する・Codexレビュー）。
+
 # 生成パイプラインの中間処理物（proc_*.py / build_mito.py で再生成可）
 # ※ raw は次セッションのミト等身・色味再調整に必須なので残す
 forge/assets/hd/

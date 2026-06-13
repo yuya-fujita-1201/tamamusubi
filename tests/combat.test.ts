@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { WEAPONS, CHARGE_WEAK_F, CHARGE_FULL_F, WEAPON_ORDER } from "../src/data/weapons";
+import { WEAPONS, CHARGE_WEAK_F, CHARGE_FULL_F, WEAPON_ORDER, DASH_CUT_DMG_MUL } from "../src/data/weapons";
 import { ENEMIES } from "../src/data/enemies";
 import { LEVELS, levelFor, gainExp, newGame } from "../src/state/game";
 import { BOSS_DEFS, GankinoBoss } from "../src/combat/boss";
@@ -38,6 +38,23 @@ describe("武器フレームデータ（桜井メソッド整合）", () => {
 
   it("武器順序の先頭は祓い刀", () => {
     expect(WEAPON_ORDER[0]).toBe("sword");
+  });
+
+  it("ステップ斬りの実ダメージは全レベルで 通常 < ステップ斬り < 弱チャージ < 強チャージ", () => {
+    // Codexレビュー: 生の倍率(1.4<1.6)だけでなく、整数丸め後の実ダメージで序列を検証する。
+    // 計算順は実装（player.baseDamage→field.ts の dashMul 乗算）に一致させる。
+    const w = WEAPONS.sword;
+    const baseDmg = (atk: number, mul: number) => Math.max(1, Math.round(atk * w.dmgMul * mul));
+    for (const lv of LEVELS) {
+      const atk = lv.atk;
+      const normal = baseDmg(atk, 1);
+      const dash = Math.max(1, Math.round(normal * DASH_CUT_DMG_MUL)); // field.ts と同じ二段
+      const weak = baseDmg(atk, w.charge.dmgMulWeak);
+      const strong = baseDmg(atk, w.charge.dmgMulStrong);
+      expect(dash, `Lv${lv.lv} atk${atk}: 通常${normal}<斬込${dash}`).toBeGreaterThan(normal);
+      expect(dash, `Lv${lv.lv} atk${atk}: 斬込${dash}<弱${weak}`).toBeLessThan(weak);
+      expect(weak).toBeLessThan(strong);
+    }
   });
 });
 

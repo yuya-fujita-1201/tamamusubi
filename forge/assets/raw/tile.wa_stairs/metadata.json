@@ -1,0 +1,9 @@
+{
+  "provider": "codex-imagegen",
+  "imageGenerationItemId": "ig_0a08062cdb6e4acf016a2d1b0f70b48191a92e62f24bee95cb",
+  "status": "generating",
+  "revisedPrompt": "Generate exactly one PNG image only: a single standalone 128x128 pixel-art terrain tile, not a spritesheet and not a grid.\n\nSubject: a seamless vertically tiling top-down-oblique stone staircase tile for a 16-bit action RPG/platformer world-map asset. The staircase is mossy stacked grey stone, viewed slightly from above and from the front at about 35 degrees, descending toward the viewer. Each step must read clearly with a visible tread and riser. The top and bottom edges must align so copies stacked vertically create one continuous flight of stairs. Fill the entire 128x128 canvas edge to edge.\n\nStyle: crisp low-resolution SNES-inspired pixel art, no antialiasing blur, limited cohesive palette, top-left light, one-pixel dark outline only where useful. Bright mythical-Japan satoyama palette: mossy grey stone, deep matcha moss accents, warm highlights, clean adventure-game mood. Add subtle moss and small worn patches on the steps and side stones, but no grass center.\n\nComposition requirements: stone staircase centered and continuous from top edge to bottom edge, flanked by a hint of mossy stacked-stone wall on both left and right sides. Low-frequency texture and varied stone shapes, no checkerboard, no repeated square stamp. No visible grid lines, tile IDs, labels, borders, text, UI, watermark, characters, creatures, weapons, armor, modern objects, horror mood, dark gloomy palette, or recognizable copyrighted game references.",
+  "threadId": "019ec031-5a47-7da2-b147-3a302c30247c",
+  "turnId": "019ec031-5c97-7131-b7c5-2b5a90f809c8",
+  "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.wa_stairs/codex-imagegen.png"
+}

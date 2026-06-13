@@ -1,6 +1,7 @@
 import type { Camera } from "../core/camera";
 import type { Renderer } from "../gfx/renderer";
 import { WA_FONT } from "../gfx/font";
+import { SS } from "../core/constants";
 
 // エフェクト＆ダメージ数字。ヒットストップ中も update され続ける
 // （sakurai-hitstop: 演出時間を最大限活用）。
@@ -16,7 +17,7 @@ export interface FxSpawn {
   blend?: GlobalCompositeOperation;
   alpha?: number;
   loop?: boolean;
-  /** 追従対象（プレイヤーアンカー等）。指定時 x,y は相対オフセット */
+  /** 追従対象（プレイヤーアンカー等）。指定時 x,y は相対オフセット。 */
   follow?: { x: number; y: number };
   ySortFoot?: number;          // Yソートに参加する場合の足元 y（未指定は最前面）
 }
@@ -27,7 +28,8 @@ interface Fx extends FxSpawn {
 }
 
 export interface DamageNum {
-  x: number; y: number;
+  x: number; y: number;     // 命中点のワールド座標（固定アンカー）
+  riseY: number;            // 画面空間の浮上量（ロジカルpx・負=上）。毎フレーム加算
   vy: number;
   t: number;
   text: string;
@@ -45,7 +47,7 @@ export class FxManager {
   }
 
   damage(x: number, y: number, amount: number | string, color = "#ffffff") {
-    this.nums.push({ x, y, vy: -1.3, t: 0, text: String(amount), color });
+    this.nums.push({ x, y, riseY: 0, vy: -1.3, t: 0, text: String(amount), color });
   }
 
   update() {
@@ -57,7 +59,7 @@ export class FxManager {
     this.list = this.list.filter((f) => !f.dead);
     for (const n of this.nums) {
       n.t++;
-      n.y += n.vy;
+      n.riseY += n.vy;   // 浮上は画面空間で（ワールドyは固定＝横滑りしない）
       n.vy += 0.06;
       if (n.vy > 0.4) n.vy = 0.4;
     }
@@ -71,7 +73,11 @@ export class FxManager {
     }
     for (const n of this.nums) {
       const alpha = n.t > 32 ? 1 - (n.t - 32) / 13 : 1;
-      r.font.draw(n.text, n.x - cam.x, n.y - cam.y, {
+      // 命中点(固定アンカー)を一度だけ画面変換し、浮上は画面空間で加算する。
+      // toScreen は k(=SS*zoom)倍で「実キャンバスpx」を返す。font.draw は入力を SS 倍するので、
+      // 命中点の実pxに置くには SS で割る（k で割ると俯瞰ズーム時に距離比例でズレる・Codex P2）。
+      const [osx, osy] = r.toScreen(n.x, n.y, cam);
+      r.font.draw(n.text, osx / SS, osy / SS + n.riseY, {
         size: 9.5, color: n.color, outline: "#1a1028", align: "center", alpha,
         font: WA_FONT,
       });
