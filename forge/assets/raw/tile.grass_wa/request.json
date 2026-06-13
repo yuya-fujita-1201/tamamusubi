@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.grass_wa",
+  "presetId": "world_grass_variation_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-grass-variation",
+      "solid": false,
+      "adjacency": "regional-ground"
+    },
+    "prompt_rules": [
+      "world-map grassland variation tiles, not close-up village grass",
+      "include broad color drift, subtle plains texture, sparse flowers, worn patches, and regional palette variation",
+      "avoid a single repeated grass stamp or high-frequency checkerboard texture"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. Top-down ground TILESET: lush dense satoyama meadow grass, dewy fine blades in deep saturated green with subtle tone variation, occasional tiny clover and moss accents, uniform brightness (ground luminance above 55 percent), no hard shadows. 16 tile variations in a 4x4 grid, every cell a seamless interchangeable grass tile completely filled edge to edge, no borders between cells, no text.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

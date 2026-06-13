@@ -1,0 +1,9 @@
+{
+  "provider": "codex-imagegen",
+  "imageGenerationItemId": "ig_05d7c18bb517fdcd016a2c419e183c81919d8294cc5a37f6d6",
+  "status": "generating",
+  "revisedPrompt": "Generate exactly one PNG image: a 128x96 pixel-art game asset sheet, 1 row x 1 column, one frame only. Solid #FF00FF magenta chroma-key background filling all empty space, no gradients.\n\nSubject: a single large wooden torii gate as one coherent authored field prop for a bright mythical-Japan action RPG, front view. It fills most of the 128x96 canvas while leaving a small clear magenta margin on every edge. Vermilion-lacquered round pillars with gentle weathered pixel texture, dark tiled top lintel with slightly upturned ends, crossbeams and trim, thick braided sacred rope hanging between the pillars, white zigzag paper streamers hanging from the rope, small stone bases, soft contact shadow at the feet. Bright, welcoming, sacred but cheerful.\n\nStyle and technical constraints: crisp low-resolution 16-bit/SFC-style pixel art, no antialiasing blur, sharp square pixels, fine readable pixel clusters, consistent palette, dark one-pixel outline where useful, top-left light source. Draw the gate as one coherent large object, not repeated tile stamps. Preserve a readable clean collision footprint. No cell separator lines, grid lines, frame borders, frame numbers, labels, text, UI, logos, or watermarks. No detached fragments, isolated pixel islands, dust specks, seam slivers, or leftover residue. No characters, creatures, armor, weapons, modern objects, horror mood, or gloomy palette. Avoid any recognizable existing game/anime character, logo, or franchise likeness.",
+  "threadId": "019ebce0-2346-72f3-993a-90f622b9af1b",
+  "turnId": "019ebce0-2489-7141-b049-92f1ca334c48",
+  "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/prop.torii/codex-imagegen.png"
+}

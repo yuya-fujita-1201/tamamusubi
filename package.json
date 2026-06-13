@@ -1,0 +1,21 @@
+{
+  "name": "tamamusubi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "玉結び — TAMAMUSUBI. 明るい擬似日本列島「八洲」×三層世界×自由探索 2DアクションRPG。Phase 0 技術検証スプリント。HD pixel-art via Asset Forge (Codex ImageGen). HTML5 Canvas + TypeScript.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5210",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "25.6.0",
+    "typescript": "6.0.3",
+    "vite": "8.0.10",
+    "vitest": "4.1.5"
+  }
+}

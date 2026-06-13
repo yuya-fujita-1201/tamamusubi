@@ -1,0 +1,29 @@
+schemaVersion: 1
+id: beast_pounce_8
+name: Beast pounce right
+category: monster
+action: pounce
+description: Four-legged monster crouches, leaps toward a human target, lands, and recovers.
+frameCount: 8
+frameSize: [128, 128]
+view: side
+facing: right
+promptRules:
+  - Movement should read as a rightward leap, not a vertical hop.
+  - The body stretches forward during the leap and compresses on landing.
+stages:
+  - { frame: 1, label: stalk, intent: Low ready pose, expectedBodyLevel: low, expectedActionZone: center }
+  - { frame: 2, label: coil, intent: Body compresses before leap, expectedBodyLevel: crouch, expectedActionZone: low }
+  - { frame: 3, label: launch, intent: Hind legs push off to the right, expectedBodyLevel: airborne, expectedActionZone: front }
+  - { frame: 4, label: flight, intent: Body stretches forward, expectedBodyLevel: airborne, expectedActionZone: front }
+  - { frame: 5, label: contact, intent: Forelimbs reach target area, expectedBodyLevel: airborne, expectedActionZone: front }
+  - { frame: 6, label: land, intent: Body lands and compresses, expectedBodyLevel: low, expectedActionZone: low }
+  - { frame: 7, label: settle, intent: Weight settles after landing, expectedBodyLevel: low, expectedActionZone: center }
+  - { frame: 8, label: ready, intent: Return to hunting stance, expectedBodyLevel: low, expectedActionZone: center }
+scoring:
+  expectedDirection: right
+  primaryActionFrames: [2, 3, 4, 5]
+  recoveryFrames: [6, 7, 8]
+  stableAnchor: false
+  allowLowBodyFrames: [1, 2, 6, 7, 8]
+  allowSquashStretch: true

@@ -1,0 +1,63 @@
+schemaVersion: 1
+id: human_walk_right_8
+name: Human side-view walk right
+category: human
+action: walk
+description: Side-view walk-in-place cycle facing right with alternating legs and counter-swinging arms.
+frameCount: 8
+frameSize: [96, 96]
+view: side
+facing: right
+promptRules:
+  - Walk in place facing right; the body stays horizontally centered in every cell.
+  - Legs alternate through contact and passing twice per cycle; the first half leads with the right foot and the second half leads with the left foot.
+  - Arms swing opposite to the legs and must change pose together with the legs in every frame; never move the arms while the legs stay frozen.
+  - The planted foot stays flat on the ground directly under the body; no floating or sliding poses.
+  - The leg silhouette must visibly differ between consecutive frames.
+stages:
+  - frame: 1
+    label: contact-right
+    intent: Right foot planted forward with the left arm swung forward; body at its lowest point.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+  - frame: 2
+    label: recoil-right
+    intent: Weight settles onto the planted right foot; trailing left leg begins to lift.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+  - frame: 3
+    label: passing-right
+    intent: Left leg passes under the body with feet nearly together; body rises slightly.
+    expectedBodyLevel: upright
+    expectedActionZone: center
+  - frame: 4
+    label: high-point-right
+    intent: Body at its highest as the left leg reaches forward.
+    expectedBodyLevel: upright
+    expectedActionZone: center
+  - frame: 5
+    label: contact-left
+    intent: Left foot planted forward with the right arm swung forward; mirrors frame 1.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+  - frame: 6
+    label: recoil-left
+    intent: Weight settles onto the planted left foot; trailing right leg begins to lift.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+  - frame: 7
+    label: passing-left
+    intent: Right leg passes under the body with feet nearly together; body rises slightly.
+    expectedBodyLevel: upright
+    expectedActionZone: center
+  - frame: 8
+    label: high-point-left
+    intent: Body at its highest as the right leg reaches forward; loops back to frame 1.
+    expectedBodyLevel: upright
+    expectedActionZone: center
+scoring:
+  expectedDirection: none
+  primaryActionFrames: [1, 2, 3, 4, 5, 6, 7, 8]
+  recoveryFrames: []
+  stableAnchor: true
+  allowLowBodyFrames: []

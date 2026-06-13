@@ -1,0 +1,9 @@
+{
+  "provider": "codex-imagegen",
+  "imageGenerationItemId": "ig_06517074ea9fd1fa016a2c59cc1d5c8191b30c8cc422e859cf",
+  "status": "generating",
+  "revisedPrompt": "Create exactly one PNG image: a 32x32 pixel-art game asset sheet, 1 row x 1 column, single 32x32 frame. Solid #FF00FF magenta chroma-key background fills every empty pixel; no gradients, no transparency, no grid lines, no frame borders, no labels, no numbers, no text, no watermark.\n\nSubject: ONE Japanese stone lantern (ishidourou), front view, as a single coherent field-prop object. Bright mythical-Japan palette. Weathered grey stone with soft moss patches. Classic silhouette: pedestal base, vertical shaft, firebox with window, broad roof/cap. Taller than wide, drawn large filling the canvas vertically with a small clean magenta margin on all edges. Warm orange flame glowing inside the firebox window with subtle light spill contained on the lantern. Soft contact shadow at the base.\n\nPixel-art style: crisp low-resolution SNES/16-bit style pixels, no antialiasing blur, hard pixel edges, readable fine pixel clusters, consistent palette, top-left light source, dark one-pixel outline where useful. Clear footprint for collision. Keep all pixels inside the 32x32 frame; leave a solid #FF00FF margin between the lantern and every edge. No detached fragments, isolated pixel islands, dust specks, seam slivers, or leftover effect residue.\n\nAvoid completely: Mario, Nintendo, Zelda, Final Fantasy, Pokemon, Dragon Quest, Secret of Mana, Okami, Sakuna characters/logos/likenesses; samurai armor; kabuto helmet; ninja outfit; two-sword daisho; gun; modern objects; horror mood; dark gloomy palette; birds or companion creatures; letter emblems; UI or text.",
+  "threadId": "019ebd3e-971f-7040-b1d6-f987b34de103",
+  "turnId": "019ebd3e-98f3-7481-af93-4ebe42a1ebc8",
+  "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.tourou/codex-imagegen.png"
+}

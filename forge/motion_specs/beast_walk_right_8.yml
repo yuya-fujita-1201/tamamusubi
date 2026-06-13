@@ -1,0 +1,62 @@
+schemaVersion: 1
+id: beast_walk_right_8
+name: Beast quadruped walk right
+category: monster
+action: walk
+description: Side-view quadruped walk-in-place cycle facing right using a diagonal gait.
+frameCount: 8
+frameSize: [96, 96]
+view: side
+facing: right
+promptRules:
+  - Walk in place facing right; all four legs stay visible and the body stays horizontally centered.
+  - Use a diagonal gait; the front-left and hind-right legs move forward together and then the front-right and hind-left legs.
+  - At least one diagonal pair of feet touches the ground in every frame; no floating or sliding poses.
+  - The leg silhouette must visibly differ between consecutive frames and the spine sways slightly with each step.
+stages:
+  - frame: 1
+    label: diag-a-reach
+    intent: Front-left and hind-right legs reach forward while the other pair supports the body.
+    expectedBodyLevel: low
+    expectedActionZone: center
+  - frame: 2
+    label: diag-a-contact
+    intent: The reaching diagonal pair plants on the ground; body at its lowest.
+    expectedBodyLevel: low
+    expectedActionZone: low
+  - frame: 3
+    label: diag-a-push
+    intent: The planted pair pushes back while the other diagonal pair lifts.
+    expectedBodyLevel: low
+    expectedActionZone: center
+  - frame: 4
+    label: gather-a
+    intent: Legs gather under the body between steps; body rises slightly.
+    expectedBodyLevel: low
+    expectedActionZone: center
+  - frame: 5
+    label: diag-b-reach
+    intent: Front-right and hind-left legs reach forward; mirrors frame 1.
+    expectedBodyLevel: low
+    expectedActionZone: center
+  - frame: 6
+    label: diag-b-contact
+    intent: The second diagonal pair plants on the ground; body at its lowest.
+    expectedBodyLevel: low
+    expectedActionZone: low
+  - frame: 7
+    label: diag-b-push
+    intent: The planted pair pushes back while the first diagonal pair lifts.
+    expectedBodyLevel: low
+    expectedActionZone: center
+  - frame: 8
+    label: gather-b
+    intent: Legs gather under the body again; loops back to frame 1.
+    expectedBodyLevel: low
+    expectedActionZone: center
+scoring:
+  expectedDirection: none
+  primaryActionFrames: [1, 2, 3, 4, 5, 6, 7, 8]
+  recoveryFrames: []
+  stableAnchor: true
+  allowLowBodyFrames: [1, 2, 3, 4, 5, 6, 7, 8]

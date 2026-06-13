@@ -1,0 +1,764 @@
+profile_id: snes16_platformer_v1
+version: 1
+base_resolution: [320, 180]
+tile_size: [16, 16]
+sprite_sizes:
+  player: [32, 32]
+  small_enemy: [32, 32]
+  large_enemy: [64, 64]
+  rpg_character: [128, 128]
+  boss_summon: [256, 256]
+  item: [16, 16]
+prop_sizes:
+  field_prop: [32, 32]
+  large_prop: [64, 64]
+palette:
+  max_colors_per_sprite: 32
+  max_colors_per_tileset: 64
+  default_palette: palettes/snes_forest.json
+outline:
+  enabled: true
+  thickness_px: 1
+  color_role: outline_dark
+lighting:
+  direction: top_left
+  shadow_style: soft_pixel
+generation_presets:
+  player_idle_4:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 6
+    anchor: [16, 28]
+    hitbox: [8, 10, 16, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four-frame idle sprite sheet"
+      - "same character identity and scale in every frame"
+  player_walk_4dir_16:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 16
+    rows: 4
+    cols: 4
+    fps: 10
+    anchor: [16, 28]
+    hitbox: [8, 10, 16, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four directions, four frames per direction: row 1 walking down, row 2 walking left, row 3 walking right, row 4 walking up"
+      - "three-quarter RPG walk cycle using contact, passing, opposite contact, passing per direction"
+      - "same character identity and scale in every frame"
+    frame_prompts:
+      - "Walking down (facing the viewer), contact pose: right foot planted forward, left arm swung forward, body at its lowest point."
+      - "Walking down, passing pose: feet together under the body, arms by the sides, body one or two pixels higher."
+      - "Walking down, opposite contact pose: LEFT foot planted forward and RIGHT arm swung forward, mirroring frame 1."
+      - "Walking down, passing pose again: feet together under the body, slightly higher, loops back to frame 1."
+      - "Walking left (side view), contact pose: left foot planted flat forward, right arm swung forward, right foot trailing."
+      - "Walking left, passing pose: legs crossing under the body, body slightly higher."
+      - "Walking left, opposite contact pose: RIGHT foot planted flat forward, LEFT arm swung forward, mirroring frame 5."
+      - "Walking left, passing pose again: legs crossing under the body, slightly higher, loops back to frame 5."
+      - "Walking right (side view), contact pose: right foot planted flat forward, left arm swung forward, left foot trailing."
+      - "Walking right, passing pose: legs crossing under the body, body slightly higher."
+      - "Walking right, opposite contact pose: LEFT foot planted flat forward, RIGHT arm swung forward, mirroring frame 9."
+      - "Walking right, passing pose again: legs crossing under the body, slightly higher, loops back to frame 9."
+      - "Walking up (back view), contact pose: right foot planted forward, left arm swung forward."
+      - "Walking up, passing pose: feet together under the body, body slightly higher."
+      - "Walking up, opposite contact pose: LEFT foot planted forward and RIGHT arm swung forward, mirroring frame 13."
+      - "Walking up, passing pose again: feet together, slightly higher, loops back to frame 13."
+  player_walk_4dir_8:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 8
+    rows: 4
+    cols: 2
+    fps: 6
+    anchor: [16, 28]
+    hitbox: [8, 10, 16, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four directions, two alternating stride frames per direction: row 1 walking down, row 2 walking left, row 3 walking right, row 4 walking up"
+      - "three-quarter RPG walk cycle for a player character"
+      - "same player character identity and scale in every frame"
+    frame_prompts:
+      - "Walking down (facing the viewer), stride A: right foot planted forward, left arm swung forward, left foot trailing."
+      - "Walking down (facing the viewer), stride B: LEFT foot planted forward, RIGHT arm swung forward, mirroring the previous frame."
+      - "Walking left (side view), stride A: right foot planted forward, left arm swung forward, left foot trailing."
+      - "Walking left (side view), stride B: LEFT foot planted forward, RIGHT arm swung forward, mirroring the previous frame."
+      - "Walking right (side view), stride A: right foot planted forward, left arm swung forward, left foot trailing."
+      - "Walking right (side view), stride B: LEFT foot planted forward, RIGHT arm swung forward, mirroring the previous frame."
+      - "Walking up (back view), stride A: right foot planted forward, left arm swung forward, left foot trailing."
+      - "Walking up (back view), stride B: LEFT foot planted forward, RIGHT arm swung forward, mirroring the previous frame."
+  player_walk_4dir_32:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 32
+    rows: 4
+    cols: 8
+    fps: 12
+    anchor: [16, 28]
+    hitbox: [8, 10, 16, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four directions, eight smooth walk-cycle frames per direction: row 1 walking down, row 2 walking left, row 3 walking right, row 4 walking up"
+      - "three-quarter RPG walk cycle for a player character"
+      - "same player character identity and scale in every frame"
+    frame_prompts:
+      - "Walking down (facing the viewer), contact pose: right foot planted forward, left arm swung forward, body at its lowest point."
+      - "Walking down (facing the viewer), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking down (facing the viewer), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking down (facing the viewer), high point: body at its highest as the left leg reaches forward."
+      - "Walking down (facing the viewer), opposite contact pose: LEFT foot planted forward, RIGHT arm swung forward, mirroring the contact pose."
+      - "Walking down (facing the viewer), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking down (facing the viewer), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking down (facing the viewer), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+      - "Walking left (side view), contact pose: right foot planted forward, left arm swung forward, body at its lowest point."
+      - "Walking left (side view), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking left (side view), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking left (side view), high point: body at its highest as the left leg reaches forward."
+      - "Walking left (side view), opposite contact pose: LEFT foot planted forward, RIGHT arm swung forward, mirroring the contact pose."
+      - "Walking left (side view), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking left (side view), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking left (side view), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+      - "Walking right (side view), contact pose: right foot planted forward, left arm swung forward, body at its lowest point."
+      - "Walking right (side view), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking right (side view), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking right (side view), high point: body at its highest as the left leg reaches forward."
+      - "Walking right (side view), opposite contact pose: LEFT foot planted forward, RIGHT arm swung forward, mirroring the contact pose."
+      - "Walking right (side view), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking right (side view), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking right (side view), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+      - "Walking up (back view), contact pose: right foot planted forward, left arm swung forward, body at its lowest point."
+      - "Walking up (back view), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking up (back view), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking up (back view), high point: body at its highest as the left leg reaches forward."
+      - "Walking up (back view), opposite contact pose: LEFT foot planted forward, RIGHT arm swung forward, mirroring the contact pose."
+      - "Walking up (back view), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking up (back view), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking up (back view), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+  enemy_walk_4dir_8:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 8
+    rows: 4
+    cols: 2
+    fps: 6
+    anchor: [16, 28]
+    hitbox: [7, 9, 18, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four directions, two alternating stride frames per direction: row 1 walking down, row 2 walking left, row 3 walking right, row 4 walking up"
+      - "three-quarter RPG walk cycle for a small enemy"
+      - "same small enemy identity and scale in every frame"
+    frame_prompts:
+      - "Walking down (facing the viewer), stride A: right foot planted forward, left limb swung forward, left foot trailing."
+      - "Walking down (facing the viewer), stride B: LEFT foot planted forward, RIGHT limb swung forward, mirroring the previous frame."
+      - "Walking left (side view), stride A: right foot planted forward, left limb swung forward, left foot trailing."
+      - "Walking left (side view), stride B: LEFT foot planted forward, RIGHT limb swung forward, mirroring the previous frame."
+      - "Walking right (side view), stride A: right foot planted forward, left limb swung forward, left foot trailing."
+      - "Walking right (side view), stride B: LEFT foot planted forward, RIGHT limb swung forward, mirroring the previous frame."
+      - "Walking up (back view), stride A: right foot planted forward, left limb swung forward, left foot trailing."
+      - "Walking up (back view), stride B: LEFT foot planted forward, RIGHT limb swung forward, mirroring the previous frame."
+  enemy_walk_4dir_32:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 32
+    rows: 4
+    cols: 8
+    fps: 12
+    anchor: [16, 28]
+    hitbox: [7, 9, 18, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four directions, eight smooth walk-cycle frames per direction: row 1 walking down, row 2 walking left, row 3 walking right, row 4 walking up"
+      - "three-quarter RPG walk cycle for a small enemy"
+      - "same small enemy identity and scale in every frame"
+    frame_prompts:
+      - "Walking down (facing the viewer), contact pose: right foot planted forward, left limb swung forward, body at its lowest point."
+      - "Walking down (facing the viewer), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking down (facing the viewer), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking down (facing the viewer), high point: body at its highest as the left leg reaches forward."
+      - "Walking down (facing the viewer), opposite contact pose: LEFT foot planted forward, RIGHT limb swung forward, mirroring the contact pose."
+      - "Walking down (facing the viewer), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking down (facing the viewer), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking down (facing the viewer), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+      - "Walking left (side view), contact pose: right foot planted forward, left limb swung forward, body at its lowest point."
+      - "Walking left (side view), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking left (side view), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking left (side view), high point: body at its highest as the left leg reaches forward."
+      - "Walking left (side view), opposite contact pose: LEFT foot planted forward, RIGHT limb swung forward, mirroring the contact pose."
+      - "Walking left (side view), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking left (side view), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking left (side view), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+      - "Walking right (side view), contact pose: right foot planted forward, left limb swung forward, body at its lowest point."
+      - "Walking right (side view), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking right (side view), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking right (side view), high point: body at its highest as the left leg reaches forward."
+      - "Walking right (side view), opposite contact pose: LEFT foot planted forward, RIGHT limb swung forward, mirroring the contact pose."
+      - "Walking right (side view), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking right (side view), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking right (side view), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+      - "Walking up (back view), contact pose: right foot planted forward, left limb swung forward, body at its lowest point."
+      - "Walking up (back view), recoil: weight settles onto the planted right foot; the trailing left leg begins to lift."
+      - "Walking up (back view), passing pose: left leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking up (back view), high point: body at its highest as the left leg reaches forward."
+      - "Walking up (back view), opposite contact pose: LEFT foot planted forward, RIGHT limb swung forward, mirroring the contact pose."
+      - "Walking up (back view), recoil: weight settles onto the planted left foot; the trailing right leg begins to lift."
+      - "Walking up (back view), passing pose: right leg passes under the body, feet nearly together, body slightly higher."
+      - "Walking up (back view), high point: body at its highest as the right leg reaches forward; loops back to the contact pose."
+  small_enemy_idle_4:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 6
+    anchor: [16, 28]
+    hitbox: [7, 9, 18, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "compact readable enemy idle animation"
+  enemy_walk_4:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 8
+    anchor: [16, 28]
+    hitbox: [7, 9, 18, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four-frame side-view walk cycle for a small enemy"
+      - "same enemy identity and scale in every frame"
+      - "legged enemies alternate legs through contact, passing, opposite contact, passing; legless enemies use squash-and-stretch or bobbing instead"
+    frame_prompts:
+      - "Contact pose: leading foot (or body edge) planted forward, trailing limb behind, body at its lowest point."
+      - "Passing pose: limbs together under the body, body one or two pixels higher."
+      - "Opposite contact pose: the OTHER foot now planted forward, mirroring frame 1."
+      - "Passing pose again: limbs together, slightly higher, loops back to frame 1."
+  enemy_walk_4dir_16:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 16
+    rows: 4
+    cols: 4
+    fps: 10
+    anchor: [16, 28]
+    hitbox: [7, 9, 18, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "four directions, four frames per direction: row 1 walking down, row 2 walking left, row 3 walking right, row 4 walking up"
+      - "three-quarter RPG enemy walk cycle using contact, passing, opposite contact, passing per direction"
+      - "same enemy identity and scale in every frame"
+    frame_prompts:
+      - "Walking down (facing the viewer), contact pose: right foot planted forward, left limb swung forward, body at its lowest point."
+      - "Walking down, passing pose: feet together under the body, body one or two pixels higher."
+      - "Walking down, opposite contact pose: LEFT foot planted forward, RIGHT limb swung forward, mirroring frame 1."
+      - "Walking down, passing pose again: feet together, slightly higher, loops back to frame 1."
+      - "Walking left (side view), contact pose: left foot planted flat forward, right limb swung forward, right foot trailing."
+      - "Walking left, passing pose: legs crossing under the body, body slightly higher."
+      - "Walking left, opposite contact pose: RIGHT foot planted flat forward, LEFT limb swung forward, mirroring frame 5."
+      - "Walking left, passing pose again: legs crossing under the body, slightly higher, loops back to frame 5."
+      - "Walking right (side view), contact pose: right foot planted flat forward, left limb swung forward, left foot trailing."
+      - "Walking right, passing pose: legs crossing under the body, body slightly higher."
+      - "Walking right, opposite contact pose: LEFT foot planted flat forward, RIGHT limb swung forward, mirroring frame 9."
+      - "Walking right, passing pose again: legs crossing under the body, slightly higher, loops back to frame 9."
+      - "Walking up (back view), contact pose: right foot planted forward, left limb swung forward."
+      - "Walking up, passing pose: feet together under the body, body slightly higher."
+      - "Walking up, opposite contact pose: LEFT foot planted forward, RIGHT limb swung forward, mirroring frame 13."
+      - "Walking up, passing pose again: feet together, slightly higher, loops back to frame 13."
+  large_character_idle_4:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [64, 64]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 6
+    anchor: [32, 56]
+    hitbox: [18, 16, 28, 42]
+    requires_alpha: true
+    prompt_rules:
+      - "four-frame idle sprite sheet for a large character"
+      - "64x64 frame size, do not shrink the character to 32x32 scale"
+      - "same character identity, stance, and silhouette in every frame"
+  rpg_sword_attack_128_8:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [128, 128]
+    frames: 8
+    rows: 1
+    cols: 8
+    fps: 12
+    anchor: [64, 116]
+    hitbox: [42, 34, 44, 82]
+    requires_alpha: true
+    prompt_rules:
+      - "eight-frame sword attack animation sheet for an RPG battle character"
+      - "128x128 frame size, one row of eight frames"
+      - "action timing: ready, anticipation, wind-up, slash contact, follow-through, recovery"
+      - "same character identity, stance direction, scale, and weapon in every frame"
+    frame_prompts:
+      - "Ready stance: upright standing pose, sword low and fully visible, feet on the anchor line."
+      - "Raise start: sword begins lifting from low guard; body stays upright, no sudden crouch."
+      - "High wind-up: sword raised above or behind the shoulder, same body scale and facing."
+      - "Downslash start: sword descends from the high guard, full blade visible inside the frame."
+      - "Impact: blade reaches the longest diagonal or downward extension, tip and slash arc fully inside the cell."
+      - "Follow-through: sword continues across the body, full blade still visible and not cropped."
+      - "Recovery: sword lowers while the body returns toward neutral, feet remain stable."
+      - "Return-ready: upright ready stance close to frame 1, sword fully visible."
+  rpg_sword_attack_64body_128_8:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [128, 128]
+    frames: 8
+    rows: 1
+    cols: 8
+    fps: 12
+    anchor: [64, 112]
+    hitbox: [48, 52, 32, 60]
+    requires_alpha: true
+    prompt_rules:
+      - "eight-frame sword attack animation sheet for an RPG battle character"
+      - "128x128 frame size, one row of eight frames"
+      - "character body should read as roughly 64x64 within the 128x128 frame"
+      - "long sword and slash arc may extend across the frame but must remain fully inside each 128x128 cell"
+      - "same compact character identity, stance direction, scale, and foot anchor in every frame"
+    frame_prompts:
+      - "Ready stance: compact 64px body upright, sword low and fully visible, feet on the anchor line."
+      - "Raise start: body still upright, sword begins lifting from low guard; do not use a crouch pose."
+      - "High wind-up: sword raised behind or above the shoulder, body compact, feet stable."
+      - "Downslash start: sword descends from high guard, full blade visible inside the 128x128 cell."
+      - "Impact: sword reaches the longest diagonal or downward extension with tip and slash arc fully inside the cell."
+      - "Follow-through: sword finishes across the body, full blade still visible, no cropped tip."
+      - "Recovery: sword lowers while body returns toward neutral, no sudden crouch."
+      - "Return-ready: compact ready stance close to frame 1, sword fully visible."
+  motion_96_8:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [96, 96]
+    frames: 8
+    rows: 1
+    cols: 8
+    fps: 12
+    anchor: [48, 88]
+    hitbox: [28, 24, 40, 64]
+    requires_alpha: true
+    prompt_rules:
+      - "generic eight-frame motion study sprite sheet"
+      - "96x96 frame size, one row of eight frames"
+      - "follow the supplied motion spec exactly"
+      - "same identity, facing, scale, and readable silhouette in every frame"
+  motion_128_8:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [128, 128]
+    frames: 8
+    rows: 1
+    cols: 8
+    fps: 12
+    anchor: [64, 116]
+    hitbox: [40, 32, 48, 84]
+    requires_alpha: true
+    prompt_rules:
+      - "generic eight-frame large motion study sprite sheet"
+      - "128x128 frame size, one row of eight frames"
+      - "follow the supplied motion spec exactly"
+      - "same identity, facing, scale, and readable silhouette in every frame"
+  summon_idle_128_4:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [128, 128]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 6
+    anchor: [64, 116]
+    hitbox: [32, 24, 64, 92]
+    requires_alpha: true
+    prompt_rules:
+      - "four-frame idle sprite sheet for a large summon creature"
+      - "128x128 frame size, do not shrink the creature to small-character scale"
+      - "same creature identity, stance, and silhouette in every frame"
+  summon_idle_256_4:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [256, 256]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 6
+    anchor: [128, 236]
+    hitbox: [56, 36, 144, 196]
+    requires_alpha: true
+    prompt_rules:
+      - "four-frame idle sprite sheet for a boss-scale summon creature"
+      - "256x256 frame size, use the full frame for a huge readable silhouette"
+      - "same creature identity, stance, and silhouette in every frame"
+  spell_impact_4:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [32, 32]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 12
+    anchor: [16, 16]
+    hitbox: [4, 4, 24, 24]
+    requires_alpha: true
+    prompt_rules:
+      - "impact burst grows and dissipates"
+  single_block_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 1
+    rows: 1
+    cols: 1
+    collision: [0, 0, 16, 16]
+    requires_alpha: false
+    prompt_rules:
+      - "single seamless terrain block"
+      - "readable at 16x16"
+  village_path_transition_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: false
+    tile:
+      role: path-transition
+      solid: false
+      adjacency: grass-path
+    prompt_rules:
+      - "cohesive 4x4 terrain transition tileset for grass-to-path or grass-to-stone-road boundaries"
+      - "include center road variants, four edge tiles, four outer corners, inner corners, chipped edges, grass-overlap, and small decoration variants"
+      - "avoid straight rectangular bands; make edges broken, organic, and SFC-style while remaining tilemap-compatible"
+      - "do not draw grid lines, labels, or tile numbers"
+  village_ground_detail_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: true
+    tile:
+      role: ground-detail-overlay
+      solid: false
+      adjacency: decorative
+    prompt_rules:
+      - "cohesive 4x4 set of transparent low-noise ground detail overlay tiles for layering over grass, dirt, or roads"
+      - "include subtle grass clumps, flowers, pebbles, dirt speckles, worn path marks, and shadow accents"
+      - "details should cover only small parts of each tile so map placement can stay sparse"
+      - "avoid noisy full-tile patterns and obvious repeated stamps"
+  animated_water_4:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 6
+    collision: [0, 0, 16, 4]
+    requires_alpha: false
+    prompt_rules:
+      - "loopable four-frame water tile"
+  field_prop_32:
+    kind: field-prop
+    type: prop
+    frame_size: [32, 32]
+    frames: 1
+    rows: 1
+    cols: 1
+    anchor: [16, 28]
+    footprint: [8, 22, 16, 8]
+    requires_alpha: true
+    prompt_rules:
+      - "single field object with transparent background"
+      - "clear footprint for collision"
+  village_house_128_96:
+    kind: field-prop
+    type: prop
+    frame_size: [128, 96]
+    frames: 1
+    rows: 1
+    cols: 1
+    anchor: [64, 92]
+    footprint: [18, 72, 92, 20]
+    requires_alpha: true
+    prompt_rules:
+      - "single large village house object designed as one coherent building, not repeated wall/roof stamps"
+      - "SFC-style pixel-art house that may later be sliced into 16x16 engine tiles"
+      - "break the rectangular box silhouette with roof overhangs, chimney, uneven eaves, trim, windows, door detail, and grounding shadow"
+      - "use varied roof and wall texture, subtle dirt, shadow, and small props while keeping a readable collision footprint"
+  village_tree_64_80:
+    kind: field-prop
+    type: prop
+    frame_size: [64, 80]
+    frames: 1
+    rows: 1
+    cols: 1
+    anchor: [32, 76]
+    footprint: [22, 60, 20, 16]
+    requires_alpha: true
+    prompt_rules:
+      - "single large tree object with canopy, trunk, contact shadow, and foreground-overlap potential"
+      - "draw as one coherent object rather than stacked square tiles"
+      - "asymmetric canopy, leaf clusters, trunk shadow, and root details should reduce grid feeling"
+  world_grass_variation_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: false
+    tile:
+      role: world-grass-variation
+      solid: false
+      adjacency: regional-ground
+    prompt_rules:
+      - "world-map grassland variation tiles, not close-up village grass"
+      - "include broad color drift, subtle plains texture, sparse flowers, worn patches, and regional palette variation"
+      - "avoid a single repeated grass stamp or high-frequency checkerboard texture"
+  world_forest_mass_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: false
+    tile:
+      role: world-forest-mass
+      solid: false
+      adjacency: forest-grass
+    prompt_rules:
+      - "world-map forest mass tiles, not individual tree sprites"
+      - "include forest center, four edges, outer corners, inner corners, road cut-through, darker interior, and shadowed edge variants"
+      - "the forest should read as a geographic region with an organic outline"
+  world_coastline_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: false
+    tile:
+      role: world-coastline
+      solid: false
+      adjacency: land-water
+    prompt_rules:
+      - "world-map coastline tiles with curved land-water boundaries"
+      - "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants"
+      - "avoid straight vertical or horizontal strips of water next to land"
+  world_mountain_range_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: false
+    tile:
+      role: world-mountain-range
+      solid: false
+      adjacency: mountain-plain
+    prompt_rules:
+      - "world-map mountain and hill range tiles"
+      - "include peaks, ridges, foothills, valleys, pass openings, shadowed slopes, and small range clusters"
+      - "mountains should create route drama and region boundaries, not isolated repeated triangles"
+  world_landmark_icons_32:
+    kind: field-prop
+    type: prop
+    frame_size: [32, 32]
+    frames: 16
+    rows: 4
+    cols: 4
+    anchor: [16, 28]
+    footprint: [4, 22, 24, 8]
+    requires_alpha: true
+    prompt_rules:
+      - "4x4 world-map landmark icon sheet with symbolic readable scale"
+      - "include village, town, castle, cave, tower, port, ruins, bridge, shrine, and camp-style icons"
+      - "landmarks should be larger and more iconic than realistic scale, with clean silhouettes and transparent background"
+  dungeon_wall_variation_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    collision: [0, 0, 16, 16]
+    requires_alpha: false
+    tile:
+      role: dungeon-wall-variation
+      solid: true
+      adjacency: wall-floor
+    prompt_rules:
+      - "dungeon wall tiles with depth and uneven rock structure"
+      - "include wall center, edges, corners, cracks, protrusions, moss, ore veins, wet patches, rubble, and darker contact-shadow variants"
+      - "walls should be visually denser and darker than floors"
+  dungeon_floor_variation_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: false
+    tile:
+      role: dungeon-floor-variation
+      solid: false
+      adjacency: floor-detail
+    prompt_rules:
+      - "dungeon floor variation tiles for chambers and corridors"
+      - "include worn dirt or stone, small cracks, pebbles, footprints, damp patches, moss, broken stones, and subtle shadow variants"
+      - "floor texture should be lower density than wall texture and support room readability"
+  dungeon_light_overlay_16:
+    kind: terrain-tile
+    type: tile
+    frame_size: [16, 16]
+    frames: 16
+    rows: 4
+    cols: 4
+    requires_alpha: true
+    tile:
+      role: dungeon-light-overlay
+      solid: false
+      adjacency: light-shadow
+    prompt_rules:
+      - "transparent dungeon light and shadow overlay tiles"
+      - "include torch glow edges, small pools of warm light, wall-foot shadows, corner darkness, crystal glow, and soft vignette pieces"
+      - "keep effects subtle and reusable over floor and wall tiles"
+  dungeon_theme_props_32:
+    kind: field-prop
+    type: prop
+    frame_size: [32, 32]
+    frames: 16
+    rows: 4
+    cols: 4
+    anchor: [16, 28]
+    footprint: [6, 22, 20, 8]
+    requires_alpha: true
+    prompt_rules:
+      - "4x4 dungeon theme prop sheet with transparent background"
+      - "include torches, crystals, pillars, crates, barrels, rails, bones, rubble, mining tools, altar fragments, puddles, and moss clumps"
+      - "props should give rooms distinct purpose and avoid generic empty corridors"
+  battle_background_320_180:
+    kind: background-piece
+    type: background
+    frame_size: [320, 180]
+    frames: 1
+    rows: 1
+    cols: 1
+    requires_alpha: false
+    prompt_rules:
+      - "single SFC-style JRPG battle background with foreground, midground, background, and far-distance layers"
+      - "leave clean actor lanes and enemy lanes with readable ground contact cues"
+      - "no UI, no text, no characters, no enemies, and no command cursor"
+  battle_foreground_overlay_320_64:
+    kind: background-piece
+    type: background
+    frame_size: [320, 64]
+    frames: 1
+    rows: 1
+    cols: 1
+    requires_alpha: true
+    prompt_rules:
+      - "transparent battle foreground overlay for grass, flowers, shadow clumps, dust, or small rocks"
+      - "used to separate the fighting plane from the lower foreground without covering character feet"
+      - "solid #FF00FF background for alpha cleanup"
+  battle_ui_window_skin_160_64:
+    kind: ui-icon
+    type: ui
+    frame_size: [160, 64]
+    frames: 1
+    rows: 1
+    cols: 1
+    requires_alpha: false
+    prompt_rules:
+      - "SFC-style reusable battle window skin sample without baked text"
+      - "include 1px outer border, inner highlight, corner detail, subtle panel texture, and strong contrast for code-rendered labels and numbers"
+      - "do not draw HP, MP, ATB, names, numbers, or command words into the image"
+  breakable_prop_32:
+    kind: field-prop
+    type: prop
+    frame_size: [32, 32]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 10
+    anchor: [16, 28]
+    footprint: [8, 22, 16, 8]
+    requires_alpha: true
+    prompt_rules:
+      - "four-frame break animation for a small field object"
+  # ── 玉結び: 高解像度キャラモーション（256pxセル・4列×2行=8コマ/方向別生成） ──
+  hd_walk8_256:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [256, 256]
+    frames: 8
+    rows: 2
+    cols: 4
+    fps: 12
+    anchor: [128, 240]
+    hitbox: [88, 96, 80, 144]
+    requires_alpha: true
+    prompt_rules:
+      - "eight-frame walk cycle for ONE direction only, arranged in a 4x2 grid: TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right"
+      - "high-resolution 16-bit-plus pixel art, each frame about 256x256, character drawn LARGE filling most of the cell height with a small margin"
+      - "same character identity, facing and scale in every cell"
+  hd_motion8_256:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [256, 256]
+    frames: 8
+    rows: 2
+    cols: 4
+    fps: 12
+    anchor: [128, 240]
+    hitbox: [88, 96, 80, 144]
+    requires_alpha: true
+    prompt_rules:
+      - "eight-frame motion study for ONE direction only, arranged in a 4x2 grid: TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right"
+      - "high-resolution 16-bit-plus pixel art, each frame about 256x256, character drawn LARGE filling most of the cell height with a small margin"
+      - "follow the supplied motion phases exactly"
+      - "same character identity, facing and scale in every cell"
+  hd_bigframe4_512:
+    kind: animated-sprite
+    type: sprite
+    frame_size: [512, 512]
+    frames: 4
+    rows: 1
+    cols: 4
+    fps: 8
+    anchor: [256, 480]
+    hitbox: [176, 192, 160, 288]
+    requires_alpha: true
+    prompt_rules:
+      - "four-frame motion study in ONE horizontal row of 4 equal cells"
+      - "very high resolution pixel art, each frame about 512x512, subject drawn LARGE filling most of the cell with a small margin"
+      - "same subject identity and scale in every cell"
+naming:
+  sprite: "{category}_{name}_{animation}_{index}.png"
+  sheet: "{category}_{name}_{animation}_sheet.png"
+  tile: "{category}_{name}_tile.png"
+  prop: "{category}_{name}_prop.png"

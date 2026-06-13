@@ -1,0 +1,34 @@
+{
+  "assetId": "enemy.kitsunebi",
+  "presetId": "small_enemy_idle_4",
+  "preset": {
+    "kind": "animated-sprite",
+    "type": "sprite",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "rows": 1,
+    "cols": 4,
+    "fps": 6,
+    "anchor": [
+      16,
+      28
+    ],
+    "hitbox": [
+      7,
+      9,
+      18,
+      20
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "compact readable enemy idle animation"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Original pixel-art ENEMY sprite sheet for a bright mythical-Japan action RPG: a kitsunebi fox-fire spirit tainted by impurity - a floating ball of pale blue-white spectral flame with two small fox-ear flame tips, a pair of simple glowing amber eyes, and thin wisps of dark purple haze (the impurity) clinging to its lower half. Cute-eerie but NOT scary, readable silhouette. 4-frame hover loop: frame1 = neutral hover, frame2 = rises slightly, flame tips lean right, frame3 = highest point, flame flickers taller, frame4 = settles down, flame tips lean left (loops to frame1). Same identity and scale every frame, legless floating creature with squash-and-stretch. STRICT SHEET LAYOUT: one row of 4 equal cells, one creature per cell, centered with clear margin. No grid lines, no text.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

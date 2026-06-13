@@ -1,0 +1,1571 @@
+{
+  "schemaVersion": 1,
+  "profile": "snes16_platformer_v1",
+  "assets": [
+    {
+      "id": "bg.satoyama_sky",
+      "type": "background",
+      "path": "processed/backgrounds/bg_satoyama_sky/bg_satoyama_sky_battle_background_320_180_sheet.png",
+      "frameSize": [
+        320,
+        180
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "background-piece",
+        "background",
+        "bg_satoyama_sky"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "battle_background_320_180",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/bg.satoyama_sky/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/bg.satoyama_sky/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/backgrounds/bg_satoyama_sky/processor-meta.json"
+      }
+    },
+    {
+      "id": "bg.takamagahara_far",
+      "type": "background",
+      "path": "processed/backgrounds/bg_takamagahara_far/bg_takamagahara_far_battle_background_320_180_sheet.png",
+      "frameSize": [
+        320,
+        180
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "background-piece",
+        "background",
+        "bg_takamagahara_far"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "battle_background_320_180",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/bg.takamagahara_far/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/bg.takamagahara_far/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/backgrounds/bg_takamagahara_far/processor-meta.json"
+      }
+    },
+    {
+      "id": "boss.gankinoou",
+      "type": "sprite",
+      "path": "processed/sprites/boss_gankinoou/boss_gankinoou_hd_bigframe4_512_sheet.png",
+      "frameSize": [
+        512,
+        512
+      ],
+      "anchor": [
+        256,
+        480
+      ],
+      "hitbox": [
+        176,
+        192,
+        160,
+        288
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 8,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "boss_gankinoou"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_bigframe4_512",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/boss.gankinoou/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/boss.gankinoou/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/boss_gankinoou/processor-meta.json"
+      }
+    },
+    {
+      "id": "enemy.karakasa",
+      "type": "sprite",
+      "path": "processed/sprites/enemy_karakasa/enemy_karakasa_small_enemy_idle_4_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "hitbox": [
+        7,
+        9,
+        18,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 6,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "enemy_karakasa"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "small_enemy_idle_4",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/enemy.karakasa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/enemy.karakasa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/enemy_karakasa/processor-meta.json"
+      }
+    },
+    {
+      "id": "enemy.kitsunebi",
+      "type": "sprite",
+      "path": "processed/sprites/enemy_kitsunebi/enemy_kitsunebi_small_enemy_idle_4_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "hitbox": [
+        7,
+        9,
+        18,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 6,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "enemy_kitsunebi"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "small_enemy_idle_4",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/enemy.kitsunebi/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/enemy.kitsunebi/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/enemy_kitsunebi/processor-meta.json"
+      }
+    },
+    {
+      "id": "enemy.kodama",
+      "type": "sprite",
+      "path": "processed/sprites/enemy_kodama/enemy_kodama_small_enemy_idle_4_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "hitbox": [
+        7,
+        9,
+        18,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 6,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "enemy_kodama"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "small_enemy_idle_4",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/enemy.kodama/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/enemy.kodama/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/enemy_kodama/processor-meta.json"
+      }
+    },
+    {
+      "id": "fx.iai_wa",
+      "type": "sprite",
+      "path": "processed/sprites/fx_iai_wa/fx_iai_wa_spell_impact_4_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "hitbox": [
+        4,
+        4,
+        24,
+        24
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "fx_iai_wa"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "spell_impact_4",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/fx.iai_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/fx.iai_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/fx_iai_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "fx.slash_wa",
+      "type": "sprite",
+      "path": "processed/sprites/fx_slash_wa/fx_slash_wa_spell_impact_4_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "hitbox": [
+        4,
+        4,
+        24,
+        24
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "fx_slash_wa"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "spell_impact_4",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/fx.slash_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/fx.slash_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/fx_slash_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.atk8_down",
+      "type": "sprite",
+      "path": "processed/sprites/mito_atk_down/mito_atk_down_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_atk_down"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.atk8_down/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.atk8_down/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_atk_down/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.atk8_left",
+      "type": "sprite",
+      "path": "processed/sprites/mito_atk_left/mito_atk_left_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_atk_left"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.atk8_left/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.atk8_left/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_atk_left/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.atk8_up",
+      "type": "sprite",
+      "path": "processed/sprites/mito_atk_up/mito_atk_up_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_atk_up"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.atk8_up/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.atk8_up/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_atk_up/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.iai8_down",
+      "type": "sprite",
+      "path": "processed/sprites/mito_iai_down/mito_iai_down_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_iai_down"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.iai8_down/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.iai8_down/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_iai_down/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.iai8_left",
+      "type": "sprite",
+      "path": "processed/sprites/mito_iai_left/mito_iai_left_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_iai_left"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.iai8_left/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.iai8_left/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_iai_left/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.iai8_up",
+      "type": "sprite",
+      "path": "processed/sprites/mito_iai_up/mito_iai_up_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_iai_up"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.iai8_up/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.iai8_up/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_iai_up/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.idle8_down",
+      "type": "sprite",
+      "path": "processed/sprites/mito_idle_down/mito_idle_down_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_idle_down"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.idle8_down/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.idle8_down/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_idle_down/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.idle8_left",
+      "type": "sprite",
+      "path": "processed/sprites/mito_idle_left/mito_idle_left_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_idle_left"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.idle8_left/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.idle8_left/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_idle_left/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.idle8_up",
+      "type": "sprite",
+      "path": "processed/sprites/mito_idle_up/mito_idle_up_hd_motion8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_idle_up"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_motion8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.idle8_up/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.idle8_up/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_idle_up/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.walk8_down",
+      "type": "sprite",
+      "path": "processed/sprites/mito_walk_down/mito_walk_down_hd_walk8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_walk_down"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_walk8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.walk8_down/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_walk_down/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.walk8_left",
+      "type": "sprite",
+      "path": "processed/sprites/mito_walk_left/mito_walk_left_hd_walk8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_walk_left"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_walk8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.walk8_left/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.walk8_left/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_walk_left/processor-meta.json"
+      }
+    },
+    {
+      "id": "mito.walk8_up",
+      "type": "sprite",
+      "path": "processed/sprites/mito_walk_up/mito_walk_up_hd_walk8_256_sheet.png",
+      "frameSize": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        240
+      ],
+      "hitbox": [
+        88,
+        96,
+        80,
+        144
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "fps": 12,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "mito_walk_up"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "hd_walk8_256",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.walk8_up/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.walk8_up/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/mito_walk_up/processor-meta.json"
+      }
+    },
+    {
+      "id": "npc.suzushiro",
+      "type": "sprite",
+      "path": "processed/sprites/npc_suzushiro/npc_suzushiro_player_idle_4_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "hitbox": [
+        8,
+        10,
+        16,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 6,
+          "loop": true
+        }
+      },
+      "tags": [
+        "animated-sprite",
+        "sprite",
+        "npc_suzushiro"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "player_idle_4",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/npc.suzushiro/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/npc.suzushiro/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/sprites/npc_suzushiro/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.bamboo",
+      "type": "prop",
+      "path": "processed/props/obj_bamboo/obj_bamboo_village_tree_64_80_sheet.png",
+      "frameSize": [
+        64,
+        80
+      ],
+      "anchor": [
+        32,
+        76
+      ],
+      "footprint": [
+        22,
+        60,
+        20,
+        16
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_bamboo"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_tree_64_80",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bamboo/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bamboo/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_bamboo/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.goshinboku",
+      "type": "prop",
+      "path": "processed/props/obj_goshinboku/obj_goshinboku_village_tree_64_80_sheet.png",
+      "frameSize": [
+        64,
+        80
+      ],
+      "anchor": [
+        32,
+        76
+      ],
+      "footprint": [
+        22,
+        60,
+        20,
+        16
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_goshinboku"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_tree_64_80",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.goshinboku/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.goshinboku/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_goshinboku/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.hibiiwa",
+      "type": "prop",
+      "path": "processed/props/obj_hibiiwa/obj_hibiiwa_breakable_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 10,
+          "loop": true
+        }
+      },
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_hibiiwa"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "breakable_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.hibiiwa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.hibiiwa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_hibiiwa/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.hokora",
+      "type": "prop",
+      "path": "processed/props/obj_hokora/obj_hokora_village_house_128_96_sheet.png",
+      "frameSize": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        92
+      ],
+      "footprint": [
+        18,
+        72,
+        92,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_hokora"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_house_128_96",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.hokora/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.hokora/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_hokora/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.matsu",
+      "type": "prop",
+      "path": "processed/props/obj_matsu/obj_matsu_village_tree_64_80_sheet.png",
+      "frameSize": [
+        64,
+        80
+      ],
+      "anchor": [
+        32,
+        76
+      ],
+      "footprint": [
+        22,
+        60,
+        20,
+        16
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_matsu"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_tree_64_80",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.matsu/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.matsu/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_matsu/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.minka_a",
+      "type": "prop",
+      "path": "processed/props/obj_minka_a/obj_minka_a_village_house_128_96_sheet.png",
+      "frameSize": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        92
+      ],
+      "footprint": [
+        18,
+        72,
+        92,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_minka_a"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_house_128_96",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.minka_a/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.minka_a/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_minka_a/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.minka_b",
+      "type": "prop",
+      "path": "processed/props/obj_minka_b/obj_minka_b_village_house_128_96_sheet.png",
+      "frameSize": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        92
+      ],
+      "footprint": [
+        18,
+        72,
+        92,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_minka_b"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_house_128_96",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.minka_b/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.minka_b/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_minka_b/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.sign_wa",
+      "type": "prop",
+      "path": "processed/props/obj_sign_wa/obj_sign_wa_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_sign_wa"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.sign_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.sign_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_sign_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.suisha",
+      "type": "prop",
+      "path": "processed/props/obj_suisha/obj_suisha_village_house_128_96_sheet.png",
+      "frameSize": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        92
+      ],
+      "footprint": [
+        18,
+        72,
+        92,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_suisha"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_house_128_96",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.suisha/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.suisha/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_suisha/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.tourou",
+      "type": "prop",
+      "path": "processed/props/obj_tourou/obj_tourou_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_tourou"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.tourou/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.tourou/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_tourou/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.tsuzura",
+      "type": "prop",
+      "path": "processed/props/obj_tsuzura/obj_tsuzura_breakable_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 10,
+          "loop": true
+        }
+      },
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_tsuzura"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "breakable_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.tsuzura/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.tsuzura/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_tsuzura/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.tuft_wa",
+      "type": "prop",
+      "path": "processed/props/obj_tuft_wa/obj_tuft_wa_breakable_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {
+        "default": {
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "fps": 10,
+          "loop": true
+        }
+      },
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_tuft_wa"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "breakable_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.tuft_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.tuft_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_tuft_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "prop.torii",
+      "type": "prop",
+      "path": "processed/props/prop_torii/prop_torii_village_house_128_96_sheet.png",
+      "frameSize": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        92
+      ],
+      "footprint": [
+        18,
+        72,
+        92,
+        20
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "prop_torii"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_house_128_96",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/prop.torii/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/prop.torii/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/prop_torii/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.detail_wa",
+      "type": "tile",
+      "path": "processed/tiles/tile_detail_wa/tile_detail_wa_world_grass_variation_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "tile_detail_wa"
+      ],
+      "tile": {
+        "role": "world-grass-variation",
+        "solid": false,
+        "adjacency": "regional-ground"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_grass_variation_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.detail_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.detail_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/tile_detail_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.forest_wa",
+      "type": "tile",
+      "path": "processed/tiles/tile_forest_wa/tile_forest_wa_world_forest_mass_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "tile_forest_wa"
+      ],
+      "tile": {
+        "role": "world-forest-mass",
+        "solid": false,
+        "adjacency": "forest-grass"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_forest_mass_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.forest_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.forest_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/tile_forest_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.grass_wa",
+      "type": "tile",
+      "path": "processed/tiles/tile_grass_wa/tile_grass_wa_world_grass_variation_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "tile_grass_wa"
+      ],
+      "tile": {
+        "role": "world-grass-variation",
+        "solid": false,
+        "adjacency": "regional-ground"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_grass_variation_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.grass_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.grass_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/tile_grass_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.path_wa",
+      "type": "tile",
+      "path": "processed/tiles/tile_path_wa/tile_path_wa_village_path_transition_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "tile_path_wa"
+      ],
+      "tile": {
+        "role": "path-transition",
+        "solid": false,
+        "adjacency": "grass-path"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "village_path_transition_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.path_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.path_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/tile_path_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.water_edge_wa",
+      "type": "tile",
+      "path": "processed/tiles/tile_water_edge_wa/tile_water_edge_wa_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "tile_water_edge_wa"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.water_edge_wa/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.water_edge_wa/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/tile_water_edge_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "ui.icon_harai",
+      "type": "prop",
+      "path": "processed/props/ui_icon_harai/ui_icon_harai_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "ui_icon_harai"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/ui.icon_harai/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/ui.icon_harai/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/ui_icon_harai/processor-meta.json"
+      }
+    }
+  ]
+}

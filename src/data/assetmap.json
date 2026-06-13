@@ -1,0 +1,345 @@
+{
+  "bg.sky": {
+    "cols": 1,
+    "file": "bg_sky.png",
+    "frameH": 517,
+    "frameW": 1672,
+    "frames": 1
+  },
+  "bg.takamagahara": {
+    "cols": 1,
+    "file": "bg_takamagahara.png",
+    "frameH": 355,
+    "frameW": 1589,
+    "frames": 1
+  },
+  "bg.title": {
+    "cols": 1,
+    "file": "bg_title.png",
+    "frameH": 1086,
+    "frameW": 1448,
+    "frames": 1
+  },
+  "boss.gankinoou": {
+    "cols": 4,
+    "file": "boss_gankinoou.png",
+    "frameH": 570,
+    "frameW": 570,
+    "frames": 4
+  },
+  "drop.gem": {
+    "cols": 1,
+    "file": "drop_gem.png",
+    "frameH": 96,
+    "frameW": 96,
+    "frames": 1
+  },
+  "drop.heart": {
+    "cols": 1,
+    "file": "drop_heart.png",
+    "frameH": 96,
+    "frameW": 96,
+    "frames": 1
+  },
+  "enemy.karakasa": {
+    "cols": 4,
+    "file": "enemy_karakasa.png",
+    "frameH": 208,
+    "frameW": 208,
+    "frames": 4
+  },
+  "enemy.kitsunebi": {
+    "cols": 4,
+    "file": "enemy_kitsunebi.png",
+    "frameH": 192,
+    "frameW": 192,
+    "frames": 4
+  },
+  "enemy.kodama": {
+    "cols": 4,
+    "file": "enemy_kodama.png",
+    "frameH": 176,
+    "frameW": 176,
+    "frames": 4
+  },
+  "fx.charge": {
+    "cols": 4,
+    "file": "fx_charge.png",
+    "frameH": 288,
+    "frameW": 288,
+    "frames": 4
+  },
+  "fx.explosion": {
+    "cols": 4,
+    "file": "fx_explosion.png",
+    "frameH": 448,
+    "frameW": 448,
+    "frames": 4
+  },
+  "fx.heal": {
+    "cols": 4,
+    "file": "fx_heal.png",
+    "frameH": 240,
+    "frameW": 240,
+    "frames": 4
+  },
+  "fx.hit": {
+    "cols": 4,
+    "file": "fx_hit.png",
+    "frameH": 192,
+    "frameW": 192,
+    "frames": 4
+  },
+  "fx.iai_wa": {
+    "cols": 4,
+    "file": "fx_iai_wa.png",
+    "frameH": 448,
+    "frameW": 448,
+    "frames": 4
+  },
+  "fx.poof": {
+    "cols": 4,
+    "file": "fx_poof.png",
+    "frameH": 224,
+    "frameW": 224,
+    "frames": 4
+  },
+  "fx.rock": {
+    "cols": 4,
+    "file": "fx_rock.png",
+    "frameH": 224,
+    "frameW": 224,
+    "frames": 4
+  },
+  "fx.shock": {
+    "cols": 4,
+    "file": "fx_shock.png",
+    "frameH": 288,
+    "frameW": 288,
+    "frames": 4
+  },
+  "fx.slash": {
+    "cols": 4,
+    "file": "fx_slash_wa.png",
+    "frameH": 320,
+    "frameW": 320,
+    "frames": 4
+  },
+  "fx.spin": {
+    "cols": 4,
+    "file": "fx_spin.png",
+    "frameH": 448,
+    "frameW": 448,
+    "frames": 4
+  },
+  "fx.spore": {
+    "cols": 4,
+    "file": "fx_spore.png",
+    "frameH": 192,
+    "frameW": 192,
+    "frames": 4
+  },
+  "fx.thrust": {
+    "cols": 4,
+    "file": "fx_thrust.png",
+    "frameH": 288,
+    "frameW": 288,
+    "frames": 4
+  },
+  "item.berry": {
+    "cols": 1,
+    "file": "item_berry.png",
+    "frameH": 176,
+    "frameW": 176,
+    "frames": 1
+  },
+  "mito.atk": {
+    "cols": 32,
+    "file": "mito_atk.png",
+    "frameH": 320,
+    "frameW": 320,
+    "frames": 32
+  },
+  "mito.iai": {
+    "cols": 32,
+    "file": "mito_iai.png",
+    "frameH": 320,
+    "frameW": 320,
+    "frames": 32
+  },
+  "mito.idle": {
+    "cols": 32,
+    "file": "mito_idle.png",
+    "frameH": 240,
+    "frameW": 240,
+    "frames": 32
+  },
+  "mito.walk": {
+    "cols": 32,
+    "file": "mito_walk.png",
+    "frameH": 240,
+    "frameW": 240,
+    "frames": 32
+  },
+  "npc.suzushiro": {
+    "cols": 4,
+    "file": "npc_suzushiro.png",
+    "frameH": 200,
+    "frameW": 200,
+    "frames": 4
+  },
+  "obj.bamboo": {
+    "cols": 1,
+    "file": "obj_bamboo.png",
+    "frameH": 576,
+    "frameW": 384,
+    "frames": 1
+  },
+  "obj.chest": {
+    "cols": 4,
+    "file": "obj_tsuzura.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 4
+  },
+  "obj.grass_tuft": {
+    "cols": 4,
+    "file": "obj_tuft_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 4
+  },
+  "obj.hibiiwa": {
+    "cols": 4,
+    "file": "obj_hibiiwa.png",
+    "frameH": 160,
+    "frameW": 160,
+    "frames": 4
+  },
+  "obj.hokora": {
+    "cols": 1,
+    "file": "obj_hokora.png",
+    "frameH": 384,
+    "frameW": 320,
+    "frames": 1
+  },
+  "obj.lantern": {
+    "cols": 1,
+    "file": "obj_tourou.png",
+    "frameH": 256,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.minka_a": {
+    "cols": 1,
+    "file": "obj_minka_a.png",
+    "frameH": 336,
+    "frameW": 448,
+    "frames": 1
+  },
+  "obj.minka_b": {
+    "cols": 1,
+    "file": "obj_minka_b.png",
+    "frameH": 336,
+    "frameW": 448,
+    "frames": 1
+  },
+  "obj.sign": {
+    "cols": 1,
+    "file": "obj_sign_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.torii": {
+    "cols": 1,
+    "file": "obj_torii.png",
+    "frameH": 384,
+    "frameW": 512,
+    "frames": 1
+  },
+  "obj.tree_blossom": {
+    "cols": 1,
+    "file": "obj_tree_blossom.png",
+    "frameH": 576,
+    "frameW": 448,
+    "frames": 1
+  },
+  "obj.tree_oak": {
+    "cols": 1,
+    "file": "obj_goshinboku.png",
+    "frameH": 576,
+    "frameW": 448,
+    "frames": 1
+  },
+  "obj.tree_pine": {
+    "cols": 1,
+    "file": "obj_matsu.png",
+    "frameH": 576,
+    "frameW": 384,
+    "frames": 1
+  },
+  "obj.windmill": {
+    "cols": 1,
+    "file": "obj_suisha.png",
+    "frameH": 576,
+    "frameW": 448,
+    "frames": 1
+  },
+  "tile.cliff_set": {
+    "cols": 16,
+    "file": "tile_forest_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.flower_detail": {
+    "cols": 16,
+    "file": "tile_detail_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.forest_edge_set": {
+    "cols": 16,
+    "file": "tile_forest_edge_set.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.grass": {
+    "cols": 16,
+    "file": "tile_grass_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.grass_detail": {
+    "cols": 16,
+    "file": "tile_detail_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.path_set": {
+    "cols": 16,
+    "file": "tile_path_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.water_edge_set": {
+    "cols": 16,
+    "file": "tile_water_edge_wa.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "ui.icon_sword": {
+    "cols": 1,
+    "file": "ui_icon_harai.png",
+    "frameH": 176,
+    "frameW": 176,
+    "frames": 1
+  }
+}

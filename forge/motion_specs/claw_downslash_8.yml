@@ -1,0 +1,28 @@
+schemaVersion: 1
+id: claw_downslash_8
+name: Monster claw downslash
+category: monster
+action: claw_downslash
+description: Monster raises a claw overhead and slashes downward in front of the body.
+frameCount: 8
+frameSize: [128, 128]
+view: side
+facing: right
+promptRules:
+  - Claw must move from overhead to front-low, not behind the body.
+  - The monster should keep the same facing direction.
+stages:
+  - { frame: 1, label: ready, intent: Claw ready near torso, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 2, label: raise, intent: Claw rises, expectedBodyLevel: upright, expectedActionZone: overhead }
+  - { frame: 3, label: high-threat, intent: Claw reaches overhead, expectedBodyLevel: upright, expectedActionZone: overhead }
+  - { frame: 4, label: drop, intent: Claw descends through front, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 5, label: impact, intent: Claw strikes low front, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 6, label: follow-through, intent: Claw continues low, expectedBodyLevel: upright, expectedActionZone: low }
+  - { frame: 7, label: recover, intent: Claw starts returning, expectedBodyLevel: upright, expectedActionZone: center }
+  - { frame: 8, label: ready, intent: Return to ready, expectedBodyLevel: upright, expectedActionZone: front }
+scoring:
+  expectedDirection: down
+  primaryActionFrames: [2, 3, 4, 5, 6]
+  recoveryFrames: [6, 7, 8]
+  stableAnchor: true
+  allowLowBodyFrames: []

@@ -1,0 +1,68 @@
+schemaVersion: 1
+id: human_sword_slash_right_8
+name: Human side-view sword slash right
+category: human
+action: sword_slash
+description: Side-view human sword attack that cuts from left to right across the body front.
+frameCount: 8
+frameSize: [128, 128]
+view: side
+facing: right
+promptRules:
+  - Keep the character facing right in every frame.
+  - The sword path must stay in front of the face and torso during the main slash.
+  - Do not reset into a new guard after impact; frames 6 and 7 are follow-through and recovery.
+  - The sword must remain visible and attached to the hands in every frame; no missing or disappearing weapon.
+  - Use a sword for this action even if the subject archetype suggests a spear, staff, or polearm.
+  - Slash effect pixels are allowed only as a compact connected blade trail during frames 4-6; no detached sparks, dots, seam slivers, or residue islands.
+  - If the slash arc would exceed the cell, shorten the effect and keep the blade visible instead of clipping or spilling into another cell.
+stages:
+  - frame: 1
+    label: ready
+    intent: Upright ready stance with sword low.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+  - frame: 2
+    label: raise-start
+    intent: Sword starts rising while the body stays upright.
+    expectedBodyLevel: upright
+    expectedActionZone: front
+    forbidden: ["crouch"]
+  - frame: 3
+    label: high-windup
+    intent: Sword reaches the high point behind or above the head.
+    expectedBodyLevel: upright
+    expectedActionZone: overhead
+  - frame: 4
+    label: downslash-start
+    intent: Sword starts moving down through the body front; any slash arc is short, connected to the blade, and fully contained.
+    expectedBodyLevel: upright
+    expectedActionZone: front
+    forbidden: ["behind_body"]
+  - frame: 5
+    label: impact
+    intent: Main left-to-right slash in front of the face and torso, with compact connected impact pixels only.
+    expectedBodyLevel: upright
+    expectedActionZone: front
+  - frame: 6
+    label: follow-through
+    intent: Blade continues down and right after impact; no guard reset and no isolated effect residue.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+    forbidden: ["reset_to_guard"]
+  - frame: 7
+    label: recovery
+    intent: Sword lowers as the body settles in a mid-recovery pose, not a copied ready pose.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+  - frame: 8
+    label: return-ready
+    intent: Return near ready stance with the sword still visible.
+    expectedBodyLevel: upright
+    expectedActionZone: low
+scoring:
+  expectedDirection: right
+  primaryActionFrames: [2, 3, 4, 5, 6]
+  recoveryFrames: [6, 7, 8]
+  stableAnchor: true
+  allowLowBodyFrames: []

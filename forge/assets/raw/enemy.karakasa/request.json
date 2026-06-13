@@ -1,0 +1,34 @@
+{
+  "assetId": "enemy.karakasa",
+  "presetId": "small_enemy_idle_4",
+  "preset": {
+    "kind": "animated-sprite",
+    "type": "sprite",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 4,
+    "rows": 1,
+    "cols": 4,
+    "fps": 6,
+    "anchor": [
+      16,
+      28
+    ],
+    "hitbox": [
+      7,
+      9,
+      18,
+      20
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "compact readable enemy idle animation"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. Original pixel-art ENEMY sprite sheet: a karakasa-obake (one-legged umbrella yokai) tainted by impurity - an old vermilion-and-white oiled-paper umbrella with one big sleepy eye, a long tongue sticking out playfully, hopping on a single sandal-wearing leg, thin wisps of dark purple haze clinging to its hem. Cute-mischievous, NOT scary. 4-frame hop loop in one row of 4 equal cells: frame1 = crouched on its leg, frame2 = springing up, umbrella canopy squashed, frame3 = airborne, canopy stretched open, frame4 = landing, canopy flutters (loops). Same identity and scale every frame. No text.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

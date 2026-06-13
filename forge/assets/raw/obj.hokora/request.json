@@ -1,0 +1,36 @@
+{
+  "assetId": "obj.hokora",
+  "presetId": "village_house_128_96",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      128,
+      96
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      64,
+      92
+    ],
+    "footprint": [
+      18,
+      72,
+      92,
+      20
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single large village house object designed as one coherent building, not repeated wall/roof stamps",
+      "SFC-style pixel-art house that may later be sliced into 16x16 engine tiles",
+      "break the rectangular box silhouette with roof overhangs, chimney, uneven eaves, trim, windows, door detail, and grounding shadow",
+      "use varied roof and wall texture, subtle dirt, shadow, and small props while keeping a readable collision footprint"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. ONE small Japanese roadside shrine (hokora) as a single coherent pixel-art object: a miniature wooden shrine hut on a stone base, tiny vermilion torii in front, a small sacred rope with white paper streamers across its eaves, a softly GLOWING warm light inside its little door (the yorishiro light), moss on the stone, soft contact shadow. Front view, fills most of the canvas with margin. No text.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

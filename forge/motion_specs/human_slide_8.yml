@@ -1,0 +1,28 @@
+schemaVersion: 1
+id: human_slide_8
+name: Human side-view slide
+category: human
+action: slide
+description: Low side-view sliding motion moving right with a clear low silhouette.
+frameCount: 8
+frameSize: [96, 96]
+view: side
+facing: right
+promptRules:
+  - The body drops low then travels right along the ground.
+  - Do not turn the character toward the camera.
+stages:
+  - { frame: 1, label: ready, intent: Upright ready stance, expectedBodyLevel: upright, expectedActionZone: center }
+  - { frame: 2, label: drop, intent: Body starts dropping into slide, expectedBodyLevel: low, expectedActionZone: low }
+  - { frame: 3, label: slide-start, intent: Low body starts moving right, expectedBodyLevel: low, expectedActionZone: low }
+  - { frame: 4, label: slide-mid, intent: Fast low movement to the right, expectedBodyLevel: low, expectedActionZone: low }
+  - { frame: 5, label: slide-extend, intent: Longest low sliding pose, expectedBodyLevel: low, expectedActionZone: low }
+  - { frame: 6, label: slide-end, intent: Slide slows while still low, expectedBodyLevel: low, expectedActionZone: low }
+  - { frame: 7, label: rise, intent: Body starts rising from slide, expectedBodyLevel: low, expectedActionZone: center }
+  - { frame: 8, label: recovery, intent: Return to standing, expectedBodyLevel: upright, expectedActionZone: center }
+scoring:
+  expectedDirection: right
+  primaryActionFrames: [2, 3, 4, 5, 6]
+  recoveryFrames: [7, 8]
+  stableAnchor: false
+  allowLowBodyFrames: [2, 3, 4, 5, 6, 7]

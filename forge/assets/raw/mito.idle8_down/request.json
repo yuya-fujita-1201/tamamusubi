@@ -1,0 +1,38 @@
+{
+  "assetId": "mito.idle8_down",
+  "presetId": "hd_motion8_256",
+  "preset": {
+    "kind": "animated-sprite",
+    "type": "sprite",
+    "frame_size": [
+      256,
+      256
+    ],
+    "frames": 8,
+    "rows": 2,
+    "cols": 4,
+    "fps": 12,
+    "anchor": [
+      128,
+      240
+    ],
+    "hitbox": [
+      88,
+      96,
+      80,
+      144
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "eight-frame motion study for ONE direction only, arranged in a 4x2 grid: TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right",
+      "high-resolution 16-bit-plus pixel art, each frame about 256x256, character drawn LARGE filling most of the cell height with a small margin",
+      "follow the supplied motion phases exactly",
+      "same character identity, facing and scale in every cell"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Original high-resolution pixel-art PLAYER IDLE (breathing) sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing DOWN (toward the viewer, face visible). the hero Mito: an androgynous 15-year-old wanderer with ink-black short hair tied into a tiny low ponytail at the nape, a vermilion braided-cord hair ornament, and calm amber eyes. Outfit (bright fantasy-Japanese traveler, NOT samurai, NOT ninja): white tube-sleeved top, a short indigo-blue haori jacket with small vermilion braided-cord knots on the sleeves and hem, loose young-leaf-green hakama trousers tucked into dark leggings with red cord ties, light travel sandals, a vermilion braided cord worn as a belt-sash with a small tassel, and a necklace with three pale-green magatama beads. At his left hip hangs a sheathed short ritual sword in a WHITE scabbard wrapped with a thin sacred rope and tiny white paper streamers - it reads as a festival ritual implement, not a samurai katana. CRITICAL PROPORTION RULE: the proportions and body width of the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same slim-but-sturdy balance, same total height. NOT wider, NOT stockier than the reference, EXACTLY the same head size, total height and body width in every frame. Standing relaxed and natural, feet CLOSE together only about shoulder-width apart, legs nearly vertical - NOT a wide horse stance, NOT braced for combat - and the feet NEVER move, the sword sheathed at his hip. 8-frame subtle BREATHING LOOP: frame1 = neutral stance, frame2 = slow inhale, chest and shoulders rise 1-2px, frame3 = inhale peak, head lifts 1px, frame4 = breath held, cord tassels drift, frame5 = exhale begins, shoulders settle, frame6 = lowest relaxed point, body 1-2px lower than neutral, frame7 = calm blink (eyes closed) while the body returns toward neutral, frame8 = eyes open, back to the neutral stance so the loop repeats seamlessly. The haori hem, the vermilion cord tassels and the small paper streamers on the sword sway very subtly throughout. The silhouette change between frames is SMALL and smooth - this is a quiet idle, not an action. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, centered with clear empty margin on all four sides, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "referenceImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+  "provider": "codex-imagegen"
+}

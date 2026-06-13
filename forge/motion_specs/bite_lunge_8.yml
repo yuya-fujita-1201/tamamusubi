@@ -1,0 +1,28 @@
+schemaVersion: 1
+id: bite_lunge_8
+name: Monster bite lunge right
+category: monster
+action: bite_lunge
+description: Monster head lunges right, bites, then pulls back.
+frameCount: 8
+frameSize: [128, 128]
+view: side
+facing: right
+promptRules:
+  - The head and jaw should lead the motion to the right.
+  - Avoid changing the monster into a front-facing pose.
+stages:
+  - { frame: 1, label: ready, intent: Closed jaw ready, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 2, label: open, intent: Jaw opens, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 3, label: lunge-start, intent: Head moves right, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 4, label: lunge, intent: Head reaches forward, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 5, label: bite, intent: Jaw closes at farthest reach, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 6, label: pullback, intent: Head starts returning, expectedBodyLevel: upright, expectedActionZone: front }
+  - { frame: 7, label: recover, intent: Jaw relaxes, expectedBodyLevel: upright, expectedActionZone: center }
+  - { frame: 8, label: ready, intent: Return to ready, expectedBodyLevel: upright, expectedActionZone: front }
+scoring:
+  expectedDirection: right
+  primaryActionFrames: [2, 3, 4, 5]
+  recoveryFrames: [6, 7, 8]
+  stableAnchor: true
+  allowLowBodyFrames: []

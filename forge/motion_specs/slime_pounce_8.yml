@@ -1,0 +1,29 @@
+schemaVersion: 1
+id: slime_pounce_8
+name: Slime squash-and-stretch pounce right
+category: fantasy
+action: slime_pounce
+description: Fictional slime compresses, stretches forward, lands, and rebounds.
+frameCount: 8
+frameSize: [96, 96]
+view: side
+facing: right
+promptRules:
+  - Use squash and stretch instead of legs.
+  - The mass should move right while keeping a readable slime identity.
+stages:
+  - { frame: 1, label: idle, intent: Rounded slime idle, expectedBodyLevel: upright, expectedActionZone: center }
+  - { frame: 2, label: squash, intent: Slime compresses before launch, expectedBodyLevel: squash, expectedActionZone: low }
+  - { frame: 3, label: stretch-launch, intent: Slime stretches up and right, expectedBodyLevel: airborne, expectedActionZone: front }
+  - { frame: 4, label: flight, intent: Slime mass travels right, expectedBodyLevel: airborne, expectedActionZone: front }
+  - { frame: 5, label: contact, intent: Slime lands forward, expectedBodyLevel: low, expectedActionZone: front }
+  - { frame: 6, label: splat, intent: Slime spreads on landing, expectedBodyLevel: squash, expectedActionZone: low }
+  - { frame: 7, label: rebound, intent: Slime regains shape, expectedBodyLevel: upright, expectedActionZone: center }
+  - { frame: 8, label: idle, intent: Rounded idle after pounce, expectedBodyLevel: upright, expectedActionZone: center }
+scoring:
+  expectedDirection: right
+  primaryActionFrames: [2, 3, 4, 5]
+  recoveryFrames: [6, 7, 8]
+  stableAnchor: false
+  allowLowBodyFrames: [2, 5, 6]
+  allowSquashStretch: true

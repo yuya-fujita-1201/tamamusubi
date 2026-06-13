@@ -1,0 +1,21 @@
+# 依存・ビルド成果物
+node_modules/
+dist/
+
+# BGM の WAV マスター原本（巨大・public/bgm に OGG 変換済み）
+sound/
+
+# 生成パイプラインの中間処理物（proc_*.py / build_mito.py で再生成可）
+# ※ raw は次セッションのミト等身・色味再調整に必須なので残す
+forge/assets/hd/
+forge/assets/hd_phase0/
+forge/assets/hd_wa/
+forge/assets/build/
+forge/assets/processed/
+forge/logs/
+forge/gen_results.json
+
+# OS / エディタ
+.DS_Store
+**/.DS_Store
+*.swp

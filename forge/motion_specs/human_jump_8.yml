@@ -1,0 +1,28 @@
+schemaVersion: 1
+id: human_jump_8
+name: Human side-view jump
+category: human
+action: jump
+description: Side-view jump with crouch anticipation, airborne apex, landing, and recovery.
+frameCount: 8
+frameSize: [96, 96]
+view: side
+facing: right
+promptRules:
+  - The body moves upward then downward without changing identity.
+  - Landing should not teleport the feet sideways.
+stages:
+  - { frame: 1, label: ready, intent: Upright idle before jump, expectedBodyLevel: upright, expectedActionZone: center }
+  - { frame: 2, label: anticipation, intent: Controlled crouch before takeoff, expectedBodyLevel: crouch, expectedActionZone: low }
+  - { frame: 3, label: takeoff, intent: Feet leave ground and body rises, expectedBodyLevel: airborne, expectedActionZone: center }
+  - { frame: 4, label: rising, intent: Body continues upward, expectedBodyLevel: airborne, expectedActionZone: center }
+  - { frame: 5, label: apex, intent: Highest point of jump, expectedBodyLevel: airborne, expectedActionZone: center }
+  - { frame: 6, label: falling, intent: Body descends, expectedBodyLevel: airborne, expectedActionZone: center }
+  - { frame: 7, label: landing, intent: Feet contact ground with slight compression, expectedBodyLevel: low, expectedActionZone: low }
+  - { frame: 8, label: recovery, intent: Return upright, expectedBodyLevel: upright, expectedActionZone: center }
+scoring:
+  expectedDirection: up
+  primaryActionFrames: [2, 3, 4, 5]
+  recoveryFrames: [6, 7, 8]
+  stableAnchor: false
+  allowLowBodyFrames: [2, 7]

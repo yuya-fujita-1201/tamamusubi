@@ -1,0 +1,25 @@
+{
+  "assetId": "bg.takamagahara_far",
+  "presetId": "battle_background_320_180",
+  "preset": {
+    "kind": "background-piece",
+    "type": "background",
+    "frame_size": [
+      320,
+      180
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "requires_alpha": false,
+    "prompt_rules": [
+      "single SFC-style JRPG battle background with foreground, midground, background, and far-distance layers",
+      "leave clean actor lanes and enemy lanes with readable ground contact cues",
+      "no UI, no text, no characters, no enemies, and no command cursor"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Distant skyline SILHOUETTE band for a far parallax layer: a faint, pale, white-gold floating sky-city resting on top of a sea of clouds, seen from very far away near the horizon. Elegant shrine-like towers, thin spires and a great torii gate shape, all rendered as a soft bright silhouette with minimal detail, slightly luminous against the empty space. The silhouette band occupies the vertical middle of the image; everything that is not the city silhouette and its cloud base must be flat solid #FF00FF magenta so it can be chroma-keyed. Wide horizontal composition, no text. Crisp high-resolution 16-bit-style pixel art.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

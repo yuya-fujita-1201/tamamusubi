@@ -1,0 +1,303 @@
+{
+  "comment": "『玉結び』Phase 0 アセット生成計画。ミトは方向別8コマ×high-res(443pxセルraw)で生成し、right は left の水平反転。reference でキャラ一貫性を固定する。",
+  "common_avoid": "no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI",
+  "footer": "Output: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "mito_block": "the hero Mito: an androgynous 15-year-old wanderer with ink-black short hair tied into a tiny low ponytail at the nape, a vermilion braided-cord hair ornament, and calm amber eyes. Outfit (bright fantasy-Japanese traveler, NOT samurai, NOT ninja): white tube-sleeved top, a short indigo-blue haori jacket with small vermilion braided-cord knots on the sleeves and hem, loose young-leaf-green hakama trousers tucked into dark leggings with red cord ties, light travel sandals, a vermilion braided cord worn as a belt-sash with a small tassel, and a necklace with three pale-green magatama beads. At his left hip hangs a sheathed short ritual sword in a WHITE scabbard wrapped with a thin sacred rope and tiny white paper streamers - it reads as a festival ritual implement, not a samurai katana.",
+  "assets": [
+    {
+      "id": "mito.walk8_down",
+      "name": "mito_walk_down",
+      "preset": "hd_walk8_256",
+      "priority": 0,
+      "reference": "forge/assets/raw/mito.atk8_left/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER WALK CYCLE sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing DOWN (toward the viewer, face visible). {MITO} CRITICAL PROPORTION RULE: the proportions of the attached reference character EXACTLY: about 2.4 heads tall, sturdy grounded build with a solid chest, thick limbs and a broad stable stance - NOT slim, NOT lanky, NOT taller than the reference. Every frame keeps EXACTLY the same head size, the same total height and the same sturdy body width. The sword stays sheathed at his hip in every frame (never in hand). 8-frame WALK CYCLE with proper alternating footsteps: frame1 = CONTACT A (his LEFT foot planted forward, right foot back, arms counter-swing), frame2 = weight drop (body 2-3px lower), frame3 = PASSING (feet together under the body, body at mid height), frame4 = push-off (body 2-3px higher), frame5 = CONTACT B (his RIGHT foot planted forward, left foot back - the MIRROR step of frame1), frame6 = weight drop, frame7 = PASSING (feet together), frame8 = push-off. The forward foot MUST alternate: left foot leads in frame1, right foot leads in frame5. Arms swing opposite to the legs each step. Both feet clearly visible and readable against the ground. The haori hem and the vermilion cord tassels sway naturally with each step. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, centered with clear empty margin on all four sides, feet on the same ground line in every cell, head at the same height in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.walk8_left",
+      "name": "mito_walk_left",
+      "preset": "hd_walk8_256",
+      "priority": 1,
+      "reference": "forge/assets/raw/mito.atk8_left/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER WALK CYCLE sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing LEFT (full clean side profile, walking toward the left). {MITO} CRITICAL PROPORTION RULE: the proportions of the attached reference character EXACTLY: about 2.4 heads tall, sturdy grounded build with a solid chest, thick limbs and a broad stable stance - NOT slim, NOT lanky, NOT taller than the reference. The side view must keep EXACTLY the same head size, same total height and same sturdy body volume as the front view of this character - do NOT draw a taller, slimmer or more realistically-proportioned figure in side view. The sheathed white scabbard at his hip faces the viewer in left profile; the sword stays sheathed in every frame (never in hand). 8-frame WALK CYCLE with proper alternating footsteps: frame1 = CONTACT A (leading foot planted forward), frame2 = weight drop, frame3 = PASSING (feet together under the body), frame4 = push-off, frame5 = CONTACT B (the OTHER foot planted forward - mirror step of frame1), frame6 = weight drop, frame7 = PASSING, frame8 = push-off. Arms swing opposite to the legs each step. In side view the stride must read clearly: front leg and back leg visibly scissor past each other between frame1 and frame5. The haori hem and cord tassels trail and sway with the motion. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, centered with clear empty margin on all four sides, feet on the same ground line in every cell, head at the same height in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.walk8_up",
+      "name": "mito_walk_up",
+      "preset": "hd_walk8_256",
+      "priority": 1,
+      "reference": "forge/assets/raw/mito.atk8_left/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER WALK CYCLE sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing UP (back view: the back of his head, the tiny low ponytail with its vermilion cord, and the back of the indigo haori are visible; no face). {MITO} CRITICAL PROPORTION RULE: the proportions of the attached reference character EXACTLY: about 2.4 heads tall, sturdy grounded build with a solid chest, thick limbs and a broad stable stance - NOT slim, NOT lanky, NOT taller than the reference. The back view must keep EXACTLY the same head size, same total height and same sturdy body width as the front view. The sword stays sheathed at his hip in every frame. 8-frame WALK CYCLE with proper alternating footsteps: frame1 = CONTACT A (his LEFT foot planted forward, right foot back, arms counter-swing), frame2 = weight drop (body 2-3px lower), frame3 = PASSING (feet together under the body), frame4 = push-off (body 2-3px higher), frame5 = CONTACT B (his RIGHT foot planted forward - the MIRROR step of frame1), frame6 = weight drop, frame7 = PASSING, frame8 = push-off. The forward foot MUST alternate between frame1 and frame5. Arms swing opposite to the legs. The soles of the lifted feet read clearly in back view. The haori back panel and sash knot sway with each step. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, centered with clear empty margin on all four sides, feet on the same ground line in every cell, head at the same height in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.idle8_down",
+      "name": "mito_idle_down",
+      "preset": "hd_motion8_256",
+      "priority": 2,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER IDLE (breathing) sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing DOWN (toward the viewer, face visible). {MITO} CRITICAL PROPORTION RULE: the proportions and body width of the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same slim-but-sturdy balance, same total height. NOT wider, NOT stockier than the reference, EXACTLY the same head size, total height and body width in every frame. Standing relaxed and natural, feet CLOSE together only about shoulder-width apart, legs nearly vertical - NOT a wide horse stance, NOT braced for combat - and the feet NEVER move, the sword sheathed at his hip. 8-frame subtle BREATHING LOOP: frame1 = neutral stance, frame2 = slow inhale, chest and shoulders rise 1-2px, frame3 = inhale peak, head lifts 1px, frame4 = breath held, cord tassels drift, frame5 = exhale begins, shoulders settle, frame6 = lowest relaxed point, body 1-2px lower than neutral, frame7 = calm blink (eyes closed) while the body returns toward neutral, frame8 = eyes open, back to the neutral stance so the loop repeats seamlessly. The haori hem, the vermilion cord tassels and the small paper streamers on the sword sway very subtly throughout. The silhouette change between frames is SMALL and smooth - this is a quiet idle, not an action. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, centered with clear empty margin on all four sides, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.idle8_left",
+      "name": "mito_idle_left",
+      "preset": "hd_motion8_256",
+      "priority": 2,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER IDLE (breathing) sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing LEFT (full clean side profile). {MITO} CRITICAL PROPORTION RULE: the proportions and body width of the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same slim-but-sturdy balance, same total height. NOT wider, NOT stockier than the reference; the side view keeps EXACTLY the same head size, total height and body volume as the front view. Standing relaxed and natural in profile, feet close together (shoulder width), legs nearly vertical - NOT a wide stance - and the feet NEVER move, the white scabbard facing the viewer. 8-frame subtle BREATHING LOOP: frame1 = neutral stance, frame2 = slow inhale, chest rises 1-2px, frame3 = inhale peak, frame4 = breath held, frame5 = exhale begins, frame6 = lowest relaxed point 1-2px lower, frame7 = body returns toward neutral, the ponytail and cord sway gently, frame8 = back to neutral so the loop repeats seamlessly. The haori hem and paper streamers sway very subtly. The silhouette change between frames is SMALL and smooth. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, centered with clear empty margin on all four sides, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.idle8_up",
+      "name": "mito_idle_up",
+      "preset": "hd_motion8_256",
+      "priority": 2,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER IDLE (breathing) sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing UP (back view: back of head, tiny low ponytail with vermilion cord, back of the indigo haori; no face). {MITO} CRITICAL PROPORTION RULE: the proportions and body width of the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same slim-but-sturdy balance, same total height. NOT wider, NOT stockier than the reference, EXACTLY the same head size, total height and body width as the front view. Standing relaxed and natural, feet CLOSE together about shoulder-width apart, legs nearly vertical - NOT a wide stance - and the feet NEVER move. 8-frame subtle BREATHING LOOP: frame1 = neutral stance, frame2 = slow inhale, shoulders rise 1-2px, frame3 = inhale peak, frame4 = breath held, the ponytail sways, frame5 = exhale begins, frame6 = lowest relaxed point 1-2px lower, frame7 = body returns toward neutral, the haori back panel sways, frame8 = back to neutral so the loop repeats seamlessly. The silhouette change between frames is SMALL and smooth. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, centered with clear empty margin on all four sides, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.atk8_down",
+      "name": "mito_atk_down",
+      "preset": "hd_motion8_256",
+      "priority": 2,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER SWORD ATTACK sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing DOWN (toward the viewer). {MITO} He draws and swings his short ritual sword: a straight bright blade with a WHITE hilt wrapped with a thin sacred rope and small white paper streamers that flutter with the motion. CRITICAL PROPORTION RULE: the proportions and body width of the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same slim-but-sturdy balance, same total height. NOT wider, NOT stockier than the reference, EXACTLY the same head size and body size in every frame; the character body is drawn at about 70 percent of the cell height so the fully extended sword always fits INSIDE the cell with margin. 8-frame VERTICAL OVERHEAD CUT staying FRONT-FACING: his face, chest and hips keep facing the viewer squarely in EVERY frame - he never turns sideways, never swings horizontally. frame1 = WINDUP start, both hands grip the hilt in front of his chest, frame2 = WINDUP peak, the blade raised STRAIGHT UP above his head, vertical, frame3 = STRIKE, the blade chopping straight DOWN in front of his torso, frame4 = STRIKE end, arms fully extended downward-forward, the blade tip pointing at the ground in front of his feet - the decisive key pose, frame5 = FOLLOW-THROUGH, the blade low in front of him, shoulders dropped, frame6 = FOLLOW-THROUGH settles, frame7 = RECOVERY, he lifts the blade back up toward a centered two-hand guard, frame8 = centered front-facing guard stance (loops cleanly into frame1). NO motion trail, NO swoosh, NO afterimage, NO energy effect, NO glow: draw ONLY the solid body and the solid sword in every frame. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.atk8_left",
+      "name": "mito_atk_left",
+      "preset": "hd_motion8_256",
+      "priority": 2,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER SWORD ATTACK sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing LEFT (full clean side profile, attacking toward the left). {MITO} He draws and swings his short ritual sword: a straight bright blade with a WHITE hilt wrapped with a thin sacred rope and small white paper streamers that flutter with the motion. CRITICAL PROPORTION RULE: classic action-RPG hero proportions, about 3 HEADS TALL, lean slim build; the side view keeps EXACTLY the same head size, total height and body volume as the front view; the character body is drawn at about 70 percent of the cell height so the fully extended sword always fits INSIDE the cell with margin. 8-frame SWORD SLASH toward the LEFT, one continuous motion: frame1 = WINDUP start, he grips the hilt, body coils back to the right, frame2 = WINDUP peak, the blade raised high behind him, frame3 = STRIKE, the blade sweeping forward in a wide arc toward the left, frame4 = STRIKE end, full horizontal extension to the left - the decisive key pose, frame5 = FOLLOW-THROUGH, the swing decelerates, torso rotated, frame6 = FOLLOW-THROUGH settles, weight on the front foot, frame7 = RECOVERY, he pulls the blade back toward a ready guard, frame8 = ready guard stance facing left (loops cleanly into frame1 for combos). NO motion trail, NO swoosh, NO afterimage, NO energy effect, NO glow: draw ONLY the solid body and the solid sword in every frame. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.atk8_up",
+      "name": "mito_atk_up",
+      "preset": "hd_motion8_256",
+      "priority": 2,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER SWORD ATTACK sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing UP (back view: back of head with the tiny low ponytail, back of the indigo haori; no face; attacking away from the viewer). {MITO} He draws and swings his short ritual sword: a straight bright blade with a WHITE hilt wrapped with a thin sacred rope and small white paper streamers. CRITICAL PROPORTION RULE: the proportions and body width of the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same slim-but-sturdy balance, same total height. NOT wider, NOT stockier than the reference, EXACTLY the same head size and body size in every frame; the character body is drawn at about 70 percent of the cell height so the raised sword always fits INSIDE the cell with margin. 8-frame SWORD SLASH away from the viewer, one continuous motion: frame1 = WINDUP start, the hilt gripped, body coils, frame2 = WINDUP peak, the blade raised high above his head, clearly visible over the shoulders, frame3 = STRIKE, the blade sweeping up-and-away in front of him (partly hidden by his body), frame4 = STRIKE end, arms fully extended upward-forward - the decisive key pose, frame5 = FOLLOW-THROUGH, the swing decelerates, frame6 = FOLLOW-THROUGH settles, frame7 = RECOVERY toward a ready guard, frame8 = ready guard stance, blade at his side (loops cleanly into frame1). NO motion trail, NO swoosh, NO afterimage, NO energy effect, NO glow: draw ONLY the solid body and the solid sword in every frame. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet; every drawn shape belongs to the single character inside its own cell. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "bg.satoyama_sky",
+      "name": "bg_satoyama_sky",
+      "preset": "battle_background_320_180",
+      "priority": 3,
+      "no_footer": true,
+      "prompt": "Wide pixel-art parallax BACKGROUND for a bright mythical-Japan action RPG field: a luminous clear morning sky over a peaceful satoyama countryside horizon. Soft cumulus clouds, gentle distant green hills with terraced rice paddies, faint atmospheric haze near the horizon line. Bright, open, hopeful mood with rich saturated colors - spring sunlight. The horizon line sits in the lower third; the upper two thirds are sky and clouds. NO characters, NO buildings in the foreground, no text. Crisp high-resolution 16-bit-style pixel art, fine readable pixel clusters, painterly SNES-era sky gradients."
+    },
+    {
+      "id": "bg.takamagahara_far",
+      "name": "bg_takamagahara_far",
+      "preset": "battle_background_320_180",
+      "priority": 3,
+      "prompt": "Distant skyline SILHOUETTE band for a far parallax layer: a faint, pale, white-gold floating sky-city resting on top of a sea of clouds, seen from very far away near the horizon. Elegant shrine-like towers, thin spires and a great torii gate shape, all rendered as a soft bright silhouette with minimal detail, slightly luminous against the empty space. The silhouette band occupies the vertical middle of the image; everything that is not the city silhouette and its cloud base must be flat solid #FF00FF magenta so it can be chroma-keyed. Wide horizontal composition, no text. Crisp high-resolution 16-bit-style pixel art."
+    },
+    {
+      "id": "prop.torii",
+      "name": "prop_torii",
+      "preset": "village_house_128_96",
+      "priority": 3,
+      "prompt": "A single large wooden TORII GATE as one coherent pixel-art object for a bright mythical-Japan action RPG field, front view. Vermilion-lacquered round pillars with a gentle weathered texture, a dark tiled top lintel with slightly upturned ends, a thick braided sacred rope (shimenawa) with white zigzag paper streamers (shide) hanging between the pillars, small stone bases, a soft contact shadow on the ground. Bright, welcoming, sacred but cheerful. The gate is drawn LARGE filling most of the canvas with a small margin. NO characters, no text. Crisp high-resolution 16-bit-style pixel art, fine readable pixel clusters, dark one-pixel outline, top-left light."
+    },
+    {
+      "id": "enemy.kitsunebi",
+      "name": "enemy_kitsunebi",
+      "preset": "small_enemy_idle_4",
+      "priority": 3,
+      "prompt": "Original pixel-art ENEMY sprite sheet for a bright mythical-Japan action RPG: a kitsunebi fox-fire spirit tainted by impurity - a floating ball of pale blue-white spectral flame with two small fox-ear flame tips, a pair of simple glowing amber eyes, and thin wisps of dark purple haze (the impurity) clinging to its lower half. Cute-eerie but NOT scary, readable silhouette. 4-frame hover loop: frame1 = neutral hover, frame2 = rises slightly, flame tips lean right, frame3 = highest point, flame flickers taller, frame4 = settles down, flame tips lean left (loops to frame1). Same identity and scale every frame, legless floating creature with squash-and-stretch. STRICT SHEET LAYOUT: one row of 4 equal cells, one creature per cell, centered with clear margin. No grid lines, no text."
+    },
+    {
+      "id": "tile.grass_wa",
+      "name": "tile_grass_wa",
+      "preset": "world_grass_variation_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. Top-down ground TILESET: lush dense satoyama meadow grass, dewy fine blades in deep saturated green with subtle tone variation, occasional tiny clover and moss accents, uniform brightness (ground luminance above 55 percent), no hard shadows. 16 tile variations in a 4x4 grid, every cell a seamless interchangeable grass tile completely filled edge to edge, no borders between cells, no text."
+    },
+    {
+      "id": "tile.path_wa",
+      "name": "tile_path_wa",
+      "preset": "village_path_transition_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. Top-down transition TILESET: a packed light-earth footpath through deep green satoyama grass - moist brown soil with faint stepping-stone and pebble hints, soft organic grass-edge transitions (no straight hard lines). STRICT 4x4 TILESET LAYOUT: row1 = four full CENTER variations, row2 = edge tiles with the neighbour terrain on the North / South / West / East side, row3 = outer corner tiles NW / NE / SW / SE, row4 = four accent center variations. Each cell completely filled edge to edge, tiles seamlessly tileable, no borders or gaps between cells, no text."
+    },
+    {
+      "id": "tile.forest_wa",
+      "name": "tile_forest_wa",
+      "preset": "world_forest_mass_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. Top-down transition TILESET: dense bright Japanese forest canopy mass seen from directly above - layered broadleaf treetops (camphor, chinquapin) in deep saturated greens with sunlit leaf highlights, the canopy edge meeting open green grass. Center tiles = full dense canopy. STRICT 4x4 TILESET LAYOUT: row1 = four full CENTER variations, row2 = edge tiles with the neighbour terrain on the North / South / West / East side, row3 = outer corner tiles NW / NE / SW / SE, row4 = four accent center variations. Each cell completely filled edge to edge, tiles seamlessly tileable, no borders or gaps between cells, no text."
+    },
+    {
+      "id": "tile.water_edge_wa",
+      "name": "tile_water_edge_wa",
+      "preset": "world_coastline_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. Top-down transition TILESET: a clear blue-green village pond meeting grassy banks - calm rippling water with subtle sky reflection, mossy stones along the waterline, lush green bank edges. Center tiles = pure rippling water. STRICT 4x4 TILESET LAYOUT: row1 = four full CENTER variations, row2 = edge tiles with the neighbour terrain on the North / South / West / East side, row3 = outer corner tiles NW / NE / SW / SE, row4 = four accent center variations. Each cell completely filled edge to edge, tiles seamlessly tileable, no borders or gaps between cells, no text."
+    },
+    {
+      "id": "tile.detail_wa",
+      "name": "tile_detail_wa",
+      "preset": "world_grass_variation_16",
+      "priority": 1,
+      "prompt": "Sparse decorative OVERLAY tile set for deep-green grass, top-down: 16 cells in a 4x4 grid, each cell mostly EMPTY solid #FF00FF magenta with ONE small decoration near the center - tiny white clover flowers, dandelions, violets, small mossy stones, sprouting grass tufts, fallen cherry petals. Bright mythical-Japan palette, delicate and sparse, no text."
+    },
+    {
+      "id": "obj.matsu",
+      "name": "obj_matsu",
+      "preset": "village_tree_64_80",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. ONE Japanese red pine tree (akamatsu) as a single coherent pixel-art object: elegant gently S-curved reddish-brown trunk, layered cloud-like pads of deep green needles like a shrine garden pine, soft contact shadow at the roots. Front view, the tree fills most of the canvas with margin. No text."
+    },
+    {
+      "id": "obj.goshinboku",
+      "name": "obj_goshinboku",
+      "preset": "village_tree_64_80",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. ONE great sacred camphor tree (goshinboku) as a single coherent pixel-art object: thick mossy trunk wrapped with a small sacred rope (shimenawa) with tiny white paper streamers, broad rounded canopy of deep saturated green with sunlit highlights, soft contact shadow. Front view, fills most of the canvas with margin. No text."
+    },
+    {
+      "id": "obj.bamboo",
+      "name": "obj_bamboo",
+      "preset": "village_tree_64_80",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. ONE small bamboo grove cluster as a single coherent pixel-art object: five or six bright green bamboo culms with visible nodes, airy delicate leaves at the top, a few young shoots at the base, soft contact shadow. Front view, fills most of the canvas with margin. No text."
+    },
+    {
+      "id": "obj.suisha",
+      "name": "obj_suisha",
+      "preset": "village_house_128_96",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. ONE Japanese watermill hut (suisha-goya) as a single coherent pixel-art object: small wooden hut with a thick thatched roof, and a LARGE dark-wood water wheel with paddles mounted on its side, stone base, NOT a western windmill, soft contact shadow. Three-quarter front view, fills most of the canvas with margin. No text."
+    },
+    {
+      "id": "obj.sign_wa",
+      "name": "obj_sign_wa",
+      "preset": "field_prop_32",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. ONE Japanese wooden trail signpost as a single pixel-art object: a dark wooden post with a small roofed notice board (kosatsu style), weathered planks, tiny vermilion cord accent, soft contact shadow. Front view. No letters, no text."
+    },
+    {
+      "id": "obj.tsuzura",
+      "name": "obj_tsuzura",
+      "preset": "breakable_prop_32",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. Japanese woven wicker treasure chest (tsuzura) 4-frame OPENING sequence in one row of 4 equal cells: frame1 = closed woven box with vermilion cords, frame2 = lid lifting slightly, frame3 = lid open with soft golden light spilling out, frame4 = fully open and empty. Same box, same scale, same position every frame. No text."
+    },
+    {
+      "id": "obj.tuft_wa",
+      "name": "obj_tuft_wa",
+      "preset": "breakable_prop_32",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette: DEEP rich saturated greens (early-summer rice-field banks), clear blue-green water, vermilion and white accents, soft warm sunlight. NOT dry, NOT yellow-brown, NOT a western prairie or wasteland. Cuttable deep-green grass tuft 4-frame CUT sequence in one row of 4 equal cells: frame1 = full lush tuft with young leaves, frame2 = swaying with a few leaves flying, frame3 = half cut with falling leaves, frame4 = short stubble remaining. Same scale and position every frame. No text."
+    },
+    {
+      "id": "fx.slash_wa",
+      "name": "fx_slash_wa",
+      "preset": "spell_impact_4",
+      "priority": 1,
+      "prompt": "Pixel-art sword-slash EFFECT sheet (NO character, effect only) for a bright mythical-Japan action RPG: a crescent slash arc of sacred white-and-gold light, like a purification stroke, with a few small white paper-streamer (shide) petals and gold spark motes scattering along the arc. RIGHT-FACING (the arc opens and travels toward the RIGHT). 4 frames in one row of 4 equal cells: frame1 = the arc appears thin and bright, frame2 = full crescent at maximum size with sparks, frame3 = the arc breaks into streamer petals and motes, frame4 = fading motes only. Same position and scale every frame, drawn LARGE in the cell. No text."
+    },
+    {
+      "id": "ui.icon_harai",
+      "name": "ui_icon_harai",
+      "preset": "field_prop_32",
+      "priority": 1,
+      "prompt": "Pixel-art inventory ICON of the ritual sword 'harai-gatana' for a bright mythical-Japan action RPG: a short sword in a WHITE scabbard wrapped with a thin golden sacred rope and two tiny white paper streamers, vermilion cord on the hilt, drawn diagonally, clean readable silhouette on a single icon. Drawn LARGE filling the canvas with a small margin. No text."
+    },
+    {
+      "id": "boss.gankinoou",
+      "name": "boss_gankinoou",
+      "preset": "hd_bigframe4_512",
+      "priority": 2,
+      "reference": "art/05-6_gankinoou.png",
+      "prompt": "Original very-high-resolution pixel-art BOSS sprite sheet for a bright mythical-Japan action RPG: the Rock-Oni King (Ganki no Ou), a HUGE gentle mountain-guardian made of mossy boulders - rounded stone body, arms like weathered rock pillars, deep-green moss and small flowers growing on its shoulders, two short stone horns, and SAD glowing amber eyes; wisps of black-purple impurity (kegare) cling to its lower half like dark mist. Sorrowful and majestic, NOT scary, matches the attached reference painting. Front 3/4 view facing DOWN toward the viewer. 4-frame IDLE LOOP in one row of 4 equal cells: frame1 = neutral looming, frame2 = slow breath in, shoulders and chest boulders rise, the impurity mist swirls, frame3 = breath held, moss and flowers sway, frame4 = breath out, body settles lower (loops to frame1). Same identity, same scale, feet on the same ground line in every cell. No text."
+    },
+    {
+      "id": "enemy.karakasa",
+      "name": "enemy_karakasa",
+      "preset": "small_enemy_idle_4",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. Original pixel-art ENEMY sprite sheet: a karakasa-obake (one-legged umbrella yokai) tainted by impurity - an old vermilion-and-white oiled-paper umbrella with one big sleepy eye, a long tongue sticking out playfully, hopping on a single sandal-wearing leg, thin wisps of dark purple haze clinging to its hem. Cute-mischievous, NOT scary. 4-frame hop loop in one row of 4 equal cells: frame1 = crouched on its leg, frame2 = springing up, umbrella canopy squashed, frame3 = airborne, canopy stretched open, frame4 = landing, canopy flutters (loops). Same identity and scale every frame. No text."
+    },
+    {
+      "id": "enemy.kodama",
+      "name": "enemy_kodama",
+      "preset": "small_enemy_idle_4",
+      "priority": 2,
+      "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. Original pixel-art ENEMY sprite sheet: a kodama tree-spirit tainted by impurity - a small round wooden sprite with a leaf sprouting from its head, bark-pattern body, glowing amber dot-eyes, hovering slightly above the ground, dark purple impurity haze swirling at its base. Gentle-eerie, NOT scary. 4-frame hover loop in one row of 4 equal cells: frame1 = neutral hover, frame2 = drifts up, head leaf spins, frame3 = highest point, body tilts, frame4 = settles down (loops). Same identity and scale every frame. No text."
+    },
+    {
+      "id": "obj.minka_a",
+      "name": "obj_minka_a",
+      "preset": "village_house_128_96",
+      "priority": 3,
+      "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. ONE Japanese thatched farmhouse (kayabuki minka) as a single coherent pixel-art object for a village map: thick mossy thatched roof with a gentle ridge, dark timber frame with white plaster walls, wooden sliding door, a small round window, vegetable crates and a straw broom by the entrance, soft contact shadow. Three-quarter front view, fills most of the canvas with margin. No text."
+    },
+    {
+      "id": "obj.minka_b",
+      "name": "obj_minka_b",
+      "preset": "village_house_128_96",
+      "priority": 3,
+      "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. ONE Japanese village wooden house with a dark tiled (kawara) roof as a single coherent pixel-art object: two-tone wooden walls, paper lantern hanging by the sliding entrance, small noren curtain, stone step, a vermilion cord charm by the door, soft contact shadow. Three-quarter front view, slightly different silhouette from a farmhouse, fills most of the canvas with margin. No text."
+    },
+    {
+      "id": "obj.hokora",
+      "name": "obj_hokora",
+      "preset": "village_house_128_96",
+      "priority": 3,
+      "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. ONE small Japanese roadside shrine (hokora) as a single coherent pixel-art object: a miniature wooden shrine hut on a stone base, tiny vermilion torii in front, a small sacred rope with white paper streamers across its eaves, a softly GLOWING warm light inside its little door (the yorishiro light), moss on the stone, soft contact shadow. Front view, fills most of the canvas with margin. No text."
+    },
+    {
+      "id": "npc.suzushiro",
+      "name": "npc_suzushiro",
+      "preset": "player_idle_4",
+      "priority": 3,
+      "reference": "art/05-2_suzushiro.png",
+      "prompt": "Original pixel-art NPC sprite sheet for a bright mythical-Japan action RPG: Suzushiro, a small elderly shrine maiden matching the attached reference - round white hair bun, deeply kind wrinkled smile, white kosode top, vermilion hakama, holding a short wooden staff with small bells. About 2.2 heads tall pixel proportion, front view facing the viewer. 4-frame IDLE LOOP in one row of 4 equal cells: frame1 = neutral, frame2 = slow breath, bells tilt, frame3 = eyes close in a warm smile, frame4 = back to neutral (loops). Same identity and scale every frame. No text."
+    },
+    {
+      "id": "obj.hibiiwa",
+      "name": "obj_hibiiwa",
+      "preset": "breakable_prop_32",
+      "priority": 3,
+      "prompt": "Bright mythical-Japan satoyama palette, muted matcha and moss greens with vermilion-and-white accents. Breakable CRACKED BOULDER 4-frame break sequence in one row of 4 equal cells for a bright mythical-Japan action RPG: frame1 = a rounded grey boulder with a visible WHITE glowing crack and a little moss, frame2 = the crack widens, small chips flying, frame3 = the boulder splitting into large chunks, frame4 = only a small pile of rubble remains. Same scale and position every frame. No text."
+    },
+    {
+      "id": "mito.iai8_down",
+      "name": "mito_iai_down",
+      "preset": "hd_motion8_256",
+      "priority": 0,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER IAI (battou-jutsu) sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing DOWN (toward the viewer, face and chest square to the viewer in EVERY frame - he never turns sideways). {MITO} PROPORTION: match the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same body width, same slim-but-sturdy balance, same total height. The character body is drawn at about 70 percent of the cell height so the fully extended sword always fits INSIDE the cell with margin. 8-frame IAI DRAW-CUT, one continuous motion: frame1 = IAI STANCE: knees slightly bent, body lowered and coiled, LEFT hand gripping the white scabbard at his hip, RIGHT hand resting on the hilt, the blade STILL SHEATHED, eyes focused, frame2 = deeper crouch, maximum tension, still sheathed (frames 1-2 are the charge loop), frame3 = THE DRAW BEGINS: the blade halfway out of the scabbard, body starting to twist, frame4 = BATTOU: the blade fully drawn in one lightning rising cut in FRONT of him toward the viewer, arms extended forward-downward, blade arcing up-forward - the decisive key pose, frame5 = FOLLOW-THROUGH: the swing decelerates past his body, paper streamers on the hilt trailing, frame6 = settling, weight forward, blade low, frame7 = NOTO: he guides the blade back toward the scabbard mouth, frame8 = sheathed again, calm stance (loops cleanly to frame1). NO motion trail, NO swoosh, NO afterimage, NO energy effect: draw ONLY the solid body, scabbard and sword. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.iai8_left",
+      "name": "mito_iai_left",
+      "preset": "hd_motion8_256",
+      "priority": 0,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER IAI (battou-jutsu) sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing LEFT (full clean side profile; the white scabbard faces the viewer). {MITO} PROPORTION: match the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same body width, same slim-but-sturdy balance, same total height. The character body is drawn at about 70 percent of the cell height so the fully extended sword always fits INSIDE the cell with margin. 8-frame IAI DRAW-CUT, one continuous motion: frame1 = IAI STANCE: knees slightly bent, body lowered and coiled, LEFT hand gripping the white scabbard at his hip, RIGHT hand resting on the hilt, the blade STILL SHEATHED, eyes focused, frame2 = deeper crouch, maximum tension, still sheathed (frames 1-2 are the charge loop), frame3 = THE DRAW BEGINS: the blade halfway out of the scabbard, body starting to twist, frame4 = BATTOU: the blade fully drawn in one lightning horizontal draw-cut toward the LEFT, arm fully extended, blade level at chest height, body lunging slightly forward - the decisive key pose, frame5 = FOLLOW-THROUGH: the swing decelerates past his body, paper streamers on the hilt trailing, frame6 = settling, weight forward, blade low, frame7 = NOTO: he guides the blade back toward the scabbard mouth, frame8 = sheathed again, calm stance (loops cleanly to frame1). NO motion trail, NO swoosh, NO afterimage, NO energy effect: draw ONLY the solid body, scabbard and sword. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "mito.iai8_up",
+      "name": "mito_iai_up",
+      "preset": "hd_motion8_256",
+      "priority": 0,
+      "reference": "forge/assets/raw/mito.walk8_down/codex-imagegen.png",
+      "prompt": "Original high-resolution pixel-art PLAYER IAI (battou-jutsu) sprite sheet for a bright mythical-Japan action RPG, top-down 3/4 view, facing UP (back view: back of head with tiny low ponytail, back of the indigo haori; no face). {MITO} PROPORTION: match the attached reference (his own walking sheet) EXACTLY - same head-to-body ratio, same body width, same slim-but-sturdy balance, same total height. The character body is drawn at about 70 percent of the cell height so the fully extended sword always fits INSIDE the cell with margin. 8-frame IAI DRAW-CUT, one continuous motion: frame1 = IAI STANCE: knees slightly bent, body lowered and coiled, LEFT hand gripping the white scabbard at his hip, RIGHT hand resting on the hilt, the blade STILL SHEATHED, eyes focused, frame2 = deeper crouch, maximum tension, still sheathed (frames 1-2 are the charge loop), frame3 = THE DRAW BEGINS: the blade halfway out of the scabbard, body starting to twist, frame4 = BATTOU: the blade fully drawn in one lightning cut away from the viewer, arms extended forward (partly hidden by his body), blade visible above his shoulder line - the decisive key pose, frame5 = FOLLOW-THROUGH: the swing decelerates past his body, paper streamers on the hilt trailing, frame6 = settling, weight forward, blade low, frame7 = NOTO: he guides the blade back toward the scabbard mouth, frame8 = sheathed again, calm stance (loops cleanly to frame1). NO motion trail, NO swoosh, NO afterimage, NO energy effect: draw ONLY the solid body, scabbard and sword. STRICT CELL CONTAINMENT: no body part, no sword piece, no stray fragment may cross a cell border or float detached anywhere on the sheet. STRICT SHEET LAYOUT: a clean 4x2 grid (4 columns, 2 rows), 8 cells of EQUAL size, exactly ONE character per cell at the SAME size and SAME scale, feet on the same ground line in every cell. TOP row = frames 1-4 left to right, BOTTOM row = frames 5-8 left to right. No grid lines, no text."
+    },
+    {
+      "id": "fx.iai_wa",
+      "name": "fx_iai_wa",
+      "preset": "spell_impact_4",
+      "priority": 1,
+      "prompt": "Pixel-art IAI draw-cut EFFECT sheet (NO character, effect only) for a bright mythical-Japan action RPG: a single WIDE horizontal crescent of sacred white-gold light, like a lightning-fast sword draw, very long and thin, with a vermilion inner edge and small white paper-streamer petals scattering from its tips. RIGHT-FACING (the crescent opens toward the RIGHT and stretches horizontally). 4 frames in one row of 4 equal cells: frame1 = a thin blinding line appears, frame2 = full wide crescent at maximum length - the key frame, frame3 = the crescent breaks into petals and gold motes, frame4 = fading motes. Same position and scale every frame, drawn LARGE and WIDE in the cell. No text."
+    },
+    {
+      "id": "obj.tourou",
+      "name": "obj_tourou",
+      "preset": "field_prop_32",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan palette. ONE Japanese stone lantern (ishidourou) as a single coherent pixel-art object: weathered grey stone with soft moss patches, classic pedestal-firebox-roof silhouette, a warm orange flame GLOWING inside the firebox window, subtle light spill, soft contact shadow at the base. Front view, drawn LARGE filling the canvas vertically with a small margin. Taller than wide. No text."
+    }
+  ]
+}
