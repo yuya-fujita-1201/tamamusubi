@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_paddy",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, a soft blue-and-gold SKY REFLECTED in still water, hand-painted Ghibli-like look. A top-down terraced RICE PADDY (棚田 tanada) water autotile set — calm MIRROR-LIKE water surface reflecting the warm sky, faint thin rows of bright young green rice seedlings, bordered by low earthen 畦 (aze) ridges of mossy soil topped with grass. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, FULLY OPAQUE, seamlessly tileable. Row1 = 4 open PADDY WATER interior variations (sky-reflecting mirror water, faint rice rows, gentle ripples). Row2 = water-to-aze EDGE in order N, S, W, E (mirror water meeting a low grassy earthen ridge on that one side). Row3 = OUTER CORNERS NW, NE, SW, SE of the aze ridge. Row4 = accents: a clump of green rice seedlings, a lotus leaf, a wet stone, a muddy bank. SOFT painterly blends, water reads as calm reflective mirror, NOT flat blue.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

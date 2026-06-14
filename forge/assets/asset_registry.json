@@ -392,6 +392,46 @@
       "referenceFiles": [],
       "lastUpdated": "2026-06-13",
       "qualityStatus": "draft"
+    },
+    "tile.ka_grass": {
+      "styleNotes": "world_coastline_16: Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR sunlight, hand-painted Ghibli-like look. A LUSH PAINTERLY top-down GRASS MEADOW autotile set — deep rich matcha and emerald greens with gentle yellow-green sunlit highlights and soft shadow, fine soft grass texture with tiny clover and wildflowers, gentle painterly gradients (NOT flat, NOT chunky blocky pixels). STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE (no transparency), seamlessly tileable. Row1 = 4 solid INTERIOR grass variations (no edges, fully tileable). Row2 = grass-to-bare-earth EDGE transitions in order N, S, W, E (lush grass on the inside fading to soft bare earth on that one side). Row3 = OUTER CORNERS in order NW, NE, SW, SE (grass occupies the inner quadrant). Row4 = accent tiles: a mossy rock, a small flower cluster, a bare dirt patch, a clover patch. Make grass-to-edge blends SOFT and smooth, never hard stair-steps.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+      "source": "codex-imagegen",
+      "license": "project_internal",
+      "referenceFiles": [],
+      "lastUpdated": "2026-06-14",
+      "qualityStatus": "draft"
+    },
+    "tile.ka_paddy": {
+      "styleNotes": "world_coastline_16: Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, a soft blue-and-gold SKY REFLECTED in still water, hand-painted Ghibli-like look. A top-down terraced RICE PADDY (棚田 tanada) water autotile set — calm MIRROR-LIKE water surface reflecting the warm sky, faint thin rows of bright young green rice seedlings, bordered by low earthen 畦 (aze) ridges of mossy soil topped with grass. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, FULLY OPAQUE, seamlessly tileable. Row1 = 4 open PADDY WATER interior variations (sky-reflecting mirror water, faint rice rows, gentle ripples). Row2 = water-to-aze EDGE in order N, S, W, E (mirror water meeting a low grassy earthen ridge on that one side). Row3 = OUTER CORNERS NW, NE, SW, SE of the aze ridge. Row4 = accents: a clump of green rice seedlings, a lotus leaf, a wet stone, a muddy bank. SOFT painterly blends, water reads as calm reflective mirror, NOT flat blue.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+      "source": "codex-imagegen",
+      "license": "project_internal",
+      "referenceFiles": [],
+      "lastUpdated": "2026-06-14",
+      "qualityStatus": "draft"
+    },
+    "tile.ka_path": {
+      "styleNotes": "world_coastline_16: Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down winding MOUNTAIN PATH (山道) autotile — warm earthen dirt trail with scattered flat pale stepping stones and small pebbles, soft mossy green edges, gently bordered by grass. Painterly soft, NOT flat chunky. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 path INTERIOR variations (earth + a few flat stones, walkable). Row2 = path-to-grass EDGE in order N,S,W,E (dirt path fading to grass on that one side). Row3 = OUTER CORNERS NW,NE,SW,SE. Row4 = accents: a flat stepping stone, a mossy rock, a grass tuft, scattered fallen leaves. Soft smooth blends.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+      "source": "codex-imagegen",
+      "license": "project_internal",
+      "referenceFiles": [],
+      "lastUpdated": "2026-06-14",
+      "qualityStatus": "draft"
+    },
+    "tile.ka_forest": {
+      "styleNotes": "world_coastline_16: Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down lush FOREST CANOPY autotile (鎮守の森 sacred grove) — dense rounded treetops of deep matcha and emerald green with soft dappled sunlight highlights and cool shadow between crowns, painterly and soft. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 dense CANOPY interior variations (rounded treetops, no edge). Row2 = canopy-to-grass EDGE N,S,W,E (forest crowns meeting open grass on that side). Row3 = OUTER CORNERS NW,NE,SW,SE. Row4 = accents: a tall dark pine crown, a small clearing gap, a mossy boulder under trees, a leafy bush. Soft painterly, readable individual treetops.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+      "source": "codex-imagegen",
+      "license": "project_internal",
+      "referenceFiles": [],
+      "lastUpdated": "2026-06-14",
+      "qualityStatus": "draft"
+    },
+    "tile.ka_river": {
+      "styleNotes": "world_coastline_16: Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down flowing CLEAR MOUNTAIN RIVER water autotile — fresh blue-green flowing water with gentle white ripples and soft foam, reflecting warm sky, a pebbly stream-bed faintly visible. Painterly, calm and beautiful. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 open flowing-WATER interior variations (gentle current ripples). Row2 = water-to-bank EDGE N,S,W,E (water meeting a pebbly grassy bank on that side). Row3 = OUTER CORNERS NW,NE,SW,SE of the bank. Row4 = accents: a wet boulder, a foam swirl, a reed clump, a mossy stepping stone. Water reads as clean fresh stream, NOT flat blue.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+      "source": "codex-imagegen",
+      "license": "project_internal",
+      "referenceFiles": [],
+      "lastUpdated": "2026-06-14",
+      "qualityStatus": "draft"
     }
   }
 }

@@ -88,6 +88,43 @@ export class Renderer {
     this.ellipse(cx, cy, rx, ry, `rgba(10,14,24,${a.toFixed(3)})`, cam);
   }
 
+  /** 大気のポストプロセス（暖色グレード＋上部のもや＋ビネット）。世界描画後・HUD前に呼ぶ。 */
+  atmosphere(o: {
+    grade?: string; gradeAlpha?: number; gradeBlend?: GlobalCompositeOperation;
+    mistColor?: string; mistAlpha?: number; vignette?: number;
+  }) {
+    const ctx = this.ctx;
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    if (o.gradeAlpha && o.gradeAlpha > 0) {  // 暖色グレード（ゴールデンアワー）
+      ctx.globalCompositeOperation = o.gradeBlend ?? "soft-light";
+      ctx.globalAlpha = o.gradeAlpha;
+      ctx.fillStyle = o.grade ?? "#ffcf8a";
+      ctx.fillRect(0, 0, this.W, this.H);
+    }
+    if (o.mistAlpha && o.mistAlpha > 0) {    // 上部のもや（遠景の霞）
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 1;
+      const mc = o.mistColor ?? "223,231,224";
+      const g = ctx.createLinearGradient(0, 0, 0, this.H);
+      g.addColorStop(0, `rgba(${mc},${o.mistAlpha})`);
+      g.addColorStop(0.5, `rgba(${mc},0)`);
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, this.W, this.H);
+    }
+    if (o.vignette && o.vignette > 0) {      // ビネット（周辺減光）
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 1;
+      const cx = this.W / 2, cy = this.H / 2;
+      const g = ctx.createRadialGradient(cx, cy, this.H * 0.34, cx, cy, this.H * 0.74);
+      g.addColorStop(0, "rgba(18,14,26,0)");
+      g.addColorStop(1, `rgba(18,14,26,${o.vignette})`);
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, this.W, this.H);
+    }
+    ctx.restore();
+  }
+
   /** 楕円塗り（中心 cx,cy 半径 rx,ry）。接地影などに使用。 */
   ellipse(cx: number, cy: number, rx: number, ry: number, color: string, cam?: Camera) {
     const [sx, sy] = this.toScreen(cx, cy, cam);

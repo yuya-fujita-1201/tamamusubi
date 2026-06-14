@@ -75,6 +75,13 @@ export const TILESETS: TileSetDef[] = [
   //  10 cap_SW(前左角) / 11 cap_SE / 12 wall_L / 13 wall_R / 14 base_L / 15 base_R
   { key: "waCliff3", sheet: "tile.wa_cliff3_set", fallback: "#8a857a" },              // 45 不透明3D石垣
   { key: "waStairs3", sheet: "tile.wa_stairs3_set", fallback: "#9a9078" },            // 46 不透明石段
+  // ── Phase L2 美麗風景・絵画調オートタイル（棚田の谷 tanada。Agent Forge生成） ──
+  // row1=center(0-3) / row2=N,S,W,E(4-7) / row3=NW,NE,SW,SE(8-11) / row4=accent(12-15)
+  { key: "kaGrass", sheet: "tile.ka_grass_set", fallback: "#6aa84e" },                // 47 絵画調・畦草
+  { key: "kaPaddy", sheet: "tile.ka_paddy_set", fallback: "#7fa6c8" },                // 48 棚田の水鏡（静止）
+  { key: "kaPath", sheet: "tile.ka_path_set", fallback: "#b39568" },                  // 49 絵画調・石畳の山道
+  { key: "kaRiver", sheet: "tile.ka_river_set", fallback: "#5b96b8" },                // 50 絵画調・流れる川
+  { key: "kaForest", sheet: "tile.ka_forest_set", fallback: "#3a6a36" },              // 51 絵画調・鎮守の森
 ];
 
 export const TS = Object.fromEntries(TILESETS.map((t, i) => [t.key, i])) as Record<string, number>;
@@ -134,6 +141,12 @@ export const TRANS_MAPS: Record<string, TransitionMap> = {
   // 和風水際(2026-06-13 機械計測): f5=N(0.89) f10=S(0.82) f6=W(0.82) f7=E(0.85)
   // f8=NW f9=NE f11=SE。SW単独は無し→f10兼用。純水センター=f1,f2,f12,f13,f15。
   waterEdge: { center: [1, 2, 12, 13, 15, 1, 12, 13], n: 5, s: 10, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  // ── Phase L2 絵画調オートタイル（Agent Forge生成。row1=center / row2=N,S,W,E / row3=4角 / row4=accent）──
+  kaGrass: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  kaPaddy: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  kaPath: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  kaRiver: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  kaForest: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
   lavaEdge: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 12, 13, 14, 15] },
   volcanoWall: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 13, 14] },
   shallow: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 12, 13, 14] },

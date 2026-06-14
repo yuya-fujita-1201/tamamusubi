@@ -27,6 +27,12 @@ PROC = {
     "tile.wa_kasaishi":   dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_wa_kasaishi.png", keys=["tile.wa_kasaishi_set"]),
     "tile.wa_stairs2":    dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_wa_stairs2.png",  keys=["tile.wa_stairs2_set"]),
     "tile.wa_ishigaki2":  dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_wa_ishigaki2.png", keys=["tile.wa_ishigaki2_set"]),
+    # ── Phase L2 美麗風景・絵画調オートタイル（棚田の谷 tanada 用） ──
+    "tile.ka_grass":      dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_ka_grass.png",     keys=["tile.ka_grass_set"]),
+    "tile.ka_paddy":      dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_ka_paddy.png",     keys=["tile.ka_paddy_set"]),
+    "tile.ka_path":       dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_ka_path.png",      keys=["tile.ka_path_set"]),
+    "tile.ka_river":      dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_ka_river.png",     keys=["tile.ka_river_set"]),
+    "tile.ka_forest":     dict(mode="tileset",         fw=128, fh=128, cols=4, rows=4, out="tile_ka_forest.png",    keys=["tile.ka_forest_set"]),
     "obj.matsu":          dict(mode="prop_large", fw=384, fh=576, cols=1, rows=1, out="obj_matsu.png",      keys=["obj.tree_pine"]),
     "obj.goshinboku":     dict(mode="prop_large", fw=448, fh=576, cols=1, rows=1, out="obj_goshinboku.png", keys=["obj.tree_oak"]),
     "obj.bamboo":         dict(mode="prop_large", fw=384, fh=576, cols=1, rows=1, out="obj_bamboo.png",     keys=["obj.bamboo"]),

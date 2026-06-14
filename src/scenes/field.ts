@@ -675,6 +675,9 @@ export class FieldScene implements Scene {
       r.ctx.fillRect(0, 0, r.W, r.H);
     }
 
+    // 大気のポストプロセス（色グレード・もや・ビネット。世界のみ・HUD前。Phase L3）
+    if (this.map.data.atmosphere) r.atmosphere(this.map.data.atmosphere);
+
     r.zoom = 1;                        // HUD は等倍
     this.drawHud(ctx);
 

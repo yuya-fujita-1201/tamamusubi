@@ -20,14 +20,16 @@ def make_dropshadow():
     W, H = 128, 128
     N = 4  # 4パターン
     out = Image.new("RGBA", (W * N, H), (0, 0, 0, 0))
-    shadow_color = (20, 32, 18)  # 暗緑褐
+    shadow_color = (14, 20, 14)  # neutral-dark（石垣の落ち影＝彩度を抑えた暗色）
 
     # パターン定義: (影帯の高さpx, alpha最大値, ぼかし半径)
+    # 2026-06-14: 石垣の落ち影を強化（お手本=014）。壁の足元に深い接地影が落ちるよう
+    #   濃く・広く・neutral-dark 寄りに。frame 3（最強）を takadai が使用。
     patterns = [
-        (24, 120, 4),   # 細め・中程度
-        (36, 160, 6),   # 標準
-        (48, 180, 8),   # 広め
-        (56, 200, 10),  # 最広・濃め
+        (32, 150, 5),   # 細め・中程度
+        (48, 190, 7),   # 標準
+        (64, 215, 9),   # 広め
+        (80, 235, 12),  # 最広・濃め（壁足元の主用途）
     ]
     for i, (band_h, alpha_max, blur_r) in enumerate(patterns):
         cell = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -36,8 +38,8 @@ def make_dropshadow():
         for y in range(H):
             if y < band_h:
                 t = y / max(band_h - 1, 1)  # 0=上端 1=下端
-                # 上端はくっきり, 下端は薄く
-                a = alpha_max * (1.0 - t * 0.8)
+                # 上端はくっきり, 下端は薄く（接地影は上端を濃く保つため減衰を緩く）
+                a = alpha_max * (1.0 - t * 0.65)
                 arr[y, :, 0] = shadow_color[0]
                 arr[y, :, 1] = shadow_color[1]
                 arr[y, :, 2] = shadow_color[2]
@@ -91,6 +93,21 @@ def make_grass_tone(src_path, out_name, hue_shift, brightness_delta, sat_factor,
     gg = np.select(cond, [x, c, c, x, z, z])
     bb = np.select(cond, [z, z, x, c, c, x])
     out_rgb = np.stack([rr + mmod, gg + mmod, bb + mmod], axis=-1)
+
+    # フレーム間の平均輝度を揃えて市松（チェッカーボード）継ぎ目を解消する。
+    #   下段草を暗く/寒色化すると 16 フレームの平均差が顕在化するため、各 128px フレームの
+    #   平均輝度を全体平均へスケールで合わせる（フレーム内のディテールは保持）。
+    fw = 128
+    nf = out_rgb.shape[1] // fw
+    if nf > 1 and out_rgb.shape[1] % fw == 0:
+        lum = out_rgb @ np.array([0.299, 0.587, 0.114], dtype=np.float32)  # (H, W)
+        grand = float(lum.mean())
+        for i in range(nf):
+            sl = slice(i * fw, (i + 1) * fw)
+            fm = float(lum[:, sl].mean())
+            if fm > 1e-4:
+                out_rgb[:, sl, :] *= (grand / fm)
+
     out_rgb = np.clip(out_rgb * 255.0, 0, 255).astype(np.uint8)
     out_arr = np.concatenate([out_rgb, a.astype(np.uint8)], axis=-1)
     result = Image.fromarray(out_arr, "RGBA")
@@ -118,11 +135,13 @@ def main():
     # pregrade があればそちらをベースに（grade前の原本から作る）
     base = grass_src_pregrade if os.path.exists(grass_src_pregrade) else grass_src
 
+    # 2026-06-14: 高低差が読めるよう上下段のトーン差を拡大（お手本=014）。
+    #   上段=陽の当たる明るい草地 / 下段=崖の影に入る暗く寒色の草地。
     upper_path = make_grass_tone(
         base, "tile_grass_upper.png",
-        hue_shift=+8,          # 黄緑寄り（暖色）
-        brightness_delta=+0.05, # 明るく
-        sat_factor=1.1,
+        hue_shift=+6,          # 黄緑寄り（暖色）
+        brightness_delta=+0.08, # 明るく
+        sat_factor=1.14,
         description="上段草・明るく暖色寄り"
     )
     am["tile.grass_upper"] = {
@@ -133,9 +152,9 @@ def main():
 
     lower_path = make_grass_tone(
         base, "tile_grass_lower.png",
-        hue_shift=-10,          # 青緑寄り（冷色）
-        brightness_delta=-0.05, # 暗く
-        sat_factor=0.9,
+        hue_shift=-15,          # 青緑寄り（冷色）
+        brightness_delta=-0.14, # 暗く（崖の影に入る）
+        sat_factor=0.82,
         description="下段草・暗く青み寄り"
     )
     am["tile.grass_lower"] = {

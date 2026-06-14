@@ -166,6 +166,15 @@ export function buildKiritate(): MapData {
   b.prop("obj.sign", 32, 8, 16, 16, { footW: 1, id: "sign:takadai_road" }); // 看板は拡張帯(24-30)の外へ
   for (const wx of [24, 25, 26, 27, 28, 29, 30]) b.warp(wx, 1, "takadai", 20, 27, "up");
 
+  // ── 東の道 → 棚田の谷（tanada）。村の東口から谷へ抜ける動線 ──
+  // 中央広場(28,20)から東へ伸びる道を東端(x55)まで開通し、東端に3マス幅warp。
+  const eastGate = new Set<number>();
+  for (let y = 19; y <= 21; y++) for (let x = 42; x <= 55; x++) eastGate.add(y * W + x);
+  b.paintAuto(eastGate, TS.path as number, "path");
+  for (const i of eastGate) b.solid(i % W, Math.floor(i / W), false);
+  b.prop("obj.sign", 41, 18, 16, 16, { footW: 1, id: "sign:tanada_road" }); // 看板（道の外）
+  for (const wy of [19, 20, 21]) b.warp(55, wy, "tanada", 28, 42, "up");
+
   const data = b.done();
   data.outsideColor = "#3a5a30";
   return data;

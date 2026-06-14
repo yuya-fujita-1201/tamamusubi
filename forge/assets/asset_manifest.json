@@ -1611,6 +1611,146 @@
       }
     },
     {
+      "id": "tile.ka_forest",
+      "type": "tile",
+      "path": "processed/tiles/ka_forest/ka_forest_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_forest"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_forest/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_forest/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_forest/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_grass",
+      "type": "tile",
+      "path": "processed/tiles/ka_grass/ka_grass_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_grass"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_grass/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_grass/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_grass/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_paddy",
+      "type": "tile",
+      "path": "processed/tiles/ka_paddy/ka_paddy_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_paddy"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_paddy/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_paddy/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_paddy/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_path",
+      "type": "tile",
+      "path": "processed/tiles/ka_path/ka_path_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_path"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_path/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_path/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_path/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_river",
+      "type": "tile",
+      "path": "processed/tiles/ka_river/ka_river_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_river"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_river/processor-meta.json"
+      }
+    },
+    {
       "id": "tile.path_wa",
       "type": "tile",
       "path": "processed/tiles/tile_path_wa/tile_path_wa_village_path_transition_16_sheet.png",

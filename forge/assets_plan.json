@@ -364,6 +364,41 @@
       "preset": "world_coastline_16",
       "priority": 1,
       "prompt": "Bright mythical-Japan satoyama palette, soft warm sunlight from straight above. A top-down-front MOSSY DRY-STONE RETAINING WALL tileset of tightly-packed ROUNDED RIVER BOULDERS (玉石 nozura-zumi). CRUCIAL: every stone is a smooth rounded ovoid cobble rendered with STRONG 3D VOLUME — a bright sunlit highlight on the upper curve of each stone and a deep dark crevice shadow in the gaps beneath and between stones, so the wall reads as bumpy rounded rock, NOT flat. Warm grey and grey-brown stones with natural per-stone colour variation, soft green moss and tiny weeds tucked in the crevices. STRICT 4x4 layout, 16 tiles, each cell exactly 128x128 px, filled edge to edge, FULLY OPAQUE (no transparency, no alpha holes), seamlessly tileable horizontally. Row1 = COPING CAP: a row of light dressed flat capstones forming the plateau lip, lush deep-green grass on the very top edge. Row2 = upper wall (rounded boulders, sunlit, lighter). Row3 = lower wall (rounded boulders, darker and mossier). Row4 = base: boulders meeting grass at the foot with small rubble, soil and weeds. No text, no characters, no grid lines, no posts, no lanterns, no objects."
+    },
+    {
+      "id": "tile.ka_grass",
+      "name": "ka_grass",
+      "preset": "world_coastline_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR sunlight, hand-painted Ghibli-like look. A LUSH PAINTERLY top-down GRASS MEADOW autotile set — deep rich matcha and emerald greens with gentle yellow-green sunlit highlights and soft shadow, fine soft grass texture with tiny clover and wildflowers, gentle painterly gradients (NOT flat, NOT chunky blocky pixels). STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE (no transparency), seamlessly tileable. Row1 = 4 solid INTERIOR grass variations (no edges, fully tileable). Row2 = grass-to-bare-earth EDGE transitions in order N, S, W, E (lush grass on the inside fading to soft bare earth on that one side). Row3 = OUTER CORNERS in order NW, NE, SW, SE (grass occupies the inner quadrant). Row4 = accent tiles: a mossy rock, a small flower cluster, a bare dirt patch, a clover patch. Make grass-to-edge blends SOFT and smooth, never hard stair-steps."
+    },
+    {
+      "id": "tile.ka_paddy",
+      "name": "ka_paddy",
+      "preset": "world_coastline_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, a soft blue-and-gold SKY REFLECTED in still water, hand-painted Ghibli-like look. A top-down terraced RICE PADDY (棚田 tanada) water autotile set — calm MIRROR-LIKE water surface reflecting the warm sky, faint thin rows of bright young green rice seedlings, bordered by low earthen 畦 (aze) ridges of mossy soil topped with grass. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, FULLY OPAQUE, seamlessly tileable. Row1 = 4 open PADDY WATER interior variations (sky-reflecting mirror water, faint rice rows, gentle ripples). Row2 = water-to-aze EDGE in order N, S, W, E (mirror water meeting a low grassy earthen ridge on that one side). Row3 = OUTER CORNERS NW, NE, SW, SE of the aze ridge. Row4 = accents: a clump of green rice seedlings, a lotus leaf, a wet stone, a muddy bank. SOFT painterly blends, water reads as calm reflective mirror, NOT flat blue."
+    },
+    {
+      "id": "tile.ka_path",
+      "name": "ka_path",
+      "preset": "world_coastline_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down winding MOUNTAIN PATH (山道) autotile — warm earthen dirt trail with scattered flat pale stepping stones and small pebbles, soft mossy green edges, gently bordered by grass. Painterly soft, NOT flat chunky. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 path INTERIOR variations (earth + a few flat stones, walkable). Row2 = path-to-grass EDGE in order N,S,W,E (dirt path fading to grass on that one side). Row3 = OUTER CORNERS NW,NE,SW,SE. Row4 = accents: a flat stepping stone, a mossy rock, a grass tuft, scattered fallen leaves. Soft smooth blends."
+    },
+    {
+      "id": "tile.ka_river",
+      "name": "ka_river",
+      "preset": "world_coastline_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down flowing CLEAR MOUNTAIN RIVER water autotile — fresh blue-green flowing water with gentle white ripples and soft foam, reflecting warm sky, a pebbly stream-bed faintly visible. Painterly, calm and beautiful. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 open flowing-WATER interior variations (gentle current ripples). Row2 = water-to-bank EDGE N,S,W,E (water meeting a pebbly grassy bank on that side). Row3 = OUTER CORNERS NW,NE,SW,SE of the bank. Row4 = accents: a wet boulder, a foam swirl, a reed clump, a mossy stepping stone. Water reads as clean fresh stream, NOT flat blue."
+    },
+    {
+      "id": "tile.ka_forest",
+      "name": "ka_forest",
+      "preset": "world_coastline_16",
+      "priority": 1,
+      "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down lush FOREST CANOPY autotile (鎮守の森 sacred grove) — dense rounded treetops of deep matcha and emerald green with soft dappled sunlight highlights and cool shadow between crowns, painterly and soft. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 dense CANOPY interior variations (rounded treetops, no edge). Row2 = canopy-to-grass EDGE N,S,W,E (forest crowns meeting open grass on that side). Row3 = OUTER CORNERS NW,NE,SW,SE. Row4 = accents: a tall dark pine crown, a small clearing gap, a mossy boulder under trees, a leafy bush. Soft painterly, readable individual treetops."
     }
   ]
 }

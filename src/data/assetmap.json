@@ -356,6 +356,41 @@
     "frameW": 128,
     "frames": 16
   },
+  "tile.ka_forest_set": {
+    "cols": 16,
+    "file": "tile_ka_forest.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_grass_set": {
+    "cols": 16,
+    "file": "tile_ka_grass.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_paddy_set": {
+    "cols": 16,
+    "file": "tile_ka_paddy.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_path_set": {
+    "cols": 16,
+    "file": "tile_ka_path.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_river_set": {
+    "cols": 16,
+    "file": "tile_ka_river.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
   "tile.path_set": {
     "cols": 16,
     "file": "tile_path_wa.png",
@@ -364,11 +399,11 @@
     "frames": 16
   },
   "tile.wa_cliff3_set": {
-    "cols": 16,
+    "cols": 21,
     "file": "tile_wa_cliff3.png",
     "frameH": 128,
     "frameW": 128,
-    "frames": 16
+    "frames": 21
   },
   "tile.wa_cliff_set": {
     "cols": 16,

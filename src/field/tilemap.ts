@@ -77,6 +77,14 @@ export interface MapData {
    * 値は画面上端からの論理pxアンカーで、カメラYに連動して僅かに動く）。
    */
   bgs?: { sheet: string; parallax?: number; driftX?: number; scale?: number; bandY?: number }[];
+  /**
+   * 大気のポストプロセス（Phase L3・LANDSCAPE_SETUP.md 柱C）。世界描画後・HUD前にフルスクリーン適用。
+   * grade=暖色グレード(既定 soft-light) / mist=上部のもや(遠景の霞) / vignette=周辺減光。HUDには掛からない。
+   */
+  atmosphere?: {
+    grade?: string; gradeAlpha?: number; gradeBlend?: GlobalCompositeOperation;
+    mistColor?: string; mistAlpha?: number; vignette?: number;
+  };
 }
 
 export class Tilemap {

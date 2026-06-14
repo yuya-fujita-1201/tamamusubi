@@ -9,15 +9,24 @@ import type { MapData } from "../../field/tilemap";
 
 const GU = TS.grassUpper as number;
 const GL = TS.grassLower as number;
-const C3 = TS.waCliff3 as number;   // 不透明3D石垣（16フレーム）
+const C3 = TS.waCliff3 as number;   // 不透明3D石垣（21フレーム・連続立体陰影＋お手本016/p01準拠の側面パーツ）
 const ST = TS.waStairs3 as number;  // 不透明石段
 const SHADOW = TS.waDropshadow as number;
 const FOREST = TS.cliff as number;  // 鎮守の森の樹冠
 
-// waCliff3 フレーム定数
+// waCliff3 フレーム定数（21フレーム・連続立体陰影＋お手本016/p01準拠の側面パーツ）
+// 上段の縁(0-4)。RIM_W/E/NW/NE は「外=石バンド/内=草」の【側面パーツ】（左右の辺に石タイルを見せる）。
 const RIM_N = 0, RIM_W = 1, RIM_E = 2, RIM_NW = 3, RIM_NE = 4;
-const CAP_H = 5, WALL = 6, WALL2 = 7, BASE = 8, BASE2 = 9;
-const CAP_SW = 10, CAP_SE = 11, WALL_L = 12, WALL_R = 13, BASE_L = 14, BASE_R = 15;
+// 前面の壁・中央列（A/B変種で横反復を緩和。段ごとに明度が下がる＝連続グラデ）
+const COPING_A = 5, COPING_B = 6;
+const WUP_A = 7, WUP_B = 8;     // 壁上（明）
+const WMD_A = 9, WMD_B = 10;    // 壁中
+const WLO_A = 11, WLO_B = 12;   // 壁下
+const WBASE_A = 13, WBASE_B = 14; // 基部（暗・接地影）
+// 前面の壁・左右端の角列（縦影つき）
+const COPING_L = 15, COPING_R = 16;
+const WALL_L = 17, WALL_R = 18;   // 角の壁（3段共用・中間明度）
+const WBASE_L = 19, WBASE_R = 20;
 
 export function buildTakadai(): MapData {
   const W = 40, H = 32;
@@ -54,16 +63,20 @@ export function buildTakadai(): MapData {
   }
 
   // ── 前面の高い石垣（笠石cap→壁3段→基部）。石段列は除く ──
+  //   各行に異なる graded フレームを置くことで、壁全体が「上=明→基部=暗」の連続グラデになる。
   for (let x = PX0; x <= PX1; x++) {
     if (isStair(x)) continue;
     const onL = x === PX0, onR = x === PX1;
-    b.ground(x, CAPY, C3, onL ? CAP_SW : onR ? CAP_SE : CAP_H);
-    b.solid(x, CAPY, true); // 前縁の笠石キャップ＝石の縁なので通行不可（石段だけが上下の通路）
-    for (const wy of [WUY, WMY, WLY]) {
-      b.ground(x, wy, C3, onL ? WALL_L : onR ? WALL_R : ((x + wy) % 2 ? WALL : WALL2));
-      b.solid(x, wy, true);
-    }
-    b.ground(x, BASEY, C3, onL ? BASE_L : onR ? BASE_R : (x % 2 ? BASE : BASE2)); b.solid(x, BASEY, true);
+    const ab = x % 2 === 0; // 横A/B変種（隣接タイルで石並びを変える）
+    // 笠石（前縁の天端）＝石の縁なので通行不可（石段だけが上下の通路）
+    b.ground(x, CAPY, C3, onL ? COPING_L : onR ? COPING_R : (ab ? COPING_A : COPING_B));
+    b.solid(x, CAPY, true);
+    // 壁3段（連続グラデ: 上=WUP 中=WMD 下=WLO）
+    b.ground(x, WUY, C3, onL ? WALL_L : onR ? WALL_R : (ab ? WUP_A : WUP_B)); b.solid(x, WUY, true);
+    b.ground(x, WMY, C3, onL ? WALL_L : onR ? WALL_R : (ab ? WMD_A : WMD_B)); b.solid(x, WMY, true);
+    b.ground(x, WLY, C3, onL ? WALL_L : onR ? WALL_R : (ab ? WLO_A : WLO_B)); b.solid(x, WLY, true);
+    // 基部（最暗＋接地影）
+    b.ground(x, BASEY, C3, onL ? WBASE_L : onR ? WBASE_R : (ab ? WBASE_A : WBASE_B)); b.solid(x, BASEY, true);
   }
 
   // ── 石段（CAPY→BASEY を接続・歩行可。不透明 waStairs3。壁3段ぶん中段フレームを反復）──
@@ -97,10 +110,11 @@ export function buildTakadai(): MapData {
   const upper = new Set<number>(), lower = new Set<number>();
   for (let y = GY0; y <= GY1; y++) for (let x = PX0 + 1; x <= PX1 - 1; x++) upper.add(y * W + x);
   for (let y = LY0 + 2; y <= LY1; y++) for (let x = LX0 + 1; x <= LX1 - 1; x++) lower.add(y * W + x);
-  b.scatterDecals(0.08, [0, 1, 2, 3, 4, 5, 6, 7], upper);
-  b.scatterDecals(0.06, [0, 1, 2, 3, 4, 5, 6, 7], lower);
-  b.scatterDecals(0.04, [0, 1, 2, 3], upper, "tile.flower_detail");
-  b.scatterDecals(0.03, [0, 1, 2, 3], lower, "tile.flower_detail");
+  // デカールをやや増量し、草タイル境界の構造シーム（格子）を視覚的に分断する。
+  b.scatterDecals(0.11, [0, 1, 2, 3, 4, 5, 6, 7], upper);
+  b.scatterDecals(0.10, [0, 1, 2, 3, 4, 5, 6, 7], lower);
+  b.scatterDecals(0.05, [0, 1, 2, 3], upper, "tile.flower_detail");
+  b.scatterDecals(0.04, [0, 1, 2, 3], lower, "tile.flower_detail");
 
   // ── ランドマーク（お手本準拠）──
   b.prop("obj.tree_oak", 10, 7, 56, 72, { footW: 2 });

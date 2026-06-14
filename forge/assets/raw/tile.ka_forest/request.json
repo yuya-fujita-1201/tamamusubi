@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_forest",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down lush FOREST CANOPY autotile (鎮守の森 sacred grove) — dense rounded treetops of deep matcha and emerald green with soft dappled sunlight highlights and cool shadow between crowns, painterly and soft. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 dense CANOPY interior variations (rounded treetops, no edge). Row2 = canopy-to-grass EDGE N,S,W,E (forest crowns meeting open grass on that side). Row3 = OUTER CORNERS NW,NE,SW,SE. Row4 = accents: a tall dark pine crown, a small clearing gap, a mossy boulder under trees, a leafy bush. Soft painterly, readable individual treetops.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}
