@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.spillway",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a single tall transparent prop image for a rice terrace spillway module. The image is 128 pixels wide and 384 pixels tall, showing three vertical zones integrated into one continuous composition. Top zone (top 128px): Shallow blue-green rice paddy water surface with young rice seedlings. Near the bottom of this zone, the water gathers and narrows toward a small stone-and-mud drainage opening. The water surface has subtle ripple highlights. Mossy field bank edges fade into the frame edges left and right so this zone connects seamlessly to adjacent kaIshigaki wall tiles. No dramatic waterfall here — this is calm intake. Middle zone (middle 128px): A front-facing mossy stone retaining wall (ishigaki) with a single narrow water channel cut through the exact center. The left and right sections are solid stacked moss-covered stones with bright upper rim highlights and dark lower contact shadow matching the palette of ka_ishigaki tileset. The center channel is approximately 24px wide. Water streams straight down through this cut with white-blue streak highlights and dark wet stone on either side. The stone cut edges are slightly worn and mossy. Left and right stone sections blend naturally into the frame edges and must NOT look like separate rock pillars. Bottom zone (bottom 128px): A small circular splash pool receiving the falling water from above. White foam where water hits center, rippling blue-green clear water expanding outward, a few small wet mossy stones at the edges, reed tufts at the sides. A subtle outflow channel exits toward the lower right. Dark wet shadow under the pool edge. Upper edge connects to the water flow from the middle zone. Style: top-down Japanese satoyama fantasy RPG pixel art, hand-painted Ghibli-inspired warmth, golden afternoon light, SNES-era crisp pixels, bright natural palette consistent with ka_ishigaki. 128px wide, 384px tall, transparent background (PNG alpha), no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

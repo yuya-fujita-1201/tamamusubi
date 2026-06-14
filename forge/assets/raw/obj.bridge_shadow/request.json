@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.bridge_shadow",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a 256x128 pixel art transparent overlay representing the shadowed water beneath a wooden bridge for a top-down Japanese fantasy RPG map. This overlay is placed UNDER the bridge deck to darken the river water beneath, giving the bridge strong visual grounding. Content: a horizontal dark shadow band across blue-green flowing river water. The shadow is darkest (nearly opaque dark brown-black, approximately 70% opacity) directly under the bridge posts, graduating to a medium shadow (approximately 40% opacity) across the main span, with soft transparent feathered edges at left and right sides. Through the shadow, faint river ripple lines are still visible in a deep teal-blue. Small dark shapes suggest the undersides of wooden planks casting shadow strips. The north (top) edge of the shadow is harder-edged (underside of bridge deck), the south (bottom) edge feathers to transparent. Style: crisp pixel art, Japanese satoyama RPG, shadow #1a2818 at 60-70% alpha, deep water #2a4a68, teal #3d6e8a. 256px wide x 128px tall, transparent background (PNG alpha), no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

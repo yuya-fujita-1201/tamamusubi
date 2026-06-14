@@ -96,6 +96,12 @@ export const TILESETS: TileSetDef[] = [
   { key: "kaDecor", sheet: "tile.ka_decor_set", fallback: "transparent" },            // 60 装飾オーバーレイ（花/小石/葦/草むら/根）
   // ── Phase L3 整理（GPT-memo3）: 静かな歩行ベース草。kaGrass2 より低コントラストでノイズを抑える ──
   { key: "kaGrassCalm", sheet: "tile.ka_grass_calm_set", fallback: "#6a9a52" },        // 61 静かなベース草地
+  // ── Phase L4 GPT-020: 地形接続文法修正セット（神社高台/川改善/境界破砕） ──
+  // row1=center(0-3) / row2=N,S,W,E(4-7) / row3=NW,NE,SW,SE(8-11) / row4=accent(12-15)
+  { key: "kaShrineWall",   sheet: "tile.ka_shrine_wall_set",   fallback: "#8a857a" },   // 62 神社高台専用擁壁（dressed ashlar / 棚田と分離）
+  { key: "kaShrineGround", sheet: "tile.ka_shrine_ground_set", fallback: "#8ab87a" },   // 63 神域の平場（低ノイズ・管理された草地）
+  { key: "kaRiver3",       sheet: "tile.ka_river3_set",        fallback: "#5b8fb8" },   // 64 川改良版（カットバンク岸・H0低地として明示）
+  { key: "kaEdgeOverlay",  sheet: "tile.ka_edge_overlay_set",  fallback: "transparent" }, // 65 境界破砕オーバーレイ（森縁/道縁/川岸/石垣縁）
 ];
 
 export const TS = Object.fromEntries(TILESETS.map((t, i) => [t.key, i])) as Record<string, number>;
@@ -174,6 +180,15 @@ export const TRANS_MAPS: Record<string, TransitionMap> = {
   kaForest2: { center: [0, 1, 2, 3], n: 0, s: 4, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
   kaBamboo: { center: [0, 1, 2, 3], n: 5, s: 4, w: 7, e: 6, nw: 10, ne: 11, sw: 8, se: 9, fallbackCenter: true },
   kaGrassCalm: { center: [0, 1, 2, 3, 4, 5, 6, 7], n: 0, s: 0, w: 0, e: 0, nw: 0, ne: 0, sw: 0, se: 0, fallbackCenter: true },
+  // ── Phase L4 GPT-020 追加 ──
+  // kaShrineWall: 神社専用擁壁。kaIshigakiと同じフレーム規約だが質感が別物（dressed ashlar）。
+  kaShrineWall: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  // kaShrineGround: center変種のみ（境界なしの神域平場）。paintAutoは使わずgf(x,y)%8で直接frame指定。
+  kaShrineGround: { center: [0, 1, 2, 3, 4, 5, 6, 7], n: 0, s: 0, w: 0, e: 0, nw: 0, ne: 0, sw: 0, se: 0, fallbackCenter: true },
+  // kaRiver3: fallbackCenter:false = 川は対辺でもcenterを出さない。N辺(4)/S辺(5)が主役（縦流れ）。
+  kaRiver3: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: false },
+  // kaEdgeOverlay: 形式上登録するがpaintAutoは使わない（scatterDecalsでframe直接指定）。
+  kaEdgeOverlay: { center: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], n: 0, s: 0, w: 0, e: 0, fallbackCenter: true },
   lavaEdge: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 12, 13, 14, 15] },
   volcanoWall: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 13, 14] },
   shallow: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 12, 13, 14] },

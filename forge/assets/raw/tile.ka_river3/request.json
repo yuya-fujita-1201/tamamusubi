@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_river3",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a seamless 512x512 pixel art autotile sheet for a top-down Japanese satoyama fantasy RPG, laid out as 4 columns x 4 rows of 128x128 pixel frames (16 frames total). This sheet shows the river as a LOW terrain feature (H0) with surrounding grassland at H1. Row 1 (frames 0-3): river center variations — calm blue-green mountain stream water with gentle ripple lines, soft highlights, zero large rocks, subtly animated-looking flow going north-to-south. Minimal white foam; water is readable and does not overpower. Row 2 (frames 4-7): edge transitions N/S/W/E — each edge shows the HEIGHT DIFFERENCE: bright grass lip at top, then an ERODED CUT BANK with exposed dark earth, hanging grass roots, small mossy stones, and a DARK WET SHADOW band at the water's edge. The bank must clearly communicate that the water surface is 1 tile lower than the land. Row 3 (frames 8-11): outer corner transitions NW/NE/SW/SE — curved natural bends, same eroded bank and shadow treatment, NO right-angle corners. Row 4 (frames 12-15): accent — gentle foam at a curve, river with sparse pebbles, dark deep-water center, foam near a rock. Style: crisp hand-painted pixel art, Ghibli-inspired Japanese countryside, warm golden-hour light, blue-green #5b8fb8 primary water, dark #2a3a28 shadows on banks, bright green #8abf5a grass lip, overall palette matching tile.ka_ishigaki style. 512px total sheet (128px per frame), opaque, no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

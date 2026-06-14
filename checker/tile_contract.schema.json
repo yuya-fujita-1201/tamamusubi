@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tile Contract",
+  "description": "タイル/プロップに意味(カテゴリ・高さ・接続条件)を与える契約。map_art_linter.py が参照する。",
+  "type": "object",
+  "required": ["version", "tiles", "props", "grammar", "thresholds"],
+  "properties": {
+    "version": { "type": "integer" },
+    "tileSizePx": { "type": "integer" },
+    "logicalTile": { "type": "integer" },
+    "categories": { "type": "object", "additionalProperties": { "type": "string" } },
+    "heightLevels": { "type": "object" },
+    "shadow": { "type": "object" },
+    "tiles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["category", "layer", "passable"],
+        "properties": {
+          "category": { "type": "string" },
+          "role": { "type": "string" },
+          "layer": { "enum": ["ground", "deco", "overhead"] },
+          "passable": { "type": "boolean" },
+          "variants": { "type": "boolean" },
+          "isWallFace": { "type": "boolean" },
+          "faceFrames": { "type": "array", "items": { "type": "integer" } },
+          "isWater": { "type": "boolean" },
+          "isPath": { "type": "boolean" }
+        }
+      }
+    },
+    "props": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["category"],
+        "properties": {
+          "category": { "type": "string" },
+          "role": { "type": "string" },
+          "requiresAbove": { "type": "array", "items": { "type": "string" } },
+          "requiresBelow": { "type": "array", "items": { "type": "string" } },
+          "endcaps": { "type": "array", "items": { "type": "string" } },
+          "providesShadow": { "type": "string" }
+        }
+      }
+    },
+    "grammar": { "type": "object" },
+    "thresholds": { "type": "object" },
+    "scoreAxes": { "type": "array", "items": { "type": "string" } }
+  }
+}

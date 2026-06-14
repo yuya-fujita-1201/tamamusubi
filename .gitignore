@@ -22,6 +22,11 @@ forge/assets/processed/
 forge/logs/
 forge/gen_results.json
 
+# map_art_linter の中間/出力物（再生成可）
+checker/_dump/
+checker/out/
+checker/lint/**/__pycache__/
+
 # OS / エディタ
 .DS_Store
 **/.DS_Store

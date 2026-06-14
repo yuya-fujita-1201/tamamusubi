@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_edge_overlay",
+  "presetId": "world_grass_variation_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-grass-variation",
+      "solid": false,
+      "adjacency": "regional-ground"
+    },
+    "prompt_rules": [
+      "world-map grassland variation tiles, not close-up village grass",
+      "include broad color drift, subtle plains texture, sparse flowers, worn patches, and regional palette variation",
+      "avoid a single repeated grass stamp or high-frequency checkerboard texture"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a 512x512 transparent overlay tileset for a top-down Japanese satoyama fantasy RPG map. The sheet is a 4x4 grid of 128x128 pixel transparent tiles, 16 frames total. Each frame is a standalone overlay that breaks up the visual boundary between two adjacent terrain types. All tiles have transparent backgrounds — only the overlay content is opaque. Frame layout and purpose: Row 1 (frames 0-3): Forest-edge overlays. f0: dense low shrubs and fern fronds spilling 60px into an open clearing from the south edge of a forest mass. f1: mossy roots and shadow puddle spread horizontally along a forest south boundary. f2: sparse bamboo shoots and grass tufts intrude 40px into a path from the west. f3: hanging moss and leaf shadow from forest canopy overhanging open grass, 50px intrusion. Row 2 (frames 4-7): Path-edge overlays. f4: soft grass blades and small wildflowers creep 50px onto a dirt path from the left side. f5: pebbles and muddy edge where path meets grass, 40px wide blending zone. f6: path dust and worn soil spread into grass on the right edge. f7: large flat stone half-embedded at path edge with surrounding grass. Row 3 (frames 8-11): River-bank overlays. f8: eroded muddy bank with wet stones and hanging grass roots visible at water edge, 60px overhang over water tile. f9: mossy stones and small reeds jutting from river bank into water, 50px. f10: smooth river pebbles and sand bar spreading from bank toward water center. f11: dark wet shadow band along river bank base, 30px deep. Row 4 (frames 12-15): Terrace-wall and paddy-edge overlays. f12: moss and tiny wildflowers growing at the base of a stone retaining wall, 40px band. f13: water-paddy edge with grass blades and muddy bank breaking into paddy water, 50px. f14: soft grass intrusion at paddy corner rounding a right-angle into a curve. f15: stone and moss rubble at foot of stone wall with shadow. Style: hand-painted Ghibli-inspired Japanese rural fantasy, warm golden-afternoon palette, crisp pixel art, SNES-era quality. All frames transparent background. 512px total sheet (128px per tile), transparent overlay, no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

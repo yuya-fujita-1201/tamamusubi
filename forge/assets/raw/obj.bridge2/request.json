@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.bridge2",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a 256x128 pixel art wooden bridge module for a top-down Japanese fantasy RPG map. This bridge spans HORIZONTALLY (left-to-right) across a vertical river. The bridge deck is the WALKABLE SURFACE that the player character stands on. Content: aged wooden planks running left-to-right with plank gaps visible, simple square-cut wooden railings on the north (far) side only, three or four round wooden support posts visible on the south face, warm brown and amber tones with dark wood grain. The left end (west) and right end (east) visually connect to stone abutments — include a small stone ledge at each end where planks meet stone. Add subtle warm shadow under the railing cross-beams. The underside area has open space suggesting water passes beneath. Do NOT include river water in this tile. Style: crisp hand-painted pixel art, Ghibli Japanese satoyama, warm golden-hour sunlight from upper-left, plank color #8b5e3c, post color #6b4020, stone edge #9a8f7a. 256px wide x 128px tall, transparent background (PNG alpha), bounding box trimmed, bottom-edge grounded, no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

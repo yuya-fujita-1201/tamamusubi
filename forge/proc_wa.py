@@ -55,6 +55,26 @@ PROC = {
     "obj.sign_wa":        dict(mode="prop", fw=128, fh=128, cols=1, rows=1, out="obj_sign_wa.png",  keys=["obj.sign"]),
     "obj.tsuzura":        dict(mode="prop", fw=128, fh=128, cols=4, rows=1, out="obj_tsuzura.png",  keys=["obj.chest"]),
     "obj.tuft_wa":        dict(mode="prop", fw=128, fh=128, cols=4, rows=1, out="obj_tuft_wa.png",  keys=["obj.grass_tuft"]),
+    # ── Phase L4 GPT-020: 地形接続文法修正セット ──
+    # 神社高台専用（棚田と文法分離）
+    "tile.ka_shrine_wall":   dict(mode="tileset", fw=128, fh=128, cols=4, rows=4, out="tile_ka_shrine_wall.png",   keys=["tile.ka_shrine_wall_set"]),
+    "tile.ka_shrine_ground": dict(mode="tileset", fw=128, fh=128, cols=4, rows=4, out="tile_ka_shrine_ground.png", keys=["tile.ka_shrine_ground_set"]),
+    "obj.shrine_stairs":     dict(mode="prop",    fw=256, fh=384, cols=1, rows=1, out="obj_shrine_stairs.png",    keys=["obj.shrine_stairs"]),
+    # 棚田スピルウェイ（滝オブジェクト→地形統合排水口）
+    "obj.spillway":          dict(mode="prop",    fw=128, fh=384, cols=1, rows=1, out="obj_spillway.png",         keys=["obj.spillway"]),
+    "obj.spillway_side":     dict(mode="prop",    fw=64,  fh=128, cols=1, rows=1, out="obj_spillway_side.png",    keys=["obj.spillway_side"]),
+    # 川改良版（H0低地・カットバンク岸）
+    "tile.ka_river3":        dict(mode="tileset", fw=128, fh=128, cols=4, rows=4, out="tile_ka_river3.png",       keys=["tile.ka_river3_set"]),
+    # 橋セット（橋床/橋下影/橋台の3部品）
+    "obj.bridge2":           dict(mode="prop",    fw=256, fh=128, cols=1, rows=1, out="obj_bridge2.png",          keys=["obj.bridge2"]),
+    "obj.bridge_shadow":     dict(mode="prop",    fw=256, fh=128, cols=1, rows=1, out="obj_bridge_shadow.png",    keys=["obj.bridge_shadow"]),
+    "obj.bridge_abutment":   dict(mode="prop",    fw=128, fh=128, cols=1, rows=1, out="obj_bridge_abutment.png",  keys=["obj.bridge_abutment"]),
+    # 水車小屋+分水路統合モジュール
+    "obj.watermill_channel": dict(mode="prop",    fw=256, fh=256, cols=1, rows=1, out="obj_watermill_channel.png", keys=["obj.watermill_channel"]),
+    # グリッド分断オーバーレイセット
+    "tile.ka_edge_overlay":  dict(mode="tileset_overlay", fw=128, fh=128, cols=4, rows=4, out="tile_ka_edge_overlay.png", keys=["tile.ka_edge_overlay_set"]),
+    "obj.curve_overlay_2x2": dict(mode="prop",    fw=256, fh=256, cols=1, rows=1, out="obj_curve_overlay_2x2.png", keys=["obj.curve_overlay_2x2"]),
+    "obj.curve_overlay_3x1": dict(mode="prop",    fw=384, fh=128, cols=1, rows=1, out="obj_curve_overlay_3x1.png", keys=["obj.curve_overlay_3x1"]),
 }
 
 

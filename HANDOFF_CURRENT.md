@@ -1,6 +1,6 @@
 # HANDOFF_CURRENT.md — 『玉結び』現在地（次セッションはまずこれを読む）
 
-> 作成: 2026-06-13 ／ 最終更新: **2026-06-14**（S1=プレイFB4R → S2/3=立体表示の実験 → S4=俯瞰ズーム(§3.11) → S5=立体2モード削除＋高台を直交2Dで再構築(§3.12〜3.15) → S6=高台第3版＝連続立体石垣(§3.16) → S7=高台側面＋美麗風景パイプライン＋棚田の谷新設(§3.17) → **S8=棚田の谷 美麗化＝新規Agent Forge素材13点＋全面再構築＋磨き5巡(§3.18)。次スレッドは §3.19 を読む**）
+> 作成: 2026-06-13 ／ 最終更新: **2026-06-14**（S1=プレイFB4R → S2/3=立体表示の実験 → S4=俯瞰ズーム(§3.11) → S5=立体2モード削除＋高台を直交2Dで再構築(§3.12〜3.15) → S6=高台第3版＝連続立体石垣(§3.16) → S7=高台側面＋美麗風景パイプライン＋棚田の谷新設(§3.17) → S8=棚田の谷 美麗化＝新規Agent Forge素材13点＋全面再構築＋磨き5巡(§3.18) → **S9=棚田の谷 第4版＝地形接続文法の作り直し（指示020/GPT-memo）＝新規素材13点＋3エリア(神社高台/滝/川橋)を文法分離＋Codex/3観点QAで視覚忠実度57→72(§3.20)。次スレッドは §3.20 を読む**）
 > 旧ドキュメント: `HANDOFF.md`(Phase0/1A基盤・素材インベントリ) / `HANDOFF_FIXES.md`(修正ラウンド0〜7の詳細)。
 > **本ファイルが最新の単一情報源。** 状態: typecheck 0 / vitest **32本** / build 緑 / 実機検証済み。**セッション5終了時に全変更を `main` へコミット＆push 済み**（リモート: github.com/yuya-fujita-1201/tamamusubi）。次セッションはクリーンな working tree から開始。
 > 直近の主題は**立体表示（斜め見下ろし）の実験**(詳細 §3.5〜3.10／要点 §0.5)。**今セッションの主変更=カメラ俯瞰ズームを 1.0→0.8 に引き(§3.11・立体表示とは別件)**。
@@ -298,6 +298,20 @@ npx tsc --noEmit && npx vitest run   # 緑・32本
 
 **重要ファイル**: マップ=`src/data/maps/tanada.ts` ／ タイル定義=`src/field/tileset.ts`(47-61＋TRANS_MAPS) ／ 生成=`forge/assets_plan.json`＋`forge/gen_runner.mjs` ／ proc=`forge/proc_wa.py` ／ 後処理=`forge/gen_ka2_post.py`(水ポップ)・`forge/gen_ka3_post.py`(草/稲を静かに) ／ 描画=`src/gfx/renderer.ts`。実機=dev-browser(§5・タイトルはKeyX連打でイントロ消化→`window.__tamamusubi.warp('tanada',x,y)`はフェード遷移なのでポーリング必須)。スクショ/比較=`ZZ-HCP-logs/018,019/`(gitignore)。
 
+### 3.20 棚田の谷 第4版＝地形接続文法の作り直し（2026-06-14 セッション9・指示=ZZ-HCP-logs/020/GPT-memo）★最新
+- **指示(020)**: 「素材不足ではなく地形パーツ同士の【接続文法】が弱い」。3エリアを文法から作り直す＝①棚田の滝（貼り付け→埋め込み排水口）②右の川と橋（低い谷＋橋台/橋下影/道接続）③上部の神社高台（棚田パーツ流用をやめ神域専用文法）＋④128pxグリッド分断。
+- **進め方**: Dynamic Workflow（全Opus 4.8）で4エリア並列設計→統合ビルドプラン→アセット生成→tanada再構築→多観点QA。
+- **新規 Agent Forge 素材13点**（assets_plan.json/proc_wa.py 追記、tileset.ts 62-65＋TRANS_MAPS）: `tile.ka_shrine_wall`(神社専用 dressed ashlar 擁壁・62) `tile.ka_shrine_ground`(神域の静かな平場・63) `tile.ka_river3`(穏やか川＋カットバンク岸・64) `tile.ka_edge_overlay`(境界破砕16フレーム・65) ／ プロップ `obj.shrine_stairs`(256x384 切り込み石段) `obj.spillway`(128x384 埋め込み滝＝上段水田→切欠き→滝壺) `obj.spillway_side` `obj.bridge2`(256x128 木橋) `obj.bridge_shadow`(橋下水影) `obj.bridge_abutment`(橋台) `obj.watermill_channel`(水車＋分水路) `obj.curve_overlay_2x2`/`3x1`(大判曲線・不採用)。
+- **tanada.ts 全面再構築**（W56xH46踏襲）: 神社=kaShrineWall/kaShrineGround＋shrine_stairsで「鳥居(y14)→石段(x27,28 y10-13)→平場(y4-9)→社」の縦導線（棚田と文法分離）。西/東棚田=paddy()にskipX追加し石垣を切り欠いて spillway を埋め込み（ty=wallY+2）。川=kaRiver3＋frame3接地影＋橋セット(橋下影→橋床ysort:false→橋台ysort:true→道)＋watermill_channel。中央道=S字蛇行。装飾=kaEdgeOverlayを境界に薄く散布（curve_overlayは密なシダ塊で過剰→不採用）。大気=ゴールデンアワー(#ffe8b4/0.24)。末尾に**到達不能セルを森で封鎖するシール処理**（BFS iso=0保証）。
+- **★重要バグ修正（Codex P1）**: 新規プロップに HD ソースpx(128/256/384)をそのまま draw size に渡していた＝8倍巨大化（既存は論理px=源÷SS8）。全プロップを論理pxに修正（spillway16x48/stairs32x48/bridge32x16/abutment16x16/watermill48x48）。これが「滝が岩柱に挟まれて見える/装飾過剰」の主因だった。
+- **その他修正**: flower_clusterのハッシュが符号付き`>>`で40.9%が負フレーム→`>>>`（Codex/QA P0）。石段は歩行床なので`ysort:false`（Codex P2）。東下段の孤立(72セル)を東スパイン道で接続→シール処理でiso=0。dote段差cap行(20,29)の花を除去し縁を露出。watermillのsolidRect二重登録を整理。
+- **検証**: tsc0 / vitest32 / build緑 / BFS到達性iso=0(社/石段/集落/東下段/warp全到達)・solidRatio0.643。
+- **QA（多観点・全Opus）**: Codex review 2巡（プロップ寸法P1・石段ysort P2 を指摘→修正済）／桜井メソッド・視覚忠実度・コード到達性の3観点ワークフロー／視覚忠実度 **57→72/100**（寸法修正＋装飾引き算＋到達性＋神社導線改善で加点）。
+- **実機スクショ**: `ZZ-HCP-logs/020/result/v7_*.png`(全景/神社/橋/東下段/西), `v8_shrine*.png`(神社導線改善後)。
+- **★Codexが自動生成した品質保証ツール群（未コミット・要ユーザー判断）**: `quality/`(ART_BIBLE/MAP_DEFINITION_OF_DONE/TILE_GRAMMAR等のドキュメント), `checker/`(マップアート自動リンター=height/river/shrine等のルールチェック+map dump), `.claude/agents/map-art-reviewer.md`, `.claude/skills/map-quality`, package.json(`check:dump`/`check:map`)。リンターでtanada=**93/100 ERROR0 WARNING4**（WARNINGはREPEAT_RUN=静かな草の意図的設計／WATERFALL_NO_BASIN×2=プロップ絵内の滝壺をタイル単位では検出不可／STAIR_NO_SIDEWALL=チェッカー限界）。Codex自身がこのツールにP2を5件指摘（exit code/影フレーム検証の精度）。
+- **残りの伸びしろ（任意）**: 滝壺をマップタイルでも実体化／神社石段の側壁を足元まで延長／川岸のえぐれ素材／お手本到達度80超えには神社石段の更なる明確化。
+- **コミット状況**: **未コミット**（前回 f1e9f21 が第3版）。本セッションの変更（map/asset/tileset/proc + Codex生成ツール群）はユーザー確認後にコミット予定。
+
 ## 4. 残課題・次の候補
 - **棚田の谷(tanada)の動線は配線済**（§3.17 末尾）。村東口→棚田。今後の磨き=プロップ絵画調化／遠景パララックス／大気バリエーション／棚田段差に cliff3。
 - **森境界の構造的継ぎ目**（色違いは解消済だが樹冠の微かなタイル境界は残る）。気になるなら森centerもシームレス単一タイル化 or cliff遷移を柔らかく再生成。
@@ -305,6 +319,41 @@ npx tsc --noEmit && npx vitest run   # 緑・32本
 - **勾玉システム未着手**（PLAN.md §6・装備の核）。
 - **コミット状況**: セッション5終了時に**全変更を `main` へコミット＆push 済み**（origin=github.com/yuya-fujita-1201/tamamusubi）。次セッションはクリーンな working tree から開始。`.gitignore`: `forge/_backup_*` / `ZZ-HCP-logs/`(QAスクショ・参照画像) / forge中間物 を除外。
   ⚠️ **`public/assets/*_pregrade.png` は追跡する**（grade_wa.py の原本＝再グレードの素。untrack するとfresh checkoutで原本が失われ再グレードが二重暗化する・Codexレビュー）。
+
+## 7. マップ品質保証システム（2026-06-14 S10 で本格構築）★今後の全マップ制作の土台
+
+GPT Pro 助言「マップ改善とは別に“品質の基準”を作れ」を、**エージェント / スキル / ツール**の3形式で実装した。
+「AIに“絵を描かせる”だけでなく“絵を検査させる”」＝生成AIと検査AIを分けるのが核。
+
+> **§3.20 との関係**: 前セッションで Codex が同名の品質ツール（`checker/`/`quality/`/agent/skill）を一度生成したが「未コミット・要ユーザー判断」だった。S10 開始時点では `checker/` は空・`quality/` は不在（セッション間で失われていた）。そこで S10 で**ゼロから本格的に再構築**した（12チェックへ拡張＋全ドキュメント整備＋Codexレビュー反映）。tanada のリンタ結果が §3.20 記載と一致（93/E0/W4）＝診断は再現性あり。
+
+### 4本柱とその実体
+1. **アートの正解基準** → `quality/ART_BIBLE.md`（OK/NG例・色/ノイズ/高低差ルール）
+2. **タイル配置の文法** → `quality/TILE_GRAMMAR.md`（人間用）＋ `checker/tile_contract.json`（機械用・単一ソース）
+3. **自動検査ツール** → `checker/`（後述）
+4. **固定レビュープロンプト** → `quality/MAP_REVIEW_PROMPT.md`（コピペ即用）＋ `quality/MAP_REVIEW_CASES.md`（NG台帳12件）＋ `quality/MAP_DEFINITION_OF_DONE.md`
+
+### ツール: `checker/`（最重要）
+- 実行: `checker/run_check.sh <map> [screenshot.png]`（ダンプ→lint→レポート）。`npm run check:dump` / `npm run check:map -- --map <id>` も可。
+- 仕組み: マップはTSビルダー生成のため、`checker/export/dump_map.dump.test.ts`（**専用vitest config**=`npm test`を汚さない）で `MapData→checker/_dump/<map>.json` に書出し、`checker/lint/map_art_linter.py`(Python)が解析。
+- 12チェック: HEIGHT/STAIR/WATERFALL/BRIDGE/SHRINE/RIVER/REPEAT/WALK/CONTACT/DENSITY/SEAM(画像)/NOISE(画像)。
+- 出力: `checker/out/<map>/{art_qa_report.md, score.json, error_overlay.png, warning_overlay.png}`（gitignore）。スクショ無しでも ground カテゴリ色分けの**構造マップ**を出す（height/walkable俯瞰の代用）。
+- スコア=10軸 各0-5→100点換算。合格条件=**総合80点以上 / ERROR 0 / 重大WARNING 3件以下**。満たさないと exit 1（CIゲート）。
+- 新タイルを `src/field/tileset.ts` に足したら **必ず `checker/tile_contract.json` にも意味を1エントリ追記**（未登録は category=other で接続検査から漏れる）。
+
+### エージェント / スキル
+- `.claude/agents/map-art-reviewer.md` = 検査AI（アートディレクター/QA人格）。**マップを作る会話とは別起動**で使う。
+- `.claude/skills/map-quality/SKILL.md` = 制作→検査→修正の10ステップ運用フロー＋DoD＋納品物。**マップ制作時は常にこれに従う**。
+
+### 現状（リンタ実測・全マップ ERROR 0＝偽陽性なし）
+satoyama 95 / kiritate 96 / morioku 100 / takadai 96（合格） ／ **tanada 93（差し戻し）**。
+tanada の差し戻し理由 = WARNING 4件: ①②西/東スピルウェイ(obj.spillway)の滝壺・下段接続が弱い ③同一frame長連続(水田/平場) ④反復。
+→ 次に tanada を仕上げるなら、この WARNING を潰して80点超＋WARNING 3件以下にすれば合格。
+
+### Codexレビュー反映済み（S10）
+checker一式を `codex exec` でレビュー、高3/中8/低1を指摘。妥当な9件を修正（exit連動・CHECK_CRASH=ERROR・prop座標KeyError/JS互換round・BFS起点から敵spawn除外・神域トリガをshrine_ground限定・鳥居奥判定を重心方向化・waterEdge登録・未使用閾値削除）。
+2件は本エンジン特性に基づき**棄却**: contact厳格化（森縁の木/水車over水は正当配置で偽陽性化）／128px境界=8タイル毎（SS=8で全タイル境界が128pxアセット継ぎ目のため全境界検査が正）。
+- コミット状況: **未コミット**（ユーザー判断待ち。`checker/out`・`checker/_dump`・`__pycache__` は .gitignore 済）。
   ※ `ZZ-HCP-logs/` は gitignore のためお手本画像(009/011)もリポジトリ外。次セッションで参照が要る場合はローカルに残す。
 - 既知の軽微: 水面に微かなフェザー十字パターン（許容）。dev-browser は SIGTRAP 多発（下記復旧手順）。
 

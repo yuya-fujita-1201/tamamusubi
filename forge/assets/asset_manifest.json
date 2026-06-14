@@ -1131,6 +1131,171 @@
       }
     },
     {
+      "id": "obj.bridge_abutment",
+      "type": "prop",
+      "path": "processed/props/128x128/128x128_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "橋台 苔石積み 128x128"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge_abutment/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge_abutment/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/128x128/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.bridge_shadow",
+      "type": "prop",
+      "path": "processed/props/256x128/256x128_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "橋下の水影オーバーレイ 256x128"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge_shadow/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge_shadow/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/256x128/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.bridge2",
+      "type": "prop",
+      "path": "processed/props/256x128/256x128_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "木橋モジュール・縦川横断 (橋床) 256x128"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge2/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge2/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/256x128/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.curve_overlay_2x2",
+      "type": "prop",
+      "path": "processed/props/2x2-256x256/2x2-256x256_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "大判曲線オーバーレイ 2x2（256x256・透過）"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.curve_overlay_2x2/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.curve_overlay_2x2/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/2x2-256x256/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.curve_overlay_3x1",
+      "type": "prop",
+      "path": "processed/props/3x1-384x128/3x1-384x128_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "大判曲線オーバーレイ 3x1（384x128・透過）"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.curve_overlay_3x1/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.curve_overlay_3x1/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/3x1-384x128/processor-meta.json"
+      }
+    },
+    {
       "id": "obj.flower_cluster",
       "type": "prop",
       "path": "processed/props/obj_flower_cluster/obj_flower_cluster_field_prop_32_sheet.png",
@@ -1406,6 +1571,39 @@
       }
     },
     {
+      "id": "obj.shrine_stairs",
+      "type": "prop",
+      "path": "processed/props/_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "神社参道 広石段モジュール（縦長プロップ）"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.shrine_stairs/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.shrine_stairs/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/processor-meta.json"
+      }
+    },
+    {
       "id": "obj.sign_wa",
       "type": "prop",
       "path": "processed/props/obj_sign_wa/obj_sign_wa_field_prop_32_sheet.png",
@@ -1436,6 +1634,72 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.sign_wa/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.sign_wa/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_sign_wa/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.spillway",
+      "type": "prop",
+      "path": "processed/props/1-3/1-3_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "棚田スピルウェイ・モジュール（縦1×3タイル統合滝）"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.spillway/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.spillway/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/1-3/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.spillway_side",
+      "type": "prop",
+      "path": "processed/props/_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "スピルウェイ濡れ石サイドピース（左右対称・装飾用）"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.spillway_side/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.spillway_side/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/processor-meta.json"
       }
     },
     {
@@ -1623,6 +1887,39 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.waterfall/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.waterfall/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_waterfall/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.watermill_channel",
+      "type": "prop",
+      "path": "processed/props/256x256/256x256_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "水車小屋・分水路チャンネル接続モジュール 256x256"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.watermill_channel/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.watermill_channel/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/256x256/processor-meta.json"
       }
     },
     {
@@ -1824,6 +2121,34 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_dote/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_dote/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_dote/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_edge_overlay",
+      "type": "tile",
+      "path": "processed/tiles/16/16_world_grass_variation_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "境界破砕オーバーレイセット（16フレーム・透過）"
+      ],
+      "tile": {
+        "role": "world-grass-variation",
+        "solid": false,
+        "adjacency": "regional-ground"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_grass_variation_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_edge_overlay/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_edge_overlay/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/16/processor-meta.json"
       }
     },
     {
@@ -2160,6 +2485,90 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river2/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river2/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_river2/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_river3",
+      "type": "tile",
+      "path": "processed/tiles/_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "落ち着いた川・カットバンク岸オートタイル (改良版)"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river3/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river3/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_shrine_ground",
+      "type": "tile",
+      "path": "processed/tiles/_world_grass_variation_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "神域の平場グラウンドタイル"
+      ],
+      "tile": {
+        "role": "world-grass-variation",
+        "solid": false,
+        "adjacency": "regional-ground"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_grass_variation_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_shrine_ground/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_shrine_ground/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_shrine_wall",
+      "type": "tile",
+      "path": "processed/tiles/_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "神社高台 正面擁壁オートタイル"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_shrine_wall/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_shrine_wall/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/processor-meta.json"
       }
     },
     {

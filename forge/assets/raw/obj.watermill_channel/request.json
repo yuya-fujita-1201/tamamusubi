@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.watermill_channel",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a 256x256 pixel art module showing a traditional Japanese watermill (suisha) with its millrace water channel connecting to a river, for a top-down Japanese fantasy RPG map. This is a complete connection module showing how the watermill integrates with the water system. Left half (128px): the watermill building — a compact thatched-roof wooden mill house, dark aged timber frame #3a2010, warm thatched roof #9a8040 with moss and lichen. A large wooden waterwheel (6-8 paddles) on the right side of the building, partially submerged in the millrace channel. The wheel is mid-rotation, paddles dark wet wood. Right half (128px): the millrace channel — a narrow stone-lined water channel (分水路) leading from the main river into the wheel. The channel shows fast-moving water with bright white highlights where water hits wheel paddles. Stone channel walls are mossy #6a8a5a. The channel mouth at the right edge connects seamlessly to the main river tile. Dark grounding shadows under the building and along channel edges. A wooden sluice gate hint at the channel intake. Style: crisp hand-painted pixel art, Ghibli Japanese satoyama, warm golden-hour light from upper-left, rich deep greens and warm ambers. 256px x 256px, transparent background (PNG alpha), bounding box trimmed, bottom-edge grounded, no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

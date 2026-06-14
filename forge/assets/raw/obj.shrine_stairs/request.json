@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.shrine_stairs",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a 256x384 transparent pixel art prop for a wide stone staircase leading up to a Shinto shrine plateau in a top-down orthographic 2D Japanese fantasy RPG. This is a single tall prop spanning two tile widths horizontally and three tile heights vertically, viewed strictly from top-down. Structure from bottom to top: Bottom third (0-128px): Lower stone landing at H1 level — flat worn stone pavement with approach path connection, faint torii shadow cast upward, subtle moss between paving stones, contact shadow at base. Middle third (128-256px): Wide stone staircase with 6-8 visible steps ascending northward. Steps are broad enough for two characters side by side. Strong bright highlight on each step lip (upper rim of each riser). Clear shadow under each step. Left and right side walls are solid dressed stone matching shrine retaining wall with a bright top edge cap. Stone color: cool grey #9a9278, highlight #e0d8c0, deep step-shadow #1e1c18. Center of stairs: worn pale stone path in the middle, moss at the edges of steps. Top third (256-384px): Upper stone landing at H2 shrine plateau level — flat neat stone paving transitioning to shrine ground grass. Subtle grass lip at top edge. The entire module must look cut into the retaining wall — the left and right side walls integrate seamlessly with shrine plateau front wall tiles beside it. Lighting: golden-hour warm side light from upper-left, strong highlights on stair lips and upper stone rims, deep shadows in step recesses. Style: crisp pixel art, SNES-era quality, hand-crafted Ghibli-influenced Japanese shrine aesthetic, warm satoyama fantasy. 256px wide x 384px tall, transparent background (PNG alpha), no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

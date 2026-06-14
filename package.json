@@ -10,7 +10,9 @@
     "preview": "vite preview --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "check:dump": "vitest run --config checker/checker.vitest.config.ts",
+    "check:map": "python3 checker/lint/map_art_linter.py"
   },
   "devDependencies": {
     "@types/node": "25.6.0",

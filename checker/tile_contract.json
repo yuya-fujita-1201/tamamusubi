@@ -1,0 +1,206 @@
+{
+  "$schema": "./tile_contract.schema.json",
+  "version": 1,
+  "note": "Tile Contract — 玉結び(TAMAMUSUBI) のタイル/プロップに『意味』を与える単一ソース。map_art_linter.py と quality/TILE_GRAMMAR.md が参照する。タイルは src/field/tileset.ts の TILESETS.key、プロップは MapProp.sheet で引く。座標系: 論理タイル=16px / アセット実寸=128px / prop.x = tileX*16。",
+  "tileSizePx": 128,
+  "logicalTile": 16,
+
+  "categories": {
+    "ground_grass": "歩行可能な草/平場のベース。主役を邪魔しない静かな地。",
+    "ground_tone": "高低差を色トーンで示す草(上段=明/下段=暗)。段差表現の補助。",
+    "shrine_ground": "神域の管理された平場。低ノイズ。棚田パーツの流用は禁止。",
+    "path": "歩行導線。道・参道・飛び石。",
+    "water_surface": "水鏡として見せる水面(棚田/池)。高い位置に溜まる水。",
+    "river": "低地(谷)として流れる水。カットバンク岸+接地影で『地面より低い』ことを示す。",
+    "retaining_wall": "石積み擁壁の高低差境界。前面フレームは『上端の縁+縦面+下の接地影』の3点セット。",
+    "earth_bank": "草付き土手。石垣を使わない自然な高低差境界。",
+    "cliff": "岩の崖。大きな高低差境界。",
+    "stair": "段差を歩いて越える導線。上下にlanding、左右に側壁。",
+    "forest_wall": "歩行不可の森/茂み/竹林の壁。マップの外周シルエットを作る背景。",
+    "shadow": "落ち影オーバーレイ。擁壁/プロップの下端に敷き接地と段差を示す。",
+    "decor": "花/草むら/小石/葦/シダ等の装飾。歩行域では密度に上限。",
+    "seam_breaker": "128pxグリッド境界をまたいで輪郭を崩す破砕オーバーレイ。",
+    "waterfall": "高所→低所へ水を落とす縦モジュール。単体オブジェクト化を禁止。",
+    "bridge": "川(低地)を渡る構造。橋床/橋台/橋下影/道接続のセット。",
+    "building": "民家/水車小屋など。土台・接地影・入口導線を持つ。",
+    "shrine": "鳥居/社/石段/灯籠/地蔵など神域の構成要素。",
+    "tree": "立木。接地影を持つ。",
+    "rock": "岩。", "interactable": "宝箱など。", "prop": "看板等の小物。",
+    "other": "上記以外(他バイオーム)。"
+  },
+
+  "heightLevels": {
+    "H0": "低地。川/谷/南の入口。",
+    "H1": "中段。山道スパイン/棚田/集落テラス。",
+    "H2": "高所。神域の平場。"
+  },
+
+  "shadow": {
+    "family": "waDropshadow",
+    "strongFrame": 3,
+    "minFrameForStrong": 2,
+    "note": "擁壁/土手/崖の前面フレームの『真下のセル』にこの影が無ければ段差が読めない。"
+  },
+
+  "tiles": {
+    "grass":        { "category": "ground_grass", "layer": "ground", "passable": true,  "variants": true },
+    "kaGrass":      { "category": "ground_grass", "layer": "ground", "passable": true,  "variants": true },
+    "kaGrass2":     { "category": "ground_grass", "layer": "ground", "passable": true,  "variants": true },
+    "kaGrassCalm":  { "category": "ground_grass", "layer": "ground", "passable": true,  "variants": true, "role": "base_calm", "preferredWalkableBase": true },
+    "grassUpper":   { "category": "ground_tone",  "layer": "ground", "passable": true,  "variants": true, "role": "tone_upper" },
+    "grassLower":   { "category": "ground_tone",  "layer": "ground", "passable": true,  "variants": true, "role": "tone_lower" },
+    "kaShrineGround": { "category": "shrine_ground", "layer": "ground", "passable": true, "variants": true, "role": "shrine_ground" },
+
+    "path":         { "category": "path", "layer": "ground", "passable": true, "isPath": true, "variants": true },
+    "kaPath":       { "category": "path", "layer": "ground", "passable": true, "isPath": true, "variants": true },
+    "kaPath2":      { "category": "path", "layer": "ground", "passable": true, "isPath": true, "variants": true, "role": "winding_path" },
+    "arcaPath":     { "category": "path", "layer": "ground", "passable": true, "isPath": true, "variants": true },
+    "plaza":        { "category": "path", "layer": "ground", "passable": true, "variants": true },
+    "ruinFloor":    { "category": "path", "layer": "ground", "passable": true, "variants": true },
+
+    "water":          { "category": "water_surface", "layer": "ground", "passable": false, "isWater": true, "variants": true },
+    "waterTropical":  { "category": "water_surface", "layer": "ground", "passable": false, "isWater": true, "variants": true },
+    "waterEdge":      { "category": "water_surface", "layer": "ground", "passable": false, "isWater": true, "variants": true, "role": "water_edge", "_note": "池の水際遷移(tile.water_edge_set)" },
+    "kaPaddy":      { "category": "water_surface", "layer": "ground", "passable": false, "isWater": true, "variants": true, "role": "paddy", "forbiddenOnGroundOf": ["shrine_ground"] },
+    "kaPaddy2":     { "category": "water_surface", "layer": "ground", "passable": false, "isWater": true, "variants": true, "role": "paddy", "needsRetainingWall": true, "forbiddenOnGroundOf": ["shrine_ground"] },
+
+    "river":        { "category": "river", "layer": "ground", "passable": false, "isWater": true, "variants": true, "role": "river" },
+    "kaRiver":      { "category": "river", "layer": "ground", "passable": false, "isWater": true, "variants": true, "role": "river" },
+    "kaRiver2":     { "category": "river", "layer": "ground", "passable": false, "isWater": true, "variants": true, "role": "river" },
+    "kaRiver3":     { "category": "river", "layer": "ground", "passable": false, "isWater": true, "variants": true, "role": "river_lowvalley", "needsGroundShadow": true },
+
+    "kaIshigaki":   { "category": "retaining_wall", "layer": "ground", "passable": false, "isWallFace": true, "faceFrames": [5, 9, 10], "role": "paddy_wall", "_faceNote": "FACE=5 / SW角=10 / SE角=9（src/data/maps/tanada.ts の wall() 準拠。南向き前面のみ影必須）" },
+    "waIshigaki":   { "category": "retaining_wall", "layer": "ground", "passable": false, "isWallFace": true },
+    "waIshigaki2":  { "category": "retaining_wall", "layer": "ground", "passable": false, "isWallFace": true },
+    "kaShrineWall": { "category": "retaining_wall", "layer": "ground", "passable": false, "isWallFace": true, "faceFrames": [5, 9, 10], "role": "shrine_wall", "_faceNote": "南面のみ前面。側面W=6/E=7 は前面扱いしない。" },
+    "kaDote":       { "category": "earth_bank", "layer": "ground", "passable": false, "isWallFace": true, "faceFrames": [4, 5, 6], "role": "earth_bank", "_faceNote": "FACE=5 / W端=4 / E端=6" },
+    "cliff":        { "category": "cliff", "layer": "ground", "passable": false, "isWallFace": true },
+    "waCliff":      { "category": "cliff", "layer": "ground", "passable": false, "isWallFace": true },
+    "waCliff3":     { "category": "cliff", "layer": "ground", "passable": false, "isWallFace": true, "faceFrames": [5, 10, 11] },
+    "arcaWall":     { "category": "retaining_wall", "layer": "ground", "passable": false, "isWallFace": true },
+    "arcaCliff":    { "category": "cliff", "layer": "ground", "passable": false, "isWallFace": true },
+
+    "waStairs":     { "category": "stair", "layer": "ground", "passable": true, "role": "stair" },
+    "waStairs2":    { "category": "stair", "layer": "ground", "passable": true, "role": "stair" },
+    "waStairs3":    { "category": "stair", "layer": "ground", "passable": true, "role": "stair" },
+    "arcaStairs":   { "category": "stair", "layer": "ground", "passable": true, "role": "stair" },
+    "arcaStairs2":  { "category": "stair", "layer": "ground", "passable": true, "role": "stair" },
+
+    "forest":       { "category": "forest_wall", "layer": "ground", "passable": false, "variants": true },
+    "forestEdge":   { "category": "forest_wall", "layer": "ground", "passable": false, "variants": true },
+    "thicket":      { "category": "forest_wall", "layer": "ground", "passable": false, "variants": true },
+    "kaForest":     { "category": "forest_wall", "layer": "ground", "passable": false, "variants": true, "role": "forest" },
+    "kaForest2":    { "category": "forest_wall", "layer": "ground", "passable": false, "variants": true, "role": "forest" },
+    "kaBamboo":     { "category": "forest_wall", "layer": "ground", "passable": false, "variants": true, "role": "bamboo_wall" },
+
+    "waDropshadow": { "category": "shadow", "layer": "deco", "passable": true, "role": "drop_shadow" },
+    "grassDetail":  { "category": "decor", "layer": "deco", "passable": true, "variants": true },
+    "flowerDetail": { "category": "decor", "layer": "deco", "passable": true, "variants": true },
+    "kaDecor":      { "category": "decor", "layer": "deco", "passable": true, "variants": true },
+    "kaEdgeOverlay":{ "category": "seam_breaker", "layer": "deco", "passable": true, "variants": true, "role": "seam_breaker" }
+  },
+
+  "props": {
+    "obj.spillway":      { "category": "waterfall", "role": "spillway", "verticalModulePx": [128, 384], "requiresAbove": ["water_surface", "river", "earth_bank", "retaining_wall"], "requiresBelow": ["river", "water_surface", "ground_grass", "path"], "note": "上段水田→落ち口→石垣切欠き→滝→滝壺の縦1モジュール。" },
+    "obj.spillway_side": { "category": "waterfall", "role": "spillway_side" },
+    "obj.waterfall":     { "category": "waterfall", "role": "waterfall", "requiresAbove": ["water_surface", "river", "cliff", "retaining_wall"], "requiresBelow": ["river", "water_surface", "ground_grass"] },
+
+    "obj.bridge":          { "category": "bridge", "role": "bridge_deck", "requiresBelow": ["river"], "endcaps": ["obj.bridge_abutment"], "providesShadow": "obj.bridge_shadow", "pathConnect": true },
+    "obj.bridge2":         { "category": "bridge", "role": "bridge_deck", "requiresBelow": ["river"], "endcaps": ["obj.bridge_abutment"], "providesShadow": "obj.bridge_shadow", "pathConnect": true },
+    "obj.bridge_abutment": { "category": "bridge", "role": "abutment" },
+    "obj.bridge_shadow":   { "category": "bridge", "role": "bridge_shadow" },
+
+    "obj.watermill_channel": { "category": "building", "role": "watermill", "needsGroundContact": true, "nearCategory": ["river", "water_surface"] },
+    "obj.windmill":          { "category": "building", "role": "watermill", "needsGroundContact": true },
+    "obj.minka_a":           { "category": "building", "role": "house", "needsGroundContact": true, "needsEntrancePath": true },
+    "obj.minka_b":           { "category": "building", "role": "house", "needsGroundContact": true, "needsEntrancePath": true },
+
+    "obj.torii":         { "category": "shrine", "role": "torii", "needsPathThrough": true },
+    "obj.hokora":        { "category": "shrine", "role": "shrine_object", "needsGroundContact": true },
+    "obj.shrine_stairs": { "category": "shrine", "role": "shrine_stair", "verticalModulePx": [256, 384] },
+    "obj.jizo":          { "category": "shrine", "role": "shrine_dressing" },
+    "obj.lantern":       { "category": "shrine", "role": "shrine_dressing" },
+
+    "obj.tree_oak":     { "category": "tree", "role": "tree", "needsGroundContact": true },
+    "obj.tree_pine":    { "category": "tree", "role": "tree", "needsGroundContact": true },
+    "obj.tree_blossom": { "category": "tree", "role": "tree", "needsGroundContact": true },
+    "obj.bamboo":       { "category": "tree", "role": "bamboo" },
+
+    "obj.flower_cluster": { "category": "decor", "role": "flower" },
+    "obj.grass_tuft":     { "category": "decor", "role": "tuft" },
+    "obj.hibiiwa":        { "category": "rock", "role": "rock" },
+    "obj.sign":           { "category": "prop", "role": "sign" },
+    "obj.chest":          { "category": "interactable", "role": "chest" }
+  },
+
+  "grammar": {
+    "heightBoundary": {
+      "comment": "高さが異なるセルが隣接する境界には、必ず段差表現が要る。",
+      "satisfierCategories": ["retaining_wall", "earth_bank", "cliff", "stair", "waterfall", "bridge", "river"],
+      "wallNeedsShadowBelow": true
+    },
+    "stair": {
+      "comment": "階段は上下に踊り場(歩行可)・左右に側壁or高さ境界が要る。",
+      "requiresWalkableAboveBelow": true,
+      "requiresFlankWall": true,
+      "satisfierCategories": ["stair"],
+      "satisfierProps": ["obj.shrine_stairs"]
+    },
+    "waterfall": {
+      "comment": "滝は単体オブジェクト禁止。上に水源・下に滝壺/水路。",
+      "above": ["water_surface", "river", "earth_bank", "retaining_wall", "cliff"],
+      "below": ["river", "water_surface", "ground_grass", "path"]
+    },
+    "bridge": {
+      "comment": "橋は川(低地)の上・両端に橋台・道接続・橋下影が要る。",
+      "below": ["river"],
+      "endcapProps": ["obj.bridge_abutment"],
+      "shadowProp": "obj.bridge_shadow",
+      "needsPathConnect": true
+    },
+    "shrine": {
+      "comment": "神社高台は鳥居→石段→平場→社の縦導線。棚田/川タイルの流用禁止。鳥居の奥が壁で塞がるのは不可。",
+      "requiredRoles": ["torii", "shrine_stair", "shrine_object"],
+      "requiredGroundCategories": ["shrine_ground"],
+      "forbiddenGroundCategories": ["water_surface", "river"],
+      "toriiNeedsWalkableBehind": true
+    },
+    "river": {
+      "comment": "川は低地として見える。岸に強い接地影。",
+      "needsBankShadow": true
+    },
+    "forbiddenAdjacency": [
+      { "a": "shrine_ground", "b": "water_surface", "severity": "WARNING", "why": "神域に棚田パーツの流用。文法混線。" },
+      { "a": "shrine_ground", "b": "river", "severity": "WARNING", "why": "神域に川パーツの流用。" }
+    ]
+  },
+
+  "thresholds": {
+    "repetitionRun": 3,
+    "repetitionAllowVariants": true,
+    "decorDensityWalkableMax": 0.30,
+    "decorDensityNearPlayerSpawnMax": 0.10,
+    "gridSeamDeltaLumaWarn": 14.0,
+    "gridSeamFracWarn": 0.18,
+    "noiseHighFreqStdWarn": 0.16,
+    "downscalePctReadability": 25,
+    "solidRatioMin": 0.30,
+    "solidRatioMax": 0.55,
+    "doneScoreMin": 80,
+    "doneMaxErrors": 0,
+    "doneMaxMajorWarnings": 3
+  },
+
+  "scoreAxes": [
+    "地形構造の読みやすさ",
+    "高低差の明確さ",
+    "歩行可能範囲の読みやすさ",
+    "タイル境界の目立たなさ",
+    "ノイズ量の適正さ",
+    "水・滝・川の接続自然さ",
+    "建物・オブジェクトの接地感",
+    "世界観の統一感",
+    "主役と背景の優先順位",
+    "再利用可能なタイルマップとしての成立度"
+  ]
+}

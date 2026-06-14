@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_shrine_wall",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Create a seamless 512x512 pixel art autotile sheet for a sacred shrine plateau retaining wall in a top-down Japanese fantasy RPG. Layout: 4 columns x 4 rows, 16 frames total. Row 1 (frames 0-3): center fill variations showing the full wall face head-on — orderly, intentional stacked stone (dressed ashlar-style), more geometric and precise than rural rice terrace walls. Mossy joints, subtle lichen, cool gray stone with warm mossy green highlights. Top 20px of each frame: bright lit stone cap edge with grass lip above, strong highlight on the upper rim. Middle 70px: clean vertical stone face with neat horizontal mortar lines and subtle vertical joints. Bottom 25px: deep cool shadow pooling at ground contact. Row 2 (frames 4-7): N/S/W/E edge tiles — S (frame 5) is the KEY front-facing tile: full bright top rim plus full stone vertical face plus deep bottom shadow, this is the primary south-facing wall for the shrine plateau. W (frame 6): left curved outer corner. E (frame 7): right curved outer corner. N (frame 4): flat top cap seen from above. Row 3 (frames 8-11): NW/NE/SW/SE outer corner tiles — curved convex corners, not 90-degree hard angles. SE (frame 9) and SW (frame 10): south-facing corners with three-point set. Row 4 (frames 12-15): accent variations — alternate stone patterns, extra moss, accent stones. Palette: cool grey stone #8a857a, moss green #6a8a52, deep shadow #2a2820, bright cap highlight #d8d0bc, warm grass lip #7ab85a. Style: crisp SNES-era pixel art, hand-painted Ghibli-influenced Japanese shrine, golden-hour warm lighting, sacred and maintained feeling, clearly distinct from rural rice-terrace ishigaki walls. 512px total sheet (128px per frame), opaque, no transparency, no isometric perspective, no vanishing point, no UI, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

@@ -223,12 +223,47 @@
     "frameW": 128,
     "frames": 1
   },
+  "obj.bridge2": {
+    "cols": 1,
+    "file": "obj_bridge2.png",
+    "frameH": 128,
+    "frameW": 256,
+    "frames": 1
+  },
+  "obj.bridge_abutment": {
+    "cols": 1,
+    "file": "obj_bridge_abutment.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.bridge_shadow": {
+    "cols": 1,
+    "file": "obj_bridge_shadow.png",
+    "frameH": 128,
+    "frameW": 256,
+    "frames": 1
+  },
   "obj.chest": {
     "cols": 4,
     "file": "obj_tsuzura.png",
     "frameH": 128,
     "frameW": 128,
     "frames": 4
+  },
+  "obj.curve_overlay_2x2": {
+    "cols": 1,
+    "file": "obj_curve_overlay_2x2.png",
+    "frameH": 256,
+    "frameW": 256,
+    "frames": 1
+  },
+  "obj.curve_overlay_3x1": {
+    "cols": 1,
+    "file": "obj_curve_overlay_3x1.png",
+    "frameH": 128,
+    "frameW": 384,
+    "frames": 1
   },
   "obj.flower_cluster": {
     "cols": 4,
@@ -286,11 +321,32 @@
     "frameW": 486,
     "frames": 1
   },
+  "obj.shrine_stairs": {
+    "cols": 1,
+    "file": "obj_shrine_stairs.png",
+    "frameH": 384,
+    "frameW": 256,
+    "frames": 1
+  },
   "obj.sign": {
     "cols": 1,
     "file": "obj_sign_wa.png",
     "frameH": 128,
     "frameW": 128,
+    "frames": 1
+  },
+  "obj.spillway": {
+    "cols": 1,
+    "file": "obj_spillway.png",
+    "frameH": 384,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.spillway_side": {
+    "cols": 1,
+    "file": "obj_spillway_side.png",
+    "frameH": 128,
+    "frameW": 64,
     "frames": 1
   },
   "obj.torii": {
@@ -326,6 +382,13 @@
     "file": "obj_waterfall.png",
     "frameH": 128,
     "frameW": 128,
+    "frames": 1
+  },
+  "obj.watermill_channel": {
+    "cols": 1,
+    "file": "obj_watermill_channel.png",
+    "frameH": 256,
+    "frameW": 256,
     "frames": 1
   },
   "obj.windmill": {
@@ -401,6 +464,13 @@
   "tile.ka_dote_set": {
     "cols": 16,
     "file": "tile_ka_dote.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_edge_overlay_set": {
+    "cols": 16,
+    "file": "tile_ka_edge_overlay.png",
     "frameH": 128,
     "frameW": 128,
     "frames": 16
@@ -482,9 +552,30 @@
     "frameW": 128,
     "frames": 16
   },
+  "tile.ka_river3_set": {
+    "cols": 16,
+    "file": "tile_ka_river3.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
   "tile.ka_river_set": {
     "cols": 16,
     "file": "tile_ka_river.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_shrine_ground_set": {
+    "cols": 16,
+    "file": "tile_ka_shrine_ground.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_shrine_wall_set": {
+    "cols": 16,
+    "file": "tile_ka_shrine_wall.png",
     "frameH": 128,
     "frameW": 128,
     "frames": 16
