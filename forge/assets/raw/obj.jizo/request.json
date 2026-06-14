@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.jizo",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR sunlight, hand-painted Ghibli-like look. ONE small roadside JIZO statue as a single coherent pixel-art prop for a top-down 2D action RPG, 128x128 canvas, solid #FF00FF magenta background on all empty space. A small ROUNDED stone Buddhist Jizo figure: smooth rounded head with a faint serene face carved into weathered grey stone, a bright VERMILION cloth bib (yodarekake) tied at the neck, the body is a simple rounded pillar of mossy grey-green stone, soft mossy lichen patches on the shoulders and base. At the statue's feet: two or three small smooth river pebbles and a tiny wild flower or two (white or pink). A soft CONTACT SHADOW pools on the ground directly beneath the base. Drawn LARGE filling about 70 percent of the 128x128 canvas vertically, centered, with clear magenta margin all around. Top-left light source: bright upper-left highlight on the rounded stone head, darker lower-right of the stone body. Crisp high-resolution 16-bit-style pixel art, dark one-pixel outline, no text, no character, no UI, no watermark.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

@@ -15,6 +15,7 @@ export interface DrawOpts {
   tint?: string;          // 単色tint（被弾点滅など）
   rot?: number;           // 中心回転（ラジアン）— 剣閃等のエフェクト用
   blend?: GlobalCompositeOperation; // "lighter" で加算風
+  outline?: string;       // 暗いシルエット縁取り（背景から浮かせる・プレイヤー用 opt-in）
 }
 
 export class Renderer {
@@ -159,6 +160,32 @@ export class Renderer {
     const fi = ((frame % sh.frames) + sh.frames) % sh.frames;
     const fx = (fi % sh.cols) * sh.frameW;
     const fy = Math.floor(fi / sh.cols) * sh.frameH;
+
+    // アウトライン（暗いシルエットを周囲へ。背景の装飾密度から本体を浮かせる＝視認性）。
+    if (o.outline) {
+      const oc = this.tintCtx;
+      if (this.tintCanvas.width < sh.frameW || this.tintCanvas.height < sh.frameH) {
+        this.tintCanvas.width = Math.max(this.tintCanvas.width, sh.frameW);
+        this.tintCanvas.height = Math.max(this.tintCanvas.height, sh.frameH);
+        oc.imageSmoothingEnabled = false;
+      }
+      oc.globalCompositeOperation = "source-over";
+      oc.clearRect(0, 0, sh.frameW, sh.frameH);
+      oc.drawImage(sh.img, fx, fy, sh.frameW, sh.frameH, 0, 0, sh.frameW, sh.frameH);
+      oc.globalCompositeOperation = "source-atop";
+      oc.fillStyle = o.outline;
+      oc.fillRect(0, 0, sh.frameW, sh.frameH);
+      oc.globalCompositeOperation = "source-over";
+      const d = Math.max(2, Math.round(this.k * 0.3));
+      for (const [ox, oy] of [[-d, 0], [d, 0], [0, -d], [0, d], [-d, -d], [d, -d], [-d, d], [d, d]] as const) {
+        if (o.flipX) {
+          ctx.save(); ctx.translate(px + pw + ox, py + oy); ctx.scale(-1, 1);
+          ctx.drawImage(this.tintCanvas, 0, 0, sh.frameW, sh.frameH, 0, 0, pw, ph); ctx.restore();
+        } else {
+          ctx.drawImage(this.tintCanvas, 0, 0, sh.frameW, sh.frameH, px + ox, py + oy, pw, ph);
+        }
+      }
+    }
 
     let src: HTMLImageElement | HTMLCanvasElement = sh.img;
     let srcX = fx, srcY = fy;

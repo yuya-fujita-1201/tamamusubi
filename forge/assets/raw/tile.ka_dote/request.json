@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_dote",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down GRASSY EARTHEN EMBANKMENT (草付き土手) autotile — the primary height-difference tile that replaces stone walls in natural zones. Each tile communicates a clear vertical drop through THREE layers burned into every edge/corner frame: (A) TOP LIP: a bright warm-lit grass fringe, 20-28px high, with tiny clover flowers and rounded tufts overhanging the edge — the high-ground surface reads as well-lit and alive; (B) VERTICAL FACE: a 55-70px oblique earthen slope packed with drooping grass blades, exposed soil, pale roots, small mossy stones and dark earth — rendered with strong 3D shading (upper-left bright, lower-right deep shadow) so it unmistakably reads as a forward-facing vertical surface, NOT a top-down ground; (C) BASE SHADOW: a 18-24px dark contact shadow on the lower ground, soft and semi-transparent at its edge, anchoring the embankment to the lower terrain. CENTER tiles (Row1) = flat high-plateau grass surface, soft painterly, matches tile.ka_grass in hue. EDGE tiles (Row2, N/S/W/E) = the three-layer stack (top-lip / vertical face / base-shadow) for each cardinal direction; the S-edge is the hero frame — full-face frontal embankment descending toward the viewer. OUTER CORNER tiles (Row3, NW/NE/SW/SE) = ROUNDED organic corners where two embankment faces meet — the corner is NOT a 90-degree right angle; grass blades, roots and stones curve around it naturally, softening the turn into an arc. ACCENT tiles (Row4) = a mossy rock embedded in the slope, a clump of wild flowers at the lip, a trailing vine on the face, a bare-earth patch with pebble scatter. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE (no transparency), seamlessly tileable. No isometric angle, no vanishing point, no text, no characters.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

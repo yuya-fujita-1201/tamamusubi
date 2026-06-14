@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_grass_calm",
+  "presetId": "world_grass_variation_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-grass-variation",
+      "solid": false,
+      "adjacency": "regional-ground"
+    },
+    "prompt_rules": [
+      "world-map grassland variation tiles, not close-up village grass",
+      "include broad color drift, subtle plains texture, sparse flowers, worn patches, and regional palette variation",
+      "avoid a single repeated grass stamp or high-frequency checkerboard texture"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette but deliberately CALM, QUIET and LOW-NOISE. A walkable BASE grass autotile that must NOT compete with cliffs, paths, water or buildings — it supports the map, it is not the focus. STRICT 4x4 layout, 16 tiles, each cell EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, seamlessly tileable. Row1 = 4 calm INTERIOR grass variations: soft uniform muted green, very subtle gentle color variation, faint tiny moss texture, NO flowers, NO strong highlights, NO dark shadows, NO directional brush strokes, LOW contrast, no recognizable object at the center or the corners, fully seamless on all four edges so repeated tiles show no pattern. Row2 = very soft grass-to-bare-earth edges in order N,S,W,E (gentle, low-contrast). Row3 = soft outer corners NW,NE,SW,SE. Row4 = low-contrast accents: a few tiny clover leaves, a small flat pebble, a faint bare-dirt patch, a small moss patch — all muted and quiet. Keep overall contrast low and the texture quiet. Negative: busy grass, many flowers, strong yellow highlights, black shadows, checkerboard pattern, visible tile border, repeated motif, high contrast, directional strokes, isometric, perspective, text, UI, character.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

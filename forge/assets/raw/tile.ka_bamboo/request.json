@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_bamboo",
+  "presetId": "world_forest_mass_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-forest-mass",
+      "solid": false,
+      "adjacency": "forest-grass"
+    },
+    "prompt_rules": [
+      "world-map forest mass tiles, not individual tree sprites",
+      "include forest center, four edges, outer corners, inner corners, road cut-through, darker interior, and shadowed edge variants",
+      "the forest should read as a geographic region with an organic outline"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette with a cooler, deeper green register than the main forest — bamboo grove uses deep blue-green (竹色) culms and dense blue-jade foliage, cool diffused back-light filtering through the canopy, creating a distinct atmosphere from the warm broadleaf sacred grove. A top-down BAMBOO GROVE WALL (竹林) autotile using the world_forest_mass_16 preset — this is a NON-WALKABLE background boundary element that creates a sense of depth and enclosure behind the playable area. CULM STYLE: tall vertical bamboo trunks (culms) rising from bottom to top of each cell, slightly overlapping, rendered with rounded cross-section volume (bright left highlight, dark right shadow, soft reflected light at lower segments), visible inter-node rings (setsu) spaced at irregular intervals. Culm colors range from pale yellow-green at young upper sections to deep blue-green at older lower sections. FOLIAGE: dense clusters of narrow lance-shaped bamboo leaves at the upper portion of each cell, slightly animated in apparent wind-drift by having leaves tilted 5-15 degrees in one direction (alternates between cell columns to avoid uniformity). STRICT 4x4 TILESET LAYOUT matching world_forest_mass_16 convention: Row1 CENTER (4 cells) = full-density interior bamboo wall — tall culms packed edge-to-edge, dense overhead leaf canopy, deep cool shade at the base; each cell varies in culm spacing and leaf cluster position. Row2 DIRECTIONAL EDGES (4 cells) = N, S, W, E: the named side shows the bamboo-to-grass transition. HIGH-LOW-DIFFERENCE 3-POINT SET embedded per edge frame: (1) 明るい縁 (upper edge) = the outermost culms are lighter, lower, with young leafy shoots at ground level and a thin line of bright sky/grass visible between stems (16-20 px); (2) 縦面 = tall dense culms behind, forming a dark vertical wall plane (50-70 px depth); (3) 下影 = a cool blue-tinted ground shadow falling on the open grass outside (12-18 px soft fade). The bamboo-to-grass boundary is a NON-STRAIGHT wavy line — culms protrude irregularly into the grass zone at varying heights with scattered young bamboo shoots in the grass. Row3 OUTER CORNERS (4 cells) = NW, NE, SW, SE: organically rounded corners where the grove curves — culms splay outward at the corner, young shoots scatter into the adjacent grass zone, no hard 90-degree edge. Row4 ACCENT/TRANSITION (4 cells) = cell12: a thin single-column bamboo screen strip (one or two culms wide, semi-transparent feel for a narrow bamboo fence effect), cell13: bamboo-to-grass low bush/shoot transition (scattered young bamboo shoots and low fern among grass), cell14: a cast shadow overlay of bamboo culm silhouettes on open ground (dark cool stripe pattern for use as decoration layer beyond the grove edge), cell15: a bamboo inner-corner concave tile (small open clearing within the grove). All 16 cells filled edge-to-edge, FULLY OPAQUE, seamlessly tileable horizontally. No isometric perspective, no text, no character, no UI.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

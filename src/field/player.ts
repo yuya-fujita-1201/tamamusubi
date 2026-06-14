@@ -682,8 +682,10 @@ export class Player {
     if (this.buffT > 0 && Math.floor(this.animT / 6) % 3 !== 0) {
       r.ellipse(this.x, this.y - 2, 11, 4.0, "rgba(255,214,90,0.22)", cam);
     }
+    const tintedNow = (hurtTint as { tint?: string }).tint !== undefined || (chargeTint as { tint?: string }).tint !== undefined;
     r.sprite(sheet, frame, this.x - drawSz / 2, this.y - drawSz, {
       cam, w: drawSz, h: drawSz, ...hurtTint, ...chargeTint,
+      ...(tintedNow ? {} : { outline: "#12121c" }), // 縁取りで背景から浮かせる（tint時は省略）
     });
     // 詠唱プログレスバー（頭上 16x3px。遅さの体感を削る）
     if (this.state === "cast" && this.castSpell) {

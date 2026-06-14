@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_river2",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A top-down RIVER CUT-BANK autotile set — the river flows LOWER than the surrounding land, carving an eroded valley: the surrounding terrain is higher grass ground and the river occupies a sunken channel. WATER CENTER: active flowing blue-green water with visible current direction (diagonal ripple lines), white foam churning around half-submerged rounded river stones, soft specular glints from upper-left light — NOT a flat blue band, the water surface has energy and movement. CUT BANK EDGES: every edge tile shows the 3-point height drop from the high grass plateau down to the waterline — (1) bright grass lip and small flowers at the top of the bank, (2) a vertical eroded-earth face with exposed tan-brown clay, dangling grass roots, embedded smooth river stones and patches of dark moss, darkening toward the waterline, (3) a deep dark wet shadow where the eroded bank meets the water surface. River stones are individual smooth ovoid cobbles with strong highlight and shadow volume. Occasional gnarled tree roots cross the bank face diagonally. The water's edge is irregular — stones and mud protrusions break the straight shoreline. STRICT 4x4 TILESET LAYOUT — 16 cells, each EXACTLY 128x128 px, filled edge to edge, FULLY OPAQUE, neighbouring cells tileable: Row1 = 4 open flowing WATER interior variations (ripples, foam, current eddies, river stones; the river flow direction is gently DIAGONAL / slightly S-curved across the tile so the channel never reads as a straight band). Row2 = water-to-cut-bank EDGE in order N, S, W, E — the eroded cut bank appears on that side (grass lip → clay face → shadow → water), the bank line is organically irregular at 32-px sub-cell scale. Row3 = OUTER CORNERS NW, NE, SW, SE — where two cut banks meet; the corner protrudes slightly as a rounded clay headland with exposed stones and hanging roots, NOT a squared 90-degree corner. Row4 = ACCENT tiles: (a) a cluster of large smooth river boulders mid-stream with white foam halos, (b) a shallow gravel bar with clear water over pebbles and a hint of sandy gold, (c) a deep pool eddy with dark swirling water and a few fallen leaves, (d) a collapsed bank section with a tree root bridging the gap. Painterly, rich in detail, the river reads as a living sunken channel, NOT a decorative flat stripe.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

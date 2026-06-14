@@ -1,6 +1,6 @@
 # HANDOFF_CURRENT.md — 『玉結び』現在地（次セッションはまずこれを読む）
 
-> 作成: 2026-06-13 ／ 最終更新: **2026-06-14**（S1=プレイFB4R → S2/3=立体表示の実験 → S4=俯瞰ズーム(§3.11) → S5=立体2モード削除＋高台を直交2Dで再構築(§3.12〜3.15) → **S6=高台第3版＝お手本(014)準拠の連続立体石垣(§3.16)**）
+> 作成: 2026-06-13 ／ 最終更新: **2026-06-14**（S1=プレイFB4R → S2/3=立体表示の実験 → S4=俯瞰ズーム(§3.11) → S5=立体2モード削除＋高台を直交2Dで再構築(§3.12〜3.15) → S6=高台第3版＝連続立体石垣(§3.16) → S7=高台側面＋美麗風景パイプライン＋棚田の谷新設(§3.17) → **S8=棚田の谷 美麗化＝新規Agent Forge素材13点＋全面再構築＋磨き5巡(§3.18)。次スレッドは §3.19 を読む**）
 > 旧ドキュメント: `HANDOFF.md`(Phase0/1A基盤・素材インベントリ) / `HANDOFF_FIXES.md`(修正ラウンド0〜7の詳細)。
 > **本ファイルが最新の単一情報源。** 状態: typecheck 0 / vitest **32本** / build 緑 / 実機検証済み。**セッション5終了時に全変更を `main` へコミット＆push 済み**（リモート: github.com/yuya-fujita-1201/tamamusubi）。次セッションはクリーンな working tree から開始。
 > 直近の主題は**立体表示（斜め見下ろし）の実験**(詳細 §3.5〜3.10／要点 §0.5)。**今セッションの主変更=カメラ俯瞰ズームを 1.0→0.8 に引き(§3.11・立体表示とは別件)**。
@@ -244,6 +244,59 @@ npx tsc --noEmit && npx vitest run   # 緑・32本
 - **検証**: tsc0/vitest32/build緑。実機 `ZZ-HCP-logs/017/L6_*`、比較 `compare_L1_vs_final.png`。
 - **動線（配線済・実機検証 REACHED_TANADA:true）**: ゲーム開始=kiritate(28,24)。**村の東の道を右(東)へ → 東端ゲート(x55,y19-21・看板 sign:tanada_road) → 棚田の谷(tanada)の南入口(28,42・赤鳥居)に着地**。戻り=tanada南の鳥居(x27-29,y45)→kiritate東口(53,20,left)。`kiritate.ts` 東ゲート＋warp、`tanada.ts` 戻りwarpを対に修正済。
 - **再生成順**: `node forge/gen_runner.mjs --only tile.ka_*` → `python3 forge/proc_wa.py --only tile.ka_*` → `python3 forge/gen_ka_post.py`。
+
+### 3.18 棚田の谷 美麗化・第2弾（2026-06-14 セッション8）★作業中
+- **お手本/指示**: `ZZ-HCP-logs/018/`（お手本画像4枚＝HUD付きの目標絵 ＋ `GPT-memo`＝タイル別プロンプト＋合格条件 ＋ `GPT-momo2`＝方針転換）。設計仕様は `ZZ-HCP-logs/018/design-spec.json`、新素材定義は `ZZ-HCP-logs/018/assets-plan-v2.json`。
+- **ユーザーFB（重要・第1版 tanada への指摘）**: ①平地(草地)に段差がなく棚田と別世界に見える＝平地も段差化せよ ②棚田⇄平地の縦カスケード川が平坦で変＝壁から落ちる小滝にせよ ③石垣の角が直角すぎる(前々からの宿題) ④お手本とまだかけ離れている。さらに「既存素材の使い回しをやめ、Agent Forge で新規素材をどんどん作れ」。
+- **GPT-momo2の核**: 128pxは維持しつつ ①タイル内を32pxサブセルで混在 ②床レイヤーと輪郭オーバーレイを分離 ③石垣以外の高低差素材（特に**草付き土手**）を足す。高低差は必ず「上端の明るい縁＋縦面＋下の接地影」の3点セット。角は **world_coastline_16 プリセット（曲線境界＋角）** のオートタイルで直角を解消。
+- **新規 Agent Forge 素材13点**（assets_plan.json/proc_wa.py 追記済、tileset.ts 52-60＋TRANS_MAPS仮DEFAULT登録済）: `tile.ka_dote`(草付き土手) `tile.ka_ishigaki`(苔石垣) `tile.ka_paddy2`(丸角水田) `tile.ka_river2`(川岸カットバンク) `tile.ka_grass2`(草地) `tile.ka_path2`(蛇行道) `tile.ka_forest2`(森縁) `tile.ka_bamboo`(竹林) `tile.ka_decor`(装飾overlay) `obj.waterfall` `obj.jizo` `obj.flower_cluster` `obj.bridge`。すべて world_coastline_16/grass/forest/field_prop_32 プリセット。
+- **進め方（Dynamic Workflow主導）**: 設計→生成(gen_runner)→視覚QA→proc_wa→TRANS_MAPS較正→tanada をレイヤー設計(base→輪郭overlay→高低差(土手/石垣/川岸=3点セット)→装飾→プロップ)で全面再構築→tsc/vitest/build＋BFS＋実機→Codex＋桜井＋qa レビュー。
+- **第3版 完成（2026-06-14・実機確認済）**: 13新素材を全生成→proc_wa(128px)→tileset.ts(52-60)＋TRANS_MAPS較正(16フレーム個別QA)→`tanada.ts` 全面再構築。
+  - **TRANS_MAPS較正の要点**: paddy2/river2/path2 = 標準配置の完全オートタイル(曲線外角込み)。dote/ishigaki = 南向き前面=frame5が主役(上端縁+縦面+下影)、N辺は専用無し→代替(ishigaki n:15, dote n:0)。forest2/bamboo は角の順が標準と異なるので個別指定(tileset.ts参照)。grass2=center8変種のみ。decor=装飾16種(autotile非)。
+  - **tanada第3版の構造**: 北=高い社(H2,苔石垣囲い+石段)→南=低い入口の段々。中央スパインは草付き土手(kaDote)でH1上段/中段/下段に段差化(=平地も高さ)。西3段・東2段の棚田(kaPaddy2 paintAuto=曲線畦)＋南面に苔石垣(kaIshigaki frame5)＋滝(obj.waterfall)が段差を落ちる。東に集落(民家/水車)＋川(kaRiver2 カットバンク)＋木橋。花クラスタ/kaDecorで石垣沿いに量感。大気=正午の里山光。
+  - **擁壁の置き方**: `wall()` ヘルパー=南向き前面frame5を1行＋端は角フレーム＋下段にwaDropshadow deco。棚田は paddy()=paintAuto(kaPaddy2)＋南面 wall(ISHI)。中央段差は doteStep()=wall(kaDote)で道の所だけ通路。
+  - **検証**: tsc0/vitest32/build緑。BFS=入口(28,42)→社(28,7)・集落到達可、水田/川/石垣=solid。通行不可率0.650。実機スクショ `ZZ-HCP-logs/018/result/r2_*.png`。ユーザー4指摘(平地段差/壁の滝/曲がる角/お手本差)に対応済。
+  - **再生成順**: `node forge/gen_runner.mjs --only tile.ka_dote,...(13件) --force` → `python3 forge/proc_wa.py --only <同>` → tileset.ts/tanada.ts は手編集済。
+- **レビュー（3観点＋Codex 実施済）**: Codex=correctnessの問題なし(tsc/test/build green)。桜井=美麗化で可読性を損ねるP0(道が埋もれ/装飾均一/プレイヤー埋没)を指摘。視覚忠実度=お手本到達度41/100、最重要差は「道の矩形帯/花の量感不足/川の谷感/大気色温度」。
+- **磨きイテレーション（レビュー反映・適用済）**: ①道を細く(thick 3.0→主幹2.2/枝1.6) ②道周囲2マス＋入場点を装飾ゼロに(noFlower)＝道を読みやすく ③花の再配分=開けた草地は控えめ・石垣沿いは濃く(decor0.45/flower0.30)＋花クラスタを2マスおきに密配置 ④川岸に接地影deco(谷感) ⑤滝を5箇所に増設(各棚田段) ⑥水田blob jitter 0.14→0.22(角を非矩形) ⑦大気を暖色化(grade #fff0c8/α0.20) ⑧コード修正(空ループ削除/PX0-0→PX0/wallFootRows補完)。
+- **検証(磨き後)**: tsc0/vitest32/build緑。BFS到達837・社/集落/warp可達・solidRatio0.650。実機 `ZZ-HCP-logs/018/result/r3_*.png`(磨き後) と `r2_*.png`(磨き前)。
+- **磨きRound2（適用済）**: ①プレイヤーに暗いアウトライン（`renderer.ts` sprite に `outline` opt-in＝暗シルエットを8方向オフセット描画／`player.ts` 本体描画に `outline:"#12121c"`、tint時は省略）＝背景の装飾密度から本体が浮く（全マップ効果）。②水田/川の水を**選択的に発光する青緑へ**（`forge/gen_ka2_post.py`＝青み画素[B>R]だけ明度＋シアン＋コントラスト。畦の緑は不変＝色相差UP）。③森縁を低木でぼかす（nearForest に kaDecor 散布）。④石垣の落ち影を強め（SHADOW frame1→2）。
+- **磨きRound3（適用済）**: ⑤道をさらに細く（主幹2.2→1.8/枝1.6→1.4）。⑥水田の矩形感を崩す（blob jitter 0.22→0.26＋各段で幅/中心を変える＋内部に accent[12草島/13葦泥]を散布）。
+- **レビュー再採点**: 視覚忠実度 41→**57/100**（水の発光・花量感・森縁・暖色・滝で加点）。「水/花/桜/滝/アウトラインは十分＝過剰修正不要」。残る最重要3=①水田輪郭がまだ直角寄り②中央草地と棚田/川の境に草付き土手(高低差)が無い③道がまだやや広い。→ ①は kaDote/kaPaddy2角の活用余地、②は kaDote を棚田クラスタ外周に当てる、③は専用の道縁タイル化、が次の伸びしろ（目標65-70）。
+- **検証(Round3後)**: tsc0/vitest32/build緑/maps.test(到達性+通行不可率)パス。実機 `ZZ-HCP-logs/018/result/r4_*,r5_*.png`、比較 `COMPARE_before_after_otehon.png`。
+- **再現コマンド**: 水ポップ=`python3 forge/gen_ka2_post.py`（proc_wa後に1回）。
+- **Codex 2巡目（修正済）**: P3=`nearStone` を `solidSet`(森含む)から作っていたため森縁が花帯扱い→森縁低木が餓死。`stoneSet=solidSet−forest` で算出するよう修正（森縁=低木/石垣=花帯に正しく分離）。他は correctness 問題なし。
+- **磨きRound4＝整理（GPT-memo3／ZZ-HCP-logs/019・ユーザー指摘「変なノイズ削除＋パーツのガタつき修正」）**: 方針転換＝「描き込み追加」ではなく**引き算と情報の優先順位**。
+  - **草ベースを静かに**（`forge/gen_ka3_post.py`＝kaGrass2のcenter0-7をコントラスト0.60/彩度0.80に圧縮＋全フレーム平均色を統一＝市松/継ぎ目消去）。稲のコントラストも0.80に低減。
+  - **装飾を引き算**（tanada.ts）: 歩行域の開けた草地はクラッタ(小石/枯草/シダ)散布を**全廃**＝静かに。花は段差/水辺(nearStone)沿いのみ低密度(decor0.16/flower0.14)、森縁(nearForest)0.34。**花クラスタは点在化**（3マスおき＋±1ジッタ＋45%間引き＝縦横の列を禁止）。decals 174→66・props 82→51。
+  - **水田をシンプルに**: 水面blob jitter 0.26→0.12（水を削らない）＋水中アクセント撤回。輪郭は外周の畦(paddy2 edge)で作る。
+  - **検証**: tsc0/vitest32/build緑/到達831/solid0.650/frame0。グレースケールで道・段差・水・森が読める（GPT-memo3チェック合格）。実機 `ZZ-HCP-logs/019/r7_*.png`、チェック `chk_gray_*/chk_small_*`。
+  - **再現**: `python3 forge/gen_ka3_post.py`（proc_wa/gen_ka2_post の後）。
+- **磨きRound5＝静かなベース草＋影強化（GPT-memo3検証反映）**: 検証で「ノイズ削減62/100・残ジャギー38/100」、両レビュー一致の優先順=①静かな草ベース素材②村クラッタ③土手影→④2×2オーバーレイ。
+  - **静かな草ベース新規生成**: `tile.ka_grass_calm`(world_grass_variation_16・低コントラスト/花なし/均一)を Agent Forge 生成→tileset 61・kaGrassCalm。tanada のベースを kaGrass2→**kaGrassCalm**に差替（gf%4＝center0-3のみ）。歩行域が静かに。
+  - **土手/石垣の下影を最強(SHADOW frame3)** に（上端縁＋下影を強調＝一目で段差）。**村の南東クラッタ削減**（SE桜削除）。
+  - **検証**: tsc0/vitest32/build緑。実機 `ZZ-HCP-logs/019/r8_*.png`、Before/After `ZZ-HCP-logs/019/COMPARE_noise_before_after.png`。ノイズ（ユーザー指摘）解消＝草が静かになり地形構造が先に読める。
+- **状態**: 第3版＋磨きRound1-5 完了・全緑・実機OK・**未コミット**。ノイズ問題=解消。**残=パーツ輪郭のガタつき（128pxグリッド張り付き）→本命対策はGPT-memo3の「256px/2×2大判曲線オーバーレイ」(rice_curve/earthen_bank_curve/path_intrusion)の新規生成＋配置機構（256pxオーバーレイをprop/decoで重ねる）。これは新アセットサイズ＋配置機構が要る次の深掘り。** 比較 `ZZ-HCP-logs/018/result/FINAL_compare.png`。
+
+### 3.19 ★次スレッドへの引き継ぎ（S8終了時点・まずここを読む）
+**現在地**: 棚田の谷(tanada)を「お手本=ZZ-HCP-logs/018 ＋ GPT-memo/momo2/memo3」に沿って美麗化。**第3版＋磨き5巡 完了・全緑・実機OK・未コミット**。ユーザー指摘「変なノイズ」は解消済（§3.18 Round5）。**残る唯一の主要課題＝パーツ輪郭のガタつき（128pxグリッド張り付き）**。
+
+**最優先タスク＝GPT-memo3「256px/2×2大判曲線オーバーレイ」の生成＋配置機構**（これは1タイル内調整では物理的に解決不可。検証2体が一致して最優先と判定）。具体手順:
+1. **新規素材を Agent Forge 生成**（assets_plan.json 追記→`node forge/gen_runner.mjs --only <id> --force`→proc）:
+   - `tile.ka_rice_curve`（棚田の丸角カーブ。NE/NW/SE/SW の4枚を 2×2グリッド=512px raw で生成し 256px×4 に proc）
+   - `tile.ka_bank_curve`（草付き土手のカーブ角・同様）
+   - `tile.ka_path_intrude`（道に草が食い込む 2×1 オーバーレイ）
+   - プロンプトは GPT-memo3 の「2×2棚田カーブオーバーレイ」「草付き土手の整理版」例をそのまま翻案（透過=magenta背景）。
+2. **256px透過オーバーレイの proc 機構**: 現 proc_wa は 128px 前提。256px・透過保持の mode が要る（`tile.ka_decor` の `tileset_overlay` を 256px 化 or hdproc に 256 グリッド対応を追加）。要・hdproc.py 確認。
+3. **配置機構**: 256px(=32×32論理=2×2タイル)のオーバーレイを「地面の上・プレイヤーの下」に重ねる。`b.prop(sheet, tx, ty, 32, 32, {ysort:false or true, footW:0, shadow:false})` で水田/土手の角に被せる（棚田は非歩行なのでYソート問題は軽微）。renderer のレイヤー順(bgs→ground→deco→decals→props→overhead)を確認し、地面オーバーレイが player 下に来るようにする。
+4. **適用**: tanada.ts の paddy()／doteStep()／road の角・縁に上記オーバーレイを配置し、128px境界のガタつきを隠す。
+5. **検証**: tsc/vitest/build＋BFS到達性＋実機スクショ＋グレースケール/25%縮小チェック（GPT-memo3）。Codex＋桜井＋視覚忠実度レビュー（§5方式）。お手本到達度の目標65-70。
+
+**着手前にユーザー確認すべき点**: ①この256px機構を作るか（やや大きめ）②未コミット分を先にコミットするか（過去はセッション終了時に main へ commit＆push する運用＝§4）。
+
+**ガタつき以外の細かな伸びしろ**（任意・低優先）: 森の前景3×1オーバーレイ／川岸のえぐれ強化／プレイヤーアウトラインの太さ調整（renderer.ts sprite の `outline`・現 `this.k*0.3`）。
+
+**重要ファイル**: マップ=`src/data/maps/tanada.ts` ／ タイル定義=`src/field/tileset.ts`(47-61＋TRANS_MAPS) ／ 生成=`forge/assets_plan.json`＋`forge/gen_runner.mjs` ／ proc=`forge/proc_wa.py` ／ 後処理=`forge/gen_ka2_post.py`(水ポップ)・`forge/gen_ka3_post.py`(草/稲を静かに) ／ 描画=`src/gfx/renderer.ts`。実機=dev-browser(§5・タイトルはKeyX連打でイントロ消化→`window.__tamamusubi.warp('tanada',x,y)`はフェード遷移なのでポーリング必須)。スクショ/比較=`ZZ-HCP-logs/018,019/`(gitignore)。
 
 ## 4. 残課題・次の候補
 - **棚田の谷(tanada)の動線は配線済**（§3.17 末尾）。村東口→棚田。今後の磨き=プロップ絵画調化／遠景パララックス／大気バリエーション／棚田段差に cliff3。

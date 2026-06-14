@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.bridge",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR sunlight, hand-painted Ghibli-like look. ONE rustic WOODEN BRIDGE (木橋) as a single coherent pixel-art prop, 128x128 canvas, solid #FF00FF magenta background on all empty space. A simple front-facing country bridge spanning a stream: THREE or FOUR worn dark-brown wooden planks running left-to-right across the full width of the tile, clearly showing the grain and weathering. Low wooden RAILINGS on both sides (left and right ends) — two short vertical posts per side with a single horizontal top rail, all in aged dark timber. At both left and right ends of the bridge: a small STONE ABUTMENT footing (rounded grey stones piled at the water's edge, mossy). A soft contact shadow beneath the bridge. Small green moss patches on the planks. The bridge is drawn WIDE filling nearly the full 128px width and about 55 percent of the height, centered vertically, sitting on the lower half of the canvas. Top-left light: bright highlights on the upper plank faces and railing tops, darker shadows under the planks and sides. Crisp high-resolution 16-bit-style pixel art, dark one-pixel outline, no text, no character, no UI, no watermark.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

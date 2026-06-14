@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.flower_cluster",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR sunlight, hand-painted Ghibli-like look. FOUR VARIATIONS of a dense wildflower cluster prop for a top-down 2D action RPG, output as a SINGLE ROW STRIP of 4 cells (512x128 total), each cell 128x128, solid #FF00FF magenta background everywhere outside the flower shapes. Each cell = ONE lush dense flower clump that reads as a rounded 3D bush of blooms: cell1 = YELLOW cluster (bright golden koganebana / kerria-like small yellow flowers packed into a dense mound, fine green leafy stems), cell2 = WHITE cluster (delicate tiny white flowers like yukiyanagi deutzia, clustered upright sprays with pale-green leaves), cell3 = PINK cluster (rich warm-pink flowers like yamamomiji nadeshiko or wild azalea, petals with darker pink veins, compact rounded mound), cell4 = BLUE-PURPLE cluster (tiny violet wild tsuyukusa dayflowers and small purple bellflowers mixed together, blue-violet hues). ALL FOUR clusters share the same visual style: each is a DENSE ROUNDED MOUND of many tiny flowers (not sparse, not a single stem), lush green leafy base, fine grass-and-stem texture at the base, a soft CONTACT SHADOW pooling on the ground beneath, strong volume highlight on the upper-left face of the mound, darker lower-right. Each cluster fills about 80 percent of its 128x128 cell vertically. DRAWN LARGE and SATURATED to give flower QUANTITY IMPACT. Crisp high-resolution 16-bit-style pixel art, dark one-pixel outline on the silhouette, top-left light source, no text, no character, no UI, no watermark.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

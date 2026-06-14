@@ -216,9 +216,23 @@
     "frameW": 384,
     "frames": 1
   },
+  "obj.bridge": {
+    "cols": 1,
+    "file": "obj_bridge.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 1
+  },
   "obj.chest": {
     "cols": 4,
     "file": "obj_tsuzura.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 4
+  },
+  "obj.flower_cluster": {
+    "cols": 4,
+    "file": "obj_flower_cluster.png",
     "frameH": 128,
     "frameW": 128,
     "frames": 4
@@ -242,6 +256,13 @@
     "file": "obj_hokora.png",
     "frameH": 384,
     "frameW": 320,
+    "frames": 1
+  },
+  "obj.jizo": {
+    "cols": 1,
+    "file": "obj_jizo.png",
+    "frameH": 128,
+    "frameW": 128,
     "frames": 1
   },
   "obj.lantern": {
@@ -300,6 +321,13 @@
     "frameW": 384,
     "frames": 1
   },
+  "obj.waterfall": {
+    "cols": 1,
+    "file": "obj_waterfall.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 1
+  },
   "obj.windmill": {
     "cols": 1,
     "file": "obj_suisha.png",
@@ -356,9 +384,51 @@
     "frameW": 128,
     "frames": 16
   },
+  "tile.ka_bamboo_set": {
+    "cols": 16,
+    "file": "tile_ka_bamboo.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_decor_set": {
+    "cols": 16,
+    "file": "tile_ka_decor.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_dote_set": {
+    "cols": 16,
+    "file": "tile_ka_dote.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_forest2_set": {
+    "cols": 16,
+    "file": "tile_ka_forest2.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
   "tile.ka_forest_set": {
     "cols": 16,
     "file": "tile_ka_forest.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_grass2_set": {
+    "cols": 16,
+    "file": "tile_ka_grass2.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_grass_calm_set": {
+    "cols": 16,
+    "file": "tile_ka_grass_calm.png",
     "frameH": 128,
     "frameW": 128,
     "frames": 16
@@ -370,6 +440,20 @@
     "frameW": 128,
     "frames": 16
   },
+  "tile.ka_ishigaki_set": {
+    "cols": 16,
+    "file": "tile_ka_ishigaki.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_paddy2_set": {
+    "cols": 16,
+    "file": "tile_ka_paddy2.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
   "tile.ka_paddy_set": {
     "cols": 16,
     "file": "tile_ka_paddy.png",
@@ -377,9 +461,23 @@
     "frameW": 128,
     "frames": 16
   },
+  "tile.ka_path2_set": {
+    "cols": 16,
+    "file": "tile_ka_path2.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
   "tile.ka_path_set": {
     "cols": 16,
     "file": "tile_ka_path.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 16
+  },
+  "tile.ka_river2_set": {
+    "cols": 16,
+    "file": "tile_ka_river2.png",
     "frameH": 128,
     "frameW": 128,
     "frames": 16

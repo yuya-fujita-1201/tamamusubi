@@ -1,0 +1,34 @@
+{
+  "assetId": "obj.waterfall",
+  "presetId": "field_prop_32",
+  "preset": {
+    "kind": "field-prop",
+    "type": "prop",
+    "frame_size": [
+      32,
+      32
+    ],
+    "frames": 1,
+    "rows": 1,
+    "cols": 1,
+    "anchor": [
+      16,
+      28
+    ],
+    "footprint": [
+      8,
+      22,
+      16,
+      8
+    ],
+    "requires_alpha": true,
+    "prompt_rules": [
+      "single field object with transparent background",
+      "clear footprint for collision"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR light, hand-painted Ghibli-like look. A single small WATERFALL prop (小さな滝) as a vertically-oriented transparent pixel-art object that bridges a stone retaining wall or earthen embankment, carrying water from an upper terrace down to a lower level. The prop is drawn TALL to fill the canvas vertically — the top occupies roughly the upper third, the falling water the middle third, and the splash pool the lower third. TOP SECTION (落ち口, water inlet): calm shallow water flowing over a mossy stone lip — pale blue-green water catching a warm sky reflection, a slight ripple where the current quickens at the brink; a few smooth wet stones frame the opening; the top edge blends naturally with tile.ka_paddy or tile.ka_river water tiles above. MIDDLE SECTION (水流, falling curtain): a narrow ribbon of white-blue water in free fall — crisp bright white highlight on the leading edge, deep cool-blue shadow behind, fine vertical pixel streaks suggesting speed; mossy stones and clinging ferns flank both sides of the cascade; the cascade is slightly translucent at the edges to blend with the stone-wall or embankment tiles on either side. BOTTOM SECTION (滝壺, plunge pool): a small circular foam burst where the water hits — bright opaque white foam center, radiating splash rings in pale blue-green, a few tiny droplets scattering outward; a warm dark contact shadow under the foam on the lower-ground tile. The entire prop sits on a solid #FF00FF magenta background so all empty pixels key out. Crisp high-resolution 16-bit-style pixel art, dark one-pixel outline on stone and foam, top-left light source, no isometric angle, no text, no characters, no UI.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

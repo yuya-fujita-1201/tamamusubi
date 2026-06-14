@@ -1,0 +1,9 @@
+{
+  "provider": "codex-imagegen",
+  "imageGenerationItemId": "ig_0aefb257fc454b6a016a2e82ee78748191862dfc44929094e5",
+  "status": "generating",
+  "revisedPrompt": "Create exactly one PNG pixel-art game asset. Canvas must be exactly 32x32 pixels. One row, one column, one frame only. Solid #FF00FF chroma-key background fills all empty space; no gradients and no transparency. Subject: a single dense rounded wildflower cluster field prop for a top-down 2D action RPG, scaled to fit within the 32x32 frame with clear solid magenta margin on every edge. The mound combines bright saturated mythical-Japan satoyama colors: yellow, white, warm pink, and blue-purple tiny flowers packed densely into one lush green leafy bush, with fine grass-and-stem texture at the base. It should read as one coherent rounded 3D clump, not separate plants. Crisp 16-bit SNES-style pixel art, low-resolution hard-edged pixels, no antialiasing blur, consistent palette, one-pixel dark outline on the silhouette where useful, top-left warm golden-hour light, upper-left highlight, darker lower-right shading, small soft contact shadow directly under the plant inside the silhouette/footprint. Clear footprint for collision. Draw large within the frame but keep all pixels inside the cell.\n\nStrict cleanliness: no cell separator lines, no grid lines, no frame border, no frame numbers, no labels, no text, no watermark, no UI. No detached fragments, no isolated pixel islands, no dust specks, no leftover residue. No characters, no creatures, no modern objects, no weapons, no armor, no logos, no recognizable copyrighted character or franchise likeness. Bright cheerful palette only.",
+  "threadId": "019ec5af-2b45-79b0-9af9-2594f693b5e9",
+  "turnId": "019ec5af-2c5f-7bc3-9a51-9bc3e24ddf6e",
+  "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.flower_cluster/codex-imagegen.png"
+}

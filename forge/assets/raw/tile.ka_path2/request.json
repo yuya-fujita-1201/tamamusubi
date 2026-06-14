@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_path2",
+  "presetId": "world_coastline_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-coastline",
+      "solid": false,
+      "adjacency": "land-water"
+    },
+    "prompt_rules": [
+      "world-map coastline tiles with curved land-water boundaries",
+      "include coast edges, corners, beaches, shallow water, small wave highlights, and broken shoreline variants",
+      "avoid straight vertical or horizontal strips of water next to land"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR sunlight, hand-painted Ghibli-like look. A top-down WINDING MOUNTAIN DIRT PATH (山道) autotile using the world_coastline_16 preset — this resolves the 90-degree-corner problem by supplying organic curved edge and corner frames. The path material: warm compacted moist earth with a slightly lighter worn center line, scattered flat pale stepping stones (ishi-datami) and small pebbles embedded at irregular intervals, delicate grass tufts sprouting from micro-cracks. The grass-to-path boundary is NEVER a straight hard line — it always curves, frays, or has individual blade intrusions. HIGH-LOW-DIFFERENCE 3-POINT SETS on each edge frame: the path sits at a slightly elevated micro-berm, so edge tiles read as (1) a bright upper grass-lip trim at the path's outer edge, (2) the compacted earth vertical micro-face (4-6 px) with embedded pebbles and root wisps, (3) a soft cast shadow on the lower grass below. STRICT 4x4 TILESET LAYOUT matching world_coastline_16 convention: Row1 CENTER (4 cells) = fully walkable path interior variations — each cell a seamless blend of warm earth, flat stones, faint shoe-tread impressions, pebble clusters; cells differ in stone arrangement and earth tone saturation to prevent visible repetition. Row2 DIRECTIONAL EDGES (4 cells) = N edge, S edge, W edge, E edge: the named side shows the grass-invasion boundary with the 3-point height micro-set (bright grass lip → short earth face → under-shadow); the opposite side is pure path interior. Boundary curves slightly — NOT a straight horizontal or vertical split. Row3 OUTER CORNERS (4 cells) = NW, NE, SW, SE: each is an organically rounded outer corner where the path turns — the earth boundary curves in a gentle quarter-arc with moss and protruding grass blades softening the elbow; strictly NO 90-degree square corner shape. Row4 ACCENT/INNER (4 cells) = cell13: a T-junction accent (path crossing), cell14: a mossy embedded stone cluster, cell15: a wet mud patch where rain pooled, cell16: a narrow grass-blade strip cutting diagonally across the path (grass intrusion accent). All 16 cells filled edge-to-edge, seamlessly tileable. No isometric perspective, no text, no character, no UI.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

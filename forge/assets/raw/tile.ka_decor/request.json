@@ -1,0 +1,30 @@
+{
+  "assetId": "tile.ka_decor",
+  "presetId": "world_grass_variation_16",
+  "preset": {
+    "kind": "terrain-tile",
+    "type": "tile",
+    "frame_size": [
+      16,
+      16
+    ],
+    "frames": 16,
+    "rows": 4,
+    "cols": 4,
+    "requires_alpha": false,
+    "tile": {
+      "role": "world-grass-variation",
+      "solid": false,
+      "adjacency": "regional-ground"
+    },
+    "prompt_rules": [
+      "world-map grassland variation tiles, not close-up village grass",
+      "include broad color drift, subtle plains texture, sparse flowers, worn patches, and regional palette variation",
+      "avoid a single repeated grass stamp or high-frequency checkerboard texture"
+    ],
+    "frame_prompts": []
+  },
+  "profile": "snes16_platformer_v1",
+  "prompt": "Bright mythical-Japan satoyama palette, soft warm GOLDEN-HOUR sunlight, hand-painted Ghibli-like look. A SPARSE DECORATIVE OVERLAY TILESET for top-down 2D action RPG map decoration, 16 cells in a STRICT 4x4 grid (512x512 total), each cell EXACTLY 128x128 pixels. CRITICAL: each cell has a SOLID #FF00FF MAGENTA BACKGROUND filling ALL empty space — these are TRANSPARENT OVERLAY tiles that get chroma-keyed and layered over base terrain. Each cell contains ONE small decoration item placed NEAR THE CENTER with generous magenta margin. The 16 cells are arranged as follows — Row1 (center accents, 4 cells): cell0=a dense round clump of tiny mixed yellow-and-white wildflowers with lush green stems; cell1=a sprig of bright pink nadeshiko with fine grass blades; cell2=two smooth grey-green river pebbles with a tiny moss tuft between them; cell3=a low leafy dark-green herb shrub with small white flowers. Row2 (edge/grass accents, 4 cells): cell4=a clump of sharp pointed sasa bamboo-grass blades leaning slightly; cell5=a tangled cluster of fine grass roots and low soil with tiny mushroom; cell6=a spreading low green moss patch on dark soil with tiny fern frond; cell7=three slender reed stems with feathery brown tops (ashi reeds). Row3 (water/bank accents, 4 cells): cell8=a lotus or lily pad on a shallow water patch, round green leaf with tiny water drop; cell9=a clump of muddy wet grass at a bank edge, darker earth visible; cell10=a tangle of fine water-grass and a small reed bud; cell11=a single water-worn flat stone half-covered in bright green algae. Row4 (bush/shadow accents, 4 cells): cell12=a compact low dark-green leafy bush with small purple berries; cell13=a drooping fern frond over dark soil; cell14=a delicate spray of white small cherry-blossom petals scattered on soil; cell15=a low twisting dark root knot with tiny moss growing along it. ALL items are painted in the same warm saturated Ghibli-satoyama palette, crisp high-resolution 16-bit-style pixel art, dark one-pixel outline on each element, top-left light source, no text, no UI, no characters, no watermark, no borders between cells, each cell filled edge to edge with magenta outside the decoration.\nAvoid: no Mario/Nintendo/Zelda/Final Fantasy/Pokemon/Dragon Quest/Secret of Mana/Okami/Sakuna characters, logos or likeness, no samurai armor, no kabuto helmet, no ninja outfit, no two-sword daisho, no gun, no modern objects, no horror mood, no dark gloomy palette, no bird or companion creature in the sheet, no letter emblems, no modern text/watermark/UI.\nOutput: crisp high-resolution 16-bit-style pixel art with fine readable pixel clusters, dark one-pixel outline, top-left light source, bright cheerful colors, solid #FF00FF magenta background filling all empty space, consistent identity and scale across frames.",
+  "provider": "codex-imagegen"
+}

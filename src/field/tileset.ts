@@ -82,6 +82,20 @@ export const TILESETS: TileSetDef[] = [
   { key: "kaPath", sheet: "tile.ka_path_set", fallback: "#b39568" },                  // 49 絵画調・石畳の山道
   { key: "kaRiver", sheet: "tile.ka_river_set", fallback: "#5b96b8" },                // 50 絵画調・流れる川
   { key: "kaForest", sheet: "tile.ka_forest_set", fallback: "#3a6a36" },              // 51 絵画調・鎮守の森
+  // ── Phase L3 GPT-momo2: 曲線オートタイルで「角を直角にしない／石垣以外の高低差／床と輪郭の分離」 ──
+  // すべて world_coastline_16/grass/forest プリセット生成（Agent Forge）。高低差素材は edge に
+  // 「上端の明るい縁＋縦面＋下の接地影」の3点セットが焼き込まれている。配置は base→overlay→deco の順。
+  { key: "kaDote", sheet: "tile.ka_dote_set", fallback: "#6a7a44" },                  // 52 草付き土手（石垣不使用の自然高低差）
+  { key: "kaIshigaki", sheet: "tile.ka_ishigaki_set", fallback: "#8a857a" },          // 53 苔むし石積み擁壁（棚田/参道の段差）
+  { key: "kaPaddy2", sheet: "tile.ka_paddy2_set", fallback: "#7fa6c8" },              // 54 鏡面水田（丸角・草侵食・畦縁）
+  { key: "kaRiver2", sheet: "tile.ka_river2_set", fallback: "#5b96b8" },              // 55 川岸カットバンク（川は低い谷）
+  { key: "kaGrass2", sheet: "tile.ka_grass2_set", fallback: "#6aa84e" },              // 56 ふかふか草地（チェッカー回避）
+  { key: "kaPath2", sheet: "tile.ka_path2_set", fallback: "#b39568" },                // 57 蛇行山道（飛び石・曲線境界）
+  { key: "kaForest2", sheet: "tile.ka_forest2_set", fallback: "#34602f" },            // 58 鎮守の森（縁ぼかし・四角さ解消）
+  { key: "kaBamboo", sheet: "tile.ka_bamboo_set", fallback: "#4a7a3a" },              // 59 竹林の壁（歩行不可背景）
+  { key: "kaDecor", sheet: "tile.ka_decor_set", fallback: "transparent" },            // 60 装飾オーバーレイ（花/小石/葦/草むら/根）
+  // ── Phase L3 整理（GPT-memo3）: 静かな歩行ベース草。kaGrass2 より低コントラストでノイズを抑える ──
+  { key: "kaGrassCalm", sheet: "tile.ka_grass_calm_set", fallback: "#6a9a52" },        // 61 静かなベース草地
 ];
 
 export const TS = Object.fromEntries(TILESETS.map((t, i) => [t.key, i])) as Record<string, number>;
@@ -147,6 +161,19 @@ export const TRANS_MAPS: Record<string, TransitionMap> = {
   kaPath: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
   kaRiver: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
   kaForest: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  // ── Phase L3 新セット（生成タイルの16フレーム個別QAで較正済・2026-06-14 セッション8）──
+  // paddy2/river2/path2 = 標準配置の完全オートタイル（曲線の外角込み）。
+  // dote/ishigaki = 南向き前面フレーム5が主役（上端縁+縦面+下影の3点セット）。N辺は専用無し→代替。
+  // grass2 = center8変種のみ（辺なし）。forest2/bamboo = 辺・角あり（角の順が標準と異なるので個別指定）。
+  kaDote: { center: [0, 1, 2, 3], n: 0, s: 5, w: 4, e: 6, nw: 4, ne: 6, sw: 10, se: 9, fallbackCenter: true },
+  kaIshigaki: { center: [0, 1, 2, 3], n: 15, s: 5, w: 8, e: 11, nw: 4, ne: 7, sw: 10, se: 9, fallbackCenter: true },
+  kaPaddy2: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: false },
+  kaRiver2: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: false },
+  kaGrass2: { center: [0, 1, 2, 3, 4, 5, 6, 7], n: 0, s: 0, w: 0, e: 0, nw: 0, ne: 0, sw: 0, se: 0, fallbackCenter: true },
+  kaPath2: { center: [0, 1, 2, 3], n: 4, s: 5, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: false },
+  kaForest2: { center: [0, 1, 2, 3], n: 0, s: 4, w: 6, e: 7, nw: 8, ne: 9, sw: 10, se: 11, fallbackCenter: true },
+  kaBamboo: { center: [0, 1, 2, 3], n: 5, s: 4, w: 7, e: 6, nw: 10, ne: 11, sw: 8, se: 9, fallbackCenter: true },
+  kaGrassCalm: { center: [0, 1, 2, 3, 4, 5, 6, 7], n: 0, s: 0, w: 0, e: 0, nw: 0, ne: 0, sw: 0, se: 0, fallbackCenter: true },
   lavaEdge: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 12, 13, 14, 15] },
   volcanoWall: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 13, 14] },
   shallow: { ...DEFAULT_TRANS, center: [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 12, 13, 14] },

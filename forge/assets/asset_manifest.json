@@ -1098,6 +1098,72 @@
       }
     },
     {
+      "id": "obj.bridge",
+      "type": "prop",
+      "path": "processed/props/obj_bridge/obj_bridge_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_bridge"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.bridge/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_bridge/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.flower_cluster",
+      "type": "prop",
+      "path": "processed/props/obj_flower_cluster/obj_flower_cluster_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_flower_cluster"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.flower_cluster/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.flower_cluster/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_flower_cluster/processor-meta.json"
+      }
+    },
+    {
       "id": "obj.goshinboku",
       "type": "prop",
       "path": "processed/props/obj_goshinboku/obj_goshinboku_village_tree_64_80_sheet.png",
@@ -1205,6 +1271,39 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.hokora/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.hokora/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_hokora/processor-meta.json"
+      }
+    },
+    {
+      "id": "obj.jizo",
+      "type": "prop",
+      "path": "processed/props/obj_jizo/obj_jizo_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_jizo"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.jizo/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.jizo/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_jizo/processor-meta.json"
       }
     },
     {
@@ -1494,6 +1593,39 @@
       }
     },
     {
+      "id": "obj.waterfall",
+      "type": "prop",
+      "path": "processed/props/obj_waterfall/obj_waterfall_field_prop_32_sheet.png",
+      "frameSize": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        28
+      ],
+      "footprint": [
+        8,
+        22,
+        16,
+        8
+      ],
+      "requiresAlpha": true,
+      "animations": {},
+      "tags": [
+        "field-prop",
+        "prop",
+        "obj_waterfall"
+      ],
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "field_prop_32",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.waterfall/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/obj.waterfall/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/props/obj_waterfall/processor-meta.json"
+      }
+    },
+    {
       "id": "prop.torii",
       "type": "prop",
       "path": "processed/props/prop_torii/prop_torii_village_house_128_96_sheet.png",
@@ -1611,6 +1743,90 @@
       }
     },
     {
+      "id": "tile.ka_bamboo",
+      "type": "tile",
+      "path": "processed/tiles/ka_bamboo/ka_bamboo_world_forest_mass_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_bamboo"
+      ],
+      "tile": {
+        "role": "world-forest-mass",
+        "solid": false,
+        "adjacency": "forest-grass"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_forest_mass_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_bamboo/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_bamboo/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_bamboo/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_decor",
+      "type": "tile",
+      "path": "processed/tiles/tile_ka_decor/tile_ka_decor_world_grass_variation_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "tile_ka_decor"
+      ],
+      "tile": {
+        "role": "world-grass-variation",
+        "solid": false,
+        "adjacency": "regional-ground"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_grass_variation_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_decor/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_decor/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/tile_ka_decor/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_dote",
+      "type": "tile",
+      "path": "processed/tiles/ka_dote/ka_dote_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_dote"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_dote/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_dote/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_dote/processor-meta.json"
+      }
+    },
+    {
       "id": "tile.ka_forest",
       "type": "tile",
       "path": "processed/tiles/ka_forest/ka_forest_world_coastline_16_sheet.png",
@@ -1636,6 +1852,34 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_forest/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_forest/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_forest/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_forest2",
+      "type": "tile",
+      "path": "processed/tiles/ka_forest2/ka_forest2_world_forest_mass_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_forest2"
+      ],
+      "tile": {
+        "role": "world-forest-mass",
+        "solid": false,
+        "adjacency": "forest-grass"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_forest_mass_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_forest2/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_forest2/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_forest2/processor-meta.json"
       }
     },
     {
@@ -1667,6 +1911,90 @@
       }
     },
     {
+      "id": "tile.ka_grass_calm",
+      "type": "tile",
+      "path": "processed/tiles/ka_grass_calm/ka_grass_calm_world_grass_variation_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_grass_calm"
+      ],
+      "tile": {
+        "role": "world-grass-variation",
+        "solid": false,
+        "adjacency": "regional-ground"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_grass_variation_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_grass_calm/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_grass_calm/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_grass_calm/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_grass2",
+      "type": "tile",
+      "path": "processed/tiles/ka_grass2/ka_grass2_world_grass_variation_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_grass2"
+      ],
+      "tile": {
+        "role": "world-grass-variation",
+        "solid": false,
+        "adjacency": "regional-ground"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_grass_variation_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_grass2/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_grass2/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_grass2/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_ishigaki",
+      "type": "tile",
+      "path": "processed/tiles/ka_ishigaki/ka_ishigaki_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_ishigaki"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_ishigaki/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_ishigaki/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_ishigaki/processor-meta.json"
+      }
+    },
+    {
       "id": "tile.ka_paddy",
       "type": "tile",
       "path": "processed/tiles/ka_paddy/ka_paddy_world_coastline_16_sheet.png",
@@ -1692,6 +2020,34 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_paddy/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_paddy/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_paddy/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_paddy2",
+      "type": "tile",
+      "path": "processed/tiles/ka_paddy2/ka_paddy2_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_paddy2"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_paddy2/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_paddy2/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_paddy2/processor-meta.json"
       }
     },
     {
@@ -1723,6 +2079,34 @@
       }
     },
     {
+      "id": "tile.ka_path2",
+      "type": "tile",
+      "path": "processed/tiles/ka_path2/ka_path2_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_path2"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_path2/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_path2/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_path2/processor-meta.json"
+      }
+    },
+    {
       "id": "tile.ka_river",
       "type": "tile",
       "path": "processed/tiles/ka_river/ka_river_world_coastline_16_sheet.png",
@@ -1748,6 +2132,34 @@
         "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river/prompt.txt",
         "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river/codex-imagegen.png",
         "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_river/processor-meta.json"
+      }
+    },
+    {
+      "id": "tile.ka_river2",
+      "type": "tile",
+      "path": "processed/tiles/ka_river2/ka_river2_world_coastline_16_sheet.png",
+      "frameSize": [
+        16,
+        16
+      ],
+      "requiresAlpha": false,
+      "animations": {},
+      "tags": [
+        "terrain-tile",
+        "tile",
+        "ka_river2"
+      ],
+      "tile": {
+        "role": "world-coastline",
+        "solid": false,
+        "adjacency": "land-water"
+      },
+      "generation": {
+        "provider": "codex-imagegen",
+        "preset": "world_coastline_16",
+        "promptPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river2/prompt.txt",
+        "rawImagePath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/raw/tile.ka_river2/codex-imagegen.png",
+        "metadataPath": "/Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin/forge/assets/processed/tiles/ka_river2/processor-meta.json"
       }
     },
     {
