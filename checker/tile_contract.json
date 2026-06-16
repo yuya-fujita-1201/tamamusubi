@@ -175,9 +175,37 @@
     ]
   },
 
+  "scale": {
+    "note": "GPT Pro 021: スケール階層の検査。『立体感の強い素材≠大きい素材』。プロップの視覚bboxを実描画w/h(tile換算)で測り、scaleClass予算/巨大判定/画面占有/主役密度を見る。",
+    "mapTypes": { "tanada": "normal_satoyama", "satoyama": "village_path", "kiritate": "village_path", "morioku": "forest", "takadai": "plateau", "default": "normal_satoyama" },
+    "screenTiles": { "w": 25, "h": 14 },
+    "playerTiles": 1.75,
+    "occupancyMaxFrac": 0.10,
+    "landmarkClusterPerScreenWarn": 3,
+    "landmarkClusterRadius": 9,
+    "giantWidthTiles": 6.5,
+    "giantHeightTiles": 8.0,
+    "categoryClass": {
+      "decor": "decor", "seam_breaker": "decor", "rock": "decor", "prop": "decor",
+      "interactable": "small", "waterfall": "small", "bridge": "small",
+      "shrine": "structure", "building": "structure", "tree": "tree"
+    },
+    "classBudget": {
+      "decor":     { "maxW": 1.6, "maxH": 1.6, "landmark": false },
+      "small":     { "maxW": 2.4, "maxH": 3.2, "landmark": false },
+      "structure": { "maxW": 3.5, "maxH": 3.6, "landmark": true },
+      "tree":      { "maxW": 4.5, "maxH": 6.5, "landmark": false },
+      "landmark_giant": { "maxW": 99, "maxH": 99, "landmark": true, "forbiddenMapTypes": ["normal_satoyama", "village_path", "forest"] }
+    },
+    "scaleClassOverride": {
+      "obj.lantern": "small", "obj.jizo": "small", "obj.sign": "decor"
+    }
+  },
+
   "thresholds": {
     "repetitionRun": 3,
     "repetitionAllowVariants": true,
+    "repetitionCenterMaxFrame": 3,
     "decorDensityWalkableMax": 0.30,
     "decorDensityNearPlayerSpawnMax": 0.10,
     "gridSeamDeltaLumaWarn": 14.0,

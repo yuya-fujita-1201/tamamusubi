@@ -31,15 +31,23 @@ def run(ctx):
     out = []
     run_min = int(ctx.threshold("repetitionRun", 3))
     var_min = max(5, run_min + 2)   # 変種ありの family は偶発の短い連続を許容（長い連続のみ＝散布失敗）
+    center_max = int(ctx.threshold("repetitionCenterMaxFrame", 3))  # center変種の最大frame。これ超(edge/corner/accent)の連続は正常境界として除外
     cells = set()
     longest = 0
 
     def need_len(val):
-        key, _ = common.parse_cell(val)
+        key, frame = common.parse_cell(val)
         cat = ctx.category(key)
         if cat not in TARGET_CATS:
             return None
-        return var_min if ctx.tile_meta(key).get("variants") else run_min
+        if ctx.tile_meta(key).get("variants"):
+            # 変種家族で問題なのは center(既定0-3)の単調塗り連続（＝均一な矩形面）。
+            # edge/corner/accent(center_max超)の連続は autotile が境界(畦/岸/道縁)を
+            # 連続させている正常動作なので反復に数えない（偽陽性回避。Codexレビュー: center範囲は契約駆動）。
+            if frame is not None and frame > center_max:
+                return None
+            return var_min
+        return run_min
 
     def scan(get_val, to_cell, n):
         nonlocal longest

@@ -353,7 +353,25 @@ tanada の差し戻し理由 = WARNING 4件: ①②西/東スピルウェイ(obj
 ### Codexレビュー反映済み（S10）
 checker一式を `codex exec` でレビュー、高3/中8/低1を指摘。妥当な9件を修正（exit連動・CHECK_CRASH=ERROR・prop座標KeyError/JS互換round・BFS起点から敵spawn除外・神域トリガをshrine_ground限定・鳥居奥判定を重心方向化・waterEdge登録・未使用閾値削除）。
 2件は本エンジン特性に基づき**棄却**: contact厳格化（森縁の木/水車over水は正当配置で偽陽性化）／128px境界=8タイル毎（SS=8で全タイル境界が128pxアセット継ぎ目のため全境界検査が正）。
-- コミット状況: **未コミット**（ユーザー判断待ち。`checker/out`・`checker/_dump`・`__pycache__` は .gitignore 済）。
+- コミット状況: dac2ae7 で品質システム一式＋tanada素材がコミット済（ユーザー）。S10後半のtanada改善＋scale検査は未コミット。
+
+### S10後半: スケール検査の追加＋tanada品質向上（指示=ZZ-HCP-logs/021/GPT-memo「スケール階層の崩壊」）
+- **GPT021診断**: 「立体感の強い素材≠大きい素材」。巨大階段/滝/水車が里山を巨大遺跡化。ただし8倍描画バグ(プロップをHD pxで渡す)は dac2ae7 で論理pxに修正済＝巨大問題は既に解消済だった。
+- **checkerに SCALE 検査を新設**（`checker/lint/checks/scale.py` ＋ tile_contract.json `scale`ブロック）: object_scale_class / visual_bbox_tiles / 画面占有率 / 主役クラスタ密度 / プレイヤー比 / 巨大素材の通常マップ混入。8倍バグ(16+タイル)の回帰ガード。giant閾値=幅6.5/高8.0タイル(5タイル建物はOVERSIZED warning止まり)。
+- **tanada改善（src/data/maps/tanada.ts）**: ①**gf()をMath.imulに**（直積が2^53超で低ビット0丸め＝全セルframe0だったREPEATの主因。草/神域が0-3分散）②終端スピルウェイ足元に滝壺basePool（西9,30/東43,35）③神社石段の左右にkaShrineWall側壁＋接地影（道塗布後に立てる＝上書き回避）④入口鳥居64→40px（主役の優先順位）⑤青小花density0.14→0.08⑥道roadPts蛇行強化⑦棚田blob jitter0.12→0.20（矩形感解消）⑧東川に中継点[43,36]（棚田→滝壺→川の経路接続）。
+- **REPEAT検査の精緻化**: 変種家族はcenter(0-3)の単調連続のみ計上、edge/corner(≥4)の連続境界(畦/岸)は正常として除外（偽陽性回避）。
+- **結果**: tanada **79→100点 E0 W0 合格✅**（map-art-reviewer目視は79→86→[最終確認中]）。morioku100/takadai95合格。旧マップ satoyama93/kiritate86 は未調整プロップがSCALE_OVERSIZED warningで顕在化（実所見・別途）。typecheck0/本体テスト32本緑。
+- **Codexレビュー2巡目**: scale.pyの画面内クラスタ計数バグ(過少カウント)＋石段側壁の道上書きを指摘→両方修正。gf均等化([646,646,642,642])・basePoolを実走確認で承認。
+- **残る「120点級」の伸びしろ（アセットレベル）**: kaPaddy2に稲/泥の畦テクスチャ（青い水鏡のみ→棚田の深み）が最大。kaRiver3の流れ筋・kaShrineWallのdressed ashlar目地・spillwayの飛沫も候補。マップレベルは100点で頭打ち＝以後はアセット再生成(Asset Forge)が必要。
+- **dev-browser復旧**: デフォルトプロファイル破損でSIGTRAP多発→`dev-browser stop && pkill -f "Chrome for Testing"` 後に **別プロファイル名**(`--browser seihin`)で起動。ゲーム遷移はリロード後 about:blank に飛ぶので `page.goto("http://127.0.0.1:5210/")` 明示→canvasクリック→state().mapがnoでなくなるまでX連打→`warp("tanada",x,y)`。
+
+### S10最終: kaPaddy2「棚田リアル化」アセット再生成（120級・ユーザー判断＝棚田リアル化を選択）
+- **問題**: 棚田が「青い水鏡」に見える(Case001)。真因の一部はアセットでなく**後処理**: `gen_ka2_post.py`(水画素にcyan+0.18) と `gen_ka3_post.py` calm_rice(稲コントラスト↓) が「青い水鏡」志向で稲を消し青くしていた。
+- **対応**: assets_plan.json の ka_paddy2 プロンプトを「緑の植えた棚田＝縮小しても読める稲列＋泥畦」に強化 → `node forge/gen_runner.mjs --only tile.ka_paddy2 --force`(ImageGen 124s) → `proc_wa.py --only tile.ka_paddy2`(スライス) → **新規 `forge/gen_paddy_rice_post.py`**(輝度V×0.90で草地より暗く＝背景<主役 / 縞コントラスト×0.85で25%縮小耐性。旧ka2/ka3はスキップ)。バックアップ: `forge/_backup_paddy2_120/`。
+- **結果**: 青い四角形→**緑の段々の稲田**(実機tn8で確認)。map-art-reviewer目視 **72→81点(+9)・採用判定**。25%縮小でも棚田が読め高周波std=0.06(閾値0.16)＝ノイズ化なし。tanadaは構造100/100維持(アセット変更はタイル配置不変)。
+- **Codexコードレビュー3巡目**: 残コード差分(westDrain/scale閾値6.5/repetition精緻化/gen_paddy_rice_post)を確認。指摘1件(repetitionのcenter frame範囲をハードコード→契約駆動`repetitionCenterMaxFrame:3`化)を修正、他は問題なし(到達0/SCALE INFOのみ/numpy健全)。
+- **再生成手順(再現用)**: ↑の4ステップ。プロンプト微修正→gen_runner --force→proc_wa --only→gen_paddy_rice_post。不採用なら `forge/_backup_paddy2_120/tile_ka_paddy2.png` を public/assets へ戻す。
+- **棚田の谷の到達点**: checker 100/100・目視 ~90/棚田アセット81・全Codex指摘解消・本体テスト32本/typecheck0。**未コミット**（HANDOFF/checker/tanada.ts/scale.py/assetmap/public png/forge raw 等）。残る伸びしろ: obj.shrine_stairsの彫り込み感(アセット)・旧マップ(satoyama/kiritate)の過大プロップ横展開修正。
   ※ `ZZ-HCP-logs/` は gitignore のためお手本画像(009/011)もリポジトリ外。次セッションで参照が要る場合はローカルに残す。
 - 既知の軽微: 水面に微かなフェザー十字パターン（許容）。dev-browser は SIGTRAP 多発（下記復旧手順）。
 
@@ -368,3 +386,52 @@ checker一式を `codex exec` でレビュー、高3/中8/低1を指摘。妥当
 - 居合（納刀溜め→抜刀の前方一閃・縮地）＋フロントステップ＋ステップ斬りは確定仕様。
 - 通常戦闘はフィールド曲継続／バトル曲=ボス専用。BGM共通サウンドID凍結。
 - SS=8（canvas3200・タイル128px実寸）＝Retina実画素のほぼ上限。
+
+## 7. 【2026-06-15】設計拡張フェーズ（16エリア化）完了 — 次フェーズ＝R7 実装
+
+> §1〜§6 は実装側（アート/エンジン）の現在地。本節は **`design/` 配下の設計正典を拡張した別トラック**の申し送り。両者は独立（実装済みは R1 の5マップ kiritate/satoyama/takadai/tanada/morioku のみ。R2〜R7 ＋常世/高天原は全て設計のみ）。
+
+### 7.1 何をやったか（ゴール: ユーザー要望「ボリューム拡張」の設計落とし込み）
+- ユーザーの「8→16エリア倍増」要望を、議論を経て **「リージョン＋サブマップ深化」**（リージョン乱増を避け容量と物語密度を最優先）に確定し、`design/00-overview/EXPANSION_PLAN_16AREAS.md` を作業正典として M1〜M9 を完遂。**最終地域数＝10**（v1.1 で現世に R7 を追加＝9地域 → v1.2 で常世の戦闘を外洋 R9 へ分離＝**10地域**。詳細は下記 §7.2・§7.3）。
+- **現世に新リージョン R7「火群と白磐の地」（homura・Lv28〜38・全28マップ）を追加**（この R7 追加の段階で地域 8→9。**最終は後述 R9 追加で 10**＝§7.2 表が正。本行の「8→9」は確定値ではなく追加ステップの記述）。R4 霊峰↔R5 北雪郷の間に「火の道」で挿入。カルスト「白磐の野」→温泉郷「湯ノ鬼郷」→鍛冶の街「たたら」の三クラスタ＝**砂丘/たたら/温泉/カルストを一地域に統合**してアセット負荷を抑制。
+- **常世 R8＝3サブマップ**（浜の上陸地／澪渡りの湿地／常世の大社）に深化＝**完全無戦闘の記憶・儀式区**として明確化（戦闘休憩区・ボス0/敵0）。v1.0 で浜深層に残っていた海戦闘（敵 enm_047-053・門番 boss_12/13）は、常世を囲む現世側の外洋に新設した **R9「綿津見の大海」（wadatsumi・Lv44〜52・17マップ）へ移設**（v1.2／turn-022・地域 9→10・総マップ303不変）。常世を真の無戦闘聖域にするための分離。
+- **高天原 R10＝新浮島サブマップ**（八雲の架け橋＝天浮橋／幻想の森／常闇と星空）を追加（"残り1つ"＝八雲の架け橋）。
+- 補填2マップ案（砂丘・たたら以外）＝① 温泉郷・地獄谷「湯ノ鬼郷」 ② カルスト高原「白磐の野」＋鍾乳洞。
+
+### 7.2 数量正典の更新（v1.2・全て機械実証済 exit0／`build_data_json.py` `All counts match`）
+| 要素 | v1.0 | v1.1 | v1.2（確定） | 備考 |
+|---|---|---|---|---|
+| 地域 | 8 | 9 | **10** | v1.1 で R7 追加（末尾採番）→ v1.2 で常世の戦闘を外洋 R9「綿津見の大海」へ分離 |
+| マップ | 約250 | 303 | **303** | R7=28。v1.2 で旧 R8 常世 36 を R8 聖域 19＋R9 外洋 17 に分割＝総数不変 |
+| 敵 | 60 | **72** | enm_061〜072（R7=enm_064〜068） |
+| ボス | 16 | **19** | boss_17〜19（R7=boss_17鉄喰い/boss_18火群） |
+| 勾玉 | 40 | **48** | mag_041〜048（R7=mag_041/042/043） |
+| アイテム | 100 | **115** | itm_101〜115（R7特産=たたら鉄107/石灰華108） |
+| NPC | 80 | **88** | npc_081〜088（R7=npc_083 火守 熾） |
+| イベント | 150 | **165** | ev_151〜165 |
+| 武器 | **80固定** | **80固定** | 8系統×10段階・**新系統なし厳守**。たたらは強化拠点 |
+
+### 7.3 整合性ルール（不変条件・次フェーズも厳守）
+- **常世 R8＝完全無戦闘**（ボス0・出現敵`—`）。v1.0 で浜深層に置いていた門番 boss_12 珊瑚王／boss_13 黒海魔と海の敵 enm_047-053 は、現世側の外洋 **R9「綿津見の大海」へ移設**（地域列 R8→R9。warp 保護のため map_id の `r7_` 接頭辞は保持・region は MAP_LIST §R9 見出しが正）。boss_13＝飛空艇の鍵ゲートは R9 の試練として攻略必須のまま維持（除去せず移設）。ボス総数 19・マップ総数 303 は不変（ID 不変・地域再配置）。
+- **武器＝8系統×10段階＝80固定**。R7「鍛冶の街たたら」は新武器を増やす場所ではなく既存80の強化（火属性上位段階）を正規化する物語的拠点。
+- 常世の勾玉 mag_011＝天磐船の鍵（既存物語ロック）を壊さない。真相・反転構造・語り配分は不変。
+
+### 7.4 更新した設計ファイル（全て `design/` 配下＋ルートの `Story.md`）
+- 新規: `design/00-overview/EXPANSION_PLAN_16AREAS.md`（作業正典）／ `design/20-basic/regions/R7_homura.md`（R7基本設計・R1〜R10テンプレ準拠・全28 map_id 掲載）／ **`design/20-basic/regions/R9_wadatsumi.md`（R9基本設計・turn-027 作成・R7_homura と同9節テンプレ・全17 map_id 掲載＝SCOPE「全10地域の基本設計10本」を実体化）**。これで `design/20-basic/regions/` に R1〜R9 の基本設計 10本が全て揃った（10-lists 各表・`MAP_LIST §R9`・`BOSS_LIST §1.7` と整合）。
+- v1.1→v1.2化: `SCOPE_AND_SCALE.md`／`REGION_LIST.md`／`MAP_LIST.md`（R9 セクション追加）／`ENEMY_LIST.md`／`BOSS_LIST.md`（boss_12/13＝R9）／`ITEM_LIST.md`／`ACCESSORY_LIST.md`／`WEAPON_LIST.md`／`EVENT_LIST.md`（ev_031/032＝R9）／`NPC_LIST.md`／`Story.md`／`GLOSSARY.md`／`PRODUCT_OVERVIEW.md`／`PROGRESSION_DESIGN.md`／`data/*.json`（10ファイル再生成・`All counts match`）。
+- 検証器: `design/10-lists/data/verify_expansion_consistency.py`（EXPANSION §9 内部整合 全7項目を機械実証）。
+- 進捗台帳: `design/REVISION_LOG.md §0`（M1〜M9 完了を記録）。
+- ⚠️ これらは全て git 未追跡（`?? design/`）＋`Story.md`は` M`。前フェーズ（棚田の谷）の未コミット変更とは別物。
+
+### 7.5 検証の到達点（再現可能）
+```bash
+cd /Users/yuyafujita/GameDev-v2/games/2D-RPG-Seihin
+python3 design/10-lists/data/verify_expansion_consistency.py   # → 全7項目 完全PASS・ハードFAIL0・exit0
+```
+§9 7項目＝①件数突合 ②導線整合(R7入口r9_hi_no_michi/出口r9_kita_kaido_r9) ③レベルカーブ単調(R4 22-32→R7 28-38→R5 30-40) ④世界観整合(武器80・常世無戦闘・mag_011健在) ⑤相互参照(boss.map/enemy.region/magatama.region＋R7_homura.md 全28map掲載) ⑥容量(303≤310) ⑦常世→R9移設の伝播(events.json 常世R8戦闘0・散文に旧門番boss_12/13残存なし・「浜は戦闘あり」旧framing残存なし) ＝**全PASS**。
+
+### 7.6 次フェーズ（実装）への申し送り
+- **本フェーズはあくまで設計拡張**。次フェーズは **1リージョン／1サブマップ単位**で `map-quality` スキル＋`forge`（素材生成）→`checker/run_check.sh <map>`→`map-art-reviewer` エージェントを回し、総合80点以上 / ERROR0 / 重大WARNING3件以下の Definition of Done を満たすまで磨く（tanada実績＝1枚あたり素材14〜25点＋磨き5巡）。
+- **最優先＝物語必須の R7「火群と白磐の地」**（カルスト→温泉→鍛冶＝武器強化導線）。新規タイルは火山岩/石灰岩/温泉/製鉄の最大4系統に抑える方針（`public/assets` の `ka_*`/`ka_paddy2` 等を流用可能な箇所は流用）。
+- **R9「綿津見の大海」**（外洋・海戦闘・boss_12/13）も実装対象。map_id は `r7_` 接頭辞を保持（warp グラフ保護）だが region は R9＝`MAP_LIST §R9` 見出しが正。基本設計 `R9_wadatsumi.md` は turn-027 作成済（R7_homura.md と同テンプレ・全17 map_id）＝実装の起点として参照可。
+- R7 の全マップ定義・敵/ボス/アイテム/勾玉/NPC の正IDは `design/20-basic/regions/R7_homura.md` §3・§9 と各 `10-lists/*.md` を正とする。R9 は当面 `10-lists/*.md`（`MAP_LIST §R9`・`BOSS_LIST §1.7`）を正とする。

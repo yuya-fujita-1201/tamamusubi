@@ -12,6 +12,7 @@ from . import repetition
 from . import walkable
 from . import contact
 from . import density
+from . import scale
 from . import grid_seam
 from . import noise
 
@@ -26,6 +27,7 @@ ALL_CHECKS = [
     walkable,
     contact,
     density,
+    scale,
     grid_seam,
     noise,
 ]

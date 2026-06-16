@@ -173,7 +173,7 @@ export function buildKiritate(): MapData {
   b.paintAuto(eastGate, TS.path as number, "path");
   for (const i of eastGate) b.solid(i % W, Math.floor(i / W), false);
   b.prop("obj.sign", 41, 18, 16, 16, { footW: 1, id: "sign:tanada_road" }); // 看板（道の外）
-  for (const wy of [19, 20, 21]) b.warp(55, wy, "tanada", 28, 42, "up");
+  for (const wy of [19, 20, 21]) b.warp(55, wy, "tanada", 56, 86, "up");
 
   const data = b.done();
   data.outsideColor = "#3a5a30";
