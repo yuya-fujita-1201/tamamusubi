@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "source": "design/10-lists/CHARACTER_LIST.md",
+  "generatedBy": "design/10-lists/data/build_data_json.py",
+  "count": 7,
+  "characters": [
+    {
+      "id": "C1_mito",
+      "kind": "主人公（操作可）",
+      "name": "ミト",
+      "school": "結び（祓い波）＝結び師の家系",
+      "phase": "序幕〜終幕（全編）",
+      "location": "tama_musubi_sato（霧立の里・石段）",
+      "related": "— （操作キャラ。npc行なし）",
+      "status": "体験版",
+      "summary": "7年前に消えた父・廻人を追う寡黙な結び師。勾玉を体に通し祓い波を三層に響かせる。分身型＝プレイヤーが感じたことが主人公の感情になる。Story.md §2 主人公"
+    },
+    {
+      "id": "C2_megurito",
+      "kind": "主要キャラ",
+      "name": "廻人（めぐりと）",
+      "school": "結び（祓い波）＝結び師",
+      "phase": "痕跡：全編／本人登場：終幕のみ",
+      "location": "r10_ameno_iwakura_mae（終幕）",
+      "related": "npc_001（横断・物語）",
+      "status": "設計のみ",
+      "summary": "主人公の父。真相に独力で到達した唯一の人間。物語の牽引力であり最後の感動の核。補修跡・手控え帳・人々の記憶として遍在する。Story.md §2・§5.3"
+    },
+    {
+      "id": "C3_suzushiro",
+      "kind": "主要キャラ",
+      "name": "鈴代（すずしろ）",
+      "school": "神楽の素養（巫女）／育ての親",
+      "phase": "序幕（開幕3分）・終幕",
+      "location": "tama_musubi_sato / sato_jinja_haiden",
+      "related": "npc_002（横断・物語）",
+      "status": "体験版",
+      "summary": "霧立の里の老巫女・育ての親。廻人の旧友。「討つんじゃないよ。祓うんだ」（意味は終盤回収）。エンディングで「よかった、帰ってきた」（多義的）。Story.md §2-3"
+    },
+    {
+      "id": "C4_shiro",
+      "kind": "式神・精霊",
+      "name": "シロ",
+      "school": "式（父の式鳥・霊文を刻んだ白い鳥）",
+      "phase": "序幕（開幕）・終幕（高天原）",
+      "location": "（演出・固定なし）→ r8（終盤）",
+      "related": "npc_003（横断・物語）",
+      "status": "体験版",
+      "summary": "幼い日に父と主人公が一緒に折って作った式鳥（感情投資の記憶）。開幕で傷つき帰還し父の声を一言届けて消え、終盤に父のそばで再登場。Story.md §2"
+    },
+    {
+      "id": "C5_tokoyo_no_kannagi",
+      "kind": "主要キャラ",
+      "name": "常世の巫（とこよのかんなぎ）",
+      "school": "世界の歌の化身（記憶の守人）",
+      "phase": "第二幕の核",
+      "location": "r8_torii_mae（常世の大鳥居）",
+      "related": "npc_004（横断・物語）",
+      "status": "設計のみ",
+      "summary": "人ではなく「世界の歌が人の形をとったもの」。台詞は五七五の短詩のみ。世界の歌の記憶を授け、祓い波を第二形態へ導き、波音に還る。Story.md §6 第二幕"
+    },
+    {
+      "id": "C6_shirabe",
+      "kind": "主要キャラ",
+      "name": "調（しらべ）",
+      "school": "天の古老の末席",
+      "phase": "第三幕の核",
+      "location": "r10_takama_kyo_yakata（高天原）",
+      "related": "npc_005（横断・物語）",
+      "status": "設計のみ",
+      "summary": "封印「天鎖」を施した古老たちのうち「過ちだったかもしれない」と疑い続けた一人。核心は語らず「己の目で、柱の上を見よ」。Story.md §2"
+    },
+    {
+      "id": "C7_amakusarimori",
+      "kind": "番人",
+      "name": "天鎖守（あまくさりもり）",
+      "school": "天鎖の白金の番人",
+      "phase": "第二幕以降（依代を灯すほど各地に出現）",
+      "location": "各地域（依代周辺・移動配置）／高天原で頂点",
+      "related": "npc_073（意匠連続）／戦闘体 boss_15系・enm_057 堕ちた神使",
+      "status": "設計のみ",
+      "summary": "天鎖が自らを守るために生んだ白金の番人。悪意はなく「乱れた魂を通すな」という古い命令を守る。倒すのではなく祓い波で命令から解放する。重悲劇なしに中盤の緊張を作る。高天原の白金意匠と視覚的に連続。Story.md §2"
+    }
+  ]
+}

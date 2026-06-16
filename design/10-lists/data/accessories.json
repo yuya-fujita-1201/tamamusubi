@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 1,
+  "source": "design/10-lists/ACCESSORY_LIST.md",
+  "generatedBy": "design/10-lists/data/build_data_json.py",
+  "magatama": [
+    {
+      "id": "mag_001",
+      "vocab": "勾玉",
+      "name": "杜の勾玉（もりのまがたま）",
+      "effect": "祓いゲージ蓄積 +10%（祓い波を撃ちやすくする入門勾玉）",
+      "source": "morioku 鎮守の杜の奥に祀られる",
+      "region": "R1",
+      "status": "体験版"
+    },
+    {
+      "id": "mag_002",
+      "vocab": "勾玉",
+      "name": "岩鬼の勾玉（いわきのまがたま）",
+      "effect": "攻撃力 +8％／大型（tank）敵からの被ダメ −10%",
+      "source": "ne_no_hora_boss 岩鬼の王 boss_01 撃破報酬",
+      "region": "R1",
+      "status": "体験版"
+    },
+    {
+      "id": "mag_003",
+      "vocab": "勾玉",
+      "name": "古墳の勾玉（こふんのまがたま）",
+      "effect": "最大HP +15／物理防御 +3（守りの入門）",
+      "source": "kofun_iwa 古墳の石室（隠し供物）",
+      "region": "R1",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_004",
+      "vocab": "勾玉",
+      "name": "炎の勾玉（ほのおのまがたま）",
+      "effect": "【祓い波】浄化大技を炎属性化（火点き付与・燃え広がり）",
+      "source": "R4 reihou 火口の祠（火打石の地）",
+      "region": "R4",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_005",
+      "vocab": "勾玉",
+      "name": "水鏡の勾玉（みずかがみのまがたま）",
+      "effect": "【祓い波】発動後にHP小回復（自他の心を結び直す）",
+      "source": "R2 tatoukai 海蝕洞の奥",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_006",
+      "vocab": "勾玉",
+      "name": "風走りの勾玉（かぜばしりのまがたま）",
+      "effect": "【祓い波】発動後3秒 移動速度+30%（追撃・離脱）",
+      "source": "R2 tatoukai 風待ちの岬",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_007",
+      "vocab": "勾玉",
+      "name": "氷柱の勾玉（つららのまがたま）",
+      "effect": "【祓い波】氷属性化（命中敵を鈍足化・確率で凍結）",
+      "source": "R5 hokusetsu 氷窟の祠",
+      "region": "R5",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_008",
+      "vocab": "勾玉",
+      "name": "雷鳴の勾玉（いかづちのまがたま）",
+      "effect": "【祓い波】雷属性化（近接敵へ連鎖・縛り付与）",
+      "source": "R4 reihou 雷落ちの社",
+      "region": "R4",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_009",
+      "vocab": "勾玉",
+      "name": "広がりの勾玉（ひろがりのまがたま）",
+      "effect": "【祓い波】浄化範囲 +40%（溜め18Fは据え置き＝リスク維持）",
+      "source": "R3 miyanokyo 河港の祠",
+      "region": "R3",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_010",
+      "vocab": "勾玉",
+      "name": "早結びの勾玉（はやむすびのまがたま）",
+      "effect": "【祓い波】溜め 18F→12F（被弾リスク減・威力 −15%でトレード）",
+      "source": "R6 kurosu 幽谷の祠",
+      "region": "R6",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_011",
+      "vocab": "勾玉",
+      "name": "常世の勾玉（とこよのまがたま）",
+      "effect": "【祓い波】浄属性化（穢れ系・不死系に特効・回復無効化貫通）",
+      "source": "R8 tokoyo 白波の祠",
+      "region": "R8",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_012",
+      "vocab": "勾玉",
+      "name": "結びの勾玉（むすびのまがたま）",
+      "effect": "【祓い波】チャージ2段保持＋発動後 全状態異常解除（最終勾玉・個別シナジー設計）",
+      "source": "R10 takamagahara 高天原の社",
+      "region": "R10",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_013",
+      "vocab": "御守り",
+      "name": "厄除けの御守り",
+      "effect": "物理防御 +5／被ノックバック −20%",
+      "source": "R1 satoyama 里の社（初期入手可）",
+      "region": "R1",
+      "status": "体験版"
+    },
+    {
+      "id": "mag_014",
+      "vocab": "御守り",
+      "name": "清めの御守り",
+      "effect": "穢れ・毒・呪いの蓄積速度 −50%",
+      "source": "R3 miyanokyo 大社の授与所",
+      "region": "R3",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_015",
+      "vocab": "御守り",
+      "name": "火伏せの御守り",
+      "effect": "火点き無効／火属性被ダメ −30%",
+      "source": "R4 reihou 火伏せの祠",
+      "region": "R4",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_016",
+      "vocab": "御守り",
+      "name": "雪除けの御守り",
+      "effect": "鈍足・凍結耐性／雪原での被ダメ −20%",
+      "source": "R5 hokusetsu 雪宿りの社",
+      "region": "R5",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_017",
+      "vocab": "御守り",
+      "name": "闇祓いの御守り",
+      "effect": "眩み・混乱無効／暗所での視界縮小を打ち消す",
+      "source": "R6 kurosu 燭台の祠",
+      "region": "R6",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_018",
+      "vocab": "御守り",
+      "name": "不動の御守り",
+      "effect": "縛り無効／HP30%以下で物理防御 +8（個別シナジー）",
+      "source": "R10 takamagahara 天津磐境",
+      "region": "R10",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_019",
+      "vocab": "数珠",
+      "name": "巡りの数珠",
+      "effect": "最大MP +12",
+      "source": "R1 satoyama 里の鍛冶屋（店）",
+      "region": "R1",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_020",
+      "vocab": "数珠",
+      "name": "静心の数珠",
+      "effect": "三流派スキルの消費 −15%",
+      "source": "R3 miyanokyo 神楽殿",
+      "region": "R3",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_021",
+      "vocab": "数珠",
+      "name": "祓いの数珠",
+      "effect": "祓いゲージ蓄積 +20%（mag_001 上位）",
+      "source": "R5 hokusetsu 氷哮の社（中盤報酬）",
+      "region": "R5",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_022",
+      "vocab": "数珠",
+      "name": "結願の数珠",
+      "effect": "MP自然回復（毎秒・微量）／スキル後の硬直 −2F",
+      "source": "R6 kurosu 結願の祠",
+      "region": "R6",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_023",
+      "vocab": "数珠",
+      "name": "万霊の数珠",
+      "effect": "スキル命中ごとに祓いゲージ +小（個別シナジー・終盤）",
+      "source": "R8 tokoyo 万霊の浜",
+      "region": "R8",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_024",
+      "vocab": "鈴",
+      "name": "神楽鈴（かぐらすず）",
+      "effect": "隠し祠を近接時に微震動で感知（隠し要素のみ・鍵化禁止）",
+      "source": "R3 miyanokyo 神楽殿（授与）",
+      "region": "R3",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_025",
+      "vocab": "鈴",
+      "name": "千里の鈴",
+      "effect": "画面外の格上敵（sightR）方向を端アイコンで予告（スニーク支援）",
+      "source": "R4 reihou 物見の祠",
+      "region": "R4",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_026",
+      "vocab": "鈴",
+      "name": "埋火の鈴",
+      "effect": "埋蔵勾玉/宝の近接感知（隠し要素のみ・必須経路は対象外）",
+      "source": "R6 kurosu 埋火の祠",
+      "region": "R6",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_027",
+      "vocab": "鈴",
+      "name": "潮鈴（しおすず）",
+      "effect": "浅瀬・渦の流れを可視化（探索補助／海域の隠し）",
+      "source": "R8 tokoyo 潮見の祠",
+      "region": "R8",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_028",
+      "vocab": "鈴",
+      "name": "天津鈴（あまつすず）",
+      "effect": "高天原の浮島ギミックの作動順を残光で示す（最終探索補助）",
+      "source": "R10 takamagahara 雲上回廊",
+      "region": "R10",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_029",
+      "vocab": "根付",
+      "name": "福禄の根付",
+      "effect": "銭ドロップ +25%",
+      "source": "R2 tatoukai 港町の市",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_030",
+      "vocab": "根付",
+      "name": "恵心の根付",
+      "effect": "心（HP回復の素）ドロップ +1／回",
+      "source": "R3 miyanokyo 市場",
+      "region": "R3",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_031",
+      "vocab": "根付",
+      "name": "山幸の根付",
+      "effect": "クラフト素材・特産のドロップ率 +20%",
+      "source": "R5 hokusetsu 猟師小屋",
+      "region": "R5",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_032",
+      "vocab": "根付",
+      "name": "大漁の根付",
+      "effect": "レア勾玉（汎用枠）のドロップ率 +15%（個別シナジー・終盤）",
+      "source": "R8 tokoyo 漁場の祠",
+      "region": "R8",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_033",
+      "vocab": "組紐",
+      "name": "早足の組紐",
+      "effect": "移動速度 +10%",
+      "source": "R2 tatoukai 行商の道",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_034",
+      "vocab": "組紐",
+      "name": "見切りの組紐",
+      "effect": "フロントステップの無敵 +2F／回避後の踏み込み距離 +10%",
+      "source": "R4 reihou 修験の道場",
+      "region": "R4",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_035",
+      "vocab": "組紐",
+      "name": "居合の組紐",
+      "effect": "居合チャージの溜め時間 −12%（抜刀の手応え強化）",
+      "source": "R6 kurosu 古道場跡",
+      "region": "R6",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_036",
+      "vocab": "組紐",
+      "name": "連ねの組紐",
+      "effect": "連続ヒット数に応じ攻撃 +最大10%（個別シナジー・終盤）",
+      "source": "R10 takamagahara 武の社",
+      "region": "R10",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_037",
+      "vocab": "御札",
+      "name": "火の御札",
+      "effect": "通常攻撃に火点き小付与（祓い波非依存の常時属性）",
+      "source": "R4 reihou 火札の祠",
+      "region": "R4",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_038",
+      "vocab": "御札",
+      "name": "水の御札",
+      "effect": "通常攻撃命中でMP微回復／水辺で攻撃 +5%",
+      "source": "R2 tatoukai 水神の祠",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_039",
+      "vocab": "御札",
+      "name": "風の御札",
+      "effect": "攻撃後の隙 −2F（手数増加・組紐と非乗算で共存）",
+      "source": "R6 kurosu 風札の祠",
+      "region": "R6",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_040",
+      "vocab": "御札",
+      "name": "神鳴の御札",
+      "effect": "祓い波ゲージ満タン時、通常攻撃に雷小付与（最終・個別シナジー）",
+      "source": "R10 takamagahara 神鳴の社",
+      "region": "R10",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_041",
+      "vocab": "勾玉",
+      "name": "鉄喰いの勾玉（てつはみのまがたま）",
+      "effect": "攻撃力 +8％／大型(tank)・重装敵への与ダメ +12%",
+      "source": "r7_tatara_ana 鉄喰いの大鬼 boss_17 撃破報酬",
+      "region": "R7",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_042",
+      "vocab": "勾玉",
+      "name": "火群の勾玉（ほむらのまがたま）",
+      "effect": "【祓い波】発動後、足元に残り火床（継続炎ダメ）を残す（mag_004 炎属性化の上位差別化）",
+      "source": "r7_jigokudani_boss 火群の鬼神 boss_18 撃破報酬",
+      "region": "R7",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_043",
+      "vocab": "御守り",
+      "name": "白磐の御守り（しろいわのおまもり）",
+      "effect": "落石・崩落・地形ダメ −40%／物理防御 +6（カルスト適応）",
+      "source": "R7 白磐の野（カルスト・隠し供物）",
+      "region": "R7",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_044",
+      "vocab": "鈴",
+      "name": "砂鳴りの鈴（すななりのすず）",
+      "effect": "流砂・埋没宝を近接感知／砂嵐中も感知距離維持（隠し要素のみ・鍵化禁止）",
+      "source": "R2 鳴り砂の岬（砂丘サブゾーン）",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_045",
+      "vocab": "勾玉",
+      "name": "澪渡りの勾玉（みおわたりのまがたま）",
+      "effect": "【祓い波】発動後3秒 自身HP継続回復＋鈍足/呪い解除（湿原の水鏡）",
+      "source": "R8 澪渡りの湿地（依代点灯/記憶儀式・無戦闘）",
+      "region": "R8",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_046",
+      "vocab": "勾玉",
+      "name": "幻想の勾玉（げんそうのまがたま）",
+      "effect": "【祓い波】四季変転：発動ごとに浄化属性が 炎→氷→風→浄 を巡回（boss_19 の季節ローテに呼応・個別シナジー）",
+      "source": "r10_gensou_oku 四季咲きの浮島鬼神 boss_19 撃破報酬",
+      "region": "R10",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_047",
+      "vocab": "勾玉",
+      "name": "八雲の勾玉（やくものまがたま）",
+      "effect": "【祓い波】浄化が前方へ橋状に直線拡張＋命中数で祓いゲージ加算（天浮橋＝八雲の架け橋）",
+      "source": "R10 八雲の架け橋（雲海回廊の祠）",
+      "region": "R10",
+      "status": "設計のみ"
+    },
+    {
+      "id": "mag_048",
+      "vocab": "御札",
+      "name": "星屑の御札（ほしくずのおふだ）",
+      "effect": "常闇/夜間で通常攻撃に星屑付与（光小ダメ＋低確率 眩み）／星空エリアで祓いゲージ +5%",
+      "source": "R10 常闇と星空",
+      "region": "R10",
+      "status": "設計のみ"
+    }
+  ],
+  "count": {
+    "magatama": 48,
+    "koromo": 11
+  },
+  "koromo": [
+    {
+      "id": "koromo_01",
+      "name": "旅衣（たびごろも）",
+      "defense": "+1",
+      "env_trait": "なし（初期装備／里の鍛冶屋でも在庫）",
+      "source": "sato_kajiya 里の鍛冶屋",
+      "region": "R1",
+      "status": "体験版"
+    },
+    {
+      "id": "koromo_02",
+      "name": "巫女衣（みこごろも）",
+      "defense": "+2",
+      "env_trait": "祓いゲージ蓄積 +5%（隠し祠の供物）",
+      "source": "chinju_yashiro_ue 鎮守社 地下祠",
+      "region": "R1",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_03",
+      "name": "潮衣（しおごろも）",
+      "defense": "+3",
+      "env_trait": "浅瀬・水辺の移動低下なし",
+      "source": "R2 tatoukai 港町の仕立屋",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_04",
+      "name": "漁師の蓑（りょうしのみの）",
+      "defense": "+3",
+      "env_trait": "水中で息が続く（潜行時間延長）／海の被ダメ −15%",
+      "source": "R2 tatoukai 漁村",
+      "region": "R2",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_05",
+      "name": "神楽衣（かぐらごろも）",
+      "defense": "+3",
+      "env_trait": "神楽スキルの効果時間 +20%",
+      "source": "R3 miyanokyo 神楽殿",
+      "region": "R3",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_06",
+      "name": "狩衣（かりぎぬ）",
+      "defense": "+4",
+      "env_trait": "状態異常の蓄積速度 −15%（全般・薄く広く）",
+      "source": "R3 miyanokyo 公家の屋敷",
+      "region": "R3",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_07",
+      "name": "火防の衣（ひぶせのころも）",
+      "defense": "+4",
+      "env_trait": "火点き無効／火口・溶岩地形の継続ダメ無効",
+      "source": "R4 reihou 火伏せ衆の里",
+      "region": "R4",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_08",
+      "name": "綿入れの衣（わたいれのころも）",
+      "defense": "+5",
+      "env_trait": "凍結・鈍足耐性／雪原・吹雪の移動低下なし",
+      "source": "R5 hokusetsu 雪国の仕立屋",
+      "region": "R5",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_09",
+      "name": "闇祓いの衣（やみばらいのころも）",
+      "defense": "+5",
+      "env_trait": "暗所でも視界を確保／呪いの被害 −50%",
+      "source": "R6 kurosu 燭の里",
+      "region": "R6",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_10",
+      "name": "常世の白衣（とこよのびゃくえ）",
+      "defense": "+5",
+      "env_trait": "常世で隠し勾玉の共鳴音が聞こえる（隠し要素のみ）",
+      "source": "R8 tokoyo 白浜の社",
+      "region": "R8",
+      "status": "設計のみ"
+    },
+    {
+      "id": "koromo_11",
+      "name": "天羽衣（あまのはごろも）",
+      "defense": "+6",
+      "env_trait": "落下ダメージ無効／断崖を短く滑空（最終・高天原）",
+      "source": "R10 takamagahara 天衣の社",
+      "region": "R10",
+      "status": "設計のみ"
+    }
+  ]
+}

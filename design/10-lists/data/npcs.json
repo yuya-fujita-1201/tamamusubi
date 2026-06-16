@@ -1,0 +1,908 @@
+{
+  "schemaVersion": 1,
+  "source": "design/10-lists/NPC_LIST.md",
+  "generatedBy": "design/10-lists/data/build_data_json.py",
+  "count": 90,
+  "npcs": [
+    {
+      "id": "npc_001",
+      "region": "横断",
+      "role": "物語",
+      "name": "廻人（めぐりと）",
+      "summary": "主人公の父・結び師。7年前に消えた物語の牽引力。本人登場は終幕のみで、それまでは補修跡・手控え帳・人々の記憶として遍在",
+      "location": "r10_ameno_iwakura_mae（終幕）",
+      "status": "設計のみ",
+      "note": "父の痕跡の総元締。Story.md §5.3"
+    },
+    {
+      "id": "npc_002",
+      "region": "横断",
+      "role": "物語",
+      "name": "鈴代（すずしろ）",
+      "summary": "霧立の里の老巫女・育ての親。多くは知らぬが勘所を知る。「討つんじゃないよ。祓うんだ」",
+      "location": "tama_musubi_sato / sato_jinja_haiden",
+      "status": "体験版",
+      "note": "開幕3分で登場。Story.md §2-3"
+    },
+    {
+      "id": "npc_003",
+      "region": "横断",
+      "role": "物語",
+      "name": "シロ",
+      "summary": "父の式鳥。幼い日に父と主人公が折った白い鳥の精霊。開幕で父の声を届け消え、終幕で再登場",
+      "location": "（演出・固定なし）→ r8",
+      "status": "体験版",
+      "note": "感情投資の記憶。Story.md §2"
+    },
+    {
+      "id": "npc_004",
+      "region": "横断",
+      "role": "物語",
+      "name": "常世の巫（とこよのかんなぎ）",
+      "summary": "世界の歌が人の形をとったもの。台詞は五七五の短詩のみ。祓い波を第二形態へ導く",
+      "location": "r8_torii_mae（常世の大鳥居）",
+      "status": "設計のみ",
+      "note": "第二幕の核。Story.md §6 第二幕"
+    },
+    {
+      "id": "npc_005",
+      "region": "横断",
+      "role": "物語",
+      "name": "調（しらべ）",
+      "summary": "高天原に残る天の古老の末席。封印を疑い続けた一人。核心は語らず「己の目で、柱の上を見よ」",
+      "location": "r10_takama_kyo_yakata",
+      "status": "設計のみ",
+      "note": "第三幕の核。Story.md §2"
+    },
+    {
+      "id": "npc_006",
+      "region": "横断",
+      "role": "商店",
+      "name": "背負い屋の彦六（ひころく）",
+      "summary": "全地域を巡る行商人。野外でも声をかけると簡易の消耗品売買ができる（旅の補給演出）",
+      "location": "各地域の街道（移動配置）",
+      "status": "設計のみ",
+      "note": "itm_001〜012/041〜050 を扱う。ITEM_LIST"
+    },
+    {
+      "id": "npc_007",
+      "region": "横断",
+      "role": "語り部",
+      "name": "座頭の百々（どど）",
+      "summary": "流しの語り部。各地で「世界の歌」「依代」の伝承を断片的に語る環境語りの担い手",
+      "location": "各地域の茶屋/広場（移動配置）",
+      "status": "設計のみ",
+      "note": "真相のヒントを散りばめる。GLOSSARY"
+    },
+    {
+      "id": "npc_008",
+      "region": "横断",
+      "role": "依頼主",
+      "name": "結び師 文（あや）",
+      "summary": "父を知る若い同業の結び師。依代の補修サブクエと父の手控え帳ページの手がかりを提供",
+      "location": "各地域の祠周辺（移動配置）",
+      "status": "設計のみ",
+      "note": "父の痕跡。手控帳ページ収集の案内役"
+    },
+    {
+      "id": "npc_009",
+      "region": "R1",
+      "role": "依頼主",
+      "name": "里長 為造（ためぞう）",
+      "summary": "玉結びの里の里長。役場で依頼と里の情報を束ねる序盤のクエスト拠点",
+      "location": "sato_yakuba",
+      "status": "設計のみ",
+      "note": "序盤サブクエの起点"
+    },
+    {
+      "id": "npc_010",
+      "region": "R1",
+      "role": "鍛冶",
+      "name": "鉄爺（くろがねじい）",
+      "summary": "里の鍛冶屋の老職人。W1祓い刀ほか初期武器の強化を請け負う",
+      "location": "sato_kajiya",
+      "status": "設計のみ",
+      "note": "W1〜W3 g1〜g3 強化。WEAPON_LIST"
+    },
+    {
+      "id": "npc_011",
+      "region": "R1",
+      "role": "宿",
+      "name": "宿の女将 おりつ",
+      "summary": "里の宿の女将。休憩でHP回復、里の噂話を聞ける",
+      "location": "sato_yado",
+      "status": "設計のみ",
+      "note": "セーブ/休憩拠点"
+    },
+    {
+      "id": "npc_012",
+      "region": "R1",
+      "role": "商店",
+      "name": "問屋 升屋 利平（ますや りへい）",
+      "summary": "里の問屋の主。山鉄・青竹など里山特産を換金、消耗品を販売",
+      "location": "sato_donya",
+      "status": "設計のみ",
+      "note": "itm_063 山鉄・itm_064 青竹の換金。ITEM_LIST §特産"
+    },
+    {
+      "id": "npc_013",
+      "region": "R1",
+      "role": "師",
+      "name": "若巫女 ちはや",
+      "summary": "鎮守社の若い巫女。神楽流派への最初の入口を示し、基礎の神楽を伝授",
+      "location": "sato_jinja_haiden",
+      "status": "設計のみ",
+      "note": "神楽スキル入門。SKILL_LIST 神楽"
+    },
+    {
+      "id": "npc_014",
+      "region": "R1",
+      "role": "語り部",
+      "name": "畦道の老農 与平（よへい）",
+      "summary": "棚田の畦を世話する老農。棚田と鎮守の森の弱りを語る環境語り",
+      "location": "tanada / satoyama",
+      "status": "設計のみ",
+      "note": "喪失「鎮守の森の光が弱い」を示唆。Story.md §6表"
+    },
+    {
+      "id": "npc_015",
+      "region": "R1",
+      "role": "依頼主",
+      "name": "里の子 たけ",
+      "summary": "元気な里の子。隠し場所や近道のヒントをくれる軽量サブクエ",
+      "location": "tama_musubi_sato",
+      "status": "体験版",
+      "note": "探索チュートリアル誘導"
+    },
+    {
+      "id": "npc_016",
+      "region": "R1",
+      "role": "語り部",
+      "name": "きこり 三蔵（さんぞう）",
+      "summary": "切り立ての杣人。木霊（穢れた個体＝enm_003）の異変を語る",
+      "location": "kiritate",
+      "status": "設計のみ",
+      "note": "enm_003 穢れ木霊の対の善き精霊の噂。ENEMY_LIST"
+    },
+    {
+      "id": "npc_017",
+      "region": "R1",
+      "role": "案内",
+      "name": "里の門番 権三（ごんざ）",
+      "summary": "里の門を守る番人。旅立ちを見送り、最初の街道へ送り出す",
+      "location": "tama_musubi_sato（門）",
+      "status": "体験版",
+      "note": "開幕の旅立ち演出"
+    },
+    {
+      "id": "npc_018",
+      "region": "R1",
+      "role": "物語",
+      "name": "古老 ごんすけ",
+      "summary": "里の最長老。「結び師さんなら昔ここに」と廻人を最初に語るNPC",
+      "location": "tama_musubi_sato",
+      "status": "体験版",
+      "note": "父の痕跡（最初の一片）。Story.md §4"
+    },
+    {
+      "id": "npc_019",
+      "region": "R2",
+      "role": "商店",
+      "name": "網元 藤兵衛（とうべえ）",
+      "summary": "湊の市場を束ねる網元。海産物の売買と多島海の航路情報",
+      "location": "r2_minato",
+      "status": "設計のみ",
+      "note": "itm_064 真珠・藻塩の換金"
+    },
+    {
+      "id": "npc_020",
+      "region": "R2",
+      "role": "案内",
+      "name": "漕ぎ屋の船頭 艫（とも）",
+      "summary": "漕ぎ屋の老練な船頭。船による航路拡張＝R2解放の窓口",
+      "location": "r2_sosogi_ya",
+      "status": "設計のみ",
+      "note": "交通解放（船）。PROGRESSION_DESIGN"
+    },
+    {
+      "id": "npc_021",
+      "region": "R2",
+      "role": "依頼主",
+      "name": "海女頭 おしお",
+      "summary": "海女衆を率いる女頭。真珠採りや沈没船の探索依頼",
+      "location": "r2_ama_mura",
+      "status": "設計のみ",
+      "note": "潜水サブクエ"
+    },
+    {
+      "id": "npc_022",
+      "region": "R2",
+      "role": "依頼主",
+      "name": "鰐口の銛蔵（もりぞう）",
+      "summary": "改心した元海賊の頭。隠し倉庫の鍵のヒントを渡す",
+      "location": "r2_kaizoku_yashiki",
+      "status": "設計のみ",
+      "note": "itm_093系の鍵ヒント"
+    },
+    {
+      "id": "npc_023",
+      "region": "R2",
+      "role": "語り部",
+      "name": "燈台守 灯爺（ひじい）",
+      "summary": "小島の燈台を守る老人。夜限定で潮と常世の光の異変を語る",
+      "location": "r2_toudai_machi",
+      "status": "設計のみ",
+      "note": "夜イベント。常世の光の伏線"
+    },
+    {
+      "id": "npc_024",
+      "region": "R2",
+      "role": "商店",
+      "name": "薙刀商 鉾屋（ほこや）",
+      "summary": "問屋街でW4薙刀を扱う武具商（フェーズ2で解禁）",
+      "location": "r2_toiya",
+      "status": "設計のみ",
+      "note": "W4薙刀入手。WEAPON_LIST W4"
+    },
+    {
+      "id": "npc_025",
+      "region": "R2",
+      "role": "師",
+      "name": "島の巫女 みお",
+      "summary": "多島海の島社の巫女。範囲浄化の神楽を伝授",
+      "location": "r2_ama_mura近隣社",
+      "status": "設計のみ",
+      "note": "神楽スキル（範囲）。SKILL_LIST"
+    },
+    {
+      "id": "npc_026",
+      "region": "R2",
+      "role": "善き妖",
+      "name": "川守の河童 ガク",
+      "summary": "島の入江に棲む善き河童。水場の近道と落とし物を教える",
+      "location": "r2_amijima",
+      "status": "設計のみ",
+      "note": "善き妖（敵=穢れた河童と対）。Story.md §2"
+    },
+    {
+      "id": "npc_027",
+      "region": "R2",
+      "role": "物語",
+      "name": "灯籠番 おとせ",
+      "summary": "廻人が補修した灯籠を守る女。「補修された灯籠」の語り",
+      "location": "r2_minato近隣",
+      "status": "設計のみ",
+      "note": "父の痕跡。Story.md §6表"
+    },
+    {
+      "id": "npc_028",
+      "region": "R3",
+      "role": "商店",
+      "name": "丸屋 宗右衛門（そうえもん）",
+      "summary": "卸問屋・丸屋の主。各地の特産が集まる中央市場の元締",
+      "location": "r3_toiya",
+      "status": "設計のみ",
+      "note": "itm_065 西陣絹・漆の売買"
+    },
+    {
+      "id": "npc_029",
+      "region": "R3",
+      "role": "鍛冶",
+      "name": "弓師 弦人（つるひと）",
+      "summary": "重籐の弓師。W5和弓の入手・強化を担う工房主",
+      "location": "r3_yumishi",
+      "status": "設計のみ",
+      "note": "W5和弓 入手/強化。WEAPON_LIST W5"
+    },
+    {
+      "id": "npc_030",
+      "region": "R3",
+      "role": "鍛冶",
+      "name": "炉職堂の親方",
+      "summary": "京鍛冶の親方。中位までの武器強化を一手に引き受ける",
+      "location": "r3_kajiya",
+      "status": "設計のみ",
+      "note": "W1〜W6 中位強化"
+    },
+    {
+      "id": "npc_031",
+      "region": "R3",
+      "role": "宿",
+      "name": "旅籠の主 京弥（きょうや）",
+      "summary": "木造二階建ての旅籠の主。セーブ/休憩と旅人の情報交換",
+      "location": "r3_yado",
+      "status": "設計のみ",
+      "note": "中央セーブ拠点"
+    },
+    {
+      "id": "npc_032",
+      "region": "R3",
+      "role": "依頼主",
+      "name": "茶屋娘 こよみ",
+      "summary": "一服亭の看板娘。京中の噂を集めるサブクエの束ね役",
+      "location": "r3_chaya",
+      "status": "設計のみ",
+      "note": "噂系サブクエ"
+    },
+    {
+      "id": "npc_033",
+      "region": "R3",
+      "role": "物語",
+      "name": "神祇官の書司 文成（ふみなり）",
+      "summary": "宮廷神事の記録官。物語の鍵となる古書を管理",
+      "location": "r3_jingikan",
+      "status": "設計のみ",
+      "note": "真相断片。手控帳ページ"
+    },
+    {
+      "id": "npc_034",
+      "region": "R3",
+      "role": "師",
+      "name": "大巫女 玉照（たまてる）",
+      "summary": "社家区の神楽宗家の大巫女。神楽の奥伝を授ける",
+      "location": "r3_shaka_ku",
+      "status": "設計のみ",
+      "note": "神楽スキル（奥伝）。SKILL_LIST 神楽"
+    },
+    {
+      "id": "npc_035",
+      "region": "R3",
+      "role": "案内",
+      "name": "関の番頭 石翁（いしおう）",
+      "summary": "西街道の関所を預かる番頭。通行と地下関のイベント",
+      "location": "r3_sekisho",
+      "status": "設計のみ",
+      "note": "進行ゲート（軟）"
+    },
+    {
+      "id": "npc_036",
+      "region": "R3",
+      "role": "商店",
+      "name": "呉服処の女主人 綾乃（あやの）",
+      "summary": "高級呉服店の女主人。西陣絹の衣を仕立てる",
+      "location": "r3_mise_nai",
+      "status": "設計のみ",
+      "note": "koromo（西陣絹の衣）。ACCESSORY_LIST"
+    },
+    {
+      "id": "npc_037",
+      "region": "R3",
+      "role": "依頼主",
+      "name": "河港の口入屋 桝吉（ますきち）",
+      "summary": "河港町の口入屋。荷運び・人探しサブクエを差配",
+      "location": "r3_kominato",
+      "status": "設計のみ",
+      "note": "運搬/護衛サブクエ"
+    },
+    {
+      "id": "npc_038",
+      "region": "R3",
+      "role": "師",
+      "name": "式の宿曜（すくよう）",
+      "summary": "宮乃京に居る陰陽の使い手。式神を折って放つ式流派を伝授",
+      "location": "r3_jingikan近隣",
+      "status": "設計のみ",
+      "note": "式スキル入門。SKILL_LIST 式"
+    },
+    {
+      "id": "npc_039",
+      "region": "R3",
+      "role": "案内",
+      "name": "飛空艇案内人 雲井（くもい）",
+      "summary": "大橋のたもとの発着案内人。終盤、各地への飛空艇運航を担う",
+      "location": "r3_ohashi",
+      "status": "設計のみ",
+      "note": "交通解放（飛空艇・終盤）。PROGRESSION_DESIGN"
+    },
+    {
+      "id": "npc_040",
+      "region": "R4",
+      "role": "鍛冶",
+      "name": "山宿の差配 鉈造（なたぞう）",
+      "summary": "山岳の宿場町の差配。武器強化の上位枠を解禁する",
+      "location": "r4_sanzoku_mura",
+      "status": "設計のみ",
+      "note": "W上位強化解禁"
+    },
+    {
+      "id": "npc_041",
+      "region": "R4",
+      "role": "商店",
+      "name": "霊砂の取引人 砂吉（すなきち）",
+      "summary": "氷窟前哨村の取引人。霊砂と消耗品を売買",
+      "location": "r4_hyokutsu_machi",
+      "status": "設計のみ",
+      "note": "itm（霊砂）取引"
+    },
+    {
+      "id": "npc_042",
+      "region": "R4",
+      "role": "師",
+      "name": "行者頭 覚円（かくえん）",
+      "summary": "修験宿を束ねる行者頭。山岳の式・護身の術を伝授",
+      "location": "r4_gyoja_juku",
+      "status": "設計のみ",
+      "note": "式/補助スキル。SKILL_LIST"
+    },
+    {
+      "id": "npc_043",
+      "region": "R4",
+      "role": "師",
+      "name": "巡礼導きの巫女 嶺花（みねか）",
+      "summary": "霊峰鳥居集落の巫女。峰の神楽（見晴らし＝範囲索敵）を授ける",
+      "location": "r4_reiho_torii",
+      "status": "設計のみ",
+      "note": "神楽スキル。回復「峰からの見晴らし」モチーフ"
+    },
+    {
+      "id": "npc_044",
+      "region": "R4",
+      "role": "物語",
+      "name": "老猟師 熊蔵（くまぞう）",
+      "summary": "山犬の大霊（boss_07）を悼む老猟師。山小屋の父の道具を語る",
+      "location": "r4_sanzoku_mura近隣",
+      "status": "設計のみ",
+      "note": "父の痕跡（山小屋の道具）。Story.md §6表"
+    },
+    {
+      "id": "npc_045",
+      "region": "R4",
+      "role": "依頼主",
+      "name": "道に迷う巡礼者",
+      "summary": "霧で道を見失った巡礼者。道案内・霧払いサブクエ",
+      "location": "r4_kanko_michi",
+      "status": "設計のみ",
+      "note": "喪失「山道の霧が晴れない」"
+    },
+    {
+      "id": "npc_046",
+      "region": "R4",
+      "role": "語り部",
+      "name": "老山伏 鉄錫（てっしゃく）",
+      "summary": "各峰を巡る老山伏。山の禁忌と依代の伝承を語る",
+      "location": "r4_reiho_dake",
+      "status": "設計のみ",
+      "note": "環境語り"
+    },
+    {
+      "id": "npc_047",
+      "region": "R4",
+      "role": "善き妖",
+      "name": "峰守の天狗 風太郎",
+      "summary": "霊峰に棲む善き天狗。崖の近道と上昇気流を教える",
+      "location": "r4_chojohotai",
+      "status": "設計のみ",
+      "note": "善き妖（敵=穢れた天狗と対）"
+    },
+    {
+      "id": "npc_048",
+      "region": "R5",
+      "role": "依頼主",
+      "name": "雪村の長 寒右衛門（かんえもん）",
+      "summary": "雪中の村の長。雪害・遭難の救助サブクエを束ねる",
+      "location": "r5_setchu_mura",
+      "status": "設計のみ",
+      "note": "救助系サブクエ"
+    },
+    {
+      "id": "npc_049",
+      "region": "R5",
+      "role": "師",
+      "name": "式符師 雪輪の紙（かみ）",
+      "summary": "雪国の式符師。W6式符の工房主にして式流派の雪の師",
+      "location": "r5_setchu_mura / r5_kaji_kobo",
+      "status": "設計のみ",
+      "note": "W6式符＋式スキル。WEAPON_LIST W6・SKILL_LIST"
+    },
+    {
+      "id": "npc_050",
+      "region": "R5",
+      "role": "商店",
+      "name": "防寒具の商人 綿屋 久作",
+      "summary": "富嶽町の商店主。防寒具・回復薬・雪国特産を売買",
+      "location": "r5_fugaku_cho",
+      "status": "設計のみ",
+      "note": "itm（雪国特産）取引"
+    },
+    {
+      "id": "npc_051",
+      "region": "R5",
+      "role": "鍛冶",
+      "name": "雪国の鍛冶師 氷打ち",
+      "summary": "雪国の鍛冶工房主。氷晶石の加工と武器強化",
+      "location": "r5_kaji_kobo",
+      "status": "設計のみ",
+      "note": "氷晶石加工。WEAPON_LIST"
+    },
+    {
+      "id": "npc_052",
+      "region": "R5",
+      "role": "宿",
+      "name": "白子旅籠の女将 椿（つばき）",
+      "summary": "雪国情緒の旅館の女将。回復・セーブ・情報収集の拠点",
+      "location": "r5_shirako_hatago",
+      "status": "設計のみ",
+      "note": "セーブ/休憩拠点"
+    },
+    {
+      "id": "npc_053",
+      "region": "R5",
+      "role": "物語",
+      "name": "焰火守の老人 燠爺（おきじい）",
+      "summary": "焰火広場の巨大篝火を守る老人。雪灯りが消えた異変を語る",
+      "location": "r5_hokka_hiroba",
+      "status": "設計のみ",
+      "note": "喪失「雪灯りが消えた」。Story.md §6表"
+    },
+    {
+      "id": "npc_054",
+      "region": "R5",
+      "role": "依頼主",
+      "name": "蔵守 籾蔵（もみぞう）",
+      "summary": "伏見蔵の蔵守。手控帳ページと隠しアイテムの在処を渡す",
+      "location": "r5_fushimi_gura",
+      "status": "設計のみ",
+      "note": "手控帳ページ収集"
+    },
+    {
+      "id": "npc_055",
+      "region": "R5",
+      "role": "依頼主",
+      "name": "子を探す母 雪江（ゆきえ）",
+      "summary": "雪に消えた子を探す母。雪女の御霊（boss_09）に関わるサブクエ",
+      "location": "r5_setchu_mura",
+      "status": "設計のみ",
+      "note": "父の痕跡「凍った勾玉の欠片」へ連結"
+    },
+    {
+      "id": "npc_056",
+      "region": "R5",
+      "role": "語り部",
+      "name": "又鬼の翁 山立（やまだち）",
+      "summary": "雪原を渡る老マタギ。雪原の灯と又鬼の禁忌を語る",
+      "location": "r5_reika_kougen",
+      "status": "設計のみ",
+      "note": "環境語り"
+    },
+    {
+      "id": "npc_057",
+      "region": "R6",
+      "role": "商店",
+      "name": "炭焼きの長 黒兵衛（くろべえ）",
+      "summary": "幽谷に隠れ住む炭焼き師の長。黒杉炭の売買と谷の情報",
+      "location": "r6_sumiyaki",
+      "status": "設計のみ",
+      "note": "itm（黒杉炭）取引"
+    },
+    {
+      "id": "npc_058",
+      "region": "R6",
+      "role": "依頼主",
+      "name": "隠れ里の里守 椎名（しいな）",
+      "summary": "廃村同然の隠れ里の里守。数人の生存者を束ね、谷脱出を依頼",
+      "location": "r6_kakurega_sato",
+      "status": "設計のみ",
+      "note": "救出/脱出サブクエ"
+    },
+    {
+      "id": "npc_059",
+      "region": "R6",
+      "role": "商店",
+      "name": "隠者 苔仙（たいせん）",
+      "summary": "幽谷に独居する隠者。霊苔と隠者の衣を譲る",
+      "location": "r6_kakurega_sato近隣",
+      "status": "設計のみ",
+      "note": "koromo（隠者の衣）。ACCESSORY_LIST"
+    },
+    {
+      "id": "npc_060",
+      "region": "R6",
+      "role": "物語",
+      "name": "注連縄を結ぶ老巫女 結代（ゆいしろ）",
+      "summary": "谷の社で注連縄を守る老巫女。廻人が結び直した注連縄を語る",
+      "location": "r6_jukai_d3近隣",
+      "status": "設計のみ",
+      "note": "父の痕跡「結び直された注連縄」。Story.md §6表"
+    },
+    {
+      "id": "npc_061",
+      "region": "R6",
+      "role": "善き妖",
+      "name": "古杉の童子 杉丸",
+      "summary": "古杉に宿る善き精霊の童子。谷の朝が来ない理由をぽつりと語る",
+      "location": "r6_ooksugi_kanata",
+      "status": "設計のみ",
+      "note": "善き妖（敵=古杉の主 boss_10 と対）"
+    },
+    {
+      "id": "npc_062",
+      "region": "R6",
+      "role": "依頼主",
+      "name": "夫を待つ女 縫（ぬい）",
+      "summary": "谷で行方知れずの夫を待つ女。捜索サブクエ",
+      "location": "r6_kakurega_sato",
+      "status": "設計のみ",
+      "note": "重悲劇を避けた小さな喪失"
+    },
+    {
+      "id": "npc_063",
+      "region": "R6",
+      "role": "語り部",
+      "name": "闇路の座頭 黒百（くろど）",
+      "summary": "夜が明けない谷を渡る盲目の語り部。谷の夜と魂の滞留を語る",
+      "location": "r6_nukarumi",
+      "status": "設計のみ",
+      "note": "環境語り。Story.md §5.2"
+    },
+    {
+      "id": "npc_064",
+      "region": "R8",
+      "role": "案内",
+      "name": "渡し守 棹爺（さおじい）",
+      "summary": "渡場の村の老いた渡し守。常世の浜への渡し舟を出す",
+      "location": "r8_tobiraza_mura",
+      "status": "設計のみ",
+      "note": "交通（常世への渡し）。PROGRESSION_DESIGN"
+    },
+    {
+      "id": "npc_066",
+      "region": "R8",
+      "role": "善き妖",
+      "name": "楽園の里の住人（影）",
+      "summary": "楽園の里に住む現実とも幻ともつかぬ住人。誰もいないはずの里に居る",
+      "location": "r8_rakuen_no_sato",
+      "status": "設計のみ",
+      "note": "環境語りの頂点。Story.md §6 第二幕"
+    },
+    {
+      "id": "npc_068",
+      "region": "R8",
+      "role": "語り部",
+      "name": "足跡の主（残響）",
+      "summary": "白砂にどこへも続かぬ足跡だけを残す者。姿はなく語りのみ",
+      "location": "r8_shirasuna（白砂の浜）",
+      "status": "設計のみ",
+      "note": "環境語り（無人の演出）"
+    },
+    {
+      "id": "npc_069",
+      "region": "R8",
+      "role": "物語",
+      "name": "祭壇の番（廻人の痕跡）",
+      "summary": "楽園の祠で、廻人が儀の準備をした祭壇の跡を守る声。「ここまでは、来られた」",
+      "location": "r8_rakuen_hokora",
+      "status": "設計のみ",
+      "note": "父の痕跡。Story.md §6 第二幕"
+    },
+    {
+      "id": "npc_065",
+      "region": "R9",
+      "role": "語り部",
+      "name": "海岸の町の古老 汐見（しおみ）",
+      "summary": "海岸の町に残る最後の古老。彼方へ渡った者たちの記憶を語る",
+      "location": "r9_kaigan_machi",
+      "status": "設計のみ",
+      "note": "環境語り（旧 R8→R9 是正）"
+    },
+    {
+      "id": "npc_067",
+      "region": "R9",
+      "role": "商店",
+      "name": "真夏の島の漁師 銛太（もりた）",
+      "summary": "真夏の島の漁師。最後の補給と外洋の話を提供",
+      "location": "r9_minatsu_no_shima",
+      "status": "設計のみ",
+      "note": "最終盤の補給拠点（旧 R8→R9 是正）"
+    },
+    {
+      "id": "npc_089",
+      "region": "R9",
+      "role": "案内",
+      "name": "大会審判 潮錆（しおさび）",
+      "summary": "わだつみの大会（闘技）を司る壮年の海神眷属。大会の受付・進行を担い、勝ち上がりを見届ける",
+      "location": "r9_kaigan_machi",
+      "status": "設計のみ",
+      "note": "わだつみの大会の運営。旧仮称 npc_大会審判 を正ID化。r9_kaigan_machi 詳細"
+    },
+    {
+      "id": "npc_090",
+      "region": "R9",
+      "role": "物語",
+      "name": "飛空艇の整備士 鋼緒（はがねお）",
+      "summary": "真夏の島西端の整備小屋に常駐する熟練整備士。大会を制した者に「飛空艇の鍵」を渡し整備を始め、R10 高天原への飛行を解禁する",
+      "location": "r9_minatsu_no_shima",
+      "status": "設計のみ",
+      "note": "R9→R10 ゲートの担い手（飛空艇の鍵）。旧仮称 npc_整備士 を正ID化。r9_minatsu_no_shima 詳細"
+    },
+    {
+      "id": "npc_070",
+      "region": "R10",
+      "role": "鍛冶",
+      "name": "天の鋳師 白金（しろがね）",
+      "summary": "高天ノ京の鋳師工房の天人。最終強化（g9〜g10）を担う",
+      "location": "r10_takama_kyo_kojin",
+      "status": "設計のみ",
+      "note": "W全系統 最終強化。WEAPON_LIST"
+    },
+    {
+      "id": "npc_071",
+      "region": "R10",
+      "role": "商店",
+      "name": "天の市の天人 栲（たく）",
+      "summary": "高天ノ京の市で天上の品を扱う天人",
+      "location": "r10_takama_kyo_ichi",
+      "status": "設計のみ",
+      "note": "終盤の高位消耗品"
+    },
+    {
+      "id": "npc_072",
+      "region": "R10",
+      "role": "物語",
+      "name": "古老 鎮（しずめ）",
+      "summary": "調の同輩。封印を「正しかった」と信じ続ける肯定派の天の古老",
+      "location": "r10_takama_kyo_yakata",
+      "status": "設計のみ",
+      "note": "古老の分裂を体現。Story.md §5.2"
+    },
+    {
+      "id": "npc_073",
+      "region": "R10",
+      "role": "案内",
+      "name": "大門の番（白金の意匠）",
+      "summary": "高天ノ京大門の番。天鎖守と視覚的に連続する沈黙の番人",
+      "location": "r10_takama_kyo_mon",
+      "status": "設計のみ",
+      "note": "天鎖守(boss_15系)と意匠連続。Story.md §2"
+    },
+    {
+      "id": "npc_074",
+      "region": "R10",
+      "role": "物語",
+      "name": "磐座前の祭司 斎主（いつきぬし）",
+      "summary": "天之磐座前庭の祭司。結び直しの儀の場を整える",
+      "location": "r10_ameno_iwakura_mae",
+      "status": "設計のみ",
+      "note": "終幕の儀。Story.md §6 終幕"
+    },
+    {
+      "id": "npc_075",
+      "region": "R10",
+      "role": "案内",
+      "name": "天の鳥船守 翔（かける）",
+      "summary": "雲海の道を案内する船守。浮島間の移動を担う",
+      "location": "r10_takama_kyo（外縁）",
+      "status": "設計のみ",
+      "note": "交通（雲海航路）"
+    },
+    {
+      "id": "npc_076",
+      "region": "R10",
+      "role": "師",
+      "name": "若き天人 暁（あかつき）",
+      "summary": "封印に疑問を抱く若い天人。調の協力者で天の神楽/式を授ける",
+      "location": "r10_takama_kyo",
+      "status": "設計のみ",
+      "note": "神楽/式の最終スキル。SKILL_LIST"
+    },
+    {
+      "id": "npc_077",
+      "region": "R10",
+      "role": "物語",
+      "name": "最後の目撃者 久遠（くおん）",
+      "summary": "7年前に廻人を見た最後の天人。父の足取りを語る",
+      "location": "r10_takama_kyo_yakata",
+      "status": "設計のみ",
+      "note": "父の痕跡（終盤の核）。Story.md §5.3"
+    },
+    {
+      "id": "npc_078",
+      "region": "R10",
+      "role": "語り部",
+      "name": "天の楽人 響（ひびき）",
+      "summary": "世界の歌を奏でる天の楽人。BGMモチーフと結びつく環境語り",
+      "location": "r10_takama_kyo_ichi",
+      "status": "設計のみ",
+      "note": "世界の歌。GLOSSARY"
+    },
+    {
+      "id": "npc_079",
+      "region": "R10",
+      "role": "物語",
+      "name": "岩戸の守人 黙（もだ）",
+      "summary": "天之磐座（岩戸）の前に立つ沈黙の守人。終幕の最後の関門",
+      "location": "r10_ameno_iwakura_mae",
+      "status": "設計のみ",
+      "note": "終幕。Story.md §6 終幕"
+    },
+    {
+      "id": "npc_080",
+      "region": "横断",
+      "role": "物語",
+      "name": "初代結び師の幻（はつよ）",
+      "summary": "主要な依代を灯すと現れる結び師の祖霊。結び流派の由来と祓いの作法を断片的に伝える",
+      "location": "各地域の大依代（祠/鳥居）",
+      "status": "設計のみ",
+      "note": "結び流派の lore。祓い波の意味を示唆。Story.md §5.1"
+    },
+    {
+      "id": "npc_081",
+      "region": "R7",
+      "role": "鍛冶",
+      "name": "大鍛冶 鉧主（けらぬし）",
+      "summary": "たたらの大鍛冶場の親方。8系統武器の強化10段階・火属性上位段階を担う火の地方の鍛冶の核",
+      "location": "r7_tatara_kobo",
+      "status": "設計のみ",
+      "note": "W全系統 火属性上位段階強化。WEAPON_LIST §0.4・ev_156。素材itm_107 たたら鉄"
+    },
+    {
+      "id": "npc_082",
+      "region": "R7",
+      "role": "依頼主",
+      "name": "湯守 湯津（ゆつ）",
+      "summary": "湯ノ鬼郷の湯守。湯治の湯・効能を供し、地獄谷の番と湯治依頼を束ねる回復拠点の主",
+      "location": "r7_yunokigou / r7_yu_no_yado",
+      "status": "設計のみ",
+      "note": "itm_101 湯治の湯・itm_103 湯治の効能。ev_157"
+    },
+    {
+      "id": "npc_083",
+      "region": "R7",
+      "role": "物語",
+      "name": "火守 熾（おき）",
+      "summary": "火の祠で「正しい火」を守る老人。「結び師さんなら、炉に正しい火を返してくれた」と廻人を語る",
+      "location": "r7_hi_no_hokora",
+      "status": "設計のみ",
+      "note": "父の痕跡（R7・§0.1-2）。喪失「正しい火が荒ぶる」を語る。ev_151/153"
+    },
+    {
+      "id": "npc_084",
+      "region": "R2",
+      "role": "案内",
+      "name": "隊商の長 沙吉（さきち）",
+      "summary": "砂丘を渡る隊商の頭。鳴り砂の道とオアシスの野営を案内し、砂金の眠る奥地の噂を語る",
+      "location": "r2_sakyu_oasis",
+      "status": "設計のみ",
+      "note": "砂丘サブゾーン案内。寄り道レア（itm_112 砂金）導線。ev_159"
+    },
+    {
+      "id": "npc_085",
+      "region": "R8",
+      "role": "物語",
+      "name": "大社の宮司 常磐（ときわ）",
+      "summary": "常世の大社に仕える常世の巫の長。三層の記憶を語り継ぎ、奥宮の記憶儀式を司る（無戦闘）",
+      "location": "r8_taisha_machi",
+      "status": "設計のみ",
+      "note": "npc_004 常世の巫（§1.0）と連なる大社の神職。itm_105 常世の記憶片。ev_155"
+    },
+    {
+      "id": "npc_086",
+      "region": "R8",
+      "role": "語り部",
+      "name": "澪渡りの船頭 澪人（みおと）",
+      "summary": "木道と澪を渡す静かな船頭。渡り鳥を祓わず見送る湿原の記憶を語る（無戦闘）",
+      "location": "r8_mio_shitsugen",
+      "status": "設計のみ",
+      "note": "環境語り（記憶・無戦闘）。ev_160/164"
+    },
+    {
+      "id": "npc_087",
+      "region": "R10",
+      "role": "語り部",
+      "name": "星詠みの長 北辰（ほくしん）",
+      "summary": "星見台の里の星読み。星図の欠片を読み解き、夜空に道を示す常闇と星空の案内役",
+      "location": "r10_hoshimi_dai",
+      "status": "設計のみ",
+      "note": "itm_106 星図の欠片収集案内。父の星見跡（ev_165）に連結。ev_161"
+    },
+    {
+      "id": "npc_088",
+      "region": "R10",
+      "role": "商店",
+      "name": "架け橋の天人 虹彦（にじひこ）",
+      "summary": "八雲の架け橋が結ぶ浮島市の交易天人。天之羽衣の糸など浮島の希少品を扱う",
+      "location": "r10_yakumo_shima",
+      "status": "設計のみ",
+      "note": "itm_115 天之羽衣の糸購入。koromo_11 天羽衣補修材。ev_154/162"
+    }
+  ]
+}

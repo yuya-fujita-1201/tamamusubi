@@ -26,6 +26,8 @@ forge/gen_results.json
 checker/_dump/
 checker/out/
 checker/lint/**/__pycache__/
+**/__pycache__/
+*.pyc
 
 # OS / エディタ
 .DS_Store
