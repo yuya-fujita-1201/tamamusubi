@@ -90,14 +90,20 @@ def draw_decals(canvas: Image.Image, dump: dict, assetmap: dict, cache: dict):
 
 
 def draw_props(canvas: Image.Image, dump: dict, assetmap: dict, cache: dict, ysort: bool):
+    # プロップ座標は MapBuilder が 16px/tile の世界座標(tx*16)で格納する。
+    # 地面/デカールは TILE px/tile で描くので、プロップも TILE/16 でスケールしないと
+    # --tile 48/64 等で位置がズレる（既定 --tile 16 では s=1 で従来どおり）。
+    s = TILE / 16.0
     props = [p for p in dump.get("props", []) if bool(p.get("ysort", True)) is ysort]
     props.sort(key=lambda p: p.get("y", 0))
     for p in props:
-        sprite = frame_image(assetmap, p["sheet"], int(p.get("frame", 0)), cache, round(p["w"]), round(p["h"]))
+        w = max(1, round(p["w"] * s))
+        h = max(1, round(p["h"] * s))
+        sprite = frame_image(assetmap, p["sheet"], int(p.get("frame", 0)), cache, w, h)
         if not sprite:
             continue
-        x = round(p["x"] - p["w"] / 2)
-        y = round(p["y"] - p["h"])
+        x = round(p["x"] * s - w / 2)
+        y = round(p["y"] * s - h)
         canvas.alpha_composite(sprite, (x, y))
 
 
@@ -105,7 +111,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--map", default="tanada")
     ap.add_argument("--out-dir")
+    ap.add_argument("--tile", type=int, default=16,
+                    help="1タイルあたりpx(既定16=低解像度プレビュー。実パーツは128px。--tile 64/128で高精細評価)")
     args = ap.parse_args()
+    global TILE
+    TILE = args.tile
 
     dump_path = ensure_dump(args.map)
     dump = load_json(dump_path)

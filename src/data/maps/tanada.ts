@@ -17,7 +17,8 @@ const DOTE = TS.kaDote as number;
 const ISHI = TS.kaIshigaki as number;
 const SHRINE_WALL = TS.kaShrineWall as number;
 const SHRINE_GROUND = TS.kaShrineGround as number;
-const SHADOW = TS.waDropshadow as number;
+const BASESHADOW = TS.waBaseShadow as number; // 段差ブロックの下部影（下が黒い半透明グラデ）
+const WFALL = TS.kaWaterfall as number;
 
 const FACE = 5;
 const ISHI_L = 10, ISHI_R = 9;
@@ -56,7 +57,6 @@ export function buildTanada(): MapData {
         b.solid(x, y, true);
         solidSet.add(idx(x, y));
         markStone(tile, x, y);
-        if (y + 1 < H) b.deco(x, y + 1, SHADOW, 1);
       }
     };
     for (let x = x0; x <= x1; x++) {
@@ -95,7 +95,6 @@ export function buildTanada(): MapData {
     for (const i of cells) {
       const x = i % W, y = Math.floor(i / W);
       solidSet.add(i); markStone(tile, x, y);
-      if (y + 1 < H && tile !== GRASS) b.deco(x, y + 1, SHADOW, 0);
     }
     return cells;
   };
@@ -106,40 +105,36 @@ export function buildTanada(): MapData {
       b.solid(x, y, true);
       solidSet.add(idx(x, y));
       markStone(tile, x, y);
-      if (x + 1 < W) b.deco(x + 1, y, SHADOW, 0);
     }
   };
+  // タイル参照は T()=((setIdx+1)<<8)|frame なので setIdx は (ref>>8)-1（空(0)は -1）。
+  const tileAt = (x: number, y: number) => (inb(x, y) ? (((b.data.ground[idx(x, y)] ?? 0) >> 8) - 1) : -2);
+  const isWater = (x: number, y: number) => { const t = tileAt(x, y); return t === PADDY || t === RIVER; };
+  const setWater = (x: number, y: number) => {
+    if (!inb(x, y)) return;
+    b.ground(x, y, PADDY, 1); b.solid(x, y, true); solidSet.add(idx(x, y));
+  };
+  // 棚田の滝＝024準拠の「1マス分」正方形タイル(kaWaterfall)。
+  // 「水田 → 石垣の切り欠き → 小さな滝 → 滝壺」と地形接続させる
+  // （巨大な縦落差/門柱化はしない＝GPTメモ020/021。高さは実質1マス）。
   const spillway = (x: number, wallY: number) => {
-    b.prop("obj.spillway", x, wallY + 2, 16, 48, { footW: 0, shadow: false, ysort: false });
-  };
-  const basePool = (cx: number, footY: number) => {
-    const pool = b.blob(cx, footY + 2, 3.3, 1.4, 0.06);
-    b.paintAuto(pool, PADDY, PADDY_KEY, "ground", true);
-    for (const i of pool) solidSet.add(i);
-  };
-  const poolAt = (cx: number, cy: number, rx = 3.2, ry = 1.1) => {
-    const pool = b.blob(cx, cy, rx, ry, 0.06);
-    b.paintAuto(pool, PADDY, PADDY_KEY, "ground", true);
-    for (const i of pool) solidSet.add(i);
+    for (let dy = 1; dy <= 2; dy++) {            // 上: 水源(水田/川)へ最大2マス橋渡し
+      if (isWater(x, wallY - dy)) break;
+      setWater(x, wallY - dy);
+    }
+    b.ground(x, wallY, WFALL, 0); b.solid(x, wallY, true); solidSet.add(idx(x, wallY)); // 1マス滝
+    if (!isWater(x, wallY + 1)) {                // 下: 直下が川でなければ小さな滝壺を1つだけ作る
+      setWater(x, wallY + 1);
+      const pool = b.blob(x, wallY + 2, 2.0, 1.1, 0.08);
+      b.paintAuto(pool, PADDY, PADDY_KEY, "ground", true);
+      for (const i of pool) solidSet.add(i);
+    }
   };
   const drain = (pts: [number, number][], thick = 1.2) => {
     const cells = b.path(pts, thick);
     b.paintAuto(cells, RIVER, "kaRiver3", "ground", true);
     for (const i of cells) solidSet.add(i);
-    const banks = new Set<number>();
-    for (const i of cells) {
-      const x = i % W, y = Math.floor(i / W);
-      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]] as const) {
-        const nx = x + dx, ny = y + dy;
-        if (!inb(nx, ny)) continue;
-        const j = idx(nx, ny);
-        if (!cells.has(j) && !solidSet.has(j)) banks.add(j);
-      }
-    }
-    for (const i of banks) {
-      b.deco(i % W, Math.floor(i / W), SHADOW, 0);
-    }
-    return cells;
+    return cells;            // 川岸への黒グラデ影は廃止（ユーザールール: 非段差物に影を落とさない）
   };
 
   // 1) 歩ける谷床の大きなシルエット。参照のように複数画面ぶんの谷を森で囲う。
@@ -179,32 +174,32 @@ export function buildTanada(): MapData {
   }
 
   // 2) 西の大棚田。旧版より各田を2倍級にし、滝筋も複数画面に分散する。
-  paddy(21, 20, 11, 3.0, 10, 34, 24, 22, 1); spillway(22, 24); basePool(22, 26);
+  paddy(21, 20, 11, 3.0, 10, 34, 24, 22, 1); spillway(22, 24);
   ridge([[13, 20], [20, 19], [29, 20]], 0.7);
-  paddy(19, 32, 14, 3.7, 7, 36, 37, 20, 2); spillway(20, 37);
+  paddy(19, 32, 14, 3.7, 7, 36, 37, 16, 2); spillway(16, 37);
   ridge([[9, 31], [18, 30], [31, 32]], 0.75);
-  paddy(16, 45, 11, 4.0, 6, 30, 50, 17, 3); spillway(17, 50); basePool(17, 53);
+  paddy(16, 45, 11, 4.0, 6, 30, 50, 17, 3); spillway(17, 50);
   ridge([[8, 45], [16, 44], [25, 45]], 0.75);
-  paddy(27, 57, 12, 3.7, 13, 41, 63, 28, 4); spillway(28, 63); basePool(28, 66);
+  paddy(27, 57, 12, 3.7, 13, 41, 63, 28, 4); spillway(28, 63);
   ridge([[17, 56], [28, 55], [38, 57]], 0.75);
-  paddy(19, 75, 10, 3.0, 8, 33, 79, 19, 5); spillway(19, 79); basePool(19, 82);
+  paddy(19, 75, 10, 3.0, 8, 33, 79, 19, 5); spillway(19, 79);
   ridge([[11, 75], [20, 74], [29, 75]], 0.7);
-  paddy(43, 84, 7.0, 2.1, 34, 51, 88, 42, 13); spillway(42, 88); poolAt(42, 90, 3.0, 0.9);
+  paddy(43, 84, 7.0, 2.1, 34, 51, 88, 42, 13); spillway(42, 88);
   ridge([[37, 84], [43, 83], [49, 84]], 0.6);
   drain([[20, 53], [23, 62], [18, 73], [13, 87]], 1.2);
 
   // 3) 東の棚田、縦川、橋、集落。橋はミト基準で4タイル以上の幅にする。
   paddy(85, 20, 12, 3.4, 71, 99, 27, 85, 6);
   ridge([[75, 20], [85, 19], [95, 20]], 0.7);
-  paddy(77, 36, 13, 3.6, 63, 94, 43, 78, 7); spillway(78, 43); basePool(78, 46);
+  paddy(77, 36, 13, 3.6, 63, 94, 43, 78, 7); spillway(78, 43);
   ridge([[66, 36], [77, 35], [90, 36]], 0.75);
-  paddy(91, 53, 13, 3.8, 75, 106, 59, 92, 8); spillway(92, 59); basePool(92, 62);
+  paddy(91, 53, 13, 3.8, 75, 106, 59, 92, 8); spillway(92, 59);
   ridge([[78, 53], [91, 52], [103, 53]], 0.75);
-  paddy(80, 69, 12, 3.4, 65, 98, 75, 81, 9); spillway(81, 75); basePool(81, 78);
+  paddy(80, 69, 12, 3.4, 65, 98, 75, 81, 9); spillway(81, 75);
   ridge([[68, 68], [80, 67], [94, 69]], 0.75);
   paddy(94, 83, 9, 2.7, 80, 107, 87, undefined, 10);
   ridge([[85, 83], [94, 82], [103, 83]], 0.7);
-  paddy(70, 84, 7.2, 2.0, 62, 80, 89, 71, 14); spillway(71, 89); poolAt(71, 91, 3.0, 0.7);
+  paddy(70, 84, 7.2, 2.0, 62, 80, 89, 71, 14); spillway(71, 89);
   ridge([[64, 84], [70, 83], [77, 84]], 0.6);
 
   const river = drain([[78, 1], [76, 13], [79, 25], [78, 33], [82, 45], [78, 57], [83, 69], [80, 82], [78, 91]], 3.2);
@@ -235,7 +230,9 @@ export function buildTanada(): MapData {
     if (y === GY1 && (x === PX0 || x === PX1)) return false;
     return true;
   };
-  for (let y = GY0; y <= GY1; y++) for (let x = PX0; x <= PX1; x++) {
+  // 境内地表は前面石垣(PCAP)の直前 y=PCAP-1 まで敷く。
+  // （y=18-19 が森のままだと境内が森で上下断絶する＝全面スキャンERROR(52,18)を解消）
+  for (let y = GY0; y <= PCAP - 1; y++) for (let x = PX0; x <= PX1; x++) {
     if (!shrineFloor(x, y)) continue;
     const onApproach = Math.abs(x - 56) <= 1;
     b.ground(x, y, onApproach ? PATH : SHRINE_GROUND, onApproach ? gf(x, y) % 4 : gf(x, y));
@@ -313,7 +310,6 @@ export function buildTanada(): MapData {
       b.ground(sx, sy, SHRINE_WALL, f); b.solid(sx, sy, true); solidSet.add(idx(sx, sy)); markStone(SHRINE_WALL, sx, sy);
     }
   }
-  b.deco(54, 27, SHADOW, 1); b.deco(58, 27, SHADOW, 1);
 
   const addThicket = (specs: [number, number, number, number, number?][], tile = FOREST, key = "kaForest2") => {
     const roadBuffer = b.expand(road, 2);
@@ -418,6 +414,7 @@ export function buildTanada(): MapData {
 
   for (const wx of [54, 55, 56, 57, 58]) b.warp(wx, 91, "kiritate", 53, 20, "left");
 
+
   // 到達不能な歩行セルを森で封鎖。開始点はkiritateからの着地座標。
   {
     const seen = new Uint8Array(W * H);
@@ -451,6 +448,44 @@ export function buildTanada(): MapData {
       }
       b.data.decals = b.data.decals.filter((d) => !unreachable.has(idx(Math.round(d.x), Math.round(d.y))));
     }
+  }
+
+  // 封鎖で橋の歩行河川などが森化され水路が分断された後に、残った孤立小水面を森へ均す
+  // （地形接続のない浮き水＝全面スキャン「孤立水」(85,28)等を最終的に解消する）。
+  {
+    const isW = (i: number) => { const t = ((b.data.ground[i] ?? 0) >> 8) - 1; return t === PADDY || t === RIVER || t === WFALL; };
+    const seenW = new Uint8Array(W * H);
+    for (let s = 0; s < W * H; s++) {
+      if (seenW[s] || !isW(s)) continue;
+      const comp: number[] = []; const stack = [s]; seenW[s] = 1;
+      while (stack.length) {
+        const i = stack.pop() as number; comp.push(i);
+        const x = i % W, y = Math.floor(i / W);
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]] as const) {
+          const nx = x + dx, ny = y + dy;
+          if (!inb(nx, ny)) continue;
+          const j = idx(nx, ny);
+          if (!seenW[j] && isW(j)) { seenW[j] = 1; stack.push(j); }
+        }
+      }
+      if (comp.length < 5) {                       // 孤立した小水面＝森へ均す（接続のある水域は不変）
+        b.paintAuto(new Set(comp), FOREST, "kaForest2", "ground", true);
+        for (const i of comp) {
+          b.solid(i % W, Math.floor(i / W), true); solidSet.add(i);
+          b.data.deco[i] = 0;
+        }
+      }
+    }
+  }
+
+  // 高低差は「段差ブロックの下部だけ」を黒グラデにする（ユーザールール）。
+  // 対象＝石垣(ISHI/SHRINE_WALL)・草付き土手(DOTE)・滝(WFALL)。水/草/道へは一切落とさない。
+  // ブロックのセル自身に下が黒いグラデ(waBaseShadow)を重ね、ブロックの足元が陰になる。
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const t = tileAt(x, y);
+    if (t === ISHI || t === SHRINE_WALL) b.deco(x, y, BASESHADOW, 2);
+    else if (t === DOTE) b.deco(x, y, BASESHADOW, 1);
+    else if (t === WFALL) b.deco(x, y, BASESHADOW, 0);
   }
 
   const data = b.done();

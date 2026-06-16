@@ -1,7 +1,8 @@
 """高さ差チェック。
 
-A) 段差規律: 擁壁/土手/崖の『南向き前面フレーム』の真下セルに落ち影(waDropshadow)が無ければ、
-   段差が一目で読めない → ERROR。（tanada.ts の wall() が守るべき規律の検証）
+A) 段差規律(2026-06-17 ユーザールール改定): 擁壁/土手/崖の『南向き前面フレーム』の
+   セル自身の deco に下黒グラデ(waBaseShadow)が無ければ段差が読めない → ERROR。
+   ＝高低差は「段差ブロックの下部」だけを黒くする。水/草/道へは影を落とさない（旧:真下セルに影、は廃止）。
 B) 宣言的高さ境界: heightmap があれば、隣接セルの高さが違う境界に段差表現
    (retaining_wall/earth_bank/cliff/stair/waterfall/bridge/river のいずれか) が無ければ ERROR。
    heightmap が無ければ INFO（宣言を促す）。
@@ -16,11 +17,12 @@ NAME = "高さ差チェック"
 def run(ctx):
     out = []
     shadow_cfg = ctx.contract.get("shadow", {})
-    shadow_family = shadow_cfg.get("family", "waDropshadow")
+    shadow_family = shadow_cfg.get("family", "waBaseShadow")
 
-    # A) 前面フレームの真下に影があるか
+    # A) 段差ブロックの前面フレーム『セル自身』に下黒グラデ(waBaseShadow)があるか
+    #    ＝高低差はブロックの下部だけを黒くする（真下の草/道/水へは落とさない）。
     missing = []
-    for y in range(ctx.h - 1):
+    for y in range(ctx.h):
         for x in range(ctx.w):
             k, f = ctx.ground_at(x, y)
             meta = ctx.tile_meta(k)
@@ -31,20 +33,15 @@ def run(ctx):
                 continue
             if f not in faces:
                 continue
-            dk, _ = ctx.deco_at(x, y + 1)
-            # 真下が壁/森など歩行不可なら段差の下端ではない（影不要）
-            below_k, _ = ctx.ground_at(x, y + 1)
-            below_meta = ctx.tile_meta(below_k)
-            if below_meta.get("isWallFace") or below_meta.get("category") == "forest_wall":
-                continue
+            dk, _ = ctx.deco_at(x, y)   # ブロック自身のセルの deco
             if dk != shadow_family:
                 missing.append([x, y])
     if missing:
         out.append(Finding(
-            ERROR, "HEIGHT_NO_SHADOW", "擁壁前面の真下に落ち影がない",
-            detail=f"{len(missing)} 箇所。上端の縁＋縦面はあるが下端の接地影が欠落し、段差が読めない。",
+            ERROR, "HEIGHT_NO_BASESHADOW", "段差ブロックの下部に影がない",
+            detail=f"{len(missing)} 箇所。石垣/土手等のブロック下部に下黒グラデ({shadow_family})が無く、足元が地面と一体化して段差が読めない。",
             cells=missing, axis=AXIS_HEIGHT,
-            suggestion=f"該当セルの deco レイヤに {shadow_family}(frame {shadow_cfg.get('strongFrame',3)}) を敷く。tanada.ts の wall() は capY+1 に影を置く実装。"))
+            suggestion=f"該当ブロックのセル自身の deco に {shadow_family} を敷く（ブロック『下部』を黒く＝水/草/道へは落とさない）。"))
 
     # B) 宣言的高さ境界
     if ctx.height is None:

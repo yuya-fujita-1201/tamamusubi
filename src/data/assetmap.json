@@ -663,5 +663,61 @@
     "frameH": 176,
     "frameW": 176,
     "frames": 1
+  },
+  "obj.waterfall_water": {
+    "cols": 1,
+    "file": "obj_waterfall_water.png",
+    "frameH": 384,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.waterfall_river": {
+    "cols": 1,
+    "file": "obj_waterfall_river.png",
+    "frameH": 384,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.waterfall_splash": {
+    "cols": 1,
+    "file": "obj_waterfall_splash.png",
+    "frameH": 384,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.waterfall_lip": {
+    "cols": 1,
+    "file": "obj_waterfall_lip.png",
+    "frameH": 384,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.waterfall_feature": {
+    "cols": 1,
+    "file": "obj_waterfall_feature.png",
+    "frameH": 384,
+    "frameW": 128,
+    "frames": 1
+  },
+  "obj.waterfall_foam": {
+    "cols": 1,
+    "file": "obj_waterfall_foam.png",
+    "frameW": 268,
+    "frameH": 140,
+    "frames": 1
+  },
+  "tile.ka_waterfall": {
+    "cols": 1,
+    "file": "tile_ka_waterfall.png",
+    "frameW": 128,
+    "frameH": 128,
+    "frames": 1
+  },
+  "tile.wa_baseshadow": {
+    "cols": 4,
+    "file": "tile_wa_baseshadow.png",
+    "frameH": 128,
+    "frameW": 128,
+    "frames": 4
   }
 }

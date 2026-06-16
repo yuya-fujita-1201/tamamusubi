@@ -102,6 +102,8 @@ export const TILESETS: TileSetDef[] = [
   { key: "kaShrineGround", sheet: "tile.ka_shrine_ground_set", fallback: "#8ab87a" },   // 63 神域の平場（低ノイズ・管理された草地）
   { key: "kaRiver3",       sheet: "tile.ka_river3_set",        fallback: "#5b8fb8" },   // 64 川改良版（カットバンク岸・H0低地として明示）
   { key: "kaEdgeOverlay",  sheet: "tile.ka_edge_overlay_set",  fallback: "transparent" }, // 65 境界破砕オーバーレイ（森縁/道縁/川岸/石垣縁）
+  { key: "kaWaterfall",    sheet: "tile.ka_waterfall",         fallback: "#cfe8f5" },     // 66 滝（正方形タイル・横シームレス。川幅ぶん敷き詰める）
+  { key: "waBaseShadow",   sheet: "tile.wa_baseshadow",        fallback: "transparent" }, // 67 段差ブロックの下部影（下が黒い半透明グラデ。waDropshadowの上下反転）
 ];
 
 export const TS = Object.fromEntries(TILESETS.map((t, i) => [t.key, i])) as Record<string, number>;
